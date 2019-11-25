@@ -1,30 +1,36 @@
 .footer {
   background: #F2F2F2;
   height: 256px;
-
 }
 
 .footer-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  display: flex;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-template-rows: auto;
   width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-.rewiew-footer-card {
+.footer-card {
+  display: flex;
+  flex-direction: column;
+}
 
+.discover-overview-footer-card {
+  width: 300px;
 }
 
 .you-footer-card {
-
+  width: 300px;
 }
 
 .account-footer-card {
-
+  width: 300px;
 }
 
 .bia-footer-card {
-
+  width: 300px;
 }
 
 

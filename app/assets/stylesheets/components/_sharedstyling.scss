@@ -12,11 +12,16 @@
   color: $bdark;
 }
 
+
 .link-grey {
   color: $gmedium;
 }
 
 .link-grey:hover {
   color: $gdark;
+}
+
+.hide {
+  display: none;
 }
 
