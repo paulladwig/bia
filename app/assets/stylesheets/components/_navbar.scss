@@ -19,3 +19,11 @@
   border-bottom: 2px solid $glight;
   background-color: white;
 }
+
+.navbar-link {
+  color: $gdark;
+
+  &:hover {
+    color: $bmedium;
+  }
+}
