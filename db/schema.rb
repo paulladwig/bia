@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_124644) do
+ActiveRecord::Schema.define(version: 2019_11_25_130801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "asker_id"
+    t.bigint "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asker_id"], name: "index_friendships_on_asker_id"
+    t.index ["receiver_id"], name: "index_friendships_on_receiver_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone_number"
+    t.string "cuisine"
+    t.integer "avg_price"
+    t.integer "avg_occasion"
+    t.string "url"
+    t.float "longitude"
+    t.float "latitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.integer "occasion"
+    t.integer "price"
+    t.boolean "special"
+    t.text "review"
+    t.datetime "proposed_date"
+    t.boolean "bookmarked"
+    t.boolean "recommended"
+    t.boolean "shared"
+    t.bigint "user_id"
+    t.bigint "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_selections_on_restaurant_id"
+    t.index ["user_id"], name: "index_selections_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +67,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_124644) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "friendships", "users", column: "asker_id"
+  add_foreign_key "friendships", "users", column: "receiver_id"
+  add_foreign_key "selections", "restaurants"
+  add_foreign_key "selections", "users"
 end
