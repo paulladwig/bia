@@ -6,7 +6,7 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 white;
 $font-size-base: 1rem;
 $font-size-lg: 1rem;
 $font-size-sm: 0.75rem;
@@ -62,6 +62,4 @@ $border-radius-sm: 3px;
 $small-space: 5px;
 $medium-space: 2*$small-space;
 $spacer: 3*$small-space;
-
-$body-bg: white;
 
