@@ -1,26 +1,43 @@
 .footer {
-  background: #F4F4F4;
+  background: #F2F2F2;
+  height: 256px;
+}
+
+.footer-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-template-rows: auto;
+  width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
-.footer-links {
+
+.footer-card {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
-.footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
+
+.discover-overview-footer-card {
+  width: 300px;
 }
-.footer-links a:hover {
-  opacity: 1;
+
+.you-footer-card {
+  width: 300px;
 }
-.footer .fa-heart {
-  color: #D23333;
+
+.account-footer-card {
+  width: 300px;
 }
+
+.bia-footer-card {
+  width: 300px;
+}
+
+
+
+
+
+
+
+
+// flex-wrap: wrap;
