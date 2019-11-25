@@ -18,8 +18,11 @@ $danger:     $red;
 $warning:    $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px;
+$border-radius:    4px;
+$border-radius-lg: 5px;
+$border-radius-sm: 3px;
 
 // Override other variables below!
+
+// To-Do: Test spacer that makes sense
+$spacer: 15px;
