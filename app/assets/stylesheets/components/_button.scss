@@ -1,4 +1,5 @@
 .biabutton {
+  display: inline-block;
   background-color: $glight;
   padding: $small-space $spacer;
   margin: $medium-space 0;
@@ -9,4 +10,15 @@
 
 .biabutton:hover {
   color: $bmedium;
+}
+
+.quick-action {
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  border-width: 0px;
+  margin: $medium-space 0;
+  padding: 0;
+  color: $bdark;
+  &:hover {
+    color: $gmedium;}
 }
