@@ -1,34 +1,32 @@
 .footer {
   background: #F2F2F2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 256px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+
 }
 
 .footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  width: 1200px;
+}
+
+.rewiew-footer-card {
 
 }
 
-.footer-links {
-  display: flex;
-  align-items: center;
+.you-footer-card {
+
 }
-.footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
+
+.account-footer-card {
+
 }
-.footer-links a:hover {
-  opacity: 1;
+
+.bia-footer-card {
+
 }
-.footer .fa-heart {
-  color: #D23333;
-}
+
 
 
 
