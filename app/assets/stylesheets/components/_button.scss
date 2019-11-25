@@ -1,4 +1,5 @@
 .biabutton {
+  display: inline-block;
   background-color: $glight;
   padding: $small-space $spacer;
   margin: $medium-space 0;
@@ -12,6 +13,7 @@
 }
 
 .quick-action {
+  display: inline-block;
   background-color: rgb(255, 255, 255);
   border-width: 0px;
   margin: $medium-space 0;
