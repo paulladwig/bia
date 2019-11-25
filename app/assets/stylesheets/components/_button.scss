@@ -4,5 +4,9 @@
   margin: $medium-space 0;
   border-width: 0px;
   border-radius: $border-radius;
+  color: $gmedium;
 }
 
+.biabutton:hover {
+  color: $bmedium;
+}

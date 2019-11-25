@@ -59,9 +59,9 @@ $border-radius-sm: 3px;
 // Override other variables below!
 
 // To-Do: Test spacer that makes sense
-$spacer: 15px;
 $small-space: 5px;
-$medium-space: 10px;
+$medium-space: 2*$small-space;
+$spacer: 3*$small-space;
 
 $body-bg: white;
 
