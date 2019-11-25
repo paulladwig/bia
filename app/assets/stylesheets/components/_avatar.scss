@@ -1,6 +1,8 @@
 .avatar-very-small {
-  width: 19px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .avatar-small {
@@ -18,4 +20,8 @@
 }
 .avatar-bordered {
   border: white 2px solid;
+}
+
+.image-overlay-left {
+  margin-left: -5px;
 }

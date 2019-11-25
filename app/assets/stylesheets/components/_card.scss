@@ -1,0 +1,13 @@
+.card-bia {
+  background-color: $glight;
+  border-radius: $border-radius;
+}
+
+.card-image {
+  height: 150px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+}
