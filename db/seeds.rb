@@ -19,7 +19,7 @@ restaurants = [
     phone_number: '03025935148',
     cuisine: 'Mexican',
     url: 'https://www.chupenga.de/de_DE/',
-    photo: 'ua3de8jus5dzcdwnd6zi',
+    email: 'mail@chupenga.com',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776728/ua3de8jus5dzcdwnd6zi.jpg"
   },
   {
@@ -28,7 +28,8 @@ restaurants = [
     phone_number: '',
     cuisine: 'Italian',
     url: '',
-    photo: 'n4cuin35w5qvw3dstfnx',
+    email: '',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776713/n4cuin35w5qvw3dstfnx.jpg",
   },
   {
     name: 'Tim Raue',
@@ -36,7 +37,8 @@ restaurants = [
     phone_number: '03025937930',
     cuisine: 'Asian-inspired',
     url: 'https://tim-raue.com/en/',
-    photo: 'brwibncc8gyu0laguxie',
+    email: 'office@tim-raue.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776846/brwibncc8gyu0laguxie.jpg",
   },
   {
     name: 'Monsieur Vuong',
@@ -44,7 +46,8 @@ restaurants = [
     phone_number: '03099296924',
     cuisine: 'Vietnamese',
     url: 'https://www.monsieurvuong.de/en/',
-    photo: 'tru72kzihecahjcgsg5s',
+    email: 'indochina@monsieurvuong.de',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776810/tru72kzihecahjcgsg5s.jpg",
   },
   {
     name: 'Restaurant Babami',
@@ -52,7 +55,8 @@ restaurants = [
     phone_number: '',
     cuisine: 'Vietnamese',
     url: 'https://www.monsieurvuong.de/en/',
-    photo: 'hxcuf3qssmmlzatdpz2h',
+    email: '',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776684/hxcuf3qssmmlzatdpz2h.jpg",
   },
   {
     name: 'Viet Bowl Mitte',
@@ -60,7 +64,8 @@ restaurants = [
     phone_number: '03020453712',
     cuisine: 'Vietnamese',
     url: 'https://www.vietbowl.de/mitte-viet-bowl',
-    photo: 'llooz6sn4uorxkniqlj2',
+    email: 'info@vietbowl.de',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776891/llooz6sn4uorxkniqlj2.jpg",
   },
   {
     name: "Let's talk about juice!",
@@ -68,7 +73,8 @@ restaurants = [
     phone_number: '03055476788',
     cuisine: 'Turkish',
     url: 'http://www.sevencoffee.de/',
-    photo: 'pznb4boz851n2zfx0b4w',
+    email: '',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776794/pznb4boz851n2zfx0b4w.jpg",
   },
   {
     name: "Sale e Tabacchi",
@@ -76,7 +82,8 @@ restaurants = [
     phone_number: '0302521155',
     cuisine: 'Italian',
     url: 'http://www.sale-e-tabacchi.de/',
-    photo: 'x25kxmw9siqyho2uppn2',
+    email: 'mail@sale-e-tabacchi.de',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776836/x25kxmw9siqyho2uppn2.jpg",
   },
   {
     name: "Kori & Fay",
@@ -84,7 +91,8 @@ restaurants = [
     phone_number: '03023628359',
     cuisine: 'Asian',
     url: 'http://koriandfay.de/',
-    photo: 'hecf9uoqerlkvipgkmyf',
+    email: 'info@koriandfay.de',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776774/hecf9uoqerlkvipgkmyf.jpg",
   },
   {
     name: "AVAN",
@@ -92,7 +100,8 @@ restaurants = [
     phone_number: '03023578730',
     cuisine: 'Vietnamese',
     url: 'https://avan.eatbu.com/?lang=en',
-    photo: 'splygpq5spplw69f2fhc',
+    email: 'thai.thi.thanh83@gmail.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776659/splygpq5spplw69f2fhc.jpg",
   },
   {
     name: "Entrecôte",
@@ -100,7 +109,8 @@ restaurants = [
     phone_number: '03020165496',
     cuisine: 'French',
     url: 'http://entrecote.de/',
-    photo: 'mtdu6tqj6ywp9wlb7msj',
+    email: 'info@entrecote.de',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776741/mtdu6tqj6ywp9wlb7msj.jpg",
   },
   {
     name: "Barcelona Tapas Bar Restaurant",
@@ -108,7 +118,8 @@ restaurants = [
     phone_number: '03070228336',
     cuisine: 'Spanish',
     url: 'https://barcelona-mitte.de/',
-    photo: 'wdbtacjoxed08ce0iooe',
+    email: 'info@barcelona.berlin',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776700/wdbtacjoxed08ce0iooe.jpg",
   },
   {
     name: "VAPIANO",
@@ -116,14 +127,16 @@ restaurants = [
     phone_number: '03020607530',
     cuisine: 'Italian',
     url: 'https://de.vapiano.com/de/nc/restaurants/detail/restaurant-details/-529cc71a5f/',
-    photo: 'qn4ggozb7fyllffg5qw',
+    email: 'info@vapiano.de',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776877/aqn4ggozb7fyllffg5qw.jpg",
   },
   {
     name: "House of Small Wonder",
     address: 'Johannisstraße 20, Berlin',
     cuisine: 'French',
     url: 'https://houseofsmallwonder.de/',
-    photo: 'hgfcmoafuhjzgmv3xjut',
+    email: 'info@houseofsmallwonder.de',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776760/hgfcmoafuhjzgmv3xjut.jpg",
   }
   # {
   #   name: "",
