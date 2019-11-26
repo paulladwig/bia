@@ -13,7 +13,11 @@ class Restaurant < ApplicationRecord
   end
 
   def get_friends_recommended
-
+    selections = self.selections.where(recommended: true)
+    users = selections.map do |selection|
+      current_user.includes(selection.user)
+    end
+    raise
   end
 
   def calc_avg_occassion
