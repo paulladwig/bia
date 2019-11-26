@@ -3,7 +3,7 @@
 .biabutton {
   display: inline-block;
   background-color: $glight;
-  padding: $small-space $spacer;
+  padding: $medium-space $spacer;
   margin: $medium-space 0;
   border-width: 0px;
   border-radius: $border-radius;
@@ -38,4 +38,7 @@
   background-color: $gmedium;
   color: $glight;
   }
+
+.block {
+  display: block;
 }
