@@ -17,7 +17,6 @@ class Restaurant < ApplicationRecord
     users = selections.map do |selection|
       current_user.includes(selection.user)
     end
-    raise
   end
 
   def calc_avg_occassion
