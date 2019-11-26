@@ -3,14 +3,14 @@
 .biabutton {
   display: inline-block;
   background-color: $glight;
-  padding: $small-space $spacer;
+  padding: $medium-space $spacer;
   margin: $medium-space 0;
   border-width: 0px;
   border-radius: $border-radius;
   color: $gmedium;
   &:hover {
   color: $bmedium;
-}
+  }
 }
 
 // Quick action button / links
@@ -24,4 +24,22 @@
   color: $bdark;
   &:hover {
     color: $bmedium;}
+}
+
+.bia-button-highlight {
+  display: inline-block;
+  background-color: $bmedium;
+  padding: $spacer $spacer;
+  margin: $medium-space 0;
+  border-width: 0px;
+  border-radius: $border-radius;
+  color: $glight;
+  &:hover {
+  background-color: $gmedium;
+  color: $glight;
+  }
+}
+
+.block {
+  display: block;
 }

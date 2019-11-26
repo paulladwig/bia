@@ -7,6 +7,24 @@
   color: $gdark;
 }
 
+
+// class to set img width to 100%
+.width-100-pc {
+  width: 100%;
+}
+
+.padding-spacer {
+  padding: $spacer;
+}
+
+.height-100-pc {
+  height: 100%;
+}
+
+.size-48-pc {
+  width: 47%
+}
+
 //Class to hide element
 
 .hide {
@@ -40,3 +58,9 @@ input {
   color: black;
   font-size: $h5-font-size;
 }
+
+.image-rounded-corners {
+  border-radius: $border-radius;
+}
+
+

@@ -3,11 +3,11 @@
 @import "config/colors";
 @import "config/screen_settings";
 @import "config/bootstrap_variables";
-@import "config/container";
 
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
+@import "config/container";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
