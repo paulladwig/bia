@@ -1,7 +1,7 @@
 class SelectionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.where(user: user.receivers)
     end
 
     def index

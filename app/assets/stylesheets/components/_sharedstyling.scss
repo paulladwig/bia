@@ -65,6 +65,10 @@ input {
   font-size: $h5-font-size;
 }
 
+.small-font {
+    font-size: $font-size-sm;
+  }
+
 .image-rounded-corners {
   border-radius: $border-radius;
 }
