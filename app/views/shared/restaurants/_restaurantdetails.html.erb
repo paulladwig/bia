@@ -6,6 +6,6 @@
 <h5 class = 'mb-3 mt-4'>Contact details</h5>
   <p class= 'my-2'> Address: <%= restaurant.address %></p>
   <p class= 'my-2'> Phone: <%= restaurant.phone_number %></p>
-  <p class= 'my-2'> E-mail: placeholder </p>
+  <p class= 'my-2'> E-mail: <a href=<%= "mailto:#{restaurant.email}" %>> <%= restaurant.email %> </a>  </p>
   <p class= 'my-2'> Web: <a href=<%= restaurant.url %> target="_blank"> <%= restaurant.name %> </a> </p>
 
