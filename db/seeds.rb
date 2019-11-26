@@ -19,6 +19,7 @@ restaurants = [
     phone_number: '03025935148',
     cuisine: 'Mexican',
     url: 'https://www.chupenga.de/de_DE/',
+    photo: 'ua3de8jus5dzcdwnd6zi',
   },
   {
     name: 'Charlotte 1',
@@ -26,6 +27,7 @@ restaurants = [
     phone_number: '',
     cuisine: 'Italian',
     url: '',
+    photo: 'n4cuin35w5qvw3dstfnx',
   },
   {
     name: 'Tim Raue',
@@ -33,6 +35,7 @@ restaurants = [
     phone_number: '03025937930',
     cuisine: 'Asian-inspired',
     url: 'https://tim-raue.com/en/',
+    photo: 'brwibncc8gyu0laguxie',
   },
   {
     name: 'Monsieur Vuong',
@@ -40,6 +43,7 @@ restaurants = [
     phone_number: '03099296924',
     cuisine: 'Vietnamese',
     url: 'https://www.monsieurvuong.de/en/',
+    photo: 'tru72kzihecahjcgsg5s',
   },
   {
     name: 'Restaurant Babami',
@@ -47,6 +51,7 @@ restaurants = [
     phone_number: '',
     cuisine: 'Vietnamese',
     url: 'https://www.monsieurvuong.de/en/',
+    photo: 'hxcuf3qssmmlzatdpz2h',
   },
   {
     name: 'Viet Bowl Mitte',
@@ -54,6 +59,7 @@ restaurants = [
     phone_number: '03020453712',
     cuisine: 'Vietnamese',
     url: 'https://www.vietbowl.de/mitte-viet-bowl',
+    photo: 'llooz6sn4uorxkniqlj2',
   },
   {
     name: "Let's talk about juice!",
@@ -61,6 +67,7 @@ restaurants = [
     phone_number: '03055476788',
     cuisine: 'Turkish',
     url: 'http://www.sevencoffee.de/',
+    photo: 'pznb4boz851n2zfx0b4w',
   },
   {
     name: "Sale e Tabacchi",
@@ -68,6 +75,7 @@ restaurants = [
     phone_number: '0302521155',
     cuisine: 'Italian',
     url: 'http://www.sale-e-tabacchi.de/',
+    photo: 'x25kxmw9siqyho2uppn2',
   },
   {
     name: "Kori & Fay",
@@ -75,6 +83,7 @@ restaurants = [
     phone_number: '03023628359',
     cuisine: 'Asian',
     url: 'http://koriandfay.de/',
+    photo: 'hecf9uoqerlkvipgkmyf',
   },
   {
     name: "AVAN",
@@ -82,6 +91,7 @@ restaurants = [
     phone_number: '03023578730',
     cuisine: 'Vietnamese',
     url: 'https://avan.eatbu.com/?lang=en',
+    photo: 'splygpq5spplw69f2fhc',
   },
   {
     name: "Entrecôte",
@@ -89,6 +99,7 @@ restaurants = [
     phone_number: '03020165496',
     cuisine: 'French',
     url: 'http://entrecote.de/',
+    photo: 'mtdu6tqj6ywp9wlb7msj',
   },
   {
     name: "Barcelona Tapas Bar Restaurant",
@@ -96,6 +107,7 @@ restaurants = [
     phone_number: '03070228336',
     cuisine: 'Spanish',
     url: 'https://barcelona-mitte.de/',
+    photo: 'wdbtacjoxed08ce0iooe',
   },
   {
     name: "VAPIANO",
@@ -103,12 +115,14 @@ restaurants = [
     phone_number: '03020607530',
     cuisine: 'Italian',
     url: 'https://de.vapiano.com/de/nc/restaurants/detail/restaurant-details/-529cc71a5f/',
+    photo: 'qn4ggozb7fyllffg5qw',
   },
   {
     name: "House of Small Wonder",
     address: 'Johannisstraße 20, Berlin',
     cuisine: 'French',
     url: 'https://houseofsmallwonder.de/',
+    photo: 'hgfcmoafuhjzgmv3xjut',
   }
   # {
   #   name: "",
