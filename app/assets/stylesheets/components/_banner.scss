@@ -1,6 +1,9 @@
 .bia-banner {
   background-size: cover;
   background-position: center;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+
 }
 
 @media screen and (min-width: $screen-vsm-min) {
@@ -30,7 +33,7 @@
 @media screen and (min-width: $screen-md-min) {
   .banner-text-alignement {
     h1, h3{
-      width: 50%;
+      width: 60%;
     }
   }
   .bia-banner {
@@ -42,7 +45,7 @@
 @media screen and (min-width: $screen-lg-min) {
   .banner-text-alignement {
     h1, h3{
-      width: 50%;
+      width: 70%;
     }
   }
   .bia-banner {
@@ -54,7 +57,7 @@
 @media screen and (min-width: $screen-xl-min) {
   .banner-text-alignement {
     h1, h3{
-      width: 48%;
+      width:80%;
     }
   }
   .bia-banner {
