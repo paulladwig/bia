@@ -70,3 +70,7 @@ input {
   align-items: center;
   grid-gap: $spacer;
 }
+
+.image-containing-div {
+  display: flex;
+}
