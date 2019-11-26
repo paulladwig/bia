@@ -24,7 +24,7 @@
         <div class="d-flex justify-content-between">
           <!-- Card Information bottom row-->
           <p><%=restaurant.cuisine%></p>
-          <p><%=restaurant.avg_occasion%></p>
+          <p><%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
         </div>
     </div>
   </div>
