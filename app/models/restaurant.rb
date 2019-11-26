@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  searchkick word_start: [:cuisine, :name]
+  searchkick word_middle: [:cuisine, :name]
   scope :search_import, -> { includes(:selections) }
   has_many :selections
   has_many :users, through: :selections
