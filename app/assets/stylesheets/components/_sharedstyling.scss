@@ -63,6 +63,14 @@ input {
   border-radius: $border-radius;
 }
 
+.page-title-1-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  grid-gap: $spacer;
+}
+
 .image-containing-div {
   display: flex;
 }
