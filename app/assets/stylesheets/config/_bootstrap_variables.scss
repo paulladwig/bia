@@ -21,6 +21,14 @@ $h4-font-size: 1.25 * $font-size-base; // DO NOT CHANGE
 $h5-font-size: 1 * $font-size-base; // DO NOT CHANGE
 $h6-font-size: 1 * $font-size-base; // DO NOT CHANGE
 
+// Text types not to be used set to red
+
+html {
+  h6 {
+  color: $red;
+  }
+}
+
 // Weight of medium font size can be changed here
 $font-weight-medium-sans-serif: 500;
 
