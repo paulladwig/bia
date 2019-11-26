@@ -1,15 +1,27 @@
 .footer {
   background: #F2F2F2;
-  height: 256px;
 }
 
-.footer-container {
+.footer-upper-container {
   display: flex;
   // grid-template-columns: 1fr 1fr 1fr 1fr;
   // grid-template-rows: auto;
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: $white;
+  padding-bottom: 7*$small-space;
+}
+
+.footer-lower-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: $spacer;
 }
 
 .footer-card {
@@ -17,21 +29,36 @@
   flex-direction: column;
 }
 
-.discover-overview-footer-card {
+.upper-footer-card {
   width: 300px;
+  @media (max-width: $screen-xl-min) {
+    padding: 0 30px;
+   }
 }
 
-.you-footer-card {
-  width: 300px;
+.lower-footer-card {
+  @media (max-width: $screen-xl-min) {
+    padding: 0 30px;
+   }
 }
 
-.account-footer-card {
-  width: 300px;
+.terms-footer-card {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.bia-footer-card {
-  width: 300px;
+.footer-icon {
+  font-size: 30px;
 }
+
+
+// Not used yet
+// .white-border-container {
+//   border-style: solid;
+//   border-color: $white;
+//   border-width: thin;
+
+// }
 
 
 
