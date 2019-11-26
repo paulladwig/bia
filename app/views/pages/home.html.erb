@@ -1,5 +1,14 @@
 <%= render 'shared/navbar' %>
+<div class="bia-banner d-flex flex-column justify-content-center mb-4" style="background-image: url(<%=asset_path('banner.png')%>)">
+  <div class="container-bia">
+    <h1>Friendly Recommendations</h1>
+    <h3>Find the Restaurants that fit your taste by connecting with the People you Trust</h3>
+    <a class="biabutton" href="#">Connect with your Gourmet Friends!</a>
+  </div>
+  <div class="bottom-cut"></div>
+</div>
 <div class="container-bia">
+<!--
 
   <h1>h1: Landing page</h1>
   <h2>h2 title - Standard title </h2>
@@ -24,8 +33,10 @@
   <br>
   <button type="button" class="quick-action">Quick action as a button </button>
   <br>
-  <a href="www.google.de" class="quick-action"> Quick action as a link </a>
-  <div style="width:320px;">
+  <a href="www.google.de" class="quick-action"> Quick action as a link </a> -->
+  <div class="mb-4" style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-gap: 40px;">
+    <%= render 'shared/card' %>
+    <%= render 'shared/card' %>
     <%= render 'shared/card' %>
   </div>
 
