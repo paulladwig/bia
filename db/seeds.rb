@@ -20,6 +20,7 @@ restaurants = [
     cuisine: 'Mexican',
     url: 'https://www.chupenga.de/de_DE/',
     photo: 'ua3de8jus5dzcdwnd6zi',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776728/ua3de8jus5dzcdwnd6zi.jpg"
   },
   {
     name: 'Charlotte 1',
