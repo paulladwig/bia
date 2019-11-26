@@ -1,6 +1,7 @@
 <% if selection.recommended? %>
   <div class="discover-activity-card">
-    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.studiocabrelli.com%2Fwp-content%2Fuploads%2F2015%2F01%2Fbon-cadeau-portrait-studio1.jpg&f=1&nofb=1" alt="" class='avatar-large'>
+
+    <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
     <div class="activity-content">
       <h5> <%= link_to selection.user.name, root_path  %> recommended <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)  %></h5>
       <p class="my-2"> <%= selection.review %> </p>
@@ -11,9 +12,9 @@
 
 <% elsif selection.bookmarked? %>
   <div class="discover-activity-card">
-    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.studiocabrelli.com%2Fwp-content%2Fuploads%2F2015%2F01%2Fbon-cadeau-portrait-studio1.jpg&f=1&nofb=1" alt="" class='avatar-large'>
+    <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
     <div class="activity-content">
-      <h5> <%= link_to selection.user.name, root_path  %> has bookmarked <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)  %></h5>
+      <h5 class="mb-2"> <%= link_to selection.user.name, root_path  %> has bookmarked <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)  %></h5>
       <%= render 'shared/card', restaurant: selection.restaurant %>
       <p class="small-font mt-3"> Bookemarked on <%= selection.created_at.strftime('%a %d %b %Y') %></p>
     </div>
