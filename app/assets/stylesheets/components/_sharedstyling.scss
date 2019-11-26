@@ -1,18 +1,4 @@
-.h4-style {
-  color: $bmedium;
-  font-weight: 500;
-}
-
-.h5-style {
-  font-weight: 500;
-  color: black;
-}
-
-.link-style {
-  color: $bdark;
-}
-
-
+// Class to make grey links that turn black (esp. footer)
 .link-grey {
   color: $gmedium;
 }
@@ -21,10 +7,36 @@
   color: $gdark;
 }
 
+//Class to hide element
+
 .hide {
   display: none;
 }
 
+//Set input field outlines to none (i.e., not blue) everywhere
+
 input {
   outline: none;
+}
+
+
+// EXCEPTIONS ONLY: Set stile to h4 or h5 for other text
+
+.link-style {
+  color: $bdark;
+  &:hover {
+    color: $bmedium;
+  }
+}
+
+.h4-style {
+  font-weight: $font-weight-medium-sans-serif;
+  color: black;
+  font-size: $h4-font-size;
+}
+
+.h5-style {
+  font-weight: $font-weight-medium-sans-serif;
+  color: black;
+  font-size: $h5-font-size;
 }
