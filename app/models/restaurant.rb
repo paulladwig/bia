@@ -12,6 +12,10 @@ class Restaurant < ApplicationRecord
     }
   end
 
+  def get_friends_recommended
+
+  end
+
   def calc_avg_occassion
     all_selections = self.selections.where(recommended: true)
     all_occassions = 0
