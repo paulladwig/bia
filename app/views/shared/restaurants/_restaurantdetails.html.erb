@@ -1,11 +1,16 @@
 <h5 class = 'mb-3 mt-4'>Restaurant details</h5>
   <p class= 'my-2'> Cuisine: <%= restaurant.cuisine %></p>
-  <p class= 'my-2'> Mostly suited for: <%= restaurant.calc_avg_occassion %></p>
-  <p class= 'my-2'> Prices: <%= restaurant.avg_price %></p>
+  <p class= 'my-2'> Mostly suited for: <%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
+  <p class= 'my-2'> Prices: <%= render 'shared/display_avg_price', average: restaurant.avg_price %></p>
 
 <h5 class = 'mb-3 mt-4'>Contact details</h5>
   <p class= 'my-2'> Address: <%= restaurant.address %></p>
-  <p class= 'my-2'> Phone: <%= restaurant.phone_number %></p>
-  <p class= 'my-2'> E-mail: <a href=<%= "mailto:#{restaurant.email}" %>> <%= restaurant.email %> </a>  </p>
-  <p class= 'my-2'> Web: <a href=<%= restaurant.url %> target="_blank"> <%= restaurant.name %> </a> </p>
-
+  <% if restaurant.phone_number != '' %>
+    <p class= 'my-2'> Phone: <%= restaurant.phone_number %></p>
+  <% end %>
+  <% if restaurant.email != '' %>
+    <p class= 'my-2'> E-mail: <a href=<%= "mailto:#{restaurant.email}" %>> <%= restaurant.email %> </a>  </p>
+  <% end %>
+  <% if restaurant.url != '' %>
+    <p class= 'my-2'> Web: <a href=<%= restaurant.url %> target="_blank"> <%= restaurant.name %> </a> </p>
+  <% end %>
