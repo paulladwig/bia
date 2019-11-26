@@ -1,5 +1,5 @@
 // shared spacing
-
+// margin
 .mt-6 {
   margin-top: $spacer*4
 }
@@ -25,6 +25,33 @@
   margin-right: $spacer*4;
   margin-left: $spacer*4
 }
+
+.mt-7 {
+  margin-top: $spacer*5
+}
+
+.mb-7 {
+  margin-bottom: $spacer*5
+}
+
+.mr-7 {
+  margin-right: $spacer*5
+}
+
+.ml-7 {
+  margin-left: $spacer*5
+}
+
+.my-7 {
+  margin-top: $spacer*5;
+  margin-bottom: $spacer*5
+}
+
+.mx-7 {
+  margin-right: $spacer*5;
+  margin-left: $spacer*5
+}
+// padding
 
 .pt-6 {
   padding-top: $spacer*4
