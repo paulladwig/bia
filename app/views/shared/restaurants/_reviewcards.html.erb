@@ -1,6 +1,6 @@
 <% @restaurant.selections.each do |selection| %>
   <div class="review-card">
-    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.studiocabrelli.com%2Fwp-content%2Fuploads%2F2015%2F01%2Fbon-cadeau-portrait-studio1.jpg&f=1&nofb=1" alt="" class='avatar-large'>
+    <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
     <div class="core-review">
       <h5 class='my-1'> <%= selection.user.name %> </h5>
       <p class='my-1'> <%= selection.review %> </p>
