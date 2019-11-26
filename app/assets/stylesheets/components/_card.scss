@@ -14,10 +14,22 @@
 
 
 
+
 // review-card
 
 .review-card {
   display: flex;
+  align-items: center;
+  .core-review {
+    flex-grow: 1;
+    padding: $spacer 0 $spacer $spacer;
+    }
+  .core-review{
+    border-bottom: 1px solid $glight;
+  }
+  .small-font {
+    font-size: $font-size-sm;
+  }
 }
 
 // Card featuring users on landing page
