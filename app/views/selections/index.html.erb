@@ -1,0 +1,20 @@
+<%= render 'shared/navbar' %>
+
+<div class="container-bia mt-5">
+  <div class="page-title-1-2">
+    <h2>Hello, <%= current_user.name %></h2>
+    <h2>Timeline</h2>
+  </div>
+  <div class="index-selections-layout mt-4">
+    <div class="side-filter">
+      <p> This is a placeholder for the filter which will come later at some point when it is ready</p>
+    </div>
+    <div class="index-selection-show">
+      <% @selections.each do |selection| %>
+        <%= render 'shared/discover_elements', selection: selection %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>
