@@ -1,3 +1,9 @@
+// Classes to format images
+
+.image-cover {
+  object-fit: cover;
+}
+
 // Class to make grey links that turn black (esp. footer)
 .link-grey {
   color: $gmedium;

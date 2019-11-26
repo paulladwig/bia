@@ -157,24 +157,28 @@ users = [
   {
     name: 'Otto Jonetzki',
     email: 'otto@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790595/duh9ek7hpkyd1tuzb5h9.jpg",
     password: '123456',
     password_confirmation: '123456',
   },
   {
     name: 'Paul Ladwig',
     email: 'paul@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790606/bp6rt2iolgzazszuuzyy.jpg",
     password: '123456',
     password_confirmation: '123456',
   },
   {
     name: 'Marie Ladwig',
     email: 'marie@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790580/ny0rfdfbldyjrkvlherr.jpg",
     password: '123456',
     password_confirmation: '123456',
   },
   {
     name: 'Joris Kühnast',
     email: 'joris@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790615/bticdxmbk8hxwbqhh5uk.jpg",
     password: '123456',
     password_confirmation: '123456',
   }
