@@ -1,0 +1,72 @@
+.bia-banner {
+  background-size: cover;
+  background-position: center;
+}
+
+// .bottom-cut {
+//   background-color: red;
+//   width: 100%;
+//   height: 10%;
+// }
+
+
+
+@media screen and (min-width: $screen-vsm-min) {
+  .banner-text-alignement {
+    h1, h3{
+      width: 90%;
+    }
+  }
+  .bia-banner {
+    height: 40vh;
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+  .banner-text-alignement {
+    h1, h3{
+      width: 50%;
+    }
+  }
+  .bia-banner {
+    height: 40vh;
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: $screen-md-min) {
+  .banner-text-alignement {
+    h1, h3{
+      width: 50%;
+    }
+  }
+  .bia-banner {
+    height: 40vh;
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: $screen-lg-min) {
+  .banner-text-alignement {
+    h1, h3{
+      width: 50%;
+    }
+  }
+  .bia-banner {
+    height: 40vh;
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: $screen-xl-min) {
+  .banner-text-alignement {
+    h1, h3{
+      width: 48%;
+    }
+  }
+  .bia-banner {
+    height: 40vh;
+    min-height: 300px;
+  }
+}
