@@ -1,34 +1,62 @@
-<div class="footer py-4">
-  <div class="footer-container">
-    <div class="discover-overview-footer-card">
-      <div class="footer-card discover-footer-card">
-        <h5>Discover</h5>
-        <%= link_to "Places nearby", '#', class: "link-grey" %>
-        <%= link_to "Place for today", '#', class: "link-grey" %>
+<div class="bia-container">
+  <div class="footer py-5">
+    <!-- Upper Container -->
+    <div class="footer-upper-container">
+      <div class="discover-overview-footer-card">
+        <!-- All upper cards -->
+        <div class="upper-footer-card footer-card discover-footer-card">
+          <h5>Discover</h5>
+          <%= link_to "Places nearby", '#', class: "link-grey" %>
+          <%= link_to "Place for today", '#', class: "link-grey" %>
+        </div>
+        <div class="upper-footer-card footer-card overview-footer-card">
+          <h5>Overview</h5>
+          <%= link_to "Recent recommendations", '#', class: "link-grey" %>
+        </div>
       </div>
-      <div class="footer-card overview-footer-card">
-        <h5>Overview</h5>
-        <%= link_to "Recent recommendations", '#', class: "link-grey" %>
-      </div>
+      <div class="upper-footer-card footer-card you-footer-card">
+          <h5>You</h5>
+          <%= link_to "Saved places", '#', class: "link-grey" %>
+          <%= link_to "Recommended Places", '#', class: "link-grey" %>
+        </div>
+        <div class="upper-footer-card footer-card account-footer-card">
+          <h5>Account</h5>
+          <%= link_to "Settings & Data", '#', class: "link-grey" %>
+          <%= link_to "Location: Berlin", '#', class: "link-grey" %>
+          <%= link_to "Language: English", '#', class: "link-grey" %>
+        </div>
+        <div class="upper-footer-card footer-card bia-footer-card">
+          <h5>BIA</h5>
+          <%= link_to "Suggestions & Feedback", '#', class: "link-grey" %>
+          <%= link_to "Support", '#', class: "link-grey" %>
+          <%= link_to "Donate", '#', class: "link-grey" %>
+          <%= link_to "About", '#', class: "link-grey" %>
+        </div>
     </div>
-    <div class="footer-card you-footer-card">
-        <h5>You</h5>
-        <%= link_to "Saved places", '#', class: "link-grey" %>
-        <%= link_to "Recommended Places", '#', class: "link-grey" %>
+    <!-- Lower Container -->
+    <div class="footer-lower-container">
+      <!-- All lower cards -->
+      <div class="lower-footer-card copyright-footer-card ">
+        <p>© Copyright 2020 | Otto, Marie, Joris & Paul</p>
       </div>
-      <div class="footer-card account-footer-card">
-        <h5>Account</h5>
-        <%= link_to "Settings & Data", '#', class: "link-grey" %>
-        <%= link_to "Location: Berlin", '#', class: "link-grey" %>
-        <%= link_to "Language: English", '#', class: "link-grey" %>
+      <div class="lower-footer-card terms-footer-card">
+        <%= link_to 'Imprint', '#', class: "px-3 link-grey" %>
+        <p>    |    </p>
+        <%= link_to 'Terms', '#', class: "px-3 link-grey" %>
+        <p>    |    </p>
+        <%= link_to 'Cookies', '#', class: "px-3 link-grey" %>
+        <p>    |    </p>
+        <%= link_to 'Privacy Policy', '#', class: "px-3 link-grey" %>
+        <p>    |    </p>
+        <%= link_to 'Site Map', '#', class: "px-3 link-grey" %>
       </div>
-      <div class="footer-card bia-footer-card">
-        <h5>BIA</h5>
-        <%= link_to "Suggestions & Feedback", '#', class: "link-grey" %>
-        <%= link_to "Support", '#', class: "link-grey" %>
-        <%= link_to "Donate", '#', class: "link-grey" %>
-        <%= link_to "About", '#', class: "link-grey" %>
+      <div class="lower-footer-card icons-footer-card">
+        <a href="#"><i class="fab fa-facebook footer-icon px-2 link-grey"></i></a>
+        <a href="#"><i class="fab fa-instagram footer-icon px-2 link-grey"></i></a"></i></a>
+        <a href="#"><i class="fab fa-twitter footer-icon px-2 link-grey"></i></a>
       </div>
+
+    </div>
   </div>
 </div>
 
