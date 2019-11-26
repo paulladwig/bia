@@ -1,18 +1,49 @@
 <%= render 'shared/navbar' %>
-<div class="bia-banner d-flex flex-column justify-content-end mb-4" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.3), rgba(242, 242, 242, 0.3)), url(<%=asset_path('banner.png')%>)">
-  <div class="container-bia banner-text-alignement align-items-start">
-    <h1>Friendly Recommendations</h1>
-    <h3>Find the Restaurants that fit your taste by connecting with the People you Trust</h3>
-    <a class="biabutton" href="#">Connect with your Gourmet Friends!</a>
+<%= render 'shared/banner' %>
+<div class="container-bia">
+  <!-- Featured User element on landing page -->
+  <div class="user-feature-card mt-7">
+    <!-- Title of featured user in this case spanning 2 columns in the grid -->
+    <h2 class="span-2-1">Talik suggests you try some Peruvian ceviche!</h2>
+    <!-- Image covering the full 2 row grid-->
+    <img class="image-rounded-corners user-feature-card-image-full-height span-1-2" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
+    <!-- first element introducting the user -->
+    <div class="d-flex">
+      <img class="avatar-large" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80" alt="user image">
+      <div class="ml-4">
+        <h5>Talik Naruma</h5>
+        <p class="mt-2">Talik loves peruvian ceviche and knows his way around the cuisine like few others. There is no one quite like him to get recommendations from!</p>
+      </div>
+    </div>
+    <!-- second element containing a recommendation -->
+    <div>
+      <h5 class="">Talik’s Recommendation:</h5>
+      <h5 class="mt-2">Cevicheria in Berlin for modern peruvian</h5>
+      <p class="mt-2">The place has some of the best ceviche in town no question! The quality of the fish is outstanding!</p>
+    </div>
   </div>
-  <div class="bottom-cut">
-    <svg width="100%" height="40" viewBox="0 0 800 400" preserveAspectRatio="none">
-      <path d="M 0 0 C 0 0 0 0 250 400 C 350 400 800 0 800 0 L 800 400 L 0 400 L 0 000 A 50 50 0 1 1" fill="white"></path>
-    </svg>
+  <div class="user-feature-card mt-7">
+    <!-- Title of featured user in this case spanning 2 columns in the grid -->
+    <h2 class="span-3-1">Smanatha, a conissieure of russian street food has a recommendations for you!</h2>
+    <!-- first element introducting the user -->
+    <div class="d-flex">
+      <img class="avatar-large" src="https://images.unsplash.com/photo-1541943181603-d8fe267a5dcf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=912&q=80" alt="user image">
+      <div class="ml-4">
+        <h5>Samantha Hausmann</h5>
+        <p class="mt-2">Samantha has been to more Restaurants serving Russian Street Food than just about anyone.</p>
+      </div>
+    </div>
+    <!-- Image covering the full 2 row grid-->
+    <img class="image-rounded-corners user-feature-card-image-full-height span-1-2" src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="">
+    <!-- second element containing a recommendation -->
+    <div>
+      <h5 class="">Samantha's Recommendation:</h5>
+      <h5 class="mt-2">Resrus in Berlin for Authentic Russian Food</h5>
+      <p class="mt-2">The food at this place is just like in Moscow, just in Berlin that is.</p>
+    </div>
   </div>
 </div>
-<div class="container-bia">
-  <%= cl_image_tag 'llooz6sn4uorxkniqlj2', height: 300, width: 400, crop: :fill %>
+
 <!--
 
   <h1>h1: Landing page only</h1>
@@ -39,13 +70,3 @@
   <button type="button" class="quick-action">Quick action as a button </button>
   <br>
   <a href="www.google.de" class="quick-action"> Quick action as a link </a> -->
-  <div class="mb-4" style="display:flex; flex-wrap: wrap;">
-    <%= render 'shared/card' %>
-    <%= render 'shared/card' %>
-    <%= render 'shared/card' %>
-  </div>
-
-</div>
-
-
-

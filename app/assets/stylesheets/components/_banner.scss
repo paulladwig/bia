@@ -3,14 +3,6 @@
   background-position: center;
 }
 
-// .bottom-cut {
-//   background-color: red;
-//   width: 100%;
-//   height: 10%;
-// }
-
-
-
 @media screen and (min-width: $screen-vsm-min) {
   .banner-text-alignement {
     h1, h3{
@@ -54,7 +46,7 @@
     }
   }
   .bia-banner {
-    height: 40vh;
+    height: 45vh;
     min-height: 300px;
   }
 }
@@ -66,7 +58,7 @@
     }
   }
   .bia-banner {
-    height: 40vh;
+    height: 50vh;
     min-height: 300px;
   }
 }
