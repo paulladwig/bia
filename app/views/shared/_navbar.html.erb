@@ -14,10 +14,10 @@
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <% if user_signed_in? %>
           <li class="">
-            <%= form_for :search, url: "#", method: :get do |form| %>
-              <%= form.text_field :query, class: "input-field"%>
-              <%= form.submit 'Search', class: "hide"%>
-            <% end %>
+              <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
+                  <%=f.input :query, required: false, label: false, input_html: {class: 'input-field simple_form-align' }%>
+                  <%=f.submit "Search", class: "hide" %>
+              <% end %>
           </li>
           <li class="nav-item dropdown ml-3">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
