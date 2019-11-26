@@ -4,28 +4,33 @@
 // 3. You can override them below!
 
 // General style
+
+
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
 $body-bg:                 white;
-$font-size-base: 1rem;
-$font-size-lg: 1rem;
-$font-size-sm: 0.75rem;
-$h1-font-size: 2.5rem;
-$h2-font-size: 2rem;
-$h3-font-size: 2rem;
-$h4-font-size: 1rem;
-$h5-font-size: 1rem;
-$h6-font-size: 1rem;
 
+//FONT SIZES
+$font-size-base: 1rem; // change only this value
+$font-size-lg: $font-size-base; // DO NOT CHANGE
+$font-size-sm: 0.75 * $font-size-base; // DO NOT CHANGE
+$h1-font-size: 2.5 * $font-size-base; // DO NOT CHANGE
+$h2-font-size: 2 * $font-size-base; // DO NOT CHANGE
+$h3-font-size: 1.5 * $font-size-base; // DO NOT CHANGE
+$h4-font-size: 1.25 * $font-size-base; // DO NOT CHANGE
+$h5-font-size: 1 * $font-size-base; // DO NOT CHANGE
+$h6-font-size: 1 * $font-size-base; // DO NOT CHANGE
+
+// Weight of medium font size can be changed here
+$font-weight-medium-sans-serif: 500;
+
+// Standard settings for p, a, h1-6
 html{
   h3, h4, h5, h6 {
-    font-family: $font-family-sans-serif;
+    font-family: $body-font;
   }
   h4, h5, h6 {
-    font-weight: 500;
-  }
-  h4 {
-    color: $bmedium;
+    font-weight: $font-weight-medium-sans-serif;
   }
   p {
     color: $gmedium;
@@ -34,7 +39,7 @@ html{
     color: $bdark;
   }
   a:hover {
-    color: $gdark;
+    color: $bmedium;
   }
   p, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0rem
@@ -56,12 +61,10 @@ $border-radius:    4px;
 $border-radius-lg: 5px;
 $border-radius-sm: 3px;
 
-// Override other variables below!
-
-// To-Do: Test spacer that makes sense
-$small-space: 5px;
-$medium-space: 2*$small-space;
-$spacer: 3*$small-space;
+// Spacers:
+$small-space: 5px; //Change only this value
+$medium-space: 2*$small-space; // DO NOT CHANGE
+$spacer: 3*$small-space; // DO NOT CHANGE
 
 // form design
 $input-focus-border-color: none;

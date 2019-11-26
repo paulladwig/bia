@@ -1,3 +1,5 @@
+// Standard buttons
+
 .biabutton {
   display: inline-block;
   background-color: $glight;
@@ -6,11 +8,12 @@
   border-width: 0px;
   border-radius: $border-radius;
   color: $gmedium;
-}
-
-.biabutton:hover {
+  &:hover {
   color: $bmedium;
 }
+}
+
+// Quick action button / links
 
 .quick-action {
   display: inline-block;
@@ -20,5 +23,5 @@
   padding: 0;
   color: $bdark;
   &:hover {
-    color: $gmedium;}
+    color: $bmedium;}
 }
