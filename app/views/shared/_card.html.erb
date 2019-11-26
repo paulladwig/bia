@@ -1,29 +1,32 @@
-<div class="card-bia">
-  <!--Default restaurant Card-->
-   <div class="card-image" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.3), rgba(242, 242, 242, 0.3)), url('<%= cl_image_path restaurant.photo %>')">
-    <!-- card cover image -->
-    <div>
-      <!-- Contextual hover tag below -->
+<%= link_to(restaurant) do  %>
+  <div class="card-bia">
+    <!--Default restaurant Card-->
+     <div class="card-image" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.3), rgba(242, 242, 242, 0.3)), url('<%= cl_image_path restaurant.photo %>')">
+      <!-- card cover image -->
+      <div>
+        <!-- Contextual hover tag below -->
+      </div>
+    </div>
+    <div class="px-3 py-2">
+      <!-- Card Information box -->
+        <div class="d-flex justify-content-between align-items-center pb-2">
+          <!-- Card Information top row-->
+          <div class="d-flex align-items-center">
+            <h5 class="h5-style"><%=restaurant.name%></h5>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <img class="avatar-very-small" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
+            <img class="avatar-very-small image-overlay-left" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
+            <img class="avatar-very-small image-overlay-left" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <!-- Card Information bottom row-->
+          <p><%=restaurant.cuisine%></p>
+          <p><%=restaurant.avg_occasion%></p>
+        </div>
     </div>
   </div>
-  <div class="px-3 py-2">
-    <!-- Card Information box -->
-      <div class="d-flex justify-content-between align-items-center pb-2">
-        <!-- Card Information top row-->
-        <div class="d-flex align-items-center">
-          <h5 class=""><%=restaurant.name%></h5>
-        </div>
+<% end %>
 
-        <div class="d-flex align-items-center">
-          <img class="avatar-very-small" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
-          <img class="avatar-very-small image-overlay-left" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
-          <img class="avatar-very-small image-overlay-left" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
-        </div>
-      </div>
-      <div class="d-flex justify-content-between">
-        <!-- Card Information bottom row-->
-        <p><%=restaurant.cuisine%></p>
-        <p><%=restaurant.avg_occasion%></p>
-      </div>
-  </div>
-</div>
