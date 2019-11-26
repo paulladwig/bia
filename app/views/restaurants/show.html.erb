@@ -5,19 +5,17 @@
   <h2 class="mt-4"> <%= @restaurant.name %></h2>
 
   <div class="restaurant-show-content mt-4">
-    <%= image_tag "https://media-cdn.tripadvisor.com/media/photo-s/13/8f/1a/fe/c-boaz-arad.jpg", class: " width-100-pc height-100-pc span-1-1" %>
+    <%= cl_image_tag @restaurant.photo, class: " width-100-pc height-100-pc span-1-1" %>
     <%= image_tag "placeholder_map", class: "span-2-1 width-100-pc" %>
     <div class="span-1-3">
-      <div class="width-100-pc d-flex justify-content-between">
-        <button class ="biabutton size-48-pc font-size-awesome"> <i class="fas fa-bullhorn"></i> </button>
-        <button class ="biabutton size-48-pc font-size-awesome"> <i class="fas fa-bookmark"></i> </button>
-      </div>
-      <button class="quick-action block">Share > </button>
-      <button class="quick-action block">Make a reservation > </button>
-      <button class="quick-action block">Suggest an edit > </button>
-      <%= render 'restaurantdetails' %>
+      <%= render 'corebuttons'%>
+      <%= render 'actionbuttons'%>
+      <%= render 'restaurantdetails', restaurant: @restaurant %>
     </div>
-
+    <div class="span-2-3">
+      <h5 class="my-2" >Reviews by your friends</h5>
+      <%= render 'reviewcards', restaurant: @restaurant %>
+    </div>
 
   </div>
 

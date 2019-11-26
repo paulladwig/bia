@@ -12,6 +12,16 @@
   border-top-left-radius: $border-radius;
 }
 
+
+
+// review-card
+
+.review-card {
+  display: flex;
+}
+
+// Card featuring users on landing page
+
 .user-feature-card {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
