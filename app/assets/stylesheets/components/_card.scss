@@ -30,7 +30,15 @@
 }
 
 .user-feature-card-image-full-height {
-  height: 100%;
   width: 100%;
+  height: 256px;
   object-fit: cover;
- }
+}
+
+
+.user-feature-card-image-half-height {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+// grid-template-areas
