@@ -13,8 +13,24 @@
 }
 
 
+
 // review-card
 
 .review-card {
   display: flex;
 }
+
+// Card featuring users on landing page
+
+.user-feature-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr;
+  grid-gap: $spacer*2;
+}
+
+.user-feature-card-image-full-height {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+ }
