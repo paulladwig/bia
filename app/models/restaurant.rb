@@ -3,6 +3,8 @@ class Restaurant < ApplicationRecord
   scope :search_import, -> { includes(:selections) }
   has_many :selections
   has_many :users, through: :selections
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   mount_uploader :photo, PhotoUploader
 
