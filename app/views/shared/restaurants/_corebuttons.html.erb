@@ -1,4 +1,5 @@
-<% bookmarked = Selection.find_by(user: current_user, restaurant: restaurant).bookmarked %>
+<% selection = Selection.find_by(user: current_user, restaurant: restaurant) %>
+<% bookmarked = selection.bookmarked if !selection.nil?%>
 <% if bookmarked %>
   <% active = '-active' %>
 <% else %>

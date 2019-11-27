@@ -9,18 +9,22 @@ class SelectionsController < ApplicationController
     if @selection.save
       redirect_to restaurant_path(@restaurant)
     else
-      @selection_update = Selection.find_by(user: current_user, restaurant: @restaurant)
-      if @selection_update.bookmarked
-        @selection_update.bookmarked = false
-      elsif !@selection_update.bookmarked
-        @selection_update.bookmarked = true
-      end
-      @selection_update.save
+      update_recommended(@restaurant)
+      redirect_to restaurant_path(@restaurant)
     end
     authorize @selection
   end
 
   private
 
+  def update_recommended(restaurant)
+    @selection_update = Selection.find_by(user: current_user, restaurant: restaurant)
+    if @selection_update.bookmarked
+      @selection_update.bookmarked = false
+    elsif !@selection_update.bookmarked
+      @selection_update.bookmarked = true
+    end
+    @selection_update.save
+  end
 
 end
