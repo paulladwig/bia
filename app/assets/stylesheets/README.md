@@ -28,6 +28,7 @@ In your terminal, run the following to install elastic search.
 ```bash
 brew install elasticsearch
 brew services start elasticsearch
+bundle install
 ```
 
 In your rails console run
