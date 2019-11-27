@@ -16,7 +16,9 @@ class Restaurant < ApplicationRecord
     all_selections = self.selections.where(recommended: true)
     all_occassions = 0
     all_selections.each do |selection|
-      all_occassions += selection.occasion
+      if !selection.occasion.nil?
+        all_occassions += selection.occasion
+      end
     end
     self.avg_occasion = all_occassions / all_selections.length
     self.save
@@ -26,7 +28,9 @@ class Restaurant < ApplicationRecord
     all_selections = self.selections.where(recommended: true)
     all_prices = 0
     all_selections.each do |selection|
-      all_prices += selection.price
+      if !selection.occasion.nil?
+        all_prices += selection.price
+      end
     end
     self.avg_price = all_prices / all_selections.length
     self.save
