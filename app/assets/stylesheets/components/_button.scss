@@ -26,6 +26,12 @@
   }
 }
 
+// x-to close button
+.close-button {
+  color: $gmedium;
+  font-size: 20px;
+}
+
 
 // Quick action button / links
 
@@ -56,4 +62,9 @@
 
 .block {
   display: block;
+}
+
+.level-buttons {
+  display: flex;
+  justify-content: space-between;
 }
