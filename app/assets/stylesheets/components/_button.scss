@@ -13,6 +13,20 @@
   }
 }
 
+.biabutton-active {
+  display: inline-block;
+  background-color: $glight;
+  padding: $medium-space $spacer;
+  margin: $medium-space 0;
+  border-width: 0px;
+  border-radius: $border-radius;
+  color: $bmedium;
+  &:hover {
+  color: $gmedium;
+  }
+}
+
+
 // Quick action button / links
 
 .quick-action {
