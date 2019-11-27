@@ -8,5 +8,4 @@ class SelectionPolicy < ApplicationPolicy
   def create?
     true
   end
-
 end

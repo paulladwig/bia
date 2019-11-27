@@ -1,11 +1,8 @@
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5">
-  <div class="index-restaurants-layout">
+   <div class="index-restaurants-layout">
     <h2><%= current_user.name %></h2>
-    <div class="d-flex justify-content-between align-items-center">
-      <h2>Your places</h2>
-      <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
-    </div>
+    <h2>Your Followers</h2>
     <div class="side-filter">
       <div class="card-info">
         <div class="card-profile-image ">
@@ -38,10 +35,10 @@
          </div>
       </div>
     </div>
-    <div class="index-restaurants-grid">
-      <%@own_restaurants.each do |restaurant| %>
-        <%= render 'shared/card', restaurant: restaurant %>
-      <% end %>
-    </div>
+
+    <% @friendships.each do |friendship| %>
+    <%= render 'shared/friendships/card', friendship: friendship %>
+    <% end %>
+
   </div>
 </div>
