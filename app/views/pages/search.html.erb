@@ -1,4 +1,22 @@
 <%= render 'shared/navbar' %>
-<% @found_results.each do |result| %>
-  <p><%= result %></p>
-<% end %>
+<div class="container-bia mt-5 search-page-layout">
+  <h2>Your Places</h2>
+  <div class="index-restaurants-grid-3">
+    <% @your_results.each do |restaurant| %>
+      <%= render 'shared/card', restaurant: restaurant %>
+    <% end %>
+  </div>
+  <h2>Other Places</h2>
+  <div class="search-results-grid">
+    <% @found_results.each do |result| %>
+      <div class="other-search-result-card">
+        <div>
+          <h5 class="mb-2"><%=result[0]%></h5>
+          <p><%=result[1] %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
