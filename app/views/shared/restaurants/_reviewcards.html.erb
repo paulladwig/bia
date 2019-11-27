@@ -1,4 +1,4 @@
-<% @restaurant.selections.each do |selection| %>
+<% @restaurant.selections.where(recommended: true).each do |selection| %>
   <div class="review-card">
     <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
     <div class="core-review">
