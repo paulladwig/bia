@@ -39,8 +39,7 @@ class SelectionsController < ApplicationController
   end
 
   def recommend(params, restaurant, entry)
-    puts params
-    @selection = Selection.new(user: current_user, recommended: true, bookmarked: false, restaurant: restaurant)
+    @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
     if @selection.save
       redirect_to restaurant_path(restaurant)
     else
