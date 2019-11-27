@@ -20,7 +20,7 @@
   margin: 15% auto;
   padding: 20px;
   background-color: $white;
-  border: 1px solid $gmedium;
+  border-radius: $border-radius;
   width: 50%;
   .biabutton:focus {
     color: $bmedium;
