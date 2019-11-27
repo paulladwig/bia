@@ -9,6 +9,10 @@
   </div>
   <div class="index-restaurants-layout">
     <div class="side-filter">
+      <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
+          <%=f.input :query, required: false, label: false, input_html: {class: 'input-field simple_form-align' }%>
+        <%=f.submit "Search", class: "hide" %>
+      <% end %>
     </div>
     <div class="index-restaurants-grid">
       <% @restaurants.each do |restaurant| %>

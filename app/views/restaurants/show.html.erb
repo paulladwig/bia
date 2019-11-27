@@ -2,10 +2,10 @@
 
 <div class="container-bia">
 
-  <h2 class="mt-4"> <%= @restaurant.name %></h2>
+  <h2 class="mt-5"> <%= @restaurant.name %></h2>
 
   <div class="restaurant-show-content mt-4">
-    <%= cl_image_tag @restaurant.photo, class: "width-100-pc height-260 span-1-1 image-rounded-corners" %>
+    <%= cl_image_tag @restaurant.photo, class: "width-100-pc height-260 span-1-1 image-rounded-corners image-cover" %>
     <%= image_tag "placeholder_map", class: "width-100-pc span-2-1 height-260 image-rounded-corners" %>
     <div class="span-1-2">
       <%= render 'shared/restaurants/corebuttons'%>

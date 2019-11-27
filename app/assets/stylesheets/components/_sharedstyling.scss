@@ -1,3 +1,9 @@
+// Classes to format images
+
+.image-cover {
+  object-fit: cover;
+}
+
 // Class to make grey links that turn black (esp. footer)
 .link-grey {
   color: $gmedium;
@@ -58,6 +64,10 @@ input {
   color: black;
   font-size: $h5-font-size;
 }
+
+.small-font {
+    font-size: $font-size-sm;
+  }
 
 .image-rounded-corners {
   border-radius: $border-radius;
