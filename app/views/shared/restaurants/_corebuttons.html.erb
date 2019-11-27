@@ -1,14 +1,10 @@
 <% selection = Selection.find_by(user: current_user, restaurant: restaurant) %>
 <% bookmarked = selection.bookmarked if !selection.nil?%>
-<% if bookmarked %>
-  <% active = '-active' %>
-<% else %>
-  <% active = '' %>
-<% end %>
+<%recommended = selection.recommended if !selection.nil? %>
 
 <div class="width-100-pc d-flex justify-content-between">
-  <button class ="biabutton size-48-pc font-size-awesome" id="open-modal"> <i class="fas fa-bullhorn"></i> </button>
-  <%= link_to(restaurant_selections_path(restaurant), method: :post, class: "size-48-pc biabutton#{active} font-size-awesome text-center") do %>
+  <button class ="biabutton<%="-active" if recommended%> size-48-pc font-size-awesome" id="open-modal"> <i class="fas fa-bullhorn"></i> </button>
+  <%= link_to(restaurant_selections_path(restaurant, bookmark: true), method: :post, class: "size-48-pc biabutton#{"-active" if bookmarked} font-size-awesome text-center") do %>
     <i class='fas fa-bookmark'></i>
   <% end %>
 </div>

@@ -4,7 +4,8 @@
   <%= f.input :occasion %>
   <%= f.input :price %>
   <%= f.input :special %>
-  <%= f.button :submit, class: 'bia-button-highlight' %>
+  <%= f.hidden_field :recommendation, value: true %>
+  <%= f.button :submit, "Post your review", class: 'bia-button-highlight' %>
 <% end %>
 
 
