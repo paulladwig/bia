@@ -1,6 +1,7 @@
 .index-restaurants-layout {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
   grid-gap: $spacer;
 }
 
