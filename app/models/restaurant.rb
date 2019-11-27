@@ -30,7 +30,7 @@ class Restaurant < ApplicationRecord
     all_selections = self.selections.where(recommended: true)
     all_prices = 0
     all_selections.each do |selection|
-      if !selection.occasion.nil?
+      if !selection.price.nil?
         all_prices += selection.price
       end
     end
