@@ -11,10 +11,11 @@
     </div>
     <div class="index-selection-show">
       <% @selections.each do |selection| %>
-        <%= render 'shared/discover_elements', selection: selection %>
+        <%= render 'shared/discover_elements_selections', selection: selection %>
       <% end %>
-
+      <% current_user.friendships_as_receiver.each do |friendship| %>
+        <%= render 'shared/discover_elements_friendships', friendship: friendship %>
+      <% end %>
     </div>
   </div>
-
 </div>

@@ -32,8 +32,12 @@
 .discover-activity-card {
   display: flex;
   align-items: flex-start;
+  &:not(:nth-of-type(1)) {
+    margin-top: $spacer*1.5;
+  }
   .activity-content {
     flex-grow: 1;
-    padding: 0 0 $spacer $spacer;
+    padding: 0 0 $spacer*1.5 $spacer;
+    border-bottom: 1px solid $glight;
   }
 }
