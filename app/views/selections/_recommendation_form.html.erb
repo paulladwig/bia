@@ -1,0 +1,11 @@
+<h3>Recommend <%= restaurant.name %> to your friends</h3>
+<%= simple_form_for([restaurant, selection]) do |f| %>
+  <%= f.input :review %>
+  <%= f.input :occasion %>
+  <%= f.input :price %>
+  <%= f.input :special %>
+  <%= f.button :submit, class: 'biabutton' %>
+  <span class="modal-close biabutton"> Close </span>
+<% end %>
+
+

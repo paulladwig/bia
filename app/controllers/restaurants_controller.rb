@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
+    @new_recommendation = Selection.new
   end
 
 end
