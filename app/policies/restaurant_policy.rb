@@ -6,6 +6,6 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def show?
-    user.record == user
+    true
   end
 end
