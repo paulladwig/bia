@@ -26,27 +26,6 @@
   }
 }
 
-// Card featuring users on landing page
-
-.user-feature-card {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 2fr;
-  grid-gap: $spacer*2;
-}
-
-.user-feature-card-image-full-height {
-  width: 100%;
-  height: 256px;
-  object-fit: cover;
-}
-
-
-.user-feature-card-image-half-height {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
 
 // discover-feed card
 
