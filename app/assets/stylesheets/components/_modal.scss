@@ -17,10 +17,10 @@
 // The modal content
 
 .modal-review-content {
-  margin: 15% auto;
-  padding: 20px;
+  margin: 5% auto;
+  padding: 50px;
   background-color: $white;
-  border: 1px solid $gmedium;
+  border-radius: $border-radius;
   width: 50%;
   .biabutton:focus {
     color: $bmedium;
@@ -31,5 +31,5 @@
 // Close button
 
 .modal-close {
-  float: inline-end;
+  float: right;
 }
