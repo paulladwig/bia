@@ -1,0 +1,47 @@
+<%= render 'shared/navbar' %>
+<div class="container-bia mt-5">
+  <div class="index-restaurants-layout">
+      <h2><%= current_user.name %></h2>
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Your places</h2>
+      <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
+    </div>
+    <div class="side-filter">
+      <div class="card-info">
+        <div class="card-profile-image ">
+          <% if current_user.photo? %>
+             <%= cl_image_tag current_user.photo, class: "avatar-profile" %>
+           <% else %>
+             <%= cl_image_tag 'snmjibatw66rduqpmt3b', class: "avatar-profile" %>
+           <% end %>
+         </div>
+         <div class="card-profile-content pr-4">
+          <div class="following-info profile-info">
+            <%= link_to "Following", '#', class: "pb-1" %>
+            <%= current_user.receivers.count %>
+          </div>
+          <div class="followers-info profile-info">
+            <%= link_to "Followers", '#', class: "pb-1" %>
+            <%= current_user.askers.count %>
+          </div>
+          <div class="recommended-info profile-info">
+            <%= link_to "Recommended", '#', class: "pr-3 pb-1"%>
+            <%= user_recommendations = Selection.where(user: current_user, recommended: true).count %>
+          </div>
+          <div class="saved-info profile-info">
+            <%= link_to "Saved", '#', class: "pb-1" %>
+            <%= user_bookmarked = Selection.where(user: current_user, bookmarked: true).count %>
+          </div>
+          <div class="location-info profile-info">
+            <p>Berlin, Germany</p>
+          </div>
+         </div>
+      </div>
+    </div>
+    <div class="index-restaurants-grid">
+      <%@own_restaurants.each do |restaurant| %>
+        <%= render 'shared/card', restaurant: restaurant %>
+      <% end %>
+    </div>
+  </div>
+</div>
