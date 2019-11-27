@@ -8,7 +8,7 @@
     <%= cl_image_tag @restaurant.photo, class: "width-100-pc height-260 span-1-1 image-rounded-corners image-cover" %>
     <%= image_tag "placeholder_map", class: "width-100-pc span-2-1 height-260 image-rounded-corners" %>
     <div class="span-1-2">
-      <%= render 'shared/restaurants/corebuttons'%>
+      <%= render 'shared/restaurants/corebuttons', restaurant: @restaurant%>
       <%= render 'shared/restaurants/actionbuttons'%>
       <%= render 'shared/restaurants/restaurantdetails', restaurant: @restaurant %>
     </div>
