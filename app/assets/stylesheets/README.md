@@ -7,7 +7,7 @@ rails new APP_NAME --webpack
 
 ## Setup
 
-Ensure you have bootstrap and it's dependencies
+Ensure you have bootstrap and it's dependencie
 
 ```bash
 yarn add bootstrap
@@ -21,6 +21,19 @@ Ensure you have the following gems in your Rails `Gemfile`
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
+```
+
+In your terminal, run the following to install elastic search.
+
+```bash
+brew install elasticsearch
+brew services start elasticsearch
+```
+
+In your rails console run
+
+```
+Restaurnat.reindex
 ```
 
 In your terminal, generate SimpleForm Bootstrap config.
