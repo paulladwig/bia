@@ -1,13 +1,10 @@
 <%= render 'shared/navbar' %>
-<div class="container-bia mt-5">
-  <div class="page-title-1-2">
-    <h2>Search</h2>
+<div class="container-bia mt-5 index-restaurants-layout">
+    <h2 class="text-center">Search</h2>
     <div class="d-flex justify-content-between align-items-center">
       <h2>Recommended Places</h2>
       <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
     </div>
-  </div>
-  <div class="index-restaurants-layout">
     <div class="side-filter">
       <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
           <%=f.input :query, required: false, label: false, input_html: {class: 'input-field simple_form-align' }%>
@@ -19,6 +16,5 @@
         <%= render 'shared/card', restaurant: restaurant %>
       <% end %>
     </div>
-  </div>
 </div>
 
