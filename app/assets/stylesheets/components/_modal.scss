@@ -18,7 +18,7 @@
 
 .modal-review-content {
   margin: 5% auto;
-  padding: 50px;
+  padding: 20px;
   background-color: $white;
   border-radius: $border-radius;
   width: 35%;
@@ -27,9 +27,17 @@
   }
 }
 
+.modal-core-window {
+  padding: 30px;
+}
+
 
 // Close button
 
 .modal-close {
   float: right;
+  color: $glight;
+  &:hover {
+    color: $gmedium;
+  }
 }
