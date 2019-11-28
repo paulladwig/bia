@@ -16,9 +16,19 @@
           </div>
 
           <div class="d-flex align-items-center">
-            <img class="avatar-very-small" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
-            <img class="avatar-very-small image-overlay-left" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
-            <img class="avatar-very-small image-overlay-left" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
+
+            <%array_of_friends = restaurant.get_friends_recommended(current_user)%>
+            <%number_of_friends = array_of_friends.count %>
+            <%if number_of_friends != 0 %>
+              <% array_of_friends.each_with_index do |selection, count| %>
+                <%if count !=  number_of_friends - 1%>
+                  <%class_list = "avatar-very-small"%>
+                <%else%>
+                  <%class_list = "avatar-very-small image-overlay-left"%>
+                <%end%>
+                <%= cl_image_tag selection.user.photo, class: "#{class_list}" %>
+              <% end %>
+            <%end%>
           </div>
         </div>
         <div class="d-flex justify-content-between">
