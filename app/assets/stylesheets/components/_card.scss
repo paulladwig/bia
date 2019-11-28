@@ -3,6 +3,19 @@
   border-radius: $border-radius;
 }
 
+.bottom-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.svg-dropdown {
+  fill: $glight;
+  &:hover {
+    fill: $gmedium;
+  }
+}
+
+
 .card-image {
   height: 150px;
   width: 100%;
