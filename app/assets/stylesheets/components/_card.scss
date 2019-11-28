@@ -16,13 +16,16 @@
 
 .review-card {
   display: flex;
-  align-items: center;
+  align-items: start;
   .core-review {
     flex-grow: 1;
     padding: $spacer 0 $spacer $spacer;
     }
   .core-review{
     border-bottom: 1px solid $glight;
+  }
+  .review-card-avatar{
+    padding-top: $spacer;
   }
 }
 
