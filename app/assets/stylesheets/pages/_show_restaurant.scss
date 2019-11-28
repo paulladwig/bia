@@ -1,8 +1,8 @@
 .restaurant-show-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   grid-gap: $spacer;
+  grid-template-rows: auto;
 }
 
 .font-size-awesome {
