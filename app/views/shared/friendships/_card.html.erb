@@ -1,0 +1,19 @@
+<%= link_to("#") do %>
+  <div class="friedship-card p-2 mb-2">
+    <!-- default friendship card -->
+      <% if user.photo? %>
+        <%= cl_image_tag user.photo, class: "avatar" %>
+      <% else %>
+        <%= cl_image_tag 'snmjibatw66rduqpmt3b', class: "avatar" %>
+      <% end %>
+    <div class="friendship-content ml-2">
+        <h5><%= user.name %> ---Location(ToDO)</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid blanditiis officiis qui corporis sapiente, maiores, quisquam saepe possimus modi.</p>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+<!-- friendship.asker.name -->

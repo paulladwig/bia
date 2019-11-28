@@ -254,7 +254,11 @@ DEPENDENCIES
   rails (= 5.2.3)
   redis
   sassc-rails
+<<<<<<< HEAD
+  searchkick
+=======
   searchkick (~> 4.0.2)
+>>>>>>> master
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

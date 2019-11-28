@@ -1,0 +1,13 @@
+<%= render 'shared/navbar' %>
+<div class="container-bia mt-5">
+  <div class="index-restaurants-layout">
+    <h2><%= current_user.name %></h2>
+    <h2>Following</h2>
+    <%= render 'shared/users/profile_info' %>
+    <div class="test">
+      <% @friendships.each do |friendship| %>
+          <%= render 'shared/friendships/card', user: friendship.receiver %>
+      <% end %>
+    </div>
+  </div>
+</div>

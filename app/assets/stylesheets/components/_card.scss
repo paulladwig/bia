@@ -42,6 +42,17 @@
   }
 }
 
+
+// friendship card for followers and following
+
+
+.friedship-card {
+  display: flex;
+  background-color: $glight;
+  border-radius: $border-radius;
+}
+
+
 // search results card
 
 .other-search-result-card {
