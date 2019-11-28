@@ -12,11 +12,11 @@
         <p class="pb-1"><%= @user.username %></p>
       </div>
       <div class="following-info profile-info">
-        <%= link_to "Following", following_path, class: "pb-1" %>
+        <%= link_to "Following", following_path(@user), class: "pb-1" %>
         <p><%= @user.receivers.count %></p>
       </div>
       <div class="followers-info profile-info">
-        <%= link_to "Followers", followers_path, class: "pb-1" %>
+        <%= link_to "Followers", followers_path(@user), class: "pb-1" %>
         <p><%= @user.askers.count %></p>
       </div>
       <div class="recommended-info profile-info">
