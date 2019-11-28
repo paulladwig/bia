@@ -14,3 +14,19 @@
     margin-bottom: 0px;
   }
 }
+
+.input-field-to-row {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: $spacer;
+}
+
+// .dropdown-toggle::after {
+//     display: none;
+// }
+
+// .dropdown-toggle-ellipsis::before {
+//   display: inline-block;
+//   padding: 0.5rem;
+//   background-image: url('../../images/dropdown_icon.svg');
+// }

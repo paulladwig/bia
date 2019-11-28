@@ -20,9 +20,12 @@
   border-width: 0px;
   border-radius: $border-radius;
   color: $gmedium;
+  display: flex;
+  justify-content: center;
   &:hover {
   color: $bmedium;
   outline: none;
+
   }
 }
 
