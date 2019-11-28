@@ -1,44 +1,13 @@
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5">
-   <div class="index-restaurants-layout">
+  <div class="index-restaurants-layout">
     <h2><%= current_user.name %></h2>
-    <h2>Your Followers</h2>
-    <div class="side-filter">
-      <div class="card-info">
-        <div class="card-profile-image ">
-          <% if current_user.photo? %>
-             <%= cl_image_tag current_user.photo, class: "avatar-profile" %>
-           <% else %>
-             <%= cl_image_tag 'snmjibatw66rduqpmt3b', class: "avatar-profile" %>
-           <% end %>
-         </div>
-         <div class="card-profile-content pr-4">
-          <div class="following-info profile-info">
-            <%= link_to "Following", following_path, class: "pb-1" %>
-            <%= current_user.receivers.count %>
-          </div>
-          <div class="followers-info profile-info">
-            <%= link_to "Followers", followers_path, class: "pb-1" %>
-            <%= current_user.askers.count %>
-          </div>
-          <div class="recommended-info profile-info">
-            <%= link_to "Recommended", '#', class: "pr-3 pb-1"%>
-            <%= user_recommendations = Selection.where(user: current_user, recommended: true).count %>
-          </div>
-          <div class="saved-info profile-info">
-            <%= link_to "Saved", '#', class: "pb-1" %>
-            <%= user_bookmarked = Selection.where(user: current_user, bookmarked: true).count %>
-          </div>
-          <div class="location-info profile-info">
-            <p>Berlin, Germany</p>
-          </div>
-         </div>
-      </div>
+    <h2>Following</h2>
+    <%= render 'shared/users/profile_info' %>
+    <div class="test">
+      <% @friendships.each do |friendship| %>
+          <%= render 'shared/friendships/card', user: friendship.receiver %>
+      <% end %>
     </div>
-
-    <% @friendships.each do |friendship| %>
-    <%= render 'shared/friendships/card', friendship: friendship %>
-    <% end %>
-
   </div>
 </div>
