@@ -22,3 +22,21 @@
 .social-links {
   display: flex;
 }
+
+
+.copy-area {
+  width: 100%;
+  background-color: white;
+  height: 3*$spacer;
+  padding-top: 5px;
+  outline: none;
+}
+
+
+textarea {
+  outline: none;
+}
+
+button {
+  outline: none;
+}

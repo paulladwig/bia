@@ -10,6 +10,7 @@
   color: $gmedium;
   &:hover {
   color: $bmedium;
+  outline: none;
   }
 }
 
@@ -42,6 +43,7 @@
   margin: $medium-space 0;
   padding: 0;
   color: $bdark;
+  outline: none;
   &:hover {
     color: $bmedium;}
 }
