@@ -55,8 +55,8 @@
   border-radius: $border-radius;
   color: $glight;
   &:hover {
-  background-color: $gmedium;
-  color: $glight;
+  background-color: $bdark;
+  color: $white;
   }
 }
 
@@ -108,12 +108,45 @@
   justify-content: space-around;
   align-items: center;
   height: 4*$spacer;
+  .form-check:nth-of-type(1) {
+    label {
+      background-image: url('shoe.svg');
+    }
+    input:checked + label {
+      background-image: url('shoe_selected.svg');
+    }
+  }
+  .form-check:nth-of-type(2) {
+    label {
+      background-image: url('shirt.svg');
+    }
+    input:checked + label {
+      background-image: url('shirt_selected.svg');
+    }
+  }
+  .form-check:nth-of-type(3) {
+    label {
+      background-image: url('sleeveless-dress.svg');
+    }
+    input:checked + label {
+      background-image: url('dress_selected.svg');
+    }
+  }
+  .form-check:nth-of-type(4) {
+    label {
+      background-image: url('necktie.svg');
+    }
+    input:checked + label {
+      background-image: url('necktie_selected.svg');
+    }
+  }
 }
 
 .bia-radio-button .form-check {
   width: 23%;
   padding: 0;
 }
+
 
 .bia-radio-button label {
   width: 100%;
@@ -124,7 +157,6 @@
   text-align: center;
   height: 4*$spacer;
   border-radius:$border-radius;
-  background-image: url('shirt.svg');
   background-size: 35%;
   background-repeat: no-repeat;
   background-position: center 1.1*$small-space;
