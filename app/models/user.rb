@@ -11,4 +11,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def friends?(other_user)
+    if Friendship.where("asker_id  = #{self.id} AND receiver_id = #{other_user.id}") != []
+      return true
+    else
+      return false
+    end
+  end
 end

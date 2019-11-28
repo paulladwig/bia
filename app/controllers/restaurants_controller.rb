@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
     params[:search].presence ? query = params[:search][:query] : query = "*"
     options = {fields: [:name, :cuisine], operator: "or", match: :word_middle}
     @restaurants = policy_scope(Restaurant).search(query, options)
+    @current_user = current_user
   end
 
   def show
@@ -13,6 +14,6 @@ class RestaurantsController < ApplicationController
         lat: @restaurant.latitude,
         lng: @restaurant.longitude
       }
+    @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: current_user.receivers, restaurant: @restaurant))
   end
-
 end
