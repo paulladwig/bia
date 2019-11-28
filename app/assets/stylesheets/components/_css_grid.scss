@@ -1,4 +1,48 @@
 // css grid styling
+
+// setup
+
+.index-restaurants-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: $spacer;
+}
+
+
+.index-restaurants-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-gap: $spacer;
+}
+
+.index-restaurants-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: $spacer;
+}
+
+.search-page-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  grid-template-areas:
+    "your-results"
+    "your-restaurants"
+    "other-results"
+    "other-restaurants";
+  grid-gap: $spacer;
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: $spacer;
+}
+
 // span-column-grid
 
 
@@ -38,4 +82,8 @@
 .span-3-1 {
   grid-column: span 3;
   grid-row: span 1;
+}
+
+.results-grid-3 {
+
 }

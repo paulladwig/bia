@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :selections, only: [:create]
   end
   get '/discover', to: 'selections#index'
+  get '/search', to: 'pages#search', as: 'search'
+
 end

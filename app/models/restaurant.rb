@@ -3,6 +3,8 @@ class Restaurant < ApplicationRecord
   scope :search_import, -> { includes(:selections) }
   has_many :selections
   has_many :users, through: :selections
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   mount_uploader :photo, PhotoUploader
 
@@ -16,7 +18,9 @@ class Restaurant < ApplicationRecord
     all_selections = self.selections.where(recommended: true)
     all_occassions = 0
     all_selections.each do |selection|
-      all_occassions += selection.occasion
+      if !selection.occasion.nil?
+        all_occassions += selection.occasion
+      end
     end
     self.avg_occasion = all_occassions / all_selections.length
     self.save
@@ -26,7 +30,9 @@ class Restaurant < ApplicationRecord
     all_selections = self.selections.where(recommended: true)
     all_prices = 0
     all_selections.each do |selection|
-      all_prices += selection.price
+      if !selection.price.nil?
+        all_prices += selection.price
+      end
     end
     self.avg_price = all_prices / all_selections.length
     self.save

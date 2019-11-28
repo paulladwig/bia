@@ -8,4 +8,11 @@ class SelectionPolicy < ApplicationPolicy
   def create?
     true
   end
+<<<<<<< HEAD
+=======
+
+  def update?
+    true
+  end
+>>>>>>> master
 end

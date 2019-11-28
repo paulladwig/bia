@@ -8,6 +8,11 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
+    @new_recommendation = Selection.new
+    @markers = {
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude
+      }
   end
 
 end
