@@ -353,6 +353,13 @@ selections = [
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Chupenga')
+  },
+  {
+    user: User.find_by(name: 'Joris Kühnast'),
+    bookmarked: true,
+    recommended: false,
+    shared: false,
+    restaurant: Restaurant.find_by(name: 'Chupenga')
   }
   # {
   #   user: User.find_by(name: ''),

@@ -1,0 +1,167 @@
+// Card featuring users on landing page
+
+
+
+.user-feature-card-image-full-height {
+  width: 100%;
+  object-fit: cover;
+  grid-area: image;
+}
+
+.user-feature-card-image-half-height {
+
+}
+
+.user-feature-card-title {
+  grid-area: title;
+}
+.user-feature-card-user {
+  grid-area: user;
+}
+
+.user-feature-card-review {
+  grid-areea: review;
+}
+
+.user-feature-card-image-half-height {
+  width: 100%;
+  object-fit: cover;
+  grid-area: image;
+}
+.user-feature-card{
+  display: grid;
+}
+// user veature card dynamic change
+@media screen and (min-width: $screen-vsm-min) {
+  .user-feature-card-large-photo {
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title"
+      "user"
+      "image"
+      "review";
+    grid-gap: $spacer;
+  }
+  .user-feature-card-image-full-height {
+    height: 300px;
+  }
+  .user-feature-card-small-photo {
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title"
+      "user"
+      "image"
+      "review";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-half-height {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+  .user-feature-card-large-photo {
+    grid-template-columns: 3fr 2fr;
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title"
+      "user image"
+      "review image";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-full-height {
+    height: 300px;
+  }
+  .user-feature-card-small-photo {
+    grid-template-columns: 2fr 3fr;
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title"
+      "image user"
+      "image review";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-half-height {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: $screen-md-min) {
+  .user-feature-card-large-photo{
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title"
+      "user image"
+      "review image";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-full-height {
+    height: 250px;
+  }
+  .user-feature-card-small-photo {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title"
+      "image image"
+      "user review";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-half-height {
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: $screen-lg-min) {
+  .user-feature-card-large-photo {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title image"
+      "user review image";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-full-height {
+    height: 250px;
+  }
+  .user-feature-card-small-photo {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title title"
+      "user image review";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-half-height {
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: $screen-xl-min) {
+  .user-feature-card-large-photo {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title image"
+      "user review image";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-full-height {
+    height: 250px;
+  }
+  .user-feature-card-small-photo {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    grid-template-areas:
+      "title title title"
+      "user image review";
+    grid-gap: $spacer*2;
+  }
+  .user-feature-card-image-half-height {
+    height: 150px;
+  }
+}
+

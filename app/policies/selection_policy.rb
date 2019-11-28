@@ -1,11 +1,15 @@
 class SelectionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user.receivers)
+      scope.where(user: user.receivers).or(scope.where(user: user))
     end
+  end
 
-    def index
-      true
-    end
+  def create?
+    true
+  end
+
+  def update?
+    true
   end
 end

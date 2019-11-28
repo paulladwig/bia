@@ -1,0 +1,19 @@
+<h3 class="mb-3">Recommend <%= restaurant.name %> to your friends</h3>
+<%= simple_form_for([restaurant, selection]) do |f| %>
+  <%= f.input :review, required: true, input_html: {  class: "input-field" }, label_html: {class: "h5-style"} %>
+  <%= f.input :occasion, label_html: {class: "h5-style"} %>
+  <h5 class="mb-2">Price</h5>
+  <div class="bia-radio-bar mb-2">
+    <%= f.input_field :price,
+              as: :radio_buttons,
+              collection: [[1, '€'], [2, '€€'], [3, '€€€' ], [4, '€€€€']],
+              label_method: :second,
+              value_method: :first%>
+  </div>
+  <h5 class="mb-2">Exceptional</h5>
+  <%= f.input_field :special, as: :radio_buttons %>
+  <%= f.hidden_field :recommendation, value: true %>
+  <%= f.button :submit, "Post your review", class: 'bia-button-highlight' %>
+<% end %>
+
+

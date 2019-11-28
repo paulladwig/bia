@@ -13,6 +13,26 @@
   }
 }
 
+.biabutton-active {
+  display: inline-block;
+  background-color: $glight;
+  padding: $medium-space $spacer;
+  margin: $medium-space 0;
+  border-width: 0px;
+  border-radius: $border-radius;
+  color: $bmedium;
+  &:hover {
+  color: $gmedium;
+  }
+}
+
+// x-to close button
+.close-button {
+  color: $gmedium;
+  font-size: 20px;
+}
+
+
 // Quick action button / links
 
 .quick-action {
@@ -29,7 +49,7 @@
 .bia-button-highlight {
   display: inline-block;
   background-color: $bmedium;
-  padding: $spacer $spacer;
+  padding: $medium-space $spacer;
   margin: $medium-space 0;
   border-width: 0px;
   border-radius: $border-radius;
@@ -42,4 +62,37 @@
 
 .block {
   display: block;
+}
+
+.level-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+// radiobutton
+
+.bia-radio-bar {
+  width: 66%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4*$spacer;
+  border: 4px solid $glight;
+  border-radius: $border-radius;
+}
+
+.bia-radio-bar .form-check {
+  width: 25%
+}
+.bia-radio-bar label {
+  width: 100%;
+  padding: $spacer 0 $spacer $spacer;
+}
+.bia-radio-bar input {
+  display: none;
+  padding: 0 $spacer;
+  &:checked + label{
+    color: $bmedium
+  }
 }

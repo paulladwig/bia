@@ -1,6 +1,30 @@
+require 'json'
+require 'open-uri'
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+  end
+
+  def search
+    search_query = search_params[:query]
+    longitude = search_params[:long]
+    latitude = search_params[:lat]
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{latitude},#{longitude}&radius=5000&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    json_sereialized = JSON.parse(open(url).read)
+    @found_results = []
+    json_sereialized["results"].each do |result|
+      @found_results << [result["name"], result["vicinity"]]
+    end
+    params[:search].presence ? query = params[:search][:query] : query = "*"
+    options = {fields: [:name, :cuisine], operator: "or", match: :word_middle}
+    @your_results = policy_scope(Restaurant).search(search_query, options)
+  end
+
+  private
+
+  def search_params
+    params.require(:search).permit(:query, :lat, :long)
   end
 end

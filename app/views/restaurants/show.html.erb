@@ -6,17 +6,25 @@
 
   <div class="restaurant-show-content mt-4">
     <%= cl_image_tag @restaurant.photo, class: "width-100-pc height-260 span-1-1 image-rounded-corners image-cover" %>
-    <%= image_tag "placeholder_map", class: "width-100-pc span-2-1 height-260 image-rounded-corners" %>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 260px;"
+      data-markers="<%= @markers.to_json %>"
+      class = "width-100-pc span-2-1 image-rounded-corners"
+    ></div>
     <div class="span-1-2">
-      <%= render 'shared/restaurants/corebuttons'%>
+      <%= render 'shared/restaurants/corebuttons', restaurant: @restaurant%>
       <%= render 'shared/restaurants/actionbuttons'%>
       <%= render 'shared/restaurants/restaurantdetails', restaurant: @restaurant %>
     </div>
     <div class="span-2-2">
       <h5 class="my-2" >Reviews by your friends</h5>
-      <%= render 'shared/restaurants/reviewcards', restaurant: @restaurant %>
+      <%= render 'shared/restaurants/reviewcards', restaurant: @restaurant%>
     </div>
 
   </div>
 
 </div>
+
+<%= render 'shared/modal_recommend', restaurant: @restaurant, selection: @new_recommendation %>

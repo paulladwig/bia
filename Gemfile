@@ -18,7 +18,8 @@ gem 'webpacker'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
-gem 'searchkick', '~> 3.0'
+gem 'searchkick', '~> 4.0.2'
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

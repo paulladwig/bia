@@ -1,0 +1,9 @@
+<div class="discover-activity-card">
+  <%= cl_image_tag friendship.asker.photo, class: "avatar-large" %>
+  <div class="activity-content">
+    <h5> <%= link_to friendship.asker.name, root_path %> has started following you </h5>
+    <p class="my-2" ><%= friendship.asker.name %> has recommended <%= friendship.asker.selections.length %> restaurants already </p>
+    <p class="small-font mt-2"> Started following you on <%= friendship.created_at.strftime('%a %d %b %Y') %></p>
+
+  </div>
+</div>
