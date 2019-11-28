@@ -22,8 +22,7 @@
             <%if array_of_friends.any? %>
               <%number_of_friends = array_of_friends.count %>
               <% array_of_friends.sample(3).each_with_index do |selection, count| %>
-                <%class_list = "avatar-very-small image-overlay-left"%>
-                <%= cl_image_tag selection.user.photo, class: "#{class_list}" %>
+                  <div class="avatar-very-small image-overlay-left" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
               <% end %>
             <%end%>
           </div>

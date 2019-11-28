@@ -2,7 +2,7 @@
   <div class="card-info">
     <div class="card-profile-image ">
       <% if @user.photo? %>
-        <%= cl_image_tag @user.photo, class: "avatar-profile" %>
+          <div class="avatar-profile" style="background-image: url('<%= cl_image_path @user.photo %>')"></div>
       <% else %>
         <%= cl_image_tag 'profile_picture_unavailable_gwyjic', class: "avatar-profile" %>
       <% end %>
