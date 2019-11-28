@@ -8,13 +8,17 @@ puts 'Destroying all restaurants'
 Restaurant.destroy_all
 
 
-
-used_cuisines_array = ['Italian', 'Asian-inspired', 'Vietnamese', 'German', 'Pizza', 'Fast Food',
-  'Breakfast & Brunch', "Pan Asian", "Kebab", "Burgers", "Sushi Bars", "Mediterranean", "Indian", "Turkish", "Chinese",
-  "Bakeries", "Coffee & Tea", "Thai", "Middle Eastern", "Greek", "Steakhouses", "French", "Patisserie / Cake Shop", "Vegan", "Sandwiches",
-  "Modern European", "Ice Cream & Frozen Yogurt", "Korean", "Mexican", "Japanese", "Arabian", "Salad", "Vegetarian", "Barbeque", "Falafel",
-  "Spanish", "Lebanese", "Austrian", "Seafood", "Soup", "Tapas", "American", "Buffets", "Creperies", "Waffles", "Asian Fusion", "Russian",
-  "Argentine", "Latin American"]
+# add cuisine: "Other" to dropdown
+cuisines_array = ['Italian', 'Asian-inspired', 'Vietnamese', 'German', 'Pizza', 'Fast Food',
+  'Breakfast & Brunch', "Pan Asian", "Kebab", "Burgers", "Sushi Bars", "Mediterranean", "Indian", "Turkish",
+  "Chinese", "Bakeries", "Coffee & Tea", "Thai", "Middle Eastern", "Greek", "Steakhouses", "French",
+  "Patisserie / Cake Shop", "Vegan", "Sandwiches", "Modern European", "Ice Cream & Frozen Yogurt", "Korean",
+  "Mexican", "Japanese", "Arabian", "Salad", "Vegetarian", "Barbeque", "Falafel", "Spanish", "Lebanese",
+  "Austrian", "Seafood", "Soup", "Tapas", "American", "Buffets", "Creperies", "Waffles", "Asian Fusion", "Russian",
+  "Argentine", "Latin American", "Wine Bars", "Cajun" , "Caribbean", "Moroccan", "Swedish", "Latvian", "Scottish",
+  "British", "Russian", "Jewish", "Canadian", "Polish", "Hawaiian", "Brazilian", "Peruvian", "Salvadorian",
+  "Cuban", "Tibetan", "Egyptian", "Belgian", "Irish", "Welsh", "Mormon", "Portuguese", "Haitian",
+  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan"]
 
 puts 'Creating restaurants'
 restaurants = [
