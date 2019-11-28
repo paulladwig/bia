@@ -1,31 +1,28 @@
-<%= link_to(restaurant) do  %>
+<%= link_to(data[:restaurant]) do  %>
   <div class="card-bia">
     <!--Default restaurant Card-->
-     <div class="card-image" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%= cl_image_path restaurant.photo %>')">
+     <div class="card-image d-flex align-items-end" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%= cl_image_path data[:restaurant].photo %>')">
       <!-- card cover image -->
       <div>
         <!-- Contextual hover tag below -->
       </div>
+      <svg width="100%" height="8" viewBox="0 0 800 400" preserveAspectRatio="none">
+        <path d="M 0 0 C 0 0 0 0 250 400 C 350 400 800 0 800 0 L 800 400 L 0 400 L 0 000 A 50 50 0 1 1" fill="#F2F2F2"></path>
+      </svg>
     </div>
-    <div class="px-3 py-2">
+    <div class="px-3 pb-2 pt-2">
       <!-- Card Information box -->
-        <div class="d-flex justify-content-between align-items-center pb-2">
+        <div class="d-flex justify-content-between align-items-center pb-2 height-25-px">
           <!-- Card Information top row-->
           <div class="d-flex align-items-center">
-            <h5 class="h5-style"><%=restaurant.name%></h5>
+            <h5 class="h5-style"><%=data[:restaurant].name%></h5>
           </div>
-
           <div class="d-flex align-items-center">
-
-            <%array_of_friends = restaurant.get_friends_recommended(current_user)%>
-            <%number_of_friends = array_of_friends.count %>
-            <%if number_of_friends != 0 %>
-              <% array_of_friends.each_with_index do |selection, count| %>
-                <%if count !=  number_of_friends - 1%>
-                  <%class_list = "avatar-very-small"%>
-                <%else%>
-                  <%class_list = "avatar-very-small image-overlay-left"%>
-                <%end%>
+            <%array_of_friends = data[:restaurant].get_friends_recommended(current_user).reject{|selection| selection.user == data[:user_to_exclude]}%>
+            <%if array_of_friends.any? %>
+              <%number_of_friends = array_of_friends.count %>
+              <% array_of_friends.sample(3).each_with_index do |selection, count| %>
+                <%class_list = "avatar-very-small image-overlay-left"%>
                 <%= cl_image_tag selection.user.photo, class: "#{class_list}" %>
               <% end %>
             <%end%>
@@ -33,8 +30,8 @@
         </div>
         <div class="d-flex justify-content-between">
           <!-- Card Information bottom row-->
-          <p><%=restaurant.cuisine%></p>
-          <p><%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
+          <p><%=data[:restaurant].cuisine%></p>
+          <p><%= render 'shared/display_avg_occassion', average: data[:restaurant].avg_occasion %></p>
         </div>
     </div>
   </div>
