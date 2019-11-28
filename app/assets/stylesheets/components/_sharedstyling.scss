@@ -93,3 +93,14 @@ input {
   display:flex;
   align-items: center;
 }
+
+textarea {
+  outline: none;
+}
+
+button {
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
