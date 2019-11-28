@@ -70,10 +70,10 @@
 }
 
 
-// radiobutton
+// radiobar with text - (i.e., one field only)
 
 .bia-radio-bar {
-  width: 66%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -83,15 +83,58 @@
 }
 
 .bia-radio-bar .form-check {
-  width: 25%
+  width: 25%;
 }
 .bia-radio-bar label {
   width: 100%;
   padding: $spacer 0 $spacer $spacer;
+  font-size: $h4-font-size;
+  color: $gmedium;
 }
 .bia-radio-bar input {
   display: none;
   padding: 0 $spacer;
+
+  &:checked + label{
+    color: $bmedium
+  }
+}
+
+// radiobuttons with images - (i.e., seperate fields per selection)
+
+.bia-radio-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4*$spacer;
+}
+
+.bia-radio-button .form-check {
+  width: 23%;
+  padding: 0;
+}
+
+.bia-radio-button label {
+  width: 100%;
+  padding-top: 2.6*$spacer ;
+  font-size: $font-size-sm;
+  color: $gmedium;
+  background-color: $glight;
+  text-align: center;
+  height: 4*$spacer;
+  border-radius:$border-radius;
+  background-image: url('shirt.svg');
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: center 1.1*$small-space;
+  object-fit: cover;
+}
+
+.bia-radio-button input {
+  display: none;
+  padding: 0 $spacer;
+
   &:checked + label{
     color: $bmedium
   }
