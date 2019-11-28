@@ -1,6 +1,8 @@
 <% @reviews.where(recommended: true).each do |selection| %>
   <div class="review-card">
-    <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
+    <div class="review-card-avatar">
+      <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
+    </div>
     <div class="core-review">
       <h5 class='my-1'> <%= selection.user.name %> </h5>
       <p class='my-1'> <%= selection.review %> </p>

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def show
     @restaurants = policy_scope(Restaurant)
-    @user = current_user
+    @user = User.find(params[:id])
     authorize @user
-    @own_restaurants = current_user.restaurants
+    @own_restaurants = @user.restaurants
   end
 end
