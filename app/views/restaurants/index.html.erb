@@ -13,7 +13,7 @@
     </div>
     <div class="index-restaurants-grid">
       <% @restaurants.each do |restaurant| %>
-        <%= render 'shared/card', restaurant: restaurant, current_user: @current_user %>
+        <%= render 'shared/card', restaurant: restaurant%>
       <% end %>
     </div>
 </div>
