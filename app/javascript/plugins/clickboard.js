@@ -9,8 +9,11 @@ const copyToClipboard = () => {
 
     try {
       var successful = document.execCommand('copy');
-      var msg = successful ? 'successful' : 'unsuccessful';
+      var msg = successful ? 'Copied! ' : 'Oops, unable to copy';
       console.log('Copying text command was ' + msg);
+      const messageField = document.querySelector('.message-field');
+      console.log(messageField);
+      messageField.innerText = msg;
     } catch (err) {
       console.log('Oops, unable to copy');
     }

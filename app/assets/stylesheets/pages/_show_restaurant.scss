@@ -15,12 +15,23 @@
 
 .social-link {
   color: $gmedium;
-  font-size: $spacer*2.5;
+  font-size: $spacer*2;
   margin-right: $spacer;
+  background-color: $glight;
+  border-radius: $border-radius;
+  padding-top: 7px;
+  &:hover {
+    color: $bmedium;
+  }
+  width: $spacer*3;
+  height: $spacer*3;
+  text-align: center;
 }
 
 .social-links {
   display: flex;
+  align-items: center;
+
 }
 
 
@@ -30,13 +41,12 @@
   height: 3*$spacer;
   padding-top: 5px;
   outline: none;
+  margin-bottom: $spacer;
+  color: $gmedium;
 }
 
-
-textarea {
-  outline: none;
+.message-field {
+  margin-top: $medium-space;
+  font-size: $font-size-sm;
 }
 
-button {
-  outline: none;
-}
