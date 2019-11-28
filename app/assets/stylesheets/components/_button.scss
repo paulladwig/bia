@@ -14,6 +14,18 @@
   }
 }
 
+.biabutton-full-width-center {
+  background-color: $glight;
+  padding: $medium-space $spacer;
+  border-width: 0px;
+  border-radius: $border-radius;
+  color: $gmedium;
+  &:hover {
+  color: $bmedium;
+  outline: none;
+  }
+}
+
 .biabutton-active {
   display: inline-block;
   background-color: $glight;
