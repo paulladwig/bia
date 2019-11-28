@@ -8,9 +8,6 @@
       <% end %>
     </div>
     <div class="card-profile-content pr-4">
-      <div class="username-info profile-info">
-        <p class="pb-1"><%= @user.username %></p>
-      </div>
       <div class="following-info profile-info">
         <%= link_to "Following", following_path(@user), class: "pb-1" %>
         <p><%= @user.receivers.count %></p>
@@ -27,9 +24,13 @@
         <%= link_to "Saved", '#', class: "pb-1" %>
         <p><%= user_bookmarked = Selection.where(user: @user, bookmarked: true).count %></p>
       </div>
+      <div class="button-info profile-info">
+        <%= link_to 'Follow' , '#', class: "biabutton-full-width-center follow-button width-100-pc" %>
+      </div>
     </div>
   </div>
   <div class="location-info profile-info pt-2">
-        <p>Location: <%= @user.location %></p>
+    <p class="pb-1">Username: <%= @user.username %></p>
   </div>
+    <p>Location: <%= @user.location %></p>
 </div>
