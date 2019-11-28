@@ -18,13 +18,17 @@
 
 .modal-review-content {
   margin: 5% auto;
-  padding: 50px;
+  padding: 20px;
   background-color: $white;
   border-radius: $border-radius;
-  width: 50%;
+  width: 35%;
   .biabutton:focus {
     color: $bmedium;
   }
+}
+
+.modal-core-window {
+  padding: 30px;
 }
 
 
@@ -32,4 +36,8 @@
 
 .modal-close {
   float: right;
+  color: $glight;
+  &:hover {
+    color: $gmedium;
+  }
 }

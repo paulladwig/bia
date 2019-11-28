@@ -17,6 +17,17 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password", class: "input-field" } %>
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "name", class: "input-field" },
+                    placeholder: 'How should we call you ?'%>
+        <%= f.input :username,
+                    required: true,
+                    uniqueness: true,
+                    input_html: { autocomplete: "username", class: "input-field" }%>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class: 'biabutton' %>

@@ -137,6 +137,22 @@ restaurants = [
     url: 'https://houseofsmallwonder.de/',
     email: 'info@houseofsmallwonder.de',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776760/hgfcmoafuhjzgmv3xjut.jpg",
+  },
+  {
+    name: "I Due Forni",
+    address: 'Schönhauser Allee 12, 10119 Berlin',
+    cuisine: 'Italian',
+    url: 'https://www.facebook.com/pages/I-Due-Forni/154460154586282',
+    phone_number: '030 44017333',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574951884/photo-1528137871618-79d2761e3fd5_gqnsca.jpg",
+  },
+  {
+    name: "QUA PHE",
+    address: 'Max-Beer-Straße 37, 10119 Berlin',
+    cuisine: 'Vietnamese',
+    url: 'https://www.facebook.com/QuaPheBerlin/',
+    phone_number: '030 97005479',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949646/66332841_2373009932915489_8626682284939935744_o.jpg_gilysd.jpg",
   }
   # {
   #   name: "",
@@ -181,6 +197,48 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790615/bticdxmbk8hxwbqhh5uk.jpg",
     password: '123456',
     password_confirmation: '123456',
+  },
+  {
+    name: 'Frank Maier',
+    email: 'frank@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949292/photo-1544723795-3fb6469f5b39_pl0lde.jpg",
+    password: '123456',
+    password_confirmation: '123456',
+  },
+  {
+    name: 'John Hausmann',
+    email: 'john@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949357/photo-1544098485-2a2ed6da40ba_qsjxmt.jpg",
+    password: '123456',
+    password_confirmation: '123456',
+  },
+  {
+    name: 'Samantha Jonathan',
+    email: 'Samantha@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949967/photo-1541943181603-d8fe267a5dcf_u8xcb5.jpg",
+    password: '123456',
+    password_confirmation: '123456',
+  },
+  {
+    name: 'James Gibson',
+    email: 'James@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574951134/photo-1541647376583-8934aaf3448a_mnsqzu.jpg",
+    password: '123456',
+    password_confirmation: '123456',
+  },
+  {
+    name: 'Janis Sidenburg',
+    email: 'janis@example.com',
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574951671/photo-1548946526-f69e2424cf45_djcoxl.jpg",
+    password: '123456',
+    password_confirmation: '123456',
+  },
+  {
+    name: 'Johanna Frenche',
+    email: 'johanna@example.com',
+    remote_photo_url: "https://images.unsplash.com/photo-1428931996691-a5108d4cdbf5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    password: '123456',
+    password_confirmation: '123456',
   }
   # {
   #   name: '',
@@ -220,6 +278,18 @@ friendships = [
   {
     asker: User.find_by(name: 'Marie Ladwig'),
     receiver: User.find_by(name: 'Joris Kühnast')
+  },
+  {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'John Hausmann')
+  },
+  {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Janis Sidenburg')
+  },
+  {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'James Gibson')
   }
   # {
   #   asker: User.find_by(name: ''),
@@ -360,7 +430,68 @@ selections = [
     recommended: false,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Chupenga')
+  },
+  {
+    user: User.find_by(name: 'John Hausmann'),
+    occasion: 2,
+    price: 2,
+    review: "Really tasty pizza and the place is just cool in general super chill vibe and theerefore ideal for lunch or a casuel dinner.",
+    bookmarked: false,
+    recommended: true,
+    shared: false,
+    restaurant: Restaurant.find_by(name: 'I Due Forni')
+  },
+  {
+    user: User.find_by(name: 'John Hausmann'),
+    occasion: 2,
+    price: 2,
+    review: "I have been going here since they opened in early last year. Its really good and has never dissapointed me, feew can claim that. No matter what you will get you will be satisfied!",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'QUA PHE')
+  },
+  {
+    user: User.find_by(name: 'Samantha Jonathan'),
+    occasion: 2,
+    price: 2,
+    review: "Quiet restaurant with good and not very expensive food. They have mainly polish specialites. The restaurant is nice inside and has very pleasant garden.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'QUA PHE')
+  },
+  {
+    user: User.find_by(name: 'James Gibson'),
+    occasion: 2,
+    price: 2,
+    review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Charlotte 1')
+  },
+  {
+    user: User.find_by(name: 'Samantha Jonathan'),
+    occasion: 2,
+    price: 2,
+    review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.",
+    bookmarked: true,
+    recommended: false,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Charlotte 1')
+  },
+  {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 2,
+    price: 2,
+    review: "Visited on a Sunday evening and managed to get a seat upstairs. Beautiful pizza, wine and service. A real gem and reasonably priced. If you like pizza then you must pay a visit!",
+    bookmarked: false,
+    recommended: true,
+    shared: false,
+    restaurant: Restaurant.find_by(name: 'Charlotte 1')
   }
+
   # {
   #   user: User.find_by(name: ''),
   #   occasion: ,
