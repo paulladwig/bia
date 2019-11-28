@@ -14,6 +14,10 @@
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
+        <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password", class: "input-field" } %>
         <%= f.input :password,
                     hint: "leave it blank if you don't want to change it",
                     required: false,
@@ -21,15 +25,16 @@
         <%= f.input :password_confirmation,
                     required: false,
                     input_html: { autocomplete: "new-password", class: "input-field" } %>
-        <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
-                    required: true,
-                    input_html: { autocomplete: "current-password", class: "input-field" } %>
         <%= f.input :name,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "name", class: "input-field" },
                     placeholder: 'How should we call you ?'%>
+        <%= f.input :location,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "location", class: "input-field" },
+                    placeholder: 'Home'%>
         <%= f.input :username,
                     required: true,
                     uniqueness: true,

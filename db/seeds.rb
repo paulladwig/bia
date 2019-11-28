@@ -181,6 +181,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790595/duh9ek7hpkyd1tuzb5h9.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Hamburg, Germany',
+    username: 'otto_jonetzki',
   },
   {
     name: 'Paul Ladwig',
@@ -188,6 +190,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790606/bp6rt2iolgzazszuuzyy.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Stuttgart, Germany',
+    username: 'paul_ladwig',
   },
   {
     name: 'Marie Ladwig',
@@ -195,6 +199,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790580/ny0rfdfbldyjrkvlherr.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Stuttgart, Germany',
+    username: 'marie_ladwig',
   },
   {
     name: 'Joris Kühnast',
@@ -202,6 +208,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790615/bticdxmbk8hxwbqhh5uk.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Frankfurt am Main, Germany',
+    username: 'joris_kuehnast',
   },
   {
     name: 'Frank Maier',
@@ -209,6 +217,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949292/photo-1544723795-3fb6469f5b39_pl0lde.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Mainz, Germany',
+    username: 'frank_maier',
   },
   {
     name: 'John Hausmann',
@@ -216,6 +226,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949357/photo-1544098485-2a2ed6da40ba_qsjxmt.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'München, Germany',
+    username: 'john_hausmann',
   },
   {
     name: 'Samantha Jonathan',
@@ -223,6 +235,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949967/photo-1541943181603-d8fe267a5dcf_u8xcb5.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Dortmund, Germany',
+    username: 'samantha_jonathan',
   },
   {
     name: 'James Gibson',
@@ -230,6 +244,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574951134/photo-1541647376583-8934aaf3448a_mnsqzu.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Berlin, Germany',
+    username: 'james_gibson',
   },
   {
     name: 'Janis Sidenburg',
@@ -237,6 +253,8 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574951671/photo-1548946526-f69e2424cf45_djcoxl.jpg",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Hannover, Germany',
+    username: 'janis_sidenburg',
   },
   {
     name: 'Johanna Frenche',
@@ -244,6 +262,8 @@ users = [
     remote_photo_url: "https://images.unsplash.com/photo-1428931996691-a5108d4cdbf5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
     password: '123456',
     password_confirmation: '123456',
+    location: 'Bremen, Germany',
+    username: 'johanna_frenche',
   }
   # {
   #   name: '',
