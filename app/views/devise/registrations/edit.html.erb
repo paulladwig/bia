@@ -1,8 +1,11 @@
 <%= render 'shared/navbar' %>
 
-<div class="container-bia">
-  <div class="small-center-container mb-5">
-    <h2 class="mb-4">Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container-bia index-restaurants-layout mt-5">
+  <h2 class="text-center"><%= @user.name %></h2>
+  <h2 class="mb-4">Edit <%= resource_name.to_s.humanize %></h2>
+  <%= render 'shared/users/profile_info' %>
+  <div class="mb-5">
+
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
@@ -14,6 +17,27 @@
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "name", class: "input-field" },
+                    placeholder: 'How should we call you ?'%>
+        <%= f.input :username,
+                    required: true,
+                    uniqueness: true,
+                    input_html: { autocomplete: "username", class: "input-field" }%>
+        <%= f.input :location,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "location", class: "input-field" },
+                    placeholder: 'Home'%>
+        <%= f.input :description,
+                    autofocus: true,
+                    input_html: { autocomplete: "description", class: "input-field" },
+                    placeholder: 'Tell us somethign about yourself...'%>
+        <%= f.input :gender, collection: ['Male', 'Female', 'Other']%>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
         <%= f.input :current_password,
                     hint: "we need your current password to confirm your changes",
                     required: true,
@@ -25,23 +49,6 @@
         <%= f.input :password_confirmation,
                     required: false,
                     input_html: { autocomplete: "new-password", class: "input-field" } %>
-        <%= f.input :name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "name", class: "input-field" },
-                    placeholder: 'How should we call you ?'%>
-        <%= f.input :location,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "location", class: "input-field" },
-                    placeholder: 'Home'%>
-        <%= f.input :username,
-                    required: true,
-                    uniqueness: true,
-                    input_html: { autocomplete: "username", class: "input-field" }%>
-        <%= f.input :gender, collection: ['Male', 'Female', 'Other']%>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
       </div>
 
       <div class="form-actions">
