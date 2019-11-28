@@ -30,6 +30,11 @@
                     autofocus: true,
                     input_html: { autocomplete: "name", class: "input-field" },
                     placeholder: 'How should we call you ?'%>
+        <%= f.input :location,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "location", class: "input-field" },
+                    placeholder: 'Home'%>
         <%= f.input :username,
                     required: true,
                     uniqueness: true,
