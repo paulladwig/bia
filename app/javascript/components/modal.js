@@ -25,7 +25,7 @@ const share_modal = () => {
   const modal = document.getElementById('share-modal');
   const openBtn = document.getElementById('open-share-modal');
   if (openBtn && modal) {
-    const closeBtn = document.querySelector('.modal-close');
+    const closeBtn = document.querySelector('.share-modal-close');
     openBtn.addEventListener('click', (event) => {
       modal.style.display="block";
     });

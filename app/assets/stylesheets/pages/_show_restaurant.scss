@@ -12,3 +12,13 @@
 .height-260 {
   height: 260px;
 }
+
+.social-link {
+  color: $gmedium;
+  font-size: $spacer*2.5;
+  margin-right: $spacer;
+}
+
+.social-links {
+  display: flex;
+}

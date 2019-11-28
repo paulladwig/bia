@@ -1,1 +1,14 @@
-<h1> hi there</h1>
+<h3 class="mb-3">Share <%= restaurant.name %> with your friends </h3>
+
+<div class="social-links">
+<% restaurant_id = restaurant.id %>
+<% url = "https://www.bia-app.com/restaurants/#{restaurant_id}" %>
+<% text= "Check%20out%20this%20restaurant%20I%20found%20on%20Bia!%20" %>
+<div data-href="https://www.bia-app.com/restaurants/8"> <a target="_blank" href= <%= "https://www.facebook.com/sharer/sharer.php?u=#{url}&amp;src=sdkpreparse" %> class="fb-xfbml-parse-ignore"> <i class="fab fa-facebook-square social-link"></i> </a> </div>
+
+<a class="twitter-share-button" target="_blank"
+  href= <%= "https://twitter.com/intent/tweet?text=#{text}&url=#{url}" %>
+  data-size="large">
+<i class="fab fa-twitter-square social-link"></i> </a>
+
+</div>

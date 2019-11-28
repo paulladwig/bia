@@ -20,6 +20,9 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'searchkick', '~> 4.0.2'
 gem 'geocoder'
+gem 'clipboard-rails'
+
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
