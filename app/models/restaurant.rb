@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
-  searchkick word_middle: [:cuisine, :name]
-  scope :search_import, -> { includes(:selections) }
+  searchkick word_middle: [:cuisine, :name, :recommended]
+  scope :search_import, -> { includes(:selections, :users) }
   has_many :selections
   has_many :users, through: :selections
   geocoded_by :address
@@ -10,7 +10,8 @@ class Restaurant < ApplicationRecord
 
   def search_data
     { name: name,
-      cuisine: cuisine
+      cuisine: cuisine,
+      recommended: "#{users.map(&:name).join(' ')}"
     }
   end
 
