@@ -96,4 +96,14 @@ input {
 
 .text-color-black{
   color: black;
+
+textarea {
+  outline: none;
+}
+
+button {
+  outline: none;
+  &:focus {
+    outline: none;
+  }
 }

@@ -8,25 +8,28 @@
       <% end %>
     </div>
     <div class="card-profile-content pr-4">
+      <div class="username-info profile-info">
+        <p class="pb-1"><%= @user.username %></p>
+      </div>
       <div class="following-info profile-info">
         <%= link_to "Following", following_path, class: "pb-1" %>
-        <%= @user.receivers.count %>
+        <p><%= @user.receivers.count %></p>
       </div>
       <div class="followers-info profile-info">
         <%= link_to "Followers", followers_path, class: "pb-1" %>
-        <%= @user.askers.count %>
+        <p><%= @user.askers.count %></p>
       </div>
       <div class="recommended-info profile-info">
         <%= link_to "Recommended", '#', class: "pr-3 pb-1"%>
-        <%= user_recommendations = Selection.where(user: @user, recommended: true).count %>
+        <p><%= user_recommendations = Selection.where(user: @user, recommended: true).count %></p>
       </div>
       <div class="saved-info profile-info">
         <%= link_to "Saved", '#', class: "pb-1" %>
-        <%= user_bookmarked = Selection.where(user: @user, bookmarked: true).count %>
-      </div>
-      <div class="location-info profile-info">
-        <p>Berlin, Germany</p>
+        <p><%= user_bookmarked = Selection.where(user: @user, bookmarked: true).count %></p>
       </div>
     </div>
+  </div>
+  <div class="location-info profile-info pt-2">
+        <p>Location: <%= @user.location %></p>
   </div>
 </div>

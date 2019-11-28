@@ -12,3 +12,41 @@
 .height-260 {
   height: 260px;
 }
+
+.social-link {
+  color: $gmedium;
+  font-size: $spacer*2;
+  margin-right: $spacer;
+  background-color: $glight;
+  border-radius: $border-radius;
+  padding-top: 7px;
+  &:hover {
+    color: $bmedium;
+  }
+  width: $spacer*3;
+  height: $spacer*3;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+
+}
+
+
+.copy-area {
+  width: 100%;
+  background-color: white;
+  height: 3*$spacer;
+  padding-top: 5px;
+  outline: none;
+  margin-bottom: $spacer;
+  color: $gmedium;
+}
+
+.message-field {
+  margin-top: $medium-space;
+  font-size: $font-size-sm;
+}
+
