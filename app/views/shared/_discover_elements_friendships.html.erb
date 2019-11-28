@@ -3,7 +3,7 @@
     <div class="avatar-large" style="background-image: url('<%= cl_image_path friendship.asker.photo %>')"></div>
   <% end %>
   <div class="activity-content">
-    <h5> <%= link_to friendship.asker.name, root_path %> has started following you </h5>
+    <h5> <%= link_to friendship.asker.name, friendship.asker %> has started following you </h5>
     <p class="my-2" ><%= friendship.asker.name %> has recommended <%= friendship.asker.selections.length %> restaurants already </p>
     <p class="small-font mt-2"> Started following you on <%= friendship.created_at.strftime('%a %d %b %Y') %></p>
 
