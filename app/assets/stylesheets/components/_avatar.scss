@@ -2,34 +2,40 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .avatar-small {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
+
 .avatar-large {
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .avatar-profile {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .avatar-bordered {

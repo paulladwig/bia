@@ -4,7 +4,7 @@
     <h2><%= @user.name %></h2>
     <h2>Followers</h2>
     <%= render 'shared/users/profile_info' %>
-    <div class="test">
+    <div>
       <% @friendships.each do |friendship| %>
           <%= render 'shared/friendships/card', user: friendship.asker %>
       <% end %>

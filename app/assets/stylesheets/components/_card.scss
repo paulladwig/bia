@@ -28,8 +28,8 @@
 // review-card
 
 .review-card {
-  display: flex;
-  align-items: start;
+  display: grid;
+  grid-template-columns: 65px 1fr;
   .core-review {
     flex-grow: 1;
     padding: $spacer 0 $spacer $spacer;
@@ -38,7 +38,7 @@
     border-bottom: 1px solid $glight;
   }
   .review-card-avatar{
-    padding-top: $spacer;
+    margin-top: $spacer;
   }
 }
 
@@ -60,17 +60,14 @@
 
 
 // friendship card for followers and following
-
-
 .friedship-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 65px 1fr;
   background-color: $glight;
   border-radius: $border-radius;
 }
 
-
 // search results card
-
 .other-search-result-card {
   background-color: $glight;
   border-radius: $border-radius;

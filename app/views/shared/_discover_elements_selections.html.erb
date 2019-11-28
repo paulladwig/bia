@@ -1,7 +1,8 @@
 <% if selection.recommended? %>
   <div class="discover-activity-card">
-
-    <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
+    <%= link_to(user_path(selection.user.photo)) do %>
+      <div class="avatar-large" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
+    <% end %>
     <div class="activity-content">
       <h5> <%= link_to selection.user.name, root_path  %> recommended <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)  %></h5>
       <p class="my-2"> <%= selection.review %> </p>
@@ -12,7 +13,9 @@
 
 <% elsif selection.bookmarked? %>
   <div class="discover-activity-card">
-    <%= cl_image_tag selection.user.photo, class: "avatar-large" %>
+    <%= link_to(user_path(selection.user.photo)) do %>
+      <div class="avatar-large" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
+    <% end %>
     <div class="activity-content">
       <h5 class="mb-2"> <%= link_to selection.user.name, root_path  %> has bookmarked <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)  %></h5>
       <%= render 'shared/card', data: {restaurant: selection.restaurant} %>
