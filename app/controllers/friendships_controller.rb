@@ -1,11 +1,13 @@
 class FriendshipsController < ApplicationController
   def index_following
-    @friendships = policy_scope(Friendship).where(asker: current_user)
-    authorize @friendships
+    @user = User.find(params[:id])
+    authorize @user
+    @friendships = Friendship.where(asker: @user)
   end
 
   def index_followers
-    @friendships = policy_scope(Friendship).where(receiver: current_user)
-    authorize @friendships
+    @user = User.find(params[:id])
+    authorize @user
+    @friendships = Friendship.where(receiver: @user)
   end
 end

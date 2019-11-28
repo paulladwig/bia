@@ -8,4 +8,12 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def index_following?
+    true
+  end
+
+  def index_followers?
+    true
+  end
 end
