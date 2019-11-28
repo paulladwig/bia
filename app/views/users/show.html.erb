@@ -1,15 +1,23 @@
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5">
   <div class="index-restaurants-layout">
-    <h2 class="text-center"><%= current_user.name %></h2>
+    <h2 class="text-center"><%= @user.name %></h2>
     <div class="d-flex justify-content-between align-items-center">
-      <h2>Your places</h2>
+      <% if @user == @current_user %>
+        <h2>Your places</h2>
+      <% elsif @user.gender == "Female" %>
+        <h2>Her places</h2>
+      <% elsif @user.gender == "Male" %>
+        <h2>His places</h2>
+      <% else %>
+        <h2>Places</h2>
+      <% end %>
       <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
     </div>
-    <%= render 'shared/users/profile_info' %>
+    <%= render 'shared/users/profile_info', user: @user %>
     <div class="index-restaurants-grid">
       <%@own_restaurants.each do |restaurant| %>
-        <%= render 'shared/card', restaurant: restaurant %>
+        <%= render 'shared/card',  restaurant: restaurant %>
       <% end %>
     </div>
   </div>
