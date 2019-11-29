@@ -783,10 +783,6 @@ add_friendships = [
     receiver: User.find_by(name: 'Viete Leker')
   },
   {
-    asker: User.find_by(name: 'Paul Ladwig'),
-    receiver: User.find_by(name: 'Viete Leker')
-  },
-  {
     asker: User.find_by(name: 'Viete Leker'),
     receiver: User.find_by(name: 'Marie Ladwig')
   },
@@ -813,8 +809,14 @@ puts "additional friendships created"
 
 puts "additional review"
 
-Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
-
 puts "additional review dones"
 
 puts 'Completed seeding process'
+
+Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
+
+Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
+
+Selection.create(user: User.find_by(name: "Joris Kühnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
+
+Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
