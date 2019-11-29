@@ -14,7 +14,7 @@
       <% end %>
       <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
     </div>
-    <%= render 'shared/users/profile_info', user: @user %>
+    <%= render 'shared/users/profile_info', user: @user, friendship: @friendship %>
     <div class="index-restaurants-grid">
       <%@own_restaurants.each do |restaurant| %>
         <%= render 'shared/card', data: {restaurant: restaurant} %>
