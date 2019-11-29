@@ -2,12 +2,13 @@
   .container-bia {
     width: 310px;
     margin: 0 auto;
+    background-color: red;
   }
 }
 
 @media screen and (min-width: $screen-vsm-min) {
   .container-bia {
-    width: 371px;
+    width: 310px;
     margin: 0 auto;
   }
 }
@@ -21,7 +22,7 @@
 
 @media screen and (min-width: $screen-md-min) {
   .container-bia {
-    width: 760px;
+    width: 740px;
     margin: 0 auto;
   }
 }

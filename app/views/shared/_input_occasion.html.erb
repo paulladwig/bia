@@ -1,0 +1,8 @@
+<h5 class="mb-2">Occasion</h5>
+<div class="bia-radio-button mb-2">
+  <%= f.input_field :occasion,
+              as: :radio_buttons,
+              collection: [[1, 'on-the-go'], [2, 'casual'], [3, 'evening out' ], [4, 'fine dining']],
+              label_method: :second,
+              value_method: :first %>
+</div>

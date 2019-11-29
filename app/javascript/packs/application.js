@@ -1,5 +1,7 @@
 //= require clipboard
 import "bootstrap";
+require("bootstrap-select");
+
 import {addLinkInNavbarToggle} from '../pages/home.js';
 
 import {copyToClipboard} from '../plugins/clickboard.js'
