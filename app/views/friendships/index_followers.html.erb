@@ -4,7 +4,8 @@
   <div class="index-restaurants-layout">
     <h2><%= @user.name %></h2>
     <h2>Followers</h2>
-    <%= render 'shared/users/profile_info' %>
+    <% user_friendship = Friendship.find_by(asker: current_user, receiver: @user) %>
+    <%= render 'shared/users/profile_info', friendship: user_friendship %>
     <div>
       <% @friendships.each do |friendship| %>
           <%= render 'shared/friendships/card', user: friendship.asker %>
