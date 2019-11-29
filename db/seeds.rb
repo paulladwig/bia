@@ -842,3 +842,5 @@ Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, re
 Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
 
 Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
+
+Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true,restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})
