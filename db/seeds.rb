@@ -722,7 +722,43 @@ selections = [
     shared: true,
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 2,
+    price: 1,
+    review: "On my second trip to Berlin I was looking forward to eating here again. The food selection and atmosphere is as good as it gets!! There is a great buzz and the staff are very helpful and friendly.
+I was unfortunate enough to lose my phone. I re-traced my steps the next day not being very optimistic ... however I was very pleasantly surprised. One of the lovely young ladies working there had found it outside the door and had it in safe keeping for me. A true sign of very good staff.
+If visiting Berlin make sure to visit, you won’t be disappointed.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
+  },
+  {
+    user: User.find_by(name: 'John Hausmann'),
+    occasion: 2,
+    price: 1,
+    review: "Great location with lots of possibilities to move on to other bars. Food was good. Wine was good. Tapas were a bit pricy but quality is excellent.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
+  },
+  {
+    user: User.find_by(name: 'Charlotte Bremer'),
+    occasion: 2,
+    price: 1,
+    review: "Great location with lots of possibilities to move on to other bars. Food was good. Wine was good. Tapas were a bit pricy but quality is excellent.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
   }
+
 
   # {
   #   user: User.find_by(name: ''),
