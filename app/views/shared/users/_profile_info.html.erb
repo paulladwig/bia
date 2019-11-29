@@ -10,11 +10,11 @@
     <div class="card-profile-content pr-4">
       <div class="following-info profile-info">
         <%= link_to "Following", following_path(@user), class: "pb-1" %>
-        <p><%= @user.receivers.count %></p>
+        <p><%= @user.friendships_as_asker.where(active: 1).count %></p>
       </div>
       <div class="followers-info profile-info">
         <%= link_to "Followers", followers_path(@user), class: "pb-1" %>
-        <p><%= @user.askers.count %></p>
+        <p><%= @user.friendships_as_receiver.where(active: 1).count %></p>
       </div>
       <div class="recommended-info profile-info">
         <%= link_to "Recommended", '#', class: "pr-3 pb-1"%>
