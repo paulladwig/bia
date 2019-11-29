@@ -286,6 +286,24 @@ users = [
     password_confirmation: '123456',
     location: 'Muenster, Germany',
     username: 'lisa_mai',
+  },
+  {
+    name: 'Viete Leker',
+    email: 'viete@example.com',
+    remote_photo_url: "https://images.unsplash.com/photo-1566807810030-3eaa60f3e670?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    password: '123456',
+    password_confirmation: '123456',
+    location: 'Potsdam, Germany',
+    username: 'vl1235',
+  },
+  {
+    name: 'Charlotte Bremer',
+    email: 'charlotte@example.com',
+    remote_photo_url: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80",
+    password: '123456',
+    password_confirmation: '123456',
+    location: 'Berlin, Germany',
+    username: 'Charly88',
   }
   # {
   #   name: '',
@@ -437,7 +455,13 @@ friendships = [
   {
     asker: User.find_by(name: 'Frank Maier'),
     receiver: User.find_by(name: 'Marie Ladwig')
-  },
+  },{
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Charlotte Bremer')
+  },{
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Viete Leker')
+  }
   # {
   #   asker: User.find_by(name: ''),
   #   receiver: User.find_by(name: '')
@@ -455,6 +479,7 @@ selections = [
     occasion: 2,
     price: 1,
     review: 'Good restaurant with with low prices as well as competent and fast serviece! Perfect for a quick lunch with a small group of friends.',
+    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
@@ -464,6 +489,7 @@ selections = [
     occasion: 4,
     price: 4,
     review: 'The food was excellent with very fresh ingredients. Staff friendly and helpful. We will definitely be visiting again.',
+    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Tim Raue')
@@ -473,6 +499,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "I love Chupenga. They're remarkably fast, the food is consistent of quality, and they have amazing salsas / hotsauces. All for a decent price!",
+    bookmarked: false,
     recommended: true,
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
@@ -481,6 +508,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: 'Good restaurant. The service is good, and the food was tasty. Reasonable prices as well.',
+    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
@@ -490,6 +518,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: 'Awesome food, fast and extremely friendly service and all for a low price!!',
+    bookmarked: false,
     recommended: true,
     shared: true,
     special: true,
@@ -501,6 +530,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "A warm, cosy place in Berlin. Place is quite small and usually very crowded but I loved the atmosphere there and the food was so delicious and reasonably priced. I'd recommend to anyone looking for some hearty, warm traditional Vietnamese dishes.",
+    bookmarked: false,
     recommended: true,
     shared: true,
     special: true,
@@ -511,6 +541,7 @@ selections = [
     occasion: 2,
     price: 1,
     review: "Great food and low prices!!",
+    bookmarked: false,
     recommended: true,
     shared: true,
     proposed_date: DateTime.parse("2019-02-12 21:00:00 UTC"),
@@ -521,6 +552,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "One of the best vietnamese in the area.",
+    bookmarked: false,
     recommended: true,
     restaurant: Restaurant.find_by(name: 'AVAN')
   },
@@ -529,6 +561,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "Great place for a quick dinner even with large groups",
+    bookmarked: false,
     recommended: true,
     shared: true,
     proposed_date: DateTime.parse("01/12/2019 13:20:00 UTC"),
@@ -539,6 +572,7 @@ selections = [
     occasion: 2,
     price: 1,
     review: "One of the best price to value ratios I have ever seen!",
+    bookmarked: false,
     recommended: true,
     shared: true,
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
@@ -548,7 +582,7 @@ selections = [
     user: User.find_by(name: 'Otto Jonetzki'),
     occasion: 2,
     price: 2,
-    review: "Ok for a qick lunch",
+    review: "Ok for a qick lunch but I would not go here for dinner, mostly because of the atmosphere!",
     recommended: true,
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
@@ -677,7 +711,54 @@ selections = [
     user: User.find_by(name: 'Janis Sidenburg'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
+  },
+  {
+    user: User.find_by(name: 'Viete Leker'),
+    occasion: 2,
+    price: 1,
+    review: "Very tasty and fresh tapas. Soft bottom with so fresh ingredients and vegetables. Very kind lady serving tapas which are cheap, so I really recommend this place.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 2,
+    price: 1,
+    review: "On my second trip to Berlin I was looking forward to eating here again. The food selection and atmosphere is as good as it gets!! There is a great buzz and the staff are very helpful and friendly.
+I was unfortunate enough to lose my phone. I re-traced my steps the next day not being very optimistic ... however I was very pleasantly surprised. One of the lovely young ladies working there had found it outside the door and had it in safe keeping for me. A true sign of very good staff.
+If visiting Berlin make sure to visit, you won’t be disappointed.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
+  },
+  {
+    user: User.find_by(name: 'John Hausmann'),
+    occasion: 2,
+    price: 1,
+    review: "Great location with lots of possibilities to move on to other bars. Food was good. Wine was good. Tapas were a bit pricy but quality is excellent.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
+  },
+  {
+    user: User.find_by(name: 'Charlotte Bremer'),
+    occasion: 2,
+    price: 1,
+    review: "Great location with lots of possibilities to move on to other bars. Food was good. Wine was good. Tapas were a bit pricy but quality is excellent.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
   }
+
 
   # {
   #   user: User.find_by(name: ''),
