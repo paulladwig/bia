@@ -783,10 +783,6 @@ add_friendships = [
     receiver: User.find_by(name: 'Viete Leker')
   },
   {
-    asker: User.find_by(name: 'Paul Ladwig'),
-    receiver: User.find_by(name: 'Viete Leker')
-  },
-  {
     asker: User.find_by(name: 'Viete Leker'),
     receiver: User.find_by(name: 'Marie Ladwig')
   },

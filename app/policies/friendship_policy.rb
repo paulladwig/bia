@@ -17,7 +17,7 @@ class FriendshipPolicy < ApplicationPolicy
     true
   end
 
-  def destroy?
+  def update?
     true
   end
 end
