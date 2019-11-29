@@ -432,6 +432,10 @@ friendships = [
     asker: User.find_by(name: 'James Gibson'),
     receiver: User.find_by(name: 'Frank Maier')
   },
+   {
+    asker: User.find_by(name: 'Frank Maier'),
+    receiver: User.find_by(name: 'Paul Ladwig')
+  },
   {
     asker: User.find_by(name: 'Frank Maier'),
     receiver: User.find_by(name: 'Paul Ladwig')
@@ -687,6 +691,15 @@ selections = [
     shared: false,
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
+   {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 3,
+    price: 3,
+    review: "Very good place for Steak. French fries are crisp and their medium-rare steak is always perfect. If you are looking for a very good, non-experimental steak place, go here.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
+  },
   {
     user: User.find_by(name: 'Frank Maier'),
     occasion: 2,
@@ -752,6 +765,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
   },
   {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 3,
+    price: 3,
+    review: "This is THE best place for steak in my opinion. I always order rare - super good. My favourite sauce is the pepper-cream sauce.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
+  },
+  {
     user: User.find_by(name: 'Charlotte Bremer'),
     occasion: 2,
     price: 1,
@@ -779,6 +801,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
+  },
+  {
+    user: User.find_by(name: 'John Hausmann'),
+    occasion: 3,
+    price: 4,
+    review: "I love Entrecôte! Staff is super friendly and the steak is excellent. It's also really cozy there - ask for a table in the back. The best area in my opinion. I love going here with a small group of friends or my girl friend for a nice dinner. They also have an excellent wine list (especially the reds - given it's a steak place).",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
   }
   # {
   #   user: User.find_by(name: ''),
