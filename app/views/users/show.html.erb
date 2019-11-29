@@ -17,7 +17,7 @@
     <%= render 'shared/users/profile_info', user: @user %>
     <div class="index-restaurants-grid">
       <%@own_restaurants.each do |restaurant| %>
-        <%= render 'shared/card', data: {restaurant: restaurant} %>
+        <%= render 'shared/card', data: {restaurant: restaurant, user_to_exclude: @user} %>
       <% end %>
     </div>
   </div>
