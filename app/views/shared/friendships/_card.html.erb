@@ -7,8 +7,11 @@
         <%= cl_image_tag 'snmjibatw66rduqpmt3b', class: "avatar" %>
       <% end %>
     <div class="friendship-content ml-3">
-        <h5><%= user.name %> -Location(ToDO)</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid blanditiis officiis qui corporis sapiente, maiores, quisquam saepe possimus modi.</p>
+      <div class="d-flex">
+        <h5><%= user.name %></h5>
+        <h5 class="user-location ml-3"><%= user.location %></h5>
+      </div>
+      <p><%= user.description %></p>
     </div>
   </div>
 <% end %>
