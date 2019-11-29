@@ -758,8 +758,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
   }
-
-
   # {
   #   user: User.find_by(name: ''),
   #   occasion: ,
@@ -776,5 +774,47 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
 Selection.create!(selections)
 puts 'Done with selections'
 
+puts 'add additional friendhips'
+
+puts 'Creating friendships'
+add_friendships = [
+  {
+    asker: User.find_by(name: 'Otto Jonetzki'),
+    receiver: User.find_by(name: 'Viete Leker')
+  },
+  {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Viete Leker')
+  },
+  {
+    asker: User.find_by(name: 'Viete Leker'),
+    receiver: User.find_by(name: 'Marie Ladwig')
+  },
+  {
+    asker: User.find_by(name: 'Viete Leker'),
+    receiver: User.find_by(name: 'Joris Kühnast')
+  },
+  {
+    asker: User.find_by(name: 'Viete Leker'),
+    receiver: User.find_by(name: 'Paul Ladwig')
+  },
+  {
+    asker: User.find_by(name: 'Viete Leker'),
+    receiver: User.find_by(name: 'Otto Jonetzki')
+  }
+  # {
+  #   asker: User.find_by(name: ''),
+  #   receiver: User.find_by(name: '')
+  # }
+]
+Friendship.create!(add_friendships)
+
+puts "additional friendships created"
+
+puts "additional review"
+
+Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
+
+puts "additional review dones"
 
 puts 'Completed seeding process'
