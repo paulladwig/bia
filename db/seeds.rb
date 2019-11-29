@@ -433,8 +433,8 @@ friendships = [
     receiver: User.find_by(name: 'Frank Maier')
   },
    {
-    asker: User.find_by(name: 'Frank Maier'),
-    receiver: User.find_by(name: 'Paul Ladwig')
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Frank Maier')
   },
   {
     asker: User.find_by(name: 'Frank Maier'),
@@ -794,15 +794,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
-    user: User.find_by(name: 'Samantha Jonathan'),
-    occasion: 2,
-    price: 2,
-    review: "One of my favourite places for Vietnamese places! The staff is super friendly, the food is fresh, and it is really cozy. I have often come here with friends from out of town and they always love it.",
-    recommended: true,
-    shared: true,
-    restaurant: Restaurant.find_by(name: 'Restaurant Babami')
-  },
-  {
     user: User.find_by(name: 'John Hausmann'),
     occasion: 3,
     price: 4,
@@ -810,7 +801,17 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Entrecôte')
+  },
+  {
+    user: User.find_by(name: 'Samantha Jonathan'),
+    occasion: 2,
+    price: 2,
+    review: "One of my favourite places for Vietnamese places! The staff is super friendly, the food is fresh, and it is really cozy. I have often come here with friends from out of town and they always love it.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   }
+
   # {
   #   user: User.find_by(name: ''),
   #   occasion: ,
