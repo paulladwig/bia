@@ -187,6 +187,7 @@ users = [
     password_confirmation: '123456',
     location: 'Hamburg, Germany',
     username: 'otto_jonetzki',
+    description: 'Some eat to live but I live to eat!!'
   },
   {
     name: 'Paul Ladwig',
@@ -196,6 +197,7 @@ users = [
     password_confirmation: '123456',
     location: 'Stuttgart, Germany',
     username: 'paul_ladwig',
+    description: 'Hipster-friendly Italian cuisine fanatic. General beer specialist. Creator. Food lover.'
   },
   {
     name: 'Marie Ladwig',
@@ -205,6 +207,7 @@ users = [
     password_confirmation: '123456',
     location: 'Stuttgart, Germany',
     username: 'marie_ladwig',
+    description: "Total food aficionado. Reader. Love traditional Japanese cuisine. Professional travel lover."
   },
   {
     name: 'Joris Kühnast',
@@ -214,6 +217,7 @@ users = [
     password_confirmation: '123456',
     location: 'Frankfurt am Main, Germany',
     username: 'joris_kuehnast',
+    description: "Coffee fanatic. Amateur food critic. Junior developer."
   },
   {
     name: 'Frank Maier',
@@ -223,6 +227,7 @@ users = [
     password_confirmation: '123456',
     location: 'Mainz, Germany',
     username: 'frank_maier',
+    description: "Award-winning alcohol practitioner. Passionate food expert."
   },
   {
     name: 'John Hausmann',
@@ -232,6 +237,7 @@ users = [
     password_confirmation: '123456',
     location: 'München, Germany',
     username: 'john_hausmann',
+    description: "Food fan. Lifelong problem solver. Communicator. Organizer. Twitter buff. Total bacon enthusiast. Wannabe beer geek."
   },
   {
     name: 'Samantha Jonathan',
@@ -241,6 +247,7 @@ users = [
     password_confirmation: '123456',
     location: 'Dortmund, Germany',
     username: 'samantha_jonathan',
+    description: "I simply love foor!"
   },
   {
     name: 'James Gibson',
@@ -250,6 +257,7 @@ users = [
     password_confirmation: '123456',
     location: 'Berlin, Germany',
     username: 'james_gibson',
+    description: "By the time I die I want to have eaten every seciality from every country"
   },
   {
     name: 'Janis Sidenburg',
@@ -268,6 +276,7 @@ users = [
     password_confirmation: '123456',
     location: 'Bremen, Germany',
     username: 'johanna_frenche',
+    description: "Alcoholaholic. Lifelong beer aficionado. Coffee scholar. Student. Subtly charming internet fanatic."
   },
   {
     name: 'Lisa Maibach',
@@ -573,8 +582,7 @@ selections = [
     user: User.find_by(name: 'Otto Jonetzki'),
     occasion: 2,
     price: 2,
-    review: "Ok for a qick lunch",
-    bookmarked: true,
+    review: "Ok for a qick lunch but I would not go here for dinner, mostly because of the atmosphere!",
     recommended: true,
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
@@ -583,7 +591,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "I ate here twice when I visited Berlin. I like the food, the concept and the ambience. I ordered from the vegan menu, and it was extremely tasty! The vibe was really cool and chilled.",
-    bookmarked: true,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Chupenga')
@@ -591,7 +598,6 @@ selections = [
   {
     user: User.find_by(name: 'Joris Kühnast'),
     bookmarked: true,
-    recommended: false,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
@@ -600,7 +606,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "Really tasty pizza and the place is just cool in general super chill vibe and theerefore ideal for lunch or a casuel dinner.",
-    bookmarked: false,
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'I Due Forni')
@@ -610,7 +615,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "I have been going here since they opened in early last year. Its really good and has never dissapointed me, feew can claim that. No matter what you will get you will be satisfied!",
-    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'QUA PHE')
@@ -620,7 +624,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "Quiet restaurant with good and not very expensive food. They have mainly polish specialites. The restaurant is nice inside and has very pleasant garden.",
-    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'QUA PHE')
@@ -630,7 +633,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
-    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
@@ -640,7 +642,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.",
-    bookmarked: true,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
@@ -650,7 +651,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "Visited on a Sunday evening and managed to get a seat upstairs. Beautiful pizza, wine and service. A real gem and reasonably priced. If you like pizza then you must pay a visit!",
-    bookmarked: false,
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
@@ -660,7 +660,6 @@ selections = [
     occasion: 1,
     price: 1,
     review: "In my opinion, this is by far the best place for lunch close to Checkpoint Charlie. The pizza is delicious, always fresh and with good ingredients. Makes lunch feel like a trip to Italy!",
-    bookmarked: false,
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
@@ -670,7 +669,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "Very good for lunch, especially if you are hungry. Fresh burritos with ingredients (e.g., lentils) you don't get elsewhere. Especially good for vegetarians!",
-    bookmarked: false,
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Chupenga')
@@ -680,7 +678,6 @@ selections = [
     occasion: 2,
     price: 2,
     review: "Very good Asian food! Even my friends from Vietnam go here a lot! My favourite is the green curry.",
-    bookmarked: false,
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'QUA PHE')
@@ -714,6 +711,17 @@ selections = [
     user: User.find_by(name: 'Janis Sidenburg'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
+  },
+  {
+    user: User.find_by(name: 'Viete Leker'),
+    occasion: 2,
+    price: 1,
+    review: "Very tasty and fresh tapas. Soft bottom with so fresh ingredients and vegetables. Very kind lady serving tapas which are cheap, so I really recommend this place.",
+    bookmarked: false,
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
   }
 
   # {
