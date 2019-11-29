@@ -461,6 +461,10 @@ friendships = [
   },{
     asker: User.find_by(name: 'Paul Ladwig'),
     receiver: User.find_by(name: 'Viete Leker')
+  },
+  {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Samantha Jonathan')
   }
   # {
   #   asker: User.find_by(name: ''),
@@ -483,6 +487,15 @@ selections = [
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
+  },
+  {
+    user: User.find_by(name: 'James Gibson'),
+    occasion: 2,
+    price: 2,
+    review: "I really like this place. The food is fresh and delicious. My favourite is the beef pho.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   },
   {
     user: User.find_by(name: 'Marie Ladwig'),
@@ -757,6 +770,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     shared: true,
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
+  },
+  {
+    user: User.find_by(name: 'Samantha Jonathan'),
+    occasion: 2,
+    price: 2,
+    review: "One of my favourite places for Vietnamese places! The staff is super friendly, the food is fresh, and it is really cozy. I have often come here with friends from out of town and they always love it.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   }
   # {
   #   user: User.find_by(name: ''),
