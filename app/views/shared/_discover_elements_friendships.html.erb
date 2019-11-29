@@ -4,7 +4,7 @@
   <% end %>
   <div class="activity-content">
     <h5> <%= link_to friendship.asker.name, friendship.asker %> has started following you </h5>
-    <p class="my-2" ><%= friendship.asker.name %> has recommended <%= friendship.asker.selections.length %> restaurants already </p>
+    <p class="my-2" > <%= Friendship.where(asker: current_user.receivers).where(receiver: friendship.asker).count %> of the friends you follow also follow <%= friendship.asker.name %> </p>
     <p class="small-font mt-2"> Started following you on <%= friendship.created_at.strftime('%a %d %b %Y') %></p>
 
   </div>
