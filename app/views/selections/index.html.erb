@@ -27,7 +27,8 @@
         <%  if activity.class == Selection %>
           <%= render 'shared/discover_elements_selections', selection: activity %>
         <% elsif activity.class == Friendship %>
-          <%= render 'shared/discover_elements_friendships', friendship: activity %>
+          <% mutual_friends = Friendship.where(asker: current_user.receivers).where(receiver: activity.asker) %>
+          <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
         <% end %>
       <% end %>
     </div>
