@@ -517,6 +517,11 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
   {
+    user: User.find_by(name: 'Frank Maier'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
+  },
+  {
     user: User.find_by(name: 'Otto Jonetzki'),
     occasion: 2,
     price: 2,
@@ -642,15 +647,6 @@ selections = [
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
-    user: User.find_by(name: 'James Gibson'),
-    occasion: 2,
-    price: 2,
-    review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
-    recommended: true,
-    shared: true,
-    restaurant: Restaurant.find_by(name: 'Charlotte 1')
-  },
-  {
     user: User.find_by(name: 'Samantha Jonathan'),
     occasion: 2,
     price: 2,
@@ -678,6 +674,11 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
+  },
+  {
     user: User.find_by(name: 'Frank Maier'),
     occasion: 2,
     price: 2,
@@ -700,12 +701,7 @@ selections = [
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'I Due Forni')
   },
-   {
-    user: User.find_by(name: 'Frank Maier'),
-    bookmarked: true,
-    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
-  },
-    {
+  {
     user: User.find_by(name: 'Lisa Maibach'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'House of Small Wonder')
@@ -715,15 +711,10 @@ selections = [
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
-    {
+  {
     user: User.find_by(name: 'Janis Sidenburg'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: "Let's talk about juice!")
-  },
-    {
-    user: User.find_by(name: 'Janis Sidenburg'),
-    bookmarked: true,
-    restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
   },
   {
     user: User.find_by(name: 'Viete Leker'),
@@ -772,6 +763,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
   },
   {
+    user: User.find_by(name: 'James Gibson'),
+    occasion: 2,
+    price: 2,
+    review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Charlotte 1')
+  },
+  {
     user: User.find_by(name: 'Samantha Jonathan'),
     occasion: 2,
     price: 2,
@@ -805,10 +805,6 @@ add_friendships = [
     receiver: User.find_by(name: 'Viete Leker')
   },
   {
-    asker: User.find_by(name: 'Paul Ladwig'),
-    receiver: User.find_by(name: 'Viete Leker')
-  },
-  {
     asker: User.find_by(name: 'Viete Leker'),
     receiver: User.find_by(name: 'Marie Ladwig')
   },
@@ -829,14 +825,22 @@ add_friendships = [
   #   receiver: User.find_by(name: '')
   # }
 ]
+Selection.create(user: User.find_by(name: "Joris Kühnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
+
 Friendship.create!(add_friendships)
 
 puts "additional friendships created"
 
 puts "additional review"
 
-Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
-
 puts "additional review dones"
 
 puts 'Completed seeding process'
+
+Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
+
+Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
+
+Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
+
+Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true,restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})
