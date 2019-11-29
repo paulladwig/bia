@@ -7,7 +7,19 @@
   </div>
   <div class="index-selections-layout mt-4">
     <div class="side-filter">
-      <p> This is a placeholder for the filter which will come later at some point when it is ready</p>
+      <%= simple_form_for :search, url: discover_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
+          <h5 class="mb-2">Location</h5>
+          <%=f.input :location, required: false, label: false, input_html: {class: 'input-field simple_form-align mb-2 multiselectuser' }%>
+          <h5 class="mb-2">Timeline set-up</h5>
+          <%=f.input :cuisine, as: :select, collection: ["All results", "Recommended restaurants", "Bookmarked restaurants", "Friendships"], required: false, label: false, input_html: {data: {width: '345px', style: "btn-light"},class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"All results"}%>
+        <%=f.submit "Search", class: "hide" %>
+      <% end %>
+
+      <h5 class ="mt-2">Quick Actions</h5>
+      <button class="quick-action block" id="open-share-modal">Places you recommended </button>
+      <button class="quick-action block">Places you saved </button>
+      <button class="quick-action block">Nearby recommended places </button>
+
     </div>
     <div class="index-selection-show">
       <% @selections.each do |selection| %>
