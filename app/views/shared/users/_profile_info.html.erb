@@ -25,7 +25,17 @@
         <p><%= user_bookmarked = Selection.where(user: @user, bookmarked: true).count %></p>
       </div>
       <div class="button-info profile-info">
-        <%= link_to 'Follow' , '#', class: "biabutton-full-width-center follow-button width-100-pc" %>
+        <% if current_user != @user %>
+          <% if friendship %>
+            <% if friendship.active == 1 %>
+              <%= link_to 'Unfollow' , update_follow_path(friendship, active: 0), method: :patch, class: "biabutton-full-width-center follow-button-unfollow width-100-pc" %>
+            <% else %>
+              <%= link_to 'Follow' , update_follow_path(friendship, active: 1), method: :patch, class: "biabutton-full-width-center follow-button-follow width-100-pc" %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Follow' , follow_path(@user), method: :create, class: "biabutton-full-width-center follow-button-follow width-100-pc" %>
+         <% end %>
+        <% end %>
       </div>
     </div>
   </div>
