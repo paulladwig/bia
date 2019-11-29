@@ -101,11 +101,13 @@
 
 .bia-radio-bar .form-check {
   width: 25%;
+  padding-left: 0;
 }
 .bia-radio-bar label {
   width: 100%;
-  padding: $spacer 0 $spacer $spacer;
+  padding: $spacer 0;
   font-size: $h4-font-size;
+  text-align: center;
   color: $gmedium;
 }
 .bia-radio-bar input {

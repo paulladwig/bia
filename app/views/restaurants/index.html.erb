@@ -1,3 +1,4 @@
+<% content_for :meta_title, "BIA - Overview" %>
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5 index-restaurants-layout">
     <h2 class="text-center">Search</h2>
@@ -7,11 +8,11 @@
     </div>
     <div class="side-filter">
       <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
-          <%=f.input :query, required: false, label: false, input_html: {class: 'input-field simple_form-align mb-2' }%>
+          <%=f.input :query, required: false, label: false, placeholder: "Restaurant name, cuisine...", input_html: {class: 'input-field simple_form-align mb-2'}%>
           <h5 class="mb-2">Location</h5>
-          <%=f.input :location, required: false, label: false, input_html: {class: 'input-field simple_form-align mb-2 multiselectuser' }%>
+          <%=f.input :location, required: false, label: false, placeholder: "Location of places", input_html: {class: 'input-field simple_form-align mb-2 multiselectuser'}%>
           <h5 class="mb-2">Cuisine</h5>
-          <%=f.input :cuisine, as: :select, collection: @cuisines, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"},class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
+          <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"},class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
           <%= render 'shared/input_occasion', f: f %>
           <%= render 'shared/input_price', f: f %>
         <%=f.submit "Search", class: "hide" %>
@@ -23,4 +24,3 @@
       <% end %>
     </div>
 </div>
-

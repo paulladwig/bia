@@ -1,20 +1,9 @@
 class RestaurantsController < ApplicationController
-  CUISINES = ['Italian', 'Asian-inspired', 'Vietnamese', 'German', 'Pizza', 'Fast Food',
-  'Breakfast & Brunch', "Pan Asian", "Kebab", "Burgers", "Sushi Bars", "Mediterranean", "Indian", "Turkish",
-  "Chinese", "Bakeries", "Coffee & Tea", "Thai", "Middle Eastern", "Greek", "Steakhouses", "French",
-  "Patisserie / Cake Shop", "Vegan", "Sandwiches", "Modern European", "Ice Cream & Frozen Yogurt", "Korean",
-  "Mexican", "Japanese", "Arabian", "Salad", "Vegetarian", "Barbeque", "Falafel", "Spanish", "Lebanese",
-  "Austrian", "Seafood", "Soup", "Tapas", "American", "Buffets", "Creperies", "Waffles", "Asian Fusion", "Russian",
-  "Argentine", "Latin American", "Wine Bars", "Cajun" , "Caribbean", "Moroccan", "Swedish", "Latvian", "Scottish",
-  "British", "Russian", "Jewish", "Canadian", "Polish", "Hawaiian", "Brazilian", "Peruvian", "Salvadorian",
-  "Cuban", "Tibetan", "Egyptian", "Belgian", "Irish", "Welsh", "Mormon", "Portuguese", "Haitian",
-  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan"]
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
-    options = {fields: [:name, :cuisine, :recommended], operator: "or", match: :word_middle}
+    options = {fields: ["name^10", :cuisine, :recommended], operator: "or", match: :word_middle, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
     @restaurants = policy_scope(Restaurant).search(query, options)
     @current_user = current_user
-    @cuisines = CUISINES
   end
 
   def show
@@ -27,4 +16,22 @@ class RestaurantsController < ApplicationController
       }
     @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: current_user.receivers, restaurant: @restaurant))
   end
+
+  private
+  def reciever_restaurants
+    receivers = current_user.receivers
+    all_selections = []
+    restaurants = []
+    receivers.each { |receiver| all_selections << receiver.selections }
+    all_selections.each do |user_selections|
+      current_restaurants = []
+      user_selections.each do |selection|
+        if selection.recommended == true
+          restaurants << selection.restaurant
+        end
+      end
+    end
+    restaurants.map! { |restaurant| restaurant.id}
+  end
+
 end

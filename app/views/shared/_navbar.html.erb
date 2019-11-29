@@ -15,7 +15,7 @@
         <% if user_signed_in? %>
           <li class="">
               <%= simple_form_for :search, url: search_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
-                  <%=f.input :query, required: false, label: false, input_html: {class: 'input-field simple_form-align' }%>
+                  <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field simple_form-align' }%>
                   <%=f.input :lat, required: false, label: false, input_html: {value: '1', class: 'hide', id: 'latitude-hidden' }%>
                   <%=f.input :long, required: false, label: false, input_html: {value: '1', class: 'hide', id: 'longitude-hidden' }%>
                   <%=f.submit "Search", class: "hide" %>

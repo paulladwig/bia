@@ -1,3 +1,4 @@
+<% content_for :meta_title, "BIA - #{@user.name}'s Profile" %>
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5">
   <div class="index-restaurants-layout">
@@ -17,7 +18,7 @@
     <%= render 'shared/users/profile_info', user: @user, friendship: @friendship %>
     <div class="index-restaurants-grid">
       <%@own_restaurants.each do |restaurant| %>
-        <%= render 'shared/card', data: {restaurant: restaurant} %>
+        <%= render 'shared/card', data: {restaurant: restaurant, user_to_exclude: @user} %>
       <% end %>
     </div>
   </div>

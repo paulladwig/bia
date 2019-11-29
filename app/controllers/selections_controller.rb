@@ -1,6 +1,9 @@
 class SelectionsController < ApplicationController
   def index
     @selections = policy_scope(Selection).where(user: current_user.receivers)
+    @friendships = current_user.friendships_as_receiver
+    combined_activities = @selections + @friendships
+    @all_activities = combined_activities.sort_by { |activity| activity.updated_at }.reverse_each
   end
 
   def create
@@ -40,6 +43,7 @@ class SelectionsController < ApplicationController
 
   def recommend(params, restaurant, entry)
     @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
+    @selection.update(params)
     if @selection.save
       redirect_to restaurant_path(restaurant)
     else
