@@ -92,7 +92,7 @@ restaurants = [
     cuisine: 'Italian',
     url: 'http://www.sale-e-tabacchi.de/',
     email: 'mail@sale-e-tabacchi.de',
-    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776836/x25kxmw9siqyho2uppn2.jpg",
+    remote_photo_url: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80",
   },
   {
     name: "Kori & Fay",
