@@ -268,6 +268,15 @@ users = [
     password_confirmation: '123456',
     location: 'Bremen, Germany',
     username: 'johanna_frenche',
+  },
+  {
+    name: 'Lisa Maibach',
+    email: 'lisa@example.com',
+    remote_photo_url: "https://images.unsplash.com/photo-1528914457842-1af67b57139d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    password: '123456',
+    password_confirmation: '123456',
+    location: 'Muenster, Germany',
+    username: 'lisa_mai',
   }
   # {
   #   name: '',
@@ -289,6 +298,10 @@ friendships = [
     receiver: User.find_by(name: 'Paul Ladwig')
   },
   {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Otto Jonetzki')
+  },
+  {
     asker: User.find_by(name: 'Otto Jonetzki'),
     receiver: User.find_by(name: 'Marie Ladwig')
   },
@@ -297,8 +310,16 @@ friendships = [
     receiver: User.find_by(name: 'Joris Kühnast')
   },
   {
+    asker: User.find_by(name: 'Joris Kühnast'),
+    receiver: User.find_by(name: 'Otto Jonetzki')
+  },
+  {
     asker: User.find_by(name: 'Paul Ladwig'),
     receiver: User.find_by(name: 'Marie Ladwig')
+  },
+  {
+    asker: User.find_by(name: 'Marie Ladwig'),
+    receiver: User.find_by(name: 'Paul Ladwig')
   },
   {
     asker: User.find_by(name: 'Paul Ladwig'),
@@ -319,7 +340,95 @@ friendships = [
   {
     asker: User.find_by(name: 'Paul Ladwig'),
     receiver: User.find_by(name: 'James Gibson')
-  }
+  },
+  {
+    asker: User.find_by(name: 'Lisa Maibach'),
+    receiver: User.find_by(name: 'James Gibson')
+  },
+  {
+    asker: User.find_by(name: 'James Gibson'),
+    receiver: User.find_by(name: 'Lisa Maibach')
+  },
+  {
+    asker: User.find_by(name: 'Lisa Maibach'),
+    receiver: User.find_by(name: 'Paul Ladwig')
+  },
+  {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Lisa Maibach')
+  },
+  {
+    asker: User.find_by(name: 'Lisa Maibach'),
+    receiver: User.find_by(name: 'John Hausmann')
+  },
+  {
+    asker: User.find_by(name: 'John Hausmann'),
+    receiver: User.find_by(name: 'Lisa Maibach')
+  },
+  {
+    asker: User.find_by(name: 'Lisa Maibach'),
+    receiver: User.find_by(name: 'Joris Kühnast')
+  },
+  {
+    asker: User.find_by(name: 'Joris Kühnast'),
+    receiver: User.find_by(name: 'Lisa Maibach')
+  },
+   {
+    asker: User.find_by(name: 'Johanna Frenche'),
+    receiver: User.find_by(name: 'Joris Kühnast')
+  },
+  {
+    asker: User.find_by(name: 'Joris Kühnast'),
+    receiver: User.find_by(name: 'Johanna Frenche')
+  },
+   {
+    asker: User.find_by(name: 'John Hausmann'),
+    receiver: User.find_by(name: 'Joris Kühnast')
+  },
+  {
+    asker: User.find_by(name: 'Joris Kühnast'),
+    receiver: User.find_by(name: 'Janis Sidenburg')
+  },
+   {
+    asker: User.find_by(name: 'James Gibson'),
+    receiver: User.find_by(name: 'Joris Kühnast')
+  },
+  {
+    asker: User.find_by(name: 'Joris Kühnast'),
+    receiver: User.find_by(name: 'James Gibson')
+  },
+  {
+    asker: User.find_by(name: 'Frank Maier'),
+    receiver: User.find_by(name: 'James Gibson')
+  },
+  {
+    asker: User.find_by(name: 'James Gibson'),
+    receiver: User.find_by(name: 'Frank Maier')
+  },
+  {
+    asker: User.find_by(name: 'Frank Maier'),
+    receiver: User.find_by(name: 'Paul Ladwig')
+  },
+  {
+    asker: User.find_by(name: 'Frank Maier'),
+    receiver: User.find_by(name: 'Lisa Maibach')
+  },
+  {
+    asker: User.find_by(name: 'Frank Maier'),
+    receiver: User.find_by(name: 'John Hausmann')
+  },
+  {
+    asker: User.find_by(name: 'John Hausmann'),
+    receiver: User.find_by(name: 'Frank Maier')
+  },
+  {
+    asker: User.find_by(name: 'Frank Maier'),
+    receiver: User.find_by(name: 'Joris Kühnast')
+  },
+  {
+    asker: User.find_by(name: 'Frank Maier'),
+    receiver: User.find_by(name: 'Marie Ladwig')
+  },
   # {
   #   asker: User.find_by(name: ''),
   #   receiver: User.find_by(name: '')
@@ -411,6 +520,7 @@ selections = [
     price: 2,
     review: "One of the best vietnamese in the area.",
     bookmarked: true,
+    recommended: true,
     restaurant: Restaurant.find_by(name: 'AVAN')
   },
   {
@@ -441,6 +551,7 @@ selections = [
     price: 2,
     review: "Ok for a qick lunch",
     bookmarked: true,
+    recommended: true,
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
   {
@@ -506,7 +617,7 @@ selections = [
     price: 2,
     review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.",
     bookmarked: true,
-    recommended: false,
+    recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
@@ -519,6 +630,66 @@ selections = [
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 1,
+    price: 1,
+    review: "In my opinion, this is by far the best place for lunch close to Checkpoint Charlie. The pizza is delicious, always fresh and with good ingredients. Makes lunch feel like a trip to Italy!",
+    bookmarked: false,
+    recommended: true,
+    shared: false,
+    restaurant: Restaurant.find_by(name: 'Charlotte 1')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 2,
+    price: 2,
+    review: "Very good for lunch, especially if you are hungry. Fresh burritos with ingredients (e.g., lentils) you don't get elsewhere. Especially good for vegetarians!",
+    bookmarked: false,
+    recommended: true,
+    shared: false,
+    restaurant: Restaurant.find_by(name: 'Chupenga')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 2,
+    price: 2,
+    review: "Very good Asian food! Even my friends from Vietnam go here a lot! My favourite is the green curry.",
+    bookmarked: false,
+    recommended: true,
+    shared: false,
+    restaurant: Restaurant.find_by(name: 'QUA PHE')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'I Due Forni')
+  },
+   {
+    user: User.find_by(name: 'Frank Maier'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
+  },
+    {
+    user: User.find_by(name: 'Lisa Maibach'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
+  },
+   {
+    user: User.find_by(name: 'Joris Kühnast'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
+  },
+    {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: "Let's talk about juice!")
+  },
+    {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
   }
 
   # {
