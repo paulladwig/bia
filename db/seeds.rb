@@ -277,6 +277,24 @@ users = [
     password_confirmation: '123456',
     location: 'Muenster, Germany',
     username: 'lisa_mai',
+  },
+  {
+    name: 'Viete Leker',
+    email: 'viete@example.com',
+    remote_photo_url: "https://images.unsplash.com/photo-1566807810030-3eaa60f3e670?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    password: '123456',
+    password_confirmation: '123456',
+    location: 'Potsdam, Germany',
+    username: 'vl1235',
+  },
+  {
+    name: 'Charlotte Bremer',
+    email: 'charlotte@example.com',
+    remote_photo_url: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80",
+    password: '123456',
+    password_confirmation: '123456',
+    location: 'Berlin, Germany',
+    username: 'Charly88',
   }
   # {
   #   name: '',
@@ -428,7 +446,13 @@ friendships = [
   {
     asker: User.find_by(name: 'Frank Maier'),
     receiver: User.find_by(name: 'Marie Ladwig')
-  },
+  },{
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Charlotte Bremer')
+  },{
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Viete Leker')
+  }
   # {
   #   asker: User.find_by(name: ''),
   #   receiver: User.find_by(name: '')
@@ -446,7 +470,7 @@ selections = [
     occasion: 2,
     price: 1,
     review: 'Good restaurant with with low prices as well as competent and fast serviece! Perfect for a quick lunch with a small group of friends.',
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
@@ -456,7 +480,7 @@ selections = [
     occasion: 4,
     price: 4,
     review: 'The food was excellent with very fresh ingredients. Staff friendly and helpful. We will definitely be visiting again.',
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Tim Raue')
@@ -466,7 +490,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "I love Chupenga. They're remarkably fast, the food is consistent of quality, and they have amazing salsas / hotsauces. All for a decent price!",
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
@@ -475,7 +499,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: 'Good restaurant. The service is good, and the food was tasty. Reasonable prices as well.',
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
@@ -485,7 +509,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: 'Awesome food, fast and extremely friendly service and all for a low price!!',
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     special: true,
@@ -497,7 +521,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "A warm, cosy place in Berlin. Place is quite small and usually very crowded but I loved the atmosphere there and the food was so delicious and reasonably priced. I'd recommend to anyone looking for some hearty, warm traditional Vietnamese dishes.",
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     special: true,
@@ -508,7 +532,7 @@ selections = [
     occasion: 2,
     price: 1,
     review: "Great food and low prices!!",
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     proposed_date: DateTime.parse("2019-02-12 21:00:00 UTC"),
@@ -519,7 +543,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "One of the best vietnamese in the area.",
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     restaurant: Restaurant.find_by(name: 'AVAN')
   },
@@ -528,7 +552,7 @@ selections = [
     occasion: 2,
     price: 2,
     review: "Great place for a quick dinner even with large groups",
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     proposed_date: DateTime.parse("01/12/2019 13:20:00 UTC"),
@@ -539,7 +563,7 @@ selections = [
     occasion: 2,
     price: 1,
     review: "One of the best price to value ratios I have ever seen!",
-    bookmarked: true,
+    bookmarked: false,
     recommended: true,
     shared: true,
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
