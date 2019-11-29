@@ -19,7 +19,7 @@
     <div class="activity-content">
       <h5 class="mb-2"> <%= link_to selection.user.name, selection.user%> has bookmarked <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)  %></h5>
       <%= render 'shared/card', data: {restaurant: selection.restaurant} %>
-      <p class="small-font mt-3"> Bookemarked on <%= selection.created_at.strftime('%a %d %b %Y') %></p>
+      <p class="small-font mt-3"> Bookmarked on <%= selection.created_at.strftime('%a %d %b %Y') %></p>
     </div>
   </div>
 <% end %>

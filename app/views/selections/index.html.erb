@@ -22,11 +22,12 @@
 
     </div>
     <div class="index-selection-show">
-      <% @selections.each do |selection| %>
-        <%= render 'shared/discover_elements_selections', selection: selection %>
-      <% end %>
-      <% current_user.friendships_as_receiver.each do |friendship| %>
-        <%= render 'shared/discover_elements_friendships', friendship: friendship %>
+      <% @all_activities.each do |activity| %>
+        <%  if activity.class == Selection %>
+          <%= render 'shared/discover_elements_selections', selection: activity %>
+        <% elsif activity.class == Friendship %>
+          <%= render 'shared/discover_elements_friendships', friendship: activity %>
+        <% end %>
       <% end %>
     </div>
   </div>
