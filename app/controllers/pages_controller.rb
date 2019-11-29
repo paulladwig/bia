@@ -22,8 +22,8 @@ class PagesController < ApplicationController
     end
     params[:search].presence ? query = params[:search][:query] : query = "*"
     options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
-    @your_restaurants = policy_scope(Restaurant).search(search_query, options).hits
-    @your_users = policy_scope(User).search(search_query, options).hits
+    @your_restaurants = policy_scope(Restaurant).search(search_query, options)
+    @your_users = policy_scope(User).search(search_query, options)
   end
 
   private

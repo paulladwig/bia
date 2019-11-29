@@ -2,7 +2,7 @@
 <div class="container-bia mt-5 search-page-layout">
   <h2>Your Places</h2>
   <div class="index-restaurants-grid-3">
-    <% @your_results.each do |restaurant| %>
+    <% @your_restaurants.each do |restaurant| %>
       <%= render 'shared/card', data: {restaurant: restaurant} %>
     <% end %>
   </div>
