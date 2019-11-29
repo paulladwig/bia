@@ -92,7 +92,7 @@ restaurants = [
     cuisine: 'Italian',
     url: 'http://www.sale-e-tabacchi.de/',
     email: 'mail@sale-e-tabacchi.de',
-    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776836/x25kxmw9siqyho2uppn2.jpg",
+    remote_photo_url: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80",
   },
   {
     name: "Kori & Fay",
@@ -478,6 +478,10 @@ friendships = [
     asker: User.find_by(name: 'James Gibson'),
     receiver: User.find_by(name: 'Frank Maier')
   },
+   {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Frank Maier')
+  },
   {
     asker: User.find_by(name: 'Frank Maier'),
     receiver: User.find_by(name: 'Paul Ladwig')
@@ -507,6 +511,10 @@ friendships = [
   },{
     asker: User.find_by(name: 'Paul Ladwig'),
     receiver: User.find_by(name: 'Viete Leker')
+  },
+  {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Samantha Jonathan')
   }
   # {
   #   asker: User.find_by(name: ''),
@@ -531,6 +539,15 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
+    user: User.find_by(name: 'James Gibson'),
+    occasion: 2,
+    price: 2,
+    review: "I really like this place. The food is fresh and delicious. My favourite is the beef pho.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Restaurant Babami')
+  },
+  {
     user: User.find_by(name: 'Marie Ladwig'),
     occasion: 4,
     price: 4,
@@ -548,6 +565,11 @@ selections = [
     bookmarked: false,
     recommended: true,
     restaurant: Restaurant.find_by(name: 'Chupenga')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
   },
   {
     user: User.find_by(name: 'Otto Jonetzki'),
@@ -675,15 +697,6 @@ selections = [
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
-    user: User.find_by(name: 'James Gibson'),
-    occasion: 2,
-    price: 2,
-    review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
-    recommended: true,
-    shared: true,
-    restaurant: Restaurant.find_by(name: 'Charlotte 1')
-  },
-  {
     user: User.find_by(name: 'Samantha Jonathan'),
     occasion: 2,
     price: 2,
@@ -711,6 +724,11 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
+  },
+  {
     user: User.find_by(name: 'Frank Maier'),
     occasion: 2,
     price: 2,
@@ -718,6 +736,15 @@ selections = [
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Chupenga')
+  },
+   {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 3,
+    price: 3,
+    review: "Very good place for Steak. French fries are crisp and their medium-rare steak is always perfect. If you are looking for a very good, non-experimental steak place, go here.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
     user: User.find_by(name: 'Frank Maier'),
@@ -733,12 +760,7 @@ selections = [
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'I Due Forni')
   },
-   {
-    user: User.find_by(name: 'Frank Maier'),
-    bookmarked: true,
-    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
-  },
-    {
+  {
     user: User.find_by(name: 'Lisa Maibach'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'House of Small Wonder')
@@ -748,15 +770,10 @@ selections = [
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
-    {
+  {
     user: User.find_by(name: 'Janis Sidenburg'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: "Let's talk about juice!")
-  },
-    {
-    user: User.find_by(name: 'Janis Sidenburg'),
-    bookmarked: true,
-    restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
   },
   {
     user: User.find_by(name: 'Viete Leker'),
@@ -792,6 +809,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     shared: true,
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
+  },
+  {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 3,
+    price: 3,
+    review: "This is THE best place for steak in my opinion. I always order rare - super good. My favourite sauce is the pepper-cream sauce.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
     user: User.find_by(name: 'Charlotte Bremer'),
@@ -831,6 +857,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Otito Vietnamese Food')
+  },
+  {
+    user: User.find_by(name: 'James Gibson'),
+    occasion: 2,
+    price: 2,
+    review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
     user: User.find_by(name: 'John Hausmann'),
@@ -878,7 +913,26 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     recommended: true,
     shared: true,
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
+  },
+  {
+    user: User.find_by(name: 'Joris Kühnast'),
+    occasion: 2,
+    price: 4,
+    review: "I love Entrecôte! Staff is super friendly and the steak is excellent. It's also really cozy there - ask for a table in the back. The best area in my opinion. I love going here with a small group of friends or my girl friend for a nice dinner. They also have an excellent wine list (especially the reds - given it's a steak place).",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
+  },
+  {
+    user: User.find_by(name: 'Samantha Jonathan'),
+    occasion: 2,
+    price: 2,
+    review: "One of my favourite places for Vietnamese places! The staff is super friendly, the food is fresh, and it is really cozy. I have often come here with friends from out of town and they always love it.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   }
+
   # {
   #   user: User.find_by(name: ''),
   #   occasion: ,
@@ -924,14 +978,22 @@ add_friendships = [
   #   receiver: User.find_by(name: '')
   # }
 ]
+Selection.create(user: User.find_by(name: "Joris Kühnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
+
 Friendship.create!(add_friendships)
 
 puts "additional friendships created"
 
 puts "additional review"
 
-Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
-
 puts "additional review dones"
 
 puts 'Completed seeding process'
+
+Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
+
+Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
+
+Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
+
+Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true,restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})
