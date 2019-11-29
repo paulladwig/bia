@@ -9,7 +9,7 @@
     <div class="side-filter">
       <%= simple_form_for :search, url: discover_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
           <h5 class="mb-2">Location</h5>
-          <%=f.input :location, required: false, label: false, input_html: {class: 'input-field simple_form-align mb-2 multiselectuser' }%>
+          <%=f.input :location, required: false, placeholder: "Location of places", label: false, input_html: {class: 'input-field simple_form-align mb-2 multiselectuser' }%>
           <h5 class="mb-2">Timeline set-up</h5>
           <%=f.input :cuisine, as: :select, collection: ["All results", "Recommended restaurants", "Bookmarked restaurants", "Friendships"], required: false, label: false, input_html: {data: {width: '345px', style: "btn-light"},class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"All results"}%>
         <%=f.submit "Search", class: "hide" %>
