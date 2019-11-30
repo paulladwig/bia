@@ -10,6 +10,7 @@
       <% @friendships.each do |friendship| %>
           <%= render 'shared/friendships/card', user: friendship.asker %>
       <% end %>
+      <%= render 'shared/pageinator', elements: @friendships, current_page: @current_page, total_pages: @total_pages  %>
     </div>
   </div>
 </div>
