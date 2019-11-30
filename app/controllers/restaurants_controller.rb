@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
-    options = {fields: ["name^10", :cuisine, :recommended], per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
+    options = {fields: ["name^10", "cuisine^2", :recommended], per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
     @restaurants = policy_scope(Restaurant).search(query, options)
     @current_user = current_user
     @current_page = @restaurants.current_page
@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
     @markers = {
         lat: @restaurant.latitude,
         lng: @restaurant.longitude
-      }
+    }
     @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: current_user.receivers, restaurant: @restaurant))
   end
 
@@ -27,14 +27,10 @@ class RestaurantsController < ApplicationController
     restaurants = []
     receivers.each { |receiver| all_selections << receiver.selections }
     all_selections.each do |user_selections|
-      current_restaurants = []
       user_selections.each do |selection|
-        if selection.recommended == true
-          restaurants << selection.restaurant
-        end
+        restaurants << selection.restaurant if selection.recommended == true
       end
     end
-    restaurants.map! { |restaurant| restaurant.id}
+    restaurants.map!{ |restaurant| restaurant.id }
   end
-
 end
