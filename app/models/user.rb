@@ -20,6 +20,7 @@ class User < ApplicationRecord
     }
   end
 
+#CHECK IF THIS NEEDS TO BE MODIFIED WITH ACTIVE STATUS OR IF THE FUNCTION IS EVEN USED!
   def friends?(other_user)
     if Friendship.where("asker_id  = #{self.id} AND receiver_id = #{other_user.id}") != []
       return true
