@@ -7,3 +7,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.follow-button-follow {
+  background-color: $bdark;
+  color: $white;
+  &:hover {
+    background-color: $bmedium;
+    color: $white;
+  }
+}

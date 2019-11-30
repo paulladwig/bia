@@ -162,6 +162,52 @@ restaurants = [
     url: 'https://www.facebook.com/QuaPheBerlin/',
     phone_number: '030 97005479',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949646/66332841_2373009932915489_8626682284939935744_o.jpg_gilysd.jpg",
+  },
+  {
+    name: "Mama Cook",
+    address: 'Hedemannstraße 10,10969 Berlin',
+    phone_number: '03025927121',
+    cuisine: 'Vietnamese',
+    url: 'https://mama-cook.de/',
+    remote_photo_url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+  },
+  {
+    name: "Shi-Mai",
+    address: 'Karl-Liebknecht-Straße 5 DomAquarée, 10178 Berlin',
+    phone_number: '03040054883',
+    cuisine: 'Vietnamese',
+    url: 'http://www.shi-mai.com/',
+    remote_photo_url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80"
+  },
+  {
+    name: "Otito Vietnamese Food",
+    address: 'Leipziger Str. 30, 10117 Berlin',
+    phone_number: '03020605300',
+    cuisine: 'Vietnamese',
+    url: 'http://www.otito.de/',
+    remote_photo_url: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+  },
+  {
+    name: "Linh Linh",
+    address: 'Stresemannstraße 105, 10963 Berlin',
+    phone_number: '03026101607',
+    cuisine: 'Vietnamese',
+    remote_photo_url: "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1985&q=80"
+  },
+  {
+    name: "Ngon Restaurant Berlin",
+    address: 'Rathausstraße 23, 10178 Berlin',
+    phone_number: '01741923359',
+    cuisine: 'Vietnamese',
+    remote_photo_url: "https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+  },
+  {
+    name: "Madami",
+    address: 'Rosa-Luxemburg-Straße 3, 10178 Berlin',
+    phone_number: '03065779266',
+    cuisine: 'Vietnamese',
+    url: 'http://www.madami-restaurant.de/',
+    remote_photo_url: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
   }
   # {
   #   name: "",
@@ -432,6 +478,10 @@ friendships = [
     asker: User.find_by(name: 'James Gibson'),
     receiver: User.find_by(name: 'Frank Maier')
   },
+   {
+    asker: User.find_by(name: 'Paul Ladwig'),
+    receiver: User.find_by(name: 'Frank Maier')
+  },
   {
     asker: User.find_by(name: 'Frank Maier'),
     receiver: User.find_by(name: 'Paul Ladwig')
@@ -515,6 +565,11 @@ selections = [
     bookmarked: false,
     recommended: true,
     restaurant: Restaurant.find_by(name: 'Chupenga')
+  },
+  {
+    user: User.find_by(name: 'Frank Maier'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
   },
   {
     user: User.find_by(name: 'Otto Jonetzki'),
@@ -642,15 +697,6 @@ selections = [
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
-    user: User.find_by(name: 'James Gibson'),
-    occasion: 2,
-    price: 2,
-    review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
-    recommended: true,
-    shared: true,
-    restaurant: Restaurant.find_by(name: 'Charlotte 1')
-  },
-  {
     user: User.find_by(name: 'Samantha Jonathan'),
     occasion: 2,
     price: 2,
@@ -678,6 +724,11 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
+  },
+  {
     user: User.find_by(name: 'Frank Maier'),
     occasion: 2,
     price: 2,
@@ -685,6 +736,15 @@ selections = [
     recommended: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Chupenga')
+  },
+   {
+    user: User.find_by(name: 'Frank Maier'),
+    occasion: 3,
+    price: 3,
+    review: "Very good place for Steak. French fries are crisp and their medium-rare steak is always perfect. If you are looking for a very good, non-experimental steak place, go here.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
     user: User.find_by(name: 'Frank Maier'),
@@ -700,12 +760,7 @@ selections = [
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'I Due Forni')
   },
-   {
-    user: User.find_by(name: 'Frank Maier'),
-    bookmarked: true,
-    restaurant: Restaurant.find_by(name: 'House of Small Wonder')
-  },
-    {
+  {
     user: User.find_by(name: 'Lisa Maibach'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'House of Small Wonder')
@@ -715,15 +770,10 @@ selections = [
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
-    {
+  {
     user: User.find_by(name: 'Janis Sidenburg'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: "Let's talk about juice!")
-  },
-    {
-    user: User.find_by(name: 'Janis Sidenburg'),
-    bookmarked: true,
-    restaurant: Restaurant.find_by(name: "Sale e Tabacchi")
   },
   {
     user: User.find_by(name: 'Viete Leker'),
@@ -761,6 +811,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
   },
   {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 3,
+    price: 3,
+    review: "This is THE best place for steak in my opinion. I always order rare - super good. My favourite sauce is the pepper-cream sauce.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
+  },
+  {
     user: User.find_by(name: 'Charlotte Bremer'),
     occasion: 2,
     price: 1,
@@ -772,6 +831,99 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
   },
   {
+    user: User.find_by(name: 'Otto Jonetzki'),
+    occasion: 2,
+    price: 2,
+    review: "The lunch menu is pretty cheap and the food is delicious. They are usually packed during lunch, so better call them and reserve a table beforehand. With the lunch menu you get a complimentary soup which is nice. Card is only accepted if the amount is more than 10 €, so have some cash with you before you dine in.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Mama Cook')
+  },
+  {
+    user: User.find_by(name: 'Marie Ladwig'),
+    occasion: 2,
+    price: 2,
+    review: "Fine prices, delicious food and cocktails. Its located in quiet passage with many different restaurants and bars. Very near to AquaDome.",
+    recommended: true,
+    shared: true,
+    proposed_date: DateTime.parse("20/12/2019 13:30:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Shi-Mai')
+  },
+  {
+    user: User.find_by(name: 'Joris Kühnast'),
+    occasion: 2,
+    price: 2,
+    review: "Always full for lunch for a reason. Good food and reliable service. Cash only though.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Otito Vietnamese Food')
+  },
+  {
+    user: User.find_by(name: 'James Gibson'),
+    occasion: 2,
+    price: 2,
+    review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Charlotte 1')
+  },
+  {
+    user: User.find_by(name: 'John Hausmann'),
+    occasion: 3,
+    price: 3,
+    review: "Very affordable, quick and super tasty. Allergen information is very poor and misleading. I'm very allergic to fish, carry an epi-pen, all the dishes (including the vegan options) said they had fish or traces of fish in them. Asked the waitress and she assured they didn't, rather annoying but I didn't die so we all good.",
+    recommended: true,
+    shared: true,
+    special: true,
+    restaurant: Restaurant.find_by(name: 'Linh Linh')
+  },
+  {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 2,
+    price: 3,
+    review: "Beautiful restaurant. Calm and cozy environment. Nice and friendly staff. Big tables that takes many plates of food.",
+    recommended: true,
+    proposed_date: DateTime.parse("29/01/2020 20:00:00 UTC"),
+    restaurant: Restaurant.find_by(name: 'Ngon Restaurant Berlin')
+  },
+  {
+    user: User.find_by(name: 'James Gibson'),
+    occasion: 3,
+    price: 2,
+    review: "Cozy restaurant, very busy for a Monday, so réservations are highly recommended. The food was great too! Fresh ingredients and friendly staff made it all the more enjoyable too. Would definitely recommend going here!",
+    recommended: true,
+    shared: true,
+    special: true,
+    restaurant: Restaurant.find_by(name: 'Madami')
+  },
+  {
+    user: User.find_by(name: 'Otto Jonetzki'),
+    occasion: 2,
+    price: 2,
+    review: "One of the nicer places, where to eat in the city center and not to become poor. Prices are moderate and food never disappoints. In love with their duck in peanut sauce. Portions are very big too.",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Shi-Mai')
+  },
+  {
+    user: User.find_by(name: 'Joris Kühnast'),
+    occasion: 2,
+    price: 2,
+    review: "Delicious is all I can say . Had the crispy duck and sub my noodles for fried rice. Server was also very friendly and personable . Will definitely come here again!",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Shi-Mai')
+  },
+  {
+    user: User.find_by(name: 'Joris Kühnast'),
+    occasion: 2,
+    price: 4,
+    review: "I love Entrecôte! Staff is super friendly and the steak is excellent. It's also really cozy there - ask for a table in the back. The best area in my opinion. I love going here with a small group of friends or my girl friend for a nice dinner. They also have an excellent wine list (especially the reds - given it's a steak place).",
+    recommended: true,
+    shared: true,
+    restaurant: Restaurant.find_by(name: 'Entrecôte')
+  },
+  {
     user: User.find_by(name: 'Samantha Jonathan'),
     occasion: 2,
     price: 2,
@@ -780,6 +932,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     shared: true,
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   }
+
   # {
   #   user: User.find_by(name: ''),
   #   occasion: ,
@@ -805,10 +958,6 @@ add_friendships = [
     receiver: User.find_by(name: 'Viete Leker')
   },
   {
-    asker: User.find_by(name: 'Paul Ladwig'),
-    receiver: User.find_by(name: 'Viete Leker')
-  },
-  {
     asker: User.find_by(name: 'Viete Leker'),
     receiver: User.find_by(name: 'Marie Ladwig')
   },
@@ -829,14 +978,22 @@ add_friendships = [
   #   receiver: User.find_by(name: '')
   # }
 ]
+Selection.create(user: User.find_by(name: "Joris Kühnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
+
 Friendship.create!(add_friendships)
 
 puts "additional friendships created"
 
 puts "additional review"
 
-Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
-
 puts "additional review dones"
 
 puts 'Completed seeding process'
+
+Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
+
+Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
+
+Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
+
+Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true,restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})

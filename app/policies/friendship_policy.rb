@@ -12,4 +12,12 @@ class FriendshipPolicy < ApplicationPolicy
   def index_following?
     true
   end
+
+  def create?
+    true
+  end
+
+  def update?
+    true
+  end
 end
