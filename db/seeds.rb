@@ -29,7 +29,8 @@ restaurants = [
     cuisine: 'Mexican',
     url: 'https://www.chupenga.de/de_DE/',
     email: 'mail@chupenga.com',
-    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776728/ua3de8jus5dzcdwnd6zi.jpg"
+    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776728/ua3de8jus5dzcdwnd6zi.jpg",
+    placeid: "ChIJ57L_o9ZRqEcRaTUSjMQitXY",
   },
   {
     name: 'Charlotte 1',
@@ -39,6 +40,7 @@ restaurants = [
     url: '',
     email: '',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776713/n4cuin35w5qvw3dstfnx.jpg",
+    placeid: "ChIJG3e2FdRRqEcRx0GBFAr-ivE"
   },
   {
     name: 'Tim Raue',
@@ -48,6 +50,7 @@ restaurants = [
     url: 'https://tim-raue.com/en/',
     email: 'office@tim-raue.com',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776846/brwibncc8gyu0laguxie.jpg",
+    placeid: "ChIJpdyYVNFRqEcRFTrYsDXDrY4",
   },
   {
     name: 'Monsieur Vuong',
@@ -57,6 +60,7 @@ restaurants = [
     url: 'https://www.monsieurvuong.de/en/',
     email: 'indochina@monsieurvuong.de',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776810/tru72kzihecahjcgsg5s.jpg",
+    placeid: "ChIJl_b_HuJRqEcRBlMB13SVyzg",
   },
   {
     name: 'Restaurant Babami',
@@ -66,6 +70,7 @@ restaurants = [
     url: 'https://www.monsieurvuong.de/en/',
     email: '',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776684/hxcuf3qssmmlzatdpz2h.jpg",
+    placeid: "ChIJ9fmURdFRqEcRyvz-X__9AII",
   },
   {
     name: 'Viet Bowl Mitte',
@@ -75,6 +80,7 @@ restaurants = [
     url: 'https://www.vietbowl.de/mitte-viet-bowl',
     email: 'info@vietbowl.de',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776891/llooz6sn4uorxkniqlj2.jpg",
+    placeid: "",
   },
   {
     name: "Let's talk about juice!",
@@ -84,6 +90,7 @@ restaurants = [
     url: 'http://www.sevencoffee.de/',
     email: '',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776794/pznb4boz851n2zfx0b4w.jpg",
+    placeid: "",
   },
   {
     name: "Sale e Tabacchi",
@@ -93,6 +100,7 @@ restaurants = [
     url: 'http://www.sale-e-tabacchi.de/',
     email: 'mail@sale-e-tabacchi.de',
     remote_photo_url: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80",
+    placeid: "",
   },
   {
     name: "Kori & Fay",
@@ -102,6 +110,7 @@ restaurants = [
     url: 'http://koriandfay.de/',
     email: 'info@koriandfay.de',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776774/hecf9uoqerlkvipgkmyf.jpg",
+    placeid: "ChIJrZB0WdFRqEcR9uklmCvf7GA",
   },
   {
     name: "AVAN",
@@ -111,6 +120,7 @@ restaurants = [
     url: 'https://avan.eatbu.com/?lang=en',
     email: 'thai.thi.thanh83@gmail.com',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776659/splygpq5spplw69f2fhc.jpg",
+    placeid: "ChIJ_74CF9BRqEcRpJGMKTuWhr4",
   },
   {
     name: "Entrecôte",
@@ -120,6 +130,7 @@ restaurants = [
     url: 'http://entrecote.de/',
     email: 'info@entrecote.de',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776741/mtdu6tqj6ywp9wlb7msj.jpg",
+    placeid: "",
   },
   {
     name: "Barcelona Tapas Bar Restaurant",
@@ -129,6 +140,7 @@ restaurants = [
     url: 'https://barcelona-mitte.de/',
     email: 'info@barcelona.berlin',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776700/wdbtacjoxed08ce0iooe.jpg",
+    placeid: "ChIJt4wn5NNRqEcReBWoQd7qjqg",
   },
   {
     name: "VAPIANO",
@@ -138,6 +150,7 @@ restaurants = [
     url: 'https://de.vapiano.com/de/nc/restaurants/detail/restaurant-details/-529cc71a5f/',
     email: 'info@vapiano.de',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776877/aqn4ggozb7fyllffg5qw.jpg",
+    placeid: "ChIJE0eMENFRqEcRsJOe5RO6V-Q",
   },
   {
     name: "House of Small Wonder",
@@ -146,6 +159,7 @@ restaurants = [
     url: 'https://houseofsmallwonder.de/',
     email: 'info@houseofsmallwonder.de',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776760/hgfcmoafuhjzgmv3xjut.jpg",
+    placeid: "ChIJfSfTtelRqEcRC52WM-fWJi8",
   },
   {
     name: "I Due Forni",
@@ -154,6 +168,7 @@ restaurants = [
     url: 'https://www.facebook.com/pages/I-Due-Forni/154460154586282',
     phone_number: '030 44017333',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574951884/photo-1528137871618-79d2761e3fd5_gqnsca.jpg",
+    placeid: "ChIJDaDDUR1OqEcRLZ4_j3Ag4BY",
   },
   {
     name: "QUA PHE",
@@ -162,6 +177,7 @@ restaurants = [
     url: 'https://www.facebook.com/QuaPheBerlin/',
     phone_number: '030 97005479',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949646/66332841_2373009932915489_8626682284939935744_o.jpg_gilysd.jpg",
+    placeid: "ChIJR4q9-eFRqEcRGDbRkN28LxQ",
   },
   {
     name: "Mama Cook",
@@ -169,7 +185,8 @@ restaurants = [
     phone_number: '03025927121',
     cuisine: 'Vietnamese',
     url: 'https://mama-cook.de/',
-    remote_photo_url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    remote_photo_url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+    placeid: "ChIJWS9JatNRqEcRABpjSZmGpXo",
   },
   {
     name: "Shi-Mai",
@@ -177,7 +194,8 @@ restaurants = [
     phone_number: '03040054883',
     cuisine: 'Vietnamese',
     url: 'http://www.shi-mai.com/',
-    remote_photo_url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80"
+    remote_photo_url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80",
+    placeid: "ChIJLTX2ud9RqEcRSRGoGNV6Sx8",
   },
   {
     name: "Otito Vietnamese Food",
@@ -185,21 +203,24 @@ restaurants = [
     phone_number: '03020605300',
     cuisine: 'Vietnamese',
     url: 'http://www.otito.de/',
-    remote_photo_url: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    remote_photo_url: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+    placeid: "ChIJr3FiUNBRqEcRW-2xZuTrL3M",
   },
   {
     name: "Linh Linh",
     address: 'Stresemannstraße 105, 10963 Berlin',
     phone_number: '03026101607',
     cuisine: 'Vietnamese',
-    remote_photo_url: "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1985&q=80"
+    remote_photo_url: "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1985&q=80",
+    placeid: "ChIJg_ncTMxRqEcRx8f-vvws-i0",
   },
   {
     name: "Ngon Restaurant Berlin",
     address: 'Rathausstraße 23, 10178 Berlin',
     phone_number: '01741923359',
     cuisine: 'Vietnamese',
-    remote_photo_url: "https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+    remote_photo_url: "https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    placeid: "ChIJN200oCBOqEcRRVxtZuPAMbA",
   },
   {
     name: "Madami",
@@ -207,7 +228,8 @@ restaurants = [
     phone_number: '03065779266',
     cuisine: 'Vietnamese',
     url: 'http://www.madami-restaurant.de/',
-    remote_photo_url: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
+    remote_photo_url: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",
+    placeid: "ChIJOT7j0R9OqEcRDQKqIivIJj4",
   }
   # {
   #   name: "",
@@ -271,7 +293,6 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949292/photo-1544723795-3fb6469f5b39_pl0lde.jpg",
     password: '123456',
     password_confirmation: '123456',
-    location: 'Mainz, Germany',
     username: 'frank_maier',
     description: "Award-winning alcohol practitioner. Passionate food expert."
   },
@@ -311,7 +332,6 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574951671/photo-1548946526-f69e2424cf45_djcoxl.jpg",
     password: '123456',
     password_confirmation: '123456',
-    location: 'Hannover, Germany',
     username: 'janis_sidenburg',
   },
   {

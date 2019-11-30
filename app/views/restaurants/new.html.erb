@@ -1,0 +1,35 @@
+<% content_for :meta_title, "BIA - Recommend" %>
+<%= render 'shared/navbar' %>
+<div class="container-bia mt-5 search-page-layout">
+  <h2>Your Places</h2>
+<%= simple_form_for :search, url: recommend_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
+  <%=f.input :query, required: false, placeholder: "Search...", input_html: {class: 'input-field simple_form-align' }%>
+  <%=f.input :location, required: false, placeholder: "City...",  input_html: {class: 'input-field simple_form-align' }%>
+  <%= f.input :range,  as: :numeric, required: false, placeholder: "5km around you",  input_html: {class: 'input-field simple_form-align' }%>
+  <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
+  <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
+  <%=f.submit "Search", class: "biabutton" %>
+<% end %>
+
+<% if @your_restaurants.present? %>
+  <div class="index-restaurants-grid-3">
+      <% @your_restaurants.each do |restaurant| %>
+        <%= render 'shared/card', data: {restaurant: restaurant} %>
+      <% end %>
+  </div>
+<% end %>
+<% if @other_restaurants.present? %>
+  <div class="index-restaurants-grid-3">
+      <% @other_restaurants.each do |restaurant| %>
+        <%= render 'shared/card', data: {restaurant: restaurant} %>
+      <% end %>
+  </div>
+<% end %>
+<% if @results.present? %>
+  <div class="index-restaurants-grid-3">
+      <% @results.each do |result| %>
+        <%= result %>
+      <% end %>
+  </div>
+<% end %>
+</div>
