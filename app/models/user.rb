@@ -13,9 +13,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def friends?(other_user)
-    friendship = Friendship.where("asker_id  = #{self.id} AND receiver_id = #{other_user.id}")
-    raise
-    if friendship != [] && friendship.active == 1
+    if Friendship.where("asker_id  = #{self.id} AND receiver_id = #{other_user.id}") != []
       return true
     else
       return false
