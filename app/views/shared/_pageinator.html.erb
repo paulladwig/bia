@@ -1,0 +1,22 @@
+<div>
+  <%if total_pages >= 2%>
+    <div  class="pages-selection-row">
+      <% prev_path = path_to_prev_page elements %>
+      <%= link_to prev_path, class: "biabutton button-svg" do %>
+        <svg width="12" height="21" viewBox="0 0 12 21" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.19161 9.16705C0.513015 9.92613 0.513013 11.0739 1.1916 11.8329L8.50894 20.0182C9.73276 21.3872 12 20.5215 12 18.6853V2.3147C12 0.478447 9.73276 -0.387221 8.50894 0.981759L1.19161 9.16705Z"/>
+        </svg>
+      <%end %>
+      <p class="pages-counter"><%=current_page%>/<%=total_pages%></p>
+      <% next_path = path_to_next_page elements %>
+      <%= link_to next_path, class: "biabutton button-svg" do %>
+        <svg width="12" height="21" viewBox="0 0 12 21" xmlns="http://www.w3.org/2000/svg">
+          <path class="" d="M10.8084 11.8329C11.487 11.0739 11.487 9.92614 10.8084 9.16705L3.49106 0.98176C2.26724 -0.38722 0 0.478452 0 2.31471L0 18.6853C0 20.5216 2.26724 21.3872 3.49106 20.0182L10.8084 11.8329Z"/>
+        </svg>
+      <%end %>
+    </div>
+  <% end %>
+  <!-- <div class="pages-selection-row"> -->
+    <!-- <p><%#= #@restaurants.count %> places found for you</p> -->
+  <!-- </div> -->
+</div>

@@ -31,6 +31,7 @@
           <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
         <% end %>
       <% end %>
+      <%= render 'shared/pageinator', elements: @all_activities, current_page: @current_page, total_pages: @total_pages  %>
     </div>
   </div>
 </div>

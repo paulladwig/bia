@@ -187,6 +187,15 @@
   padding: 0 $spacer;
 
   &:checked + label{
-    color: $bmedium
+    color: $bmedium;
+  }
+}
+
+.button-svg{
+  svg{
+    fill: $gmedium;
+  }
+  &:hover svg {
+    fill: $bmedium;
   }
 }

@@ -2,13 +2,17 @@ class FriendshipsController < ApplicationController
   def index_following
     @user = User.find(params[:id])
     authorize @user
-    @friendships = Friendship.where(asker: @user, active: 1)
+    @friendships = Friendship.where(asker: @user, active: 1).page(params[:page])
+    @current_page = @friendships.current_page
+    @total_pages = @friendships.total_pages
   end
 
   def index_followers
     @user = User.find(params[:id])
     authorize @user
-    @friendships = Friendship.where(receiver: @user, active: 1)
+    @friendships = Friendship.where(receiver: @user, active: 1).page(params[:page])
+    @current_page = @friendships.current_page
+    @total_pages = @friendships.total_pages
   end
 
   def create
