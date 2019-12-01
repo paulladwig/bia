@@ -2,8 +2,10 @@
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon container-bia py-2 px-0">
     <div class="d-flex align-items-center">
       <h1 class="mr-5 my-0"><%= link_to "BIA", root_path, class: "navbar-logo"%></h1>
-      <h5 class="mr-3 my-0"><%= link_to "Discover", discover_path, class: "navbar-link active"%></h4>
-      <h5 class="my-0"><%= link_to "Overview", restaurants_path, class: "navbar-link"%></h4>
+      <% if user_signed_in? %>
+        <h5 class="mr-3 my-0"><%= link_to "Find", restaurants_path, class: "navbar-link"%></h4>
+        <h5 class="my-0"><%= link_to "Profile", user_path(current_user), class: "navbar-link"%></h4>
+      <% end %>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,12 +16,7 @@
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <% if user_signed_in? %>
           <li class="">
-              <%= simple_form_for :search, url: search_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
-                  <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field simple_form-align' }%>
-                  <%=f.input :lat, required: false, label: false, input_html: {value: '1', class: 'hide', id: 'latitude-hidden' }%>
-                  <%=f.input :long, required: false, label: false, input_html: {value: '1', class: 'hide', id: 'longitude-hidden' }%>
-                  <%=f.submit "Search", class: "hide" %>
-              <% end %>
+            <%= link_to "Recommend", recommend_path, class: "bia-button-highlight" %>
           </li>
           <li class="nav-item dropdown ml-3">
             <% if current_user.photo? %>
