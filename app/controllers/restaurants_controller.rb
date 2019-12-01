@@ -96,19 +96,21 @@ class RestaurantsController < ApplicationController
       @results.map! do |result|
         database_record = Restaurant.where(placeid: result[2])
         if database_record != []
-          database_record[0]
+          {restaurant: database_record[0], existing_reccord: true}
         else
           if result[3].present?
             photos_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{result[3]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
           else
             photos_url = "https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1947&q=80"
           end
-          Restaurant.new({
-            name: result[0],
-            address: result[1],
-            external_photo: photos_url,
-            placeid: result[2],
-          })
+          { restaurant:
+            Restaurant.new(
+              name: result[0],
+              address: result[1],
+              external_photo: photos_url,
+              placeid: result[2]
+            ),
+            existing_reccord: false }
         end
       end
     end
@@ -119,11 +121,14 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
     details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     json_sereialized = JSON.parse(open(details_url).read)
-    raise
     @restaurant.phone_number =  json_sereialized["result"]["formatted_phone_number"] if json_sereialized["result"]["formatted_phone_number"]
     @restaurant.url =  json_sereialized["result"]["website"] if json_sereialized["result"]["website"]
-    @restaurant.save!
-    redirect_to @restaurant
+    if @restaurant.save
+      # redirect_to tool_path(@tool)
+      redirect_to restaurant_path(@restaurant, new: true)
+    else
+      render :new
+    end
   end
 
   private

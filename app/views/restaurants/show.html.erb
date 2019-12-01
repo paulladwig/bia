@@ -9,7 +9,11 @@
   <h2 class="mt-5"> <%= @restaurant.name %></h2>
 
   <div class="restaurant-show-content mt-4">
-    <%= cl_image_tag @restaurant.photo, class: "width-100-pc height-260 span-1-1 image-rounded-corners image-cover" %>
+    <%if @restaurant.external_photo %>
+      <img class= "width-100-pc height-260 span-1-1 image-rounded-corners image-cover" src="<%= @restaurant.external_photo %>" alt="<%=@restaurant.name%> image">
+    <% else %>
+      <%= cl_image_tag @restaurant.photo, class: "width-100-pc height-260 span-1-1 image-rounded-corners image-cover" %>
+    <% end %>
     <div
       id="map"
       style="width: 100%;

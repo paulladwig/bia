@@ -27,7 +27,7 @@
   <h2>Search Result</h2>
   <div class="index-restaurants-grid-3">
       <% @results.each do |result| %>
-        <%= render 'shared/card', data: {restaurant: result, disp_address: true, new: true} %>
+        <%= render 'shared/card', data: {restaurant: result[:restaurant], disp_address: true, new: true} %>
       <% end %>
   </div>
 <% end %>
