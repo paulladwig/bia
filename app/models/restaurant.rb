@@ -31,6 +31,31 @@ class Restaurant < ApplicationRecord
     selections.where(user: current_user.receivers)
   end
 
+  def self.relevant_restaurants(current_user)
+    Restaurant.reciever_restaurants(current_user) + Restaurant.user_restaurants(current_user)
+  end
+
+  def self.reciever_restaurants(current_user)
+    receivers = current_user.receivers
+    all_selections = []
+    restaurants = []
+    receivers.each { |receiver| all_selections << receiver.selections }
+    all_selections.each do |user_selections|
+      user_selections.each do |selection|
+        restaurants << selection.restaurant if selection.recommended == true
+      end
+    end
+    restaurants.map!{ |restaurant| restaurant.id }
+  end
+
+  def self.user_restaurants(current_user)
+    restaurants = []
+    current_user.selections.each do |selection|
+      restaurants << selection.restaurant if selection.recommended == true || selection.bookmarked == true
+    end
+    restaurants.map!{ |restaurant| restaurant.id }
+  end
+
   def calc_avg_occassion
     all_selections = self.selections.where(recommended: true)
     all_occassions = 0

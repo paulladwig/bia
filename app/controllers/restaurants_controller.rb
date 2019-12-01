@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
     # if params[:search][:location] || params[:sear]
-    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
+    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {id: Restaurant.relevant_restaurants(current_user)}}
     # keep for user search
     # options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
     # @your_users = policy_scope(User).search(search_query, options)
@@ -130,19 +130,6 @@ class RestaurantsController < ApplicationController
 
   def convert_location(location)
     Geocoder.search(search_params[:location]).first.coordinates
-  end
-
-  def reciever_restaurants
-    receivers = current_user.receivers
-    all_selections = []
-    restaurants = []
-    receivers.each { |receiver| all_selections << receiver.selections }
-    all_selections.each do |user_selections|
-      user_selections.each do |selection|
-        restaurants << selection.restaurant if selection.recommended == true
-      end
-    end
-    restaurants.map!{ |restaurant| restaurant.id }
   end
 
   def search_params
