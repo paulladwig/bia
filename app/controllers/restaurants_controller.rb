@@ -88,11 +88,6 @@ class RestaurantsController < ApplicationController
         end
       end
 
-      # provide userr with own results incase they searched for a restaurant they recommended or their friends recommended before
-      # params[:search].presence ? query = params[:search][:query] : query = "*"
-      # your_options = {fields: ["name^10"], operator: "or", limit: 3, match: :word_middle, misspellings: {below: 5}, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
-      # @your_restaurants = policy_scope(Restaurant).search(search_query, your_options)
-
       # check if the restaurant exists in the database if not create a new instace to show to the user
       @results.map! do |result|
         database_record = Restaurant.where(placeid: result[2])
