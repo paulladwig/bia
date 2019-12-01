@@ -6,7 +6,7 @@
     <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field search-bar' }%>
     <%=f.input :location, required: false, label: false, placeholder: "City...",  input_html: {class: 'input-field search-bar' }%>
     <span>
-      <%=f.input :range,  as: :numeric, label: false, required: false, placeholder: "5km around you",  input_html: {class: 'input-field search-bar' }%>
+      <%=f.input :range,  as: :numeric, label: false, required: false, placeholder: "5km around you",  input_html: {min: "0", class: 'input-field search-bar' }%>
       <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
       <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
     </span>
