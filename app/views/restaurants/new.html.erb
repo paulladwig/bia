@@ -34,5 +34,6 @@
         <% end %>
       <% end %>
   </div>
+  <%= render 'shared/pageinator', elements: @results, current_page: @current_page, total_pages: @total_pages %>
 <% end %>
 </div>
