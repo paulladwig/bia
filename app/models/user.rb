@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :askers, through: :friendships_as_receiver
   has_many :restaurants, through: :selections
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

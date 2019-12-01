@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_29_144557) do
+ActiveRecord::Schema.define(version: 2019_12_01_083857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 2019_11_29_144557) do
     t.string "photo"
     t.string "email"
     t.string "placeid"
+    t.string "external_photo"
+    t.string "menu"
+    t.string "reservation"
   end
 
   create_table "selections", force: :cascade do |t|
@@ -73,6 +76,8 @@ ActiveRecord::Schema.define(version: 2019_11_29_144557) do
     t.string "gender"
     t.string "location"
     t.text "description"
+    t.float "longitude"
+    t.float "latitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
