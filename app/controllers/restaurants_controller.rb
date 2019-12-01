@@ -3,12 +3,14 @@ class RestaurantsController < ApplicationController
 
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
-    options = {fields: ["name^10", "cuisine^2", :recommended], operator: "or", match: :word_middle, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
+    options = {fields: ["name^10", "cuisine^2", :recommended], per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
     # keep for user search
     # options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
     # @your_users = policy_scope(User).search(search_query, options)
     @restaurants = policy_scope(Restaurant).search(query, options)
     @current_user = current_user
+    @current_page = @restaurants.current_page
+    @total_pages = @restaurants.total_pages
   end
 
   def show
