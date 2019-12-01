@@ -110,6 +110,9 @@ class RestaurantsController < ApplicationController
         end
       end
     end
+    @results = Kaminari.paginate_array(@results).page(params[:page]).per(18)
+    @current_page = @results.current_page
+    @total_pages = @results.total_pages
   end
 
   def create
