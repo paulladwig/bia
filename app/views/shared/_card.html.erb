@@ -3,6 +3,10 @@
   <%= link_to(restaurants_path(name: restaurant.name, address: restaurant.address, placeid: restaurant.placeid, external_photo: restaurant.external_photo ), method: :post) do  %>
     <%= render 'shared/default_card', data: data %>
   <% end %>
+<%elsif data[:existing_reccord]%>
+  <%= link_to restaurant_path(data[:restaurant], new: true) do  %>
+    <%= render 'shared/default_card', data: data %>
+  <% end %>
 <%else%>
   <%= link_to(data[:restaurant]) do  %>
     <%= render 'shared/default_card', data: data %>

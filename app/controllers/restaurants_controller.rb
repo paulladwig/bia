@@ -88,9 +88,9 @@ class RestaurantsController < ApplicationController
       end
 
       # provide userr with own results incase they searched for a restaurant they recommended or their friends recommended before
-      params[:search].presence ? query = params[:search][:query] : query = "*"
-      your_options = {fields: ["name^10"], operator: "or", limit: 3, match: :word_middle, misspellings: {below: 5}, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
-      @your_restaurants = policy_scope(Restaurant).search(search_query, your_options)
+      # params[:search].presence ? query = params[:search][:query] : query = "*"
+      # your_options = {fields: ["name^10"], operator: "or", limit: 3, match: :word_middle, misspellings: {below: 5}, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
+      # @your_restaurants = policy_scope(Restaurant).search(search_query, your_options)
 
       # check if the restaurant exists in the database if not create a new instace to show to the user
       @results.map! do |result|
@@ -121,10 +121,9 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
     details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     json_sereialized = JSON.parse(open(details_url).read)
-    @restaurant.phone_number =  json_sereialized["result"]["formatted_phone_number"] if json_sereialized["result"]["formatted_phone_number"]
-    @restaurant.url =  json_sereialized["result"]["website"] if json_sereialized["result"]["website"]
+    @restaurant.phone_number = json_sereialized["result"]["formatted_phone_number"] if json_sereialized["result"]["formatted_phone_number"]
+    @restaurant.url = json_sereialized["result"]["website"] if json_sereialized["result"]["website"]
     if @restaurant.save
-      # redirect_to tool_path(@tool)
       redirect_to restaurant_path(@restaurant, new: true)
     else
       render :new
