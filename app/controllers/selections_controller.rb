@@ -2,6 +2,7 @@ class SelectionsController < ApplicationController
   def index
     @selections = policy_scope(Selection).where(user: current_user.receivers)
     @friendships = current_user.friendships_as_receiver
+    @user = current_user
     combined_activities = @selections + @friendships
     @all_activities = Kaminari.paginate_array(combined_activities.sort_by { |activity| activity.updated_at }.reverse_each.to_a).page(params[:page]).per(15)
     @current_page = @all_activities.current_page
