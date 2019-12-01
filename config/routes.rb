@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/follow/:id', to: 'friendships#create', as: 'follow'
   patch '/follow/:id', to: 'friendships#update', as: 'update_follow'
   resources :users, only: [:show]
-  resources :restaurants, only: [:show, :index] do
+  resources :restaurants, only: [:show, :index, :create] do
     resources :selections, only: [:create]
   end
   #This line was commented out becuase it appears to be unneccessary, If not the case comment it back in

@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  STORE = []
+
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
     options = {fields: ["name^10", "cuisine^2", :recommended], operator: "or", match: :word_middle, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
@@ -38,7 +40,6 @@ class RestaurantsController < ApplicationController
         latitude = coordinates[0]
         longitude = coordinates[1]
       end
-
       # check if a location was found using the browser or
       # given by the user, if true search for nearby places will be executed
       if longitude != 'na'
@@ -52,7 +53,12 @@ class RestaurantsController < ApplicationController
         nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{latitude},#{longitude}&radius=#{range}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized = JSON.parse(open(nearby_url).read)
         json_sereialized["results"].each do |result|
-          @results << [result["name"], result["vicinity"], result["place_id"], result["photo_reference"]]
+          if result["photos"]
+            photo = result["photos"][0]
+          else
+            photo = nil
+          end
+          @results << [result["name"], result["vicinity"], result["place_id"], photo]
         end
       else
         if current_user.location.present?
@@ -62,17 +68,50 @@ class RestaurantsController < ApplicationController
         end
 
         text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
-        json_sereialized = JSON.parse(open(text_url).read)
-        json_sereialized["results"].each do |result|
-          @results << [result["name"], result["formatted_address"], result["place_id"], result["photo_reference"]]
+        json_sereialized_text = JSON.parse(open(text_url).read)
+        json_sereialized_text["results"].each do |result|
+          if result["photos"]
+            photo = result["photos"][0]
+          else
+            photo = nil
+          end
+          @results << [result["name"], result["formatted_address"], result["place_id"], photo]
         end
       end
+
       params[:search].presence ? query = params[:search][:query] : query = "*"
       your_options = {fields: ["name^10"], operator: "or", limit: 3, match: :word_middle, misspellings: {below: 5}, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
       @your_restaurants = policy_scope(Restaurant).search(search_query, your_options)
-      other_options = {fields: ["name^10"], operator: "or", limit: 3, match: :word_middle, misspellings: {below: 5}}
-      @other_restaurants = policy_scope(Restaurant).search(search_query, other_options)
+
+      @results.map! do |result|
+        database_record = Restaurant.where(placeid: result[2])
+        if database_record != []
+          database_record[0]
+        else
+          # details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{result[2]}&fields=opening_hours,formatted_address,formatted_phone_number,photo&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+          # json_sereialized = JSON.parse(open(details_url).read)
+          if result[3].present?
+            photos_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{result[3]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+          else
+            photos_url = "https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1947&q=80"
+          end
+          Restaurant.new({
+            name: result[0],
+            address: result[1],
+            # phone_number:
+            # url:
+            external_photo: photos_url,
+            # email:
+            placeid: result[2],
+          })
+        end
+      end
+      STORE = @results
     end
+  end
+
+  def create
+
   end
 
   private
