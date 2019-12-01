@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
     # if params[:search][:location] || params[:sear]
-    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {id: Restaurant.relevant_restaurants(current_user)}}
+    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {id: Restaurant.relevant_restaurants(current_user, "id")}}
     # keep for user search
     # options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
     # @your_users = policy_scope(User).search(search_query, options)
