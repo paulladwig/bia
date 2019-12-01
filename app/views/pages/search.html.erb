@@ -2,8 +2,14 @@
 <div class="container-bia mt-5 search-page-layout">
   <h2>Your Places</h2>
   <div class="index-restaurants-grid-3">
-    <% @your_results.each do |restaurant| %>
+    <% @your_restaurants.each do |restaurant| %>
       <%= render 'shared/card', data: {restaurant: restaurant} %>
+    <% end %>
+  </div>
+  <h2>Users</h2>
+  <div class="index-restaurants-grid-3">
+    <% @your_users.each do |user| %>
+      <%= render 'shared/friendships/card', user: user %>
     <% end %>
   </div>
   <h2>Other Places</h2>

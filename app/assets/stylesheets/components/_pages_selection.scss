@@ -1,0 +1,12 @@
+.pages-selection-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pages-counter {
+  display: inline-block;
+  padding: $medium-space $spacer;
+  margin: $medium-space 0;
+  color: $gmedium;
+}

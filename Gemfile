@@ -21,6 +21,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'searchkick', '~> 4.0.2'
 gem 'geocoder'
 gem 'bootstrap-select-rails', '~> 1.6', '>= 1.6.3'
+gem 'kaminari'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

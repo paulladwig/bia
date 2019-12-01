@@ -3,7 +3,9 @@ class SelectionsController < ApplicationController
     @selections = policy_scope(Selection).where(user: current_user.receivers)
     @friendships = current_user.friendships_as_receiver
     combined_activities = @selections + @friendships
-    @all_activities = combined_activities.sort_by { |activity| activity.updated_at }.reverse_each
+    @all_activities = Kaminari.paginate_array(combined_activities.sort_by { |activity| activity.updated_at }.reverse_each.to_a).page(params[:page]).per(15)
+    @current_page = @all_activities.current_page
+    @total_pages = @all_activities.total_pages
   end
 
   def create
