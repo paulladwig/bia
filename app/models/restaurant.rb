@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  searchkick word_middle: [:cuisine, :name, :recommended]
+  searchkick word_middle: [:cuisine, :name, :recommended], locations: [:location], suggest: [:name, :cuisine, :recommended]
   scope :search_import, -> { includes(:selections, :users) }
   has_many :selections
   has_many :users, through: :selections
@@ -23,7 +23,7 @@ class Restaurant < ApplicationRecord
     { name: name,
       cuisine: cuisine,
       recommended: "#{users.map(&:name).join(' ')}"
-    }
+    }.merge(location: {lat: latitude, lon: longitude})
   end
 
   def get_friends_recommended(current_user)

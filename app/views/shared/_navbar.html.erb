@@ -16,7 +16,7 @@
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <% if user_signed_in? %>
           <li class="">
-            <%= link_to "Recommend", recommend_path, class: "biabutton-active" %>
+            <%= link_to "Recommend", recommend_path, class: "bia-button-highlight" %>
           </li>
           <li class="nav-item dropdown ml-3">
             <% if current_user.photo? %>
