@@ -1,5 +1,6 @@
-<%if data[:restaurant_reference] %>
-  <%= link_to(restaurants_path(restaurant_reference: restaurant_reference), method: :post) do  %>
+<%if data[:new] %>
+  <% restaurant = data[:restaurant] %>
+  <%= link_to(restaurants_path(name: restaurant.name, address: restaurant.address, placeid: restaurant.placeid, external_photo: restaurant.external_photo ), method: :post) do  %>
     <%= render 'shared/default_card', data: data %>
   <% end %>
 <%else%>

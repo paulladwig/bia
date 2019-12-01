@@ -1,6 +1,4 @@
 class RestaurantsController < ApplicationController
-  STORE = []
-
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
     options = {fields: ["name^10", "cuisine^2", :recommended], per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
@@ -55,6 +53,7 @@ class RestaurantsController < ApplicationController
         nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{latitude},#{longitude}&radius=#{range}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized = JSON.parse(open(nearby_url).read)
         json_sereialized["results"].each do |result|
+          # incase google does not provide a photo set photo to nil to avoid method error
           if result["photos"]
             photo = result["photos"][0]
           else
@@ -62,13 +61,20 @@ class RestaurantsController < ApplicationController
           end
           @results << [result["name"], result["vicinity"], result["place_id"], photo]
         end
+
+      # if no location was found using the browser and nothing was given in the location field,
+      # do a text search which does not require a location
       else
+
+        # Providing some location reference improves results though, therefore check if the user has
+        # set a home location on their profile, use it to improve search results
         if current_user.location.present?
           location_string = "location=#{current_user.latitude},#{current_user.longitude}&radius=#{50000}&"
         else
           location_string = ''
         end
 
+        # execute google places text search
         text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized_text = JSON.parse(open(text_url).read)
         json_sereialized_text["results"].each do |result|
@@ -81,17 +87,17 @@ class RestaurantsController < ApplicationController
         end
       end
 
+      # provide userr with own results incase they searched for a restaurant they recommended or their friends recommended before
       params[:search].presence ? query = params[:search][:query] : query = "*"
       your_options = {fields: ["name^10"], operator: "or", limit: 3, match: :word_middle, misspellings: {below: 5}, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
       @your_restaurants = policy_scope(Restaurant).search(search_query, your_options)
 
+      # check if the restaurant exists in the database if not create a new instace to show to the user
       @results.map! do |result|
         database_record = Restaurant.where(placeid: result[2])
         if database_record != []
           database_record[0]
         else
-          # details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{result[2]}&fields=opening_hours,formatted_address,formatted_phone_number,photo&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
-          # json_sereialized = JSON.parse(open(details_url).read)
           if result[3].present?
             photos_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{result[3]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
           else
@@ -100,20 +106,24 @@ class RestaurantsController < ApplicationController
           Restaurant.new({
             name: result[0],
             address: result[1],
-            # phone_number:
-            # url:
             external_photo: photos_url,
-            # email:
             placeid: result[2],
           })
         end
       end
-      STORE = @results
     end
   end
 
   def create
-
+    @restaurant = Restaurant.new(restaurant_params)
+    authorize @restaurant
+    details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    json_sereialized = JSON.parse(open(details_url).read)
+    raise
+    @restaurant.phone_number =  json_sereialized["result"]["formatted_phone_number"] if json_sereialized["result"]["formatted_phone_number"]
+    @restaurant.url =  json_sereialized["result"]["website"] if json_sereialized["result"]["website"]
+    @restaurant.save!
+    redirect_to @restaurant
   end
 
   private
@@ -139,4 +149,7 @@ class RestaurantsController < ApplicationController
     params.require(:search).permit(:query, :lat, :long, :location, :range)
   end
 
+  def restaurant_params
+    params.permit(:address, :external_photo, :name, :placeid)
+  end
 end
