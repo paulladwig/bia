@@ -30,7 +30,7 @@ function refresh (refreshHTML) {
 <% if !params[:bookmark].nil? %>
   addBookmark('<%= j render "shared/restaurants/bookmark_button", restaurant: @restaurant, selection: @selection%>');
 <% elsif params[:selection][:recommendation] == 'true' %>
-  <% if @selection.review != "" %>
+  <% if @selection.review != "" && @selection.cuisine != "" %>
     recommend('<%= j render "shared/restaurants/recommend_button", restaurant: @restaurant, selection: @selection%>');
     addRecommendation('<%= j render "shared/restaurants/review", restaurant: @restaurant, selection: @selection%>');
   <% else %>

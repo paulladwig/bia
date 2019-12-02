@@ -14,7 +14,7 @@ class SelectionsController < ApplicationController
     # Create or edit bookmarks
     if !params[:bookmark].nil?
       bookmark(@restaurant, existing_entry)
-    elsif params[:selection][:recommendation] =x= 'true'
+    elsif params[:selection][:recommendation] == 'true'
       recommend(recommendation_params, @restaurant, existing_entry)
     end
     authorize @selection
@@ -77,6 +77,6 @@ class SelectionsController < ApplicationController
   end
 
   def recommendation_params
-    params.require(:selection).permit(:review, :occasion, :price, :special)
+    params.require(:selection).permit(:review, :occasion, :price, :special, :cuisine)
   end
 end
