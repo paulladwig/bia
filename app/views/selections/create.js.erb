@@ -32,7 +32,7 @@ function refresh (refreshHTML) {
 <% elsif params[:selection][:recommendation] == 'true' %>
   <% if @selection.review != "" %>
     recommend('<%= j render "shared/restaurants/recommend_button", restaurant: @restaurant, selection: @selection%>');
-    addRecommendation('');
+    addRecommendation('<%= j render "shared/restaurants/review", restaurant: @restaurant, selection: @selection%>');
   <% else %>
     refresh('<%= j render "selections/recommendation_form", restaurant: @restaurant, selection: @selection %>');
   <% end %>
