@@ -7,8 +7,6 @@
 <%occasion = params[:search][:occasion] if !params[:search].nil?%>
 <%price = params[:search][:price] if !params[:search].nil?%>
 
-
-
 <div class="container-bia mt-5 index-restaurants-layout">
     <h2 class="text-center find-search-heading">Search</h2>
     <div class="d-flex justify-content-between align-items-center">
@@ -25,7 +23,14 @@
           <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
           <h5 class="mb-2">Cuisine</h5>
           <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"}, selected: cuisine, class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
-          <%= render 'shared/input_occasion', f: f %>
+          <h5 class="mb-2">Occasion</h5>
+          <div class="bia-radio-button mb-2">
+            <%= f.input_field :occasion,
+                        as: :check_boxes,
+                        collection: [[1, 'on-the-go'], [2, 'casual'], [3, 'evening out' ], [4, 'fine dining']],
+                        label_method: :second,
+                        value_method: :first %>
+          </div>
           <%= render 'shared/input_price', f: f %>
         <%=f.submit "Search", class: "hide" %>
       <% end %>

@@ -125,6 +125,12 @@ class RestaurantsController < ApplicationController
       if search_params[:cuisine][1].presence
         where[:cuisine] = search_params[:cuisine].drop(1)
       end
+      if search_params[:occasion].presence
+        where[:occasion] = search_params[:occasion].drop(1)
+      end
+      if search_params[:price].presence
+        where[:price] = search_params[:price].drop(1)
+      end
     end
     where
   end
@@ -174,7 +180,7 @@ class RestaurantsController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:query, :lat, :long, :location, :range, :cuisine => [])
+    params.require(:search).permit(:query, :lat, :long, :location, :range, :cuisine => [], :occasion => [], :price => [])
   end
 
   def restaurant_params
