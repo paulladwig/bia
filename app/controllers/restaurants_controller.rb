@@ -1,8 +1,13 @@
 class RestaurantsController < ApplicationController
   def index
-    params[:search].presence ? query = search_params[:query] : query = "*"
-    # if params[:search][:location] || params[:sear]
-    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {id: Restaurant.relevant_restaurants(current_user, "id")}}
+    if params[:search].presence
+      search_params[:query].presence ? query = search_params[:query] : query = "*"
+    else
+      query = "*"
+    end
+    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page]}
+    options[:where] = where
+    options[:boost_by_distance] = boost_by_distance
     # keep for user search
     # options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
     # @your_users = policy_scope(User).search(search_query, options)
@@ -30,28 +35,10 @@ class RestaurantsController < ApplicationController
     # check if search query was executed by the user
     if params[:search].presence
       search_query = search_params[:query]
-      longitude = search_params[:long]
-      latitude = search_params[:lat]
-      range = 5000
-
-      # check if a location was provided by the user,
-      # if true the location determined by the browser is overwritten
-      if search_params[:location].present?
-        coordinates = convert_location(search_params[:location])
-        latitude = coordinates[0]
-        longitude = coordinates[1]
-      end
-      # check if a location was found using the browser or
-      # given by the user, if true search for nearby places will be executed
-      if longitude != 'na'
-
-        # check if a range was given by the user, othwerwise the default of 5000 is used
-        if search_params[:range].present?
-          range = search_params[:range]
-        end
-
+      location = location_coords
+      if location[:longitude] != 'na'
         # use search input to find places using google api
-        nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{latitude},#{longitude}&radius=#{range}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+        p nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:latitude]},#{location[:longitude]}&radius=#{location[:range]}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized = JSON.parse(open(nearby_url).read)
         json_sereialized["results"].each do |result|
           # incase google does not provide a photo set photo to nil to avoid method error
@@ -62,21 +49,12 @@ class RestaurantsController < ApplicationController
           end
           @results << [result["name"], result["vicinity"], result["place_id"], photo]
         end
-
       # if no location was found using the browser and nothing was given in the location field,
       # do a text search which does not require a location
       else
-
-        # Providing some location reference improves results though, therefore check if the user has
-        # set a home location on their profile, use it to improve search results
-        if current_user.location.present?
-          location_string = "location=#{current_user.latitude},#{current_user.longitude}&radius=#{50000}&"
-        else
-          location_string = ''
-        end
-
+        location_string = user_default_location
         # execute google places text search
-        text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+        p text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized_text = JSON.parse(open(text_url).read)
         json_sereialized_text["results"].each do |result|
           if result["photos"]
@@ -118,7 +96,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     authorize @restaurant
-    details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    p details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     json_sereialized = JSON.parse(open(details_url).read)
     @restaurant.phone_number = json_sereialized["result"]["formatted_phone_number"] if json_sereialized["result"]["formatted_phone_number"]
     @restaurant.url = json_sereialized["result"]["website"] if json_sereialized["result"]["website"]
@@ -135,8 +113,68 @@ class RestaurantsController < ApplicationController
     Geocoder.search(search_params[:location]).first.coordinates
   end
 
+  def where
+    where = {id: Restaurant.relevant_restaurants(current_user, "id")}
+    if params[:search].presence
+      if params[:search][:location].presence
+        location = location_coords
+        if location != 'na'
+          where[:location] = {near: {lat: location[:latitude], lon: location[:longitude]}, within: "#{location[:range]/1000}km"}
+        end
+      end
+      if search_params[:cuisine][1].presence
+        where[:cuisine] = search_params[:cuisine].drop(1)
+      end
+    end
+    where
+  end
+
+  def boost_by_distance
+    boost = {}
+    if params[:search].presence
+      location = location_coords
+      if location != 'na'
+        boost[:location] = {origin: {lat: location[:latitude], lon: location[:longitude]}}
+      end
+    end
+    boost
+  end
+
+  def location_coords
+    longitude = search_params[:long]
+    latitude = search_params[:lat]
+    range = 5000
+
+    # check if a location was provided by the user,
+    # if true the location determined by the browser is overwritten
+      if search_params[:location].present?
+        coordinates = convert_location(search_params[:location])
+        latitude = coordinates[0]
+        longitude = coordinates[1]
+      end
+
+      if longitude != 'na'
+        # check if a range was given by the user, othwerwise the default of 5000 is used
+        if search_params[:range].present?
+          range = search_params[:range].to_i * 1000
+        end
+      end
+
+    { longitude: longitude, latitude: latitude, range: range }
+  end
+
+  def user_default_location
+    # Providing some location reference improves results though, therefore check if the user has
+    # set a home location on their profile, use it to improve search results
+    if current_user.location.present?
+      location_string = "location=#{current_user.latitude},#{current_user.longitude}&radius=#{50000}&"
+    else
+      location_string = ''
+    end
+  end
+
   def search_params
-    params.require(:search).permit(:query, :lat, :long, :location, :range)
+    params.require(:search).permit(:query, :lat, :long, :location, :range, :cuisine => [])
   end
 
   def restaurant_params

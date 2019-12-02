@@ -9,9 +9,9 @@ import {copyToClipboard} from '../plugins/clickboard.js'
 addLinkInNavbarToggle();
 import { recommendation_modal, share_modal } from '../components/modal'
 import { locate_user } from '../components/locator';
-// import { turn_dropdown_icon } from '../pages/show';
+import { turn_dropdown_icon } from '../pages/show';
 
-// turn_dropdown_icon();
+turn_dropdown_icon();
 recommendation_modal();
 share_modal();
 locate_user();

@@ -14,10 +14,18 @@ class SelectionsController < ApplicationController
     # Create or edit bookmarks
     if !params[:bookmark].nil?
       bookmark(@restaurant, existing_entry)
-    elsif params[:selection][:recommendation] == 'true'
+    elsif params[:selection][:recommendation] =x= 'true'
       recommend(recommendation_params, @restaurant, existing_entry)
     end
     authorize @selection
+  end
+
+  def destroy
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @delete_entry = Selection.where(restaurant: @restaurant, user_id: current_user.id)
+    @delete_entry.first.destroy
+    authorize @delete_entry
+    redirect_to restaurant_path(@restaurant)
   end
 
   private
