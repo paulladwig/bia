@@ -1,0 +1,7 @@
+function addBookmark(bookmarkHTML) {
+  const bookmark = document.querySelector('#bookmark');
+  bookmark.outerHTML =  bookmarkHTML;
+  bookmark.classList.toggle("biabutton-active");
+}
+
+addBookmark('<%= j render "shared/restaurants/bookmark_button", restaurant: @restaurant, review: @review%>')
