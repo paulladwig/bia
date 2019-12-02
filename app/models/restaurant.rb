@@ -22,7 +22,9 @@ class Restaurant < ApplicationRecord
   def search_data
     { name: name,
       cuisine: cuisine,
-      recommended: "#{users.map(&:name).join(' ')}"
+      recommended: "#{users.map(&:name).join(' ')}",
+      price: avg_price,
+      occasion: avg_occasion
     }.merge(location: {lat: latitude, lon: longitude})
   end
 

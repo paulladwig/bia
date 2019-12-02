@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
     options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page]}
     options[:where] = where
     options[:boost_by_distance] = boost_by_distance
+
     # keep for user search
     # options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
     # @your_users = policy_scope(User).search(search_query, options)
@@ -125,6 +126,12 @@ class RestaurantsController < ApplicationController
       if search_params[:cuisine][1].presence
         where[:cuisine] = search_params[:cuisine].drop(1)
       end
+      if search_params[:occasion][1].presence
+        where[:occasion] = search_params[:occasion].drop(1)
+      end
+      if search_params[:price][1].presence
+        where[:price] = search_params[:price].drop(1)
+      end
     end
     where
   end
@@ -133,7 +140,7 @@ class RestaurantsController < ApplicationController
     boost = {}
     if params[:search].presence
       location = location_coords
-      if location != 'na'
+      if location[:latitude] != 'na'
         boost[:location] = {origin: {lat: location[:latitude], lon: location[:longitude]}}
       end
     end
@@ -174,7 +181,7 @@ class RestaurantsController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:query, :lat, :long, :location, :range, :cuisine => [])
+    params.require(:search).permit(:query, :lat, :long, :location, :range, :cuisine => [], :occasion => [], :price => [])
   end
 
   def restaurant_params

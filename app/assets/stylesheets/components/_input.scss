@@ -21,6 +21,11 @@
   grid-gap: $spacer;
 }
 
+.input-field-to-row-filter {
+  display: grid;
+  grid-template-columns: 255px 75px;
+  grid-gap: $spacer;
+}
 .search-one-line {
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr ;
