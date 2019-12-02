@@ -3,8 +3,7 @@
 <%recommended = selection.recommended if !selection.nil? %>
 
 <div class="width-100-pc d-flex justify-content-between">
-  <button class ="biabutton<%=" biabutton-active" if recommended%> size-48-pc font-size-awesome" id="open-modal"> <i class="fas fa-bullhorn"></i> </button>
-    <%= render 'shared/restaurants/bookmark_button', restaurant: restaurant, recommendation: recommendation%>
-
+  <%= render 'shared/restaurants/recommend_button', restaurant: restaurant, selection: recommendation%>
+  <%= render 'shared/restaurants/bookmark_button', restaurant: restaurant, recommendation: recommendation%>
 </div>
 

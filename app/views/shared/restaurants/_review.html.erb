@@ -1,0 +1,21 @@
+<div class="review-card">
+  <%= link_to(user_path(selection.user)) do %>
+    <div class="avatar-large review-card-avatar" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
+  <% end %>
+  <div class="core-review">
+    <h5 class='my-1'> <%= link_to selection.user.name, user_path(selection.user), class: 'text-color-black'%></h5>
+    <p class='my-1'> <%= selection.review %> </p>
+    <div class="bottom-line">
+      <p class="small-font mt-1"> Posted on <%= selection.updated_at.strftime('%a %d %b %Y') %></p>
+      <p id="navbarDropdown", data-toggle="dropdown">
+        <% if selection.user == current_user %>
+          <svg width="21" class="svg-dropdown" height="12" viewBox="0 0 21 12" xmlns="http://www.w3.org/2000/svg"><path d="M9.16705 10.8084C9.92613 11.487 11.0739 11.487 11.8329 10.8084L20.0182 3.49106C21.3872 2.26724 20.5215 0 18.6853 0H2.3147C0.478447 0 -0.387221 2.26724 0.981759 3.49106L9.16705 10.8084Z"/>
+        <% end %>
+      </p>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "Edit", '#', class: "dropdown-item" %>
+        <%= link_to "Delete", restaurant_selection_path(@restaurant), method: :delete, class: "dropdown-item" %>
+      </div>
+    </div>
+  </div>
+</div>
