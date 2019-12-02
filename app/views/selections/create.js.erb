@@ -16,7 +16,7 @@ function recommend(toggle) {
 
 function addRecommendation (review) {
   const reviews = document.getElementById('reviews')
-  reviews.insertAdjacentHTML('beforeend', review);
+  reviews.insertAdjacentHTML('afterbegin', review);
   console.log('posted');
 }
 
