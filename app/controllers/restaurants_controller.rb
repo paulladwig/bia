@@ -16,6 +16,11 @@ class RestaurantsController < ApplicationController
     @current_user = current_user
     @current_page = @restaurants.current_page
     @total_pages = @restaurants.total_pages
+
+    # respond_to do |format|
+    #   format.html { redirect_to restaurants_path }
+    #   format.js
+    # end
   end
 
   def show

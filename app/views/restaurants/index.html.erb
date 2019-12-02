@@ -14,7 +14,7 @@
       <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
     </div>
     <div class="side-filter">
-      <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
+      <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin' }, remote: true do |f| %>
           <%=f.input :query, required: false, label: false, placeholder: "Restaurant name, cuisine...", input_html: {class: 'input-field simple_form-align mb-2', value: query}%>
           <h5 class="mb-2">Location</h5>
           <div class="input-field-to-row-filter">
