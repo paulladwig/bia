@@ -11,6 +11,6 @@
       </div>
     <% end %>
     <% @users.each do |user| %>
-      <%= render 'shared/friendships/card', user: user%>
+      <%= render 'shared/friendships/card', user: user, show_mutual: true, small: true%>
     <% end %>
 </div>
