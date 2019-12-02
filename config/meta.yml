@@ -1,5 +1,4 @@
 meta_product_name: "BIA"
-meta_title: "BIA - Friendly Recommendations"
 meta_description: "BIA helps you to find the perfect restaurants for your taste and occasion, recommended by the people you know."
-meta_image: "meta_image.svg" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@BIA82906750"   # required for Twitter Cards
