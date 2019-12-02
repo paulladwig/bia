@@ -54,7 +54,7 @@ class User < ApplicationRecord
     if type == "id"
       return users.map!{ |user| user.id }
     elsif type == "instance"
-      return user
+      return users
     end
   end
 end

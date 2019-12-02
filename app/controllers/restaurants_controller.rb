@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
         lat: @restaurant.latitude,
         lng: @restaurant.longitude
     }
-    @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: current_user.receivers, restaurant: @restaurant))
+    @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: User.following(current_user, "instance"), restaurant: @restaurant))
   end
 
   def new
