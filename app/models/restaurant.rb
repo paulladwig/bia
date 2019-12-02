@@ -31,6 +31,43 @@ class Restaurant < ApplicationRecord
     selections.where(user: current_user.receivers)
   end
 
+  def self.relevant_restaurants(user, type)
+    Restaurant.reciever_restaurants(user, type) + Restaurant.user_restaurants(user, type)
+  end
+
+  def self.reciever_restaurants(user, type)
+    receivers = user.receivers
+    all_selections = []
+    restaurants = []
+    receivers.each { |receiver| all_selections << receiver.selections }
+    all_selections.each do |user_selections|
+      user_selections.each do |selection|
+        restaurants << selection.restaurant if selection.recommended == true
+      end
+    end
+    Restaurant.type_conversion(restaurants, type)
+  end
+
+  def self.user_restaurants(user, type)
+    Restaurant.user_restaurants_recommended(user, type) + Restaurant.user_restaurants_bookmarked(user, type)
+  end
+
+  def self.user_restaurants_recommended(user, type)
+    restaurants = []
+    user.selections.each do |selection|
+      restaurants << selection.restaurant if selection.recommended == true
+    end
+    Restaurant.type_conversion(restaurants, type)
+  end
+
+  def self.user_restaurants_bookmarked(user, type)
+    restaurants = []
+    user.selections.each do |selection|
+      restaurants << selection.restaurant if selection.bookmarked == true
+    end
+    Restaurant.type_conversion(restaurants, type)
+  end
+
   def calc_avg_occassion
     all_selections = self.selections.where(recommended: true)
     all_occassions = 0
@@ -53,5 +90,15 @@ class Restaurant < ApplicationRecord
     end
     self.avg_price = all_prices / all_selections.length
     self.save
+  end
+
+  private
+
+  def self.type_conversion(restaurants, type)
+    if type == "id"
+      return restaurants.map!{ |restaurant| restaurant.id }
+    elsif type == "instance"
+      return restaurants
+    end
   end
 end

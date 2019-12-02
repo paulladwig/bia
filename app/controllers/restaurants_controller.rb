@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   def index
     params[:search].presence ? query = params[:search][:query] : query = "*"
     # if params[:search][:location] || params[:sear]
-    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
+    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page], where: {id: Restaurant.relevant_restaurants(current_user, "id")}}
     # keep for user search
     # options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
     # @your_users = policy_scope(User).search(search_query, options)
@@ -88,11 +88,6 @@ class RestaurantsController < ApplicationController
         end
       end
 
-      # provide userr with own results incase they searched for a restaurant they recommended or their friends recommended before
-      # params[:search].presence ? query = params[:search][:query] : query = "*"
-      # your_options = {fields: ["name^10"], operator: "or", limit: 3, match: :word_middle, misspellings: {below: 5}, where: {_or: [{id: current_user.restaurants.ids}, {id: reciever_restaurants}]}}
-      # @your_restaurants = policy_scope(Restaurant).search(search_query, your_options)
-
       # check if the restaurant exists in the database if not create a new instace to show to the user
       @results.map! do |result|
         database_record = Restaurant.where(placeid: result[2])
@@ -115,6 +110,9 @@ class RestaurantsController < ApplicationController
         end
       end
     end
+    @results = Kaminari.paginate_array(@results).page(params[:page]).per(18)
+    @current_page = @results.current_page
+    @total_pages = @results.total_pages
   end
 
   def create
@@ -135,19 +133,6 @@ class RestaurantsController < ApplicationController
 
   def convert_location(location)
     Geocoder.search(search_params[:location]).first.coordinates
-  end
-
-  def reciever_restaurants
-    receivers = current_user.receivers
-    all_selections = []
-    restaurants = []
-    receivers.each { |receiver| all_selections << receiver.selections }
-    all_selections.each do |user_selections|
-      user_selections.each do |selection|
-        restaurants << selection.restaurant if selection.recommended == true
-      end
-    end
-    restaurants.map!{ |restaurant| restaurant.id }
   end
 
   def search_params
