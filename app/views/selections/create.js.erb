@@ -1,7 +1,39 @@
 function addBookmark(bookmarkHTML) {
-  const bookmark = document.querySelector('#bookmark');
+  const bookmark = document.getElementById('bookmark');
   bookmark.outerHTML =  bookmarkHTML;
   bookmark.classList.toggle("biabutton-active");
+  console.log('bookmarked')
 }
 
-addBookmark('<%= j render "shared/restaurants/bookmark_button", restaurant: @restaurant, review: @review%>')
+function recommend(toggle) {
+  const button = document.getElementById('open-modal');
+  button.outerHTML = toggle;
+  button.classList.toggle("biabutton-active");
+  const window = document.getElementById('recommend-modal');
+  window.style.display="none";
+  console.log('recommended');
+}
+
+function addRecommendation (review) {
+  const reviews = document.getElementById('reviews')
+  reviews.insertAdjacentHTML('beforeend', review);
+  console.log('posted');
+}
+
+function refresh (refreshHTML) {
+  const form = document.getElementById('rcmd-form');
+  form.outerHTML = refreshHTML;
+  const require = document.querySelector('.selection_review');
+  require.insertAdjacentHTML('beforeend', '<p class = "small-font red-font" > Please fill in this field </p>');
+}
+
+<% if !params[:bookmark].nil? %>
+  addBookmark('<%= j render "shared/restaurants/bookmark_button", restaurant: @restaurant, selection: @selection%>');
+<% elsif params[:selection][:recommendation] == 'true' %>
+  <% if @selection.review != "" %>
+    recommend('<%= j render "shared/restaurants/recommend_button", restaurant: @restaurant, selection: @selection%>');
+    addRecommendation('');
+  <% else %>
+    refresh('<%= j render "selections/recommendation_form", restaurant: @restaurant, selection: @selection %>');
+  <% end %>
+<% end %>

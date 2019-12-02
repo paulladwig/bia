@@ -57,6 +57,12 @@ input {
   }
 }
 
+.p-style {
+  font-weight: normal;
+  color: $gmedium;
+  font-size: $font-size-base;
+}
+
 .h4-style {
   font-weight: $font-weight-medium-sans-serif;
   color: black;
@@ -72,6 +78,10 @@ input {
 .small-font {
     font-size: $font-size-sm;
   }
+
+.red-font {
+  color: $red;
+}
 
 .image-rounded-corners {
   border-radius: $border-radius;

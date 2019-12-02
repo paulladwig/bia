@@ -53,10 +53,16 @@ class SelectionsController < ApplicationController
     @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
     @selection.update(params)
     if @selection.save
-      redirect_to restaurant_path(restaurant)
+      respond_to do |format|
+        format.html { redirect_to restaurant_path(restaurant) }
+        format.js
+      end
     else
       update_selection(entry, params)
-      redirect_to restaurant_path(restaurant)
+      respond_to do |format|
+        format.html { redirect_to restaurant_path(restaurant) }
+        format.js
+      end
     end
     authorize @selection
   end
