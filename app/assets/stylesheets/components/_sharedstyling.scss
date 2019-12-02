@@ -19,6 +19,14 @@
   width: 100%;
 }
 
+.width-75px {
+  width: 75px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
 .padding-spacer {
   padding: $spacer;
 }
@@ -108,3 +116,5 @@ button {
     outline: none;
   }
 }
+
+

@@ -124,7 +124,6 @@
 .bia-radio-button {
   width: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   height: 4*$spacer;
   .form-check:nth-of-type(1) {
@@ -161,9 +160,20 @@
   }
 }
 
-.bia-radio-button .form-check {
+.bia-radio-button-width-adaptive {
+  justify-content: space-between;
+  .form-check {
   width: 23%;
   padding: 0;
+  }
+}
+
+.bia-radio-button-width-filter {
+  justify-content: space-between;
+  .form-check {
+  width: 75px;
+  padding: 0;
+  }
 }
 
 
