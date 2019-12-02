@@ -1,61 +1,15 @@
 <% content_for :meta_title, "BIA - Overview" %>
 <%= render 'shared/navbar' %>
-
-<%query = params[:search][:query] if !params[:search].nil?%>
-<%location = params[:search][:location] if !params[:search].nil?%>
-<%cuisine = params[:search][:cuisine] if !params[:search].nil?%>
-<%occasion = params[:search][:occasion] if !params[:search].nil?%>
-<%price = params[:search][:price] if !params[:search].nil?%>
-
 <div class="container-bia mt-5 index-restaurants-layout">
     <h2 class="text-center find-search-heading">Search</h2>
     <div class="d-flex justify-content-between align-items-center">
       <h2>Recommended Places</h2>
       <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
     </div>
-    <div class="side-filter">
-      <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin' }, remote: true do |f| %>
-          <%=f.input :query, required: false, label: false, placeholder: "Restaurant name, cuisine...", input_html: {class: 'input-field simple_form-align mb-2', value: query}%>
-          <h5 class="mb-2">Location</h5>
-          <div class="input-field-to-row-filter">
-            <%=f.input :location, required: false, label: false, placeholder: "Location of places", input_html: {class: 'input-field simple_form-align mb-2 multiselectuser', value: location}%>
-            <%=f.input :range,  as: :numeric, label: false, required: false, placeholder: "5km",  input_html: {class: 'input-field' }%>
-          </div>
-          <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
-          <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
-          <h5 class="mb-2">Cuisine</h5>
-          <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"}, selected: cuisine, class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
-          <h5 class="mb-2">Occasion</h5>
-          <div class="bia-radio-button bia-radio-button-width-filter mb-2">
-            <%= f.input_field :occasion,
-                        checked: occasion,
-                        as: :check_boxes,
-                        collection: [[1, 'on-the-go'], [2, 'casual'], [3, 'evening out' ], [4, 'fine dining']],
-                        label_method: :second,
-                        value_method: :first %>
-          </div>
-          <h5 class="mb-2">Price</h5>
-          <div class="bia-radio-bar mb-2">
-            <%= f.input_field :price,
-                      checked: price,
-                      as: :check_boxes,
-                      collection: [[1, '€'], [2, '€€'], [3, '€€€' ], [4, '€€€€']],
-                      label_method: :second,
-                      value_method: :first%>
-          </div>
-        <button type="submit" class="biabutton width-75px mr-3"><i class="fas fa-search"></i></button>
-        <%= link_to 'Reset', restaurants_path, class:"biabutton width-75px text-align-center" %>
-      <% end %>
-
+    <div class="side-filter" id="index-side-filter">
+      <%= render 'shared/restaurants/filter' %>
     </div>
-    <div>
-       <div class="index-restaurants-grid">
-        <% @restaurants.each do |restaurant| %>
-          <%= render 'shared/card', data: {restaurant: restaurant}%>
-        <% end %>
-      </div>
-      <%= render 'shared/pageinator', elements: @restaurants, current_page: @current_page, total_pages: @total_pages %>
+    <div id="index-restaurants-grid">
+      <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages %>
     </div>
-
-
 </div>

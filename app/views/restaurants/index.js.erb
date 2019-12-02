@@ -1,16 +1,9 @@
-function refreshForm(innerHTML) {
-  const newReviewForm = document.getElementById('new_review');
-  newReviewForm.innerHTML = innerHTML;
-}
+restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages%>');
+restaurantsIndexFilter = ('<%= j render "shared/restaurants/filter" %>');
+grid = document.getElementById('index-restaurants-grid');
+filter = document.getElementById('index-side-filter');
+grid.innerHTML = restaurantsCardGrid;
 
-function addReview(reviewHTML) {
-  const reviews = document.getElementById('reviews');
-  reviews.insertAdjacentHTML('beforeend', reviewHTML);
-}
-
-<% if @review.errors.any? %>
-  refreshForm('<%= j render "reviews/form", restaurant: @restaurant, review: @review %>');
-<% else %>
-  addReview('<%= j render "reviews/show", review: @review %>');
-  refreshForm('<%= j render "reviews/form", restaurant: @restaurant, review: Review.new %>');
+<% if params[:reset] %>
+  filter.innerHTML = restaurantsIndexFilter;
 <% end %>

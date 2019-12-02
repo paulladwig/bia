@@ -1,0 +1,7 @@
+<div class="index-restaurants-grid">
+  <% restaurants.each do |restaurant| %>
+    <%= render 'shared/card', data: {restaurant: restaurant}%>
+  <% end %>
+</div>
+<%= render 'shared/pageinator', elements: restaurants, current_page: current_page, total_pages: total_pages %>
+
