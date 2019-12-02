@@ -123,7 +123,7 @@ class RestaurantsController < ApplicationController
         end
       end
       if search_params[:cuisine][1].presence
-        # _or: [{in_stock: true}, {backordered: true}]
+        where[:cuisine] = search_params[:cuisine].drop(1)
       end
     end
     where
