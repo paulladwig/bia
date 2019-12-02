@@ -1,8 +1,13 @@
 class RestaurantsController < ApplicationController
   def index
-    params[:search].presence ? query = search_params[:query] : query = "*"
+    if params[:search].presence
+      search_params[:query].presence ? query = search_params[:query] : query = "*"
+    else
+      query = "*"
+    end
     options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page]}
     options[:where] = where
+    options[:boost_by_distance] = boost_by_distance
     # keep for user search
     # options = {fields: [:name, :cuisine, :recommended, :friendname, :username, :email], operator: "or", match: :word_middle}
     # @your_users = policy_scope(User).search(search_query, options)
@@ -110,19 +115,29 @@ class RestaurantsController < ApplicationController
 
   def where
     where = {id: Restaurant.relevant_restaurants(current_user, "id")}
-
-    location = location_coords
-
-    if location != 'na'
-
+    if params[:search].presence
+      if params[:search][:location].presence
+        location = location_coords
+        if location != 'na'
+          where[:location] = {near: {lat: location[:latitude], lon: location[:longitude]}, within: "#{location[:range]/1000}km"}
+        end
+      end
+      if search_params[:cuisine][1].presence
+        # _or: [{in_stock: true}, {backordered: true}]
+      end
     end
-    if search_params
-      following = User.following(current_user, "id")
-      followers = User.followers(current_user, "id")
-      where[:id] = following + followers
-    end
-
     where
+  end
+
+  def boost_by_distance
+    boost = {}
+    if params[:search].presence
+      location = location_coords
+      if location != 'na'
+        boost[:location] = {origin: {lat: location[:latitude], lon: location[:longitude]}}
+      end
+    end
+    boost
   end
 
   def location_coords
@@ -132,18 +147,18 @@ class RestaurantsController < ApplicationController
 
     # check if a location was provided by the user,
     # if true the location determined by the browser is overwritten
-    if search_params[:location].present?
-      coordinates = convert_location(search_params[:location])
-      latitude = coordinates[0]
-      longitude = coordinates[1]
-    end
-
-    if longitude != 'na'
-      # check if a range was given by the user, othwerwise the default of 5000 is used
-      if search_params[:range].present?
-        range = search_params[:range].to_i * 1000
+      if search_params[:location].present?
+        coordinates = convert_location(search_params[:location])
+        latitude = coordinates[0]
+        longitude = coordinates[1]
       end
-    end
+
+      if longitude != 'na'
+        # check if a range was given by the user, othwerwise the default of 5000 is used
+        if search_params[:range].present?
+          range = search_params[:range].to_i * 1000
+        end
+      end
 
     { longitude: longitude, latitude: latitude, range: range }
   end
@@ -159,7 +174,7 @@ class RestaurantsController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:query, :lat, :long, :location, :range)
+    params.require(:search).permit(:query, :lat, :long, :location, :range, :cuisine => [])
   end
 
   def restaurant_params
