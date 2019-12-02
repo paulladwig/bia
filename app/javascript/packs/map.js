@@ -1,5 +1,14 @@
 import GMaps from 'gmaps/gmaps.js';
 
+let restaurantName = document.querySelector('.restaurant-name').innerHTML;
+let restaurantImage = document.querySelector('.image-cover').content
+
+var infowindow = new google.maps.InfoWindow({
+    content: ('<h4>' + restaurantName + '</h4>')
+    // content: ("<div style='float:left'><img src='http://i.stack.imgur.com/g672i.png'></div><div style='float:right; padding: 10px;'><b>Title</b><br/>123 Address<br/> City,Country</div>")
+});
+
+
 const mapElement = document.getElementById('map');
 function initMap() {
   const markers = JSON.parse(mapElement.dataset.markers);
@@ -211,7 +220,31 @@ function initMap() {
   var marker = new google.maps.Marker({
     position: markers,
     map: map,
-    title: 'Hello World!'
+    icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575301929/marker_oxy5mm.svg'
+  });
+
+  map.setOptions({
+    disableDefaultUI:true,
+  });
+
+  document.getElementById("map").addEventListener('mouseover', function() {
+    map.setOptions({
+      disableDefaultUI:false
+    });
+  });
+
+  document.getElementById("map").addEventListener('mouseout', function() {
+    map.setOptions({
+      disableDefaultUI:true
+    });
+  });
+
+  document.getElementById("map").addEventListener('mouseover', function() {
+    infowindow.open(map,marker);
+  });
+
+  document.querySelector("map").addEventListener('mouseout', function() {
+    infowindow.close();
   });
 }
 
