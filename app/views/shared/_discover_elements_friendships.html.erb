@@ -4,18 +4,7 @@
   <% end %>
   <div class="activity-content">
     <h5> <%= link_to friendship.asker.name, friendship.asker %> has started following you </h5>
-    <% if mutual_followers.length == 1 %>
-      <p class="my-2" >   <%= mutual_followers[0].asker.name %> also follows <%= friendship.asker.name %> </p>
-    <% elsif mutual_followers.length == 2%>
-      <p class="my-2" >   <%= mutual_followers[0].asker.name %> and <%= mutual_followers[1].asker.name %> also follow <%= friendship.asker.name %> </p>
-    <% elsif mutual_followers.length == 0 %>
-      <p class="my-2"> None of your friends follow <%= friendship.asker.name %></p>
-    <% elsif mutual_followers.length == 3 %>
-      <p class="my-2" >   <%= mutual_followers[0].asker.name %>, <%= mutual_followers[1].asker.name %>, and <%= mutual_followers.length - 2 %> other friend also follow <%= friendship.asker.name %> </p>
-    <% else %>
-      <p class="my-2" >   <%= mutual_followers[0].asker.name %>, <%= mutual_followers[1].asker.name %>, and <%= mutual_followers.length - 2 %> others also follow <%= friendship.asker.name %> </p>
-    <% end %>
+    <%= render 'shared/friendships/mutual_followers', mutual_followers: mutual_followers, friendship: friendship, small: false %>
     <p class="small-font mt-2"> Started following you on <%= friendship.created_at.strftime('%a %d %b %Y') %></p>
-
   </div>
 </div>
