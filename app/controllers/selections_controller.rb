@@ -53,7 +53,7 @@ class SelectionsController < ApplicationController
   end
 
   def update_selection(entry, params)
-    entry.update(bookmarked: false)
+    entry.update(recommended: true)
     entry.update(params)
     @selection = entry
     respond_to do |format|
