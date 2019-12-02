@@ -12,4 +12,8 @@ class SelectionPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def destroy?
+    user == @user
+  end
 end
