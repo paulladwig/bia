@@ -58,7 +58,7 @@ class SelectionsController < ApplicationController
   end
 
   def recommend(params, restaurant, entry)
-    @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
+    @selection = Selection.new(user: current_user, recommended: true, bookmarked: false, restaurant: restaurant)
     @selection.update(params)
     if @selection.save
       respond_to do |format|
