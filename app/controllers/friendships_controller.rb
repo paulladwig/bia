@@ -22,15 +22,6 @@ class FriendshipsController < ApplicationController
     authorize @friendship
   end
 
-  # def destroy
-  #   raise
-  #   @friendship = Friendship.find(params[:id])
-  #   authorize @friendship
-  #   @receiver = @friendship.receiver
-  #   @friendship.destroy!
-  #   redirect_to user_path(@receiver)
-  # end
-
   def update
     @friendship = Friendship.find(params[:id])
     authorize @friendship

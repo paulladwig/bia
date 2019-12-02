@@ -27,10 +27,17 @@
   grid-gap: $spacer;
 }
 
+.search-one-line-full {
+  display: grid;
+  grid-template-columns: 4fr 1fr ;
+  grid-gap: $spacer;
+}
+
 .search-bar {
   padding: 10px 15px;
   margin: 10px 0;
 }
+
 
 // .dropdown-toggle::after {
 //     display: none;

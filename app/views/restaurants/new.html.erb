@@ -1,6 +1,8 @@
 <% content_for :meta_title, "BIA - Recommend" %>
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5 search-page-layout">
+<h2>Search</h2>
+<h4>Find the restaurants you want to recommend or bookmark</h4>
 <%= simple_form_for :search, url: recommend_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
   <div class="search-one-line">
     <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field search-bar' }%>

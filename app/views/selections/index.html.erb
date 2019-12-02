@@ -20,7 +20,9 @@
       <button class="quick-action block" id="open-share-modal">Places you recommended </button>
       <button class="quick-action block">Places you saved </button>
       <button class="quick-action block">Nearby recommended places </button>
-
+      <%= link_to(users_path) do  %>
+        <button class="quick-action block">Add friends</button>
+      <% end %>
     </div>
     <div class="index-selection-show">
       <% @all_activities.each do |activity| %>

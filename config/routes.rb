@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/index_followers/:id', to: 'friendships#index_followers', as: 'followers'
   post '/follow/:id', to: 'friendships#create', as: 'follow'
   patch '/follow/:id', to: 'friendships#update', as: 'update_follow'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
   resources :restaurants, only: [:show, :index, :create] do
     resources :selections, only: [:create]
   end
