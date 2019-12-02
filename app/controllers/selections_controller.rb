@@ -30,10 +30,16 @@ class SelectionsController < ApplicationController
   def bookmark(restaurant, entry)
     @selection = Selection.new(user: current_user, bookmarked: true, restaurant: restaurant)
     if @selection.save
-      redirect_to restaurant_path(restaurant)
+      respond_to do |format|
+        format.html { redirect_to restaurant_path(restaurant) }
+        format.js
+      end
     else
       update_bookmark(entry)
-      redirect_to restaurant_path(restaurant)
+      respond_to do |format|
+        format.html { redirect_to restaurant_path(restaurant) }
+        format.js
+      end
     end
       authorize @selection
   end

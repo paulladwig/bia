@@ -22,7 +22,7 @@
       class = "width-100-pc span-2-1 image-rounded-corners"
     ></div>
     <div class="span-1-2">
-      <%= render 'shared/restaurants/corebuttons', restaurant: @restaurant%>
+      <%= render 'shared/restaurants/corebuttons', restaurant: @restaurant, recommendation: @new_recommendation%>
       <%= render 'shared/restaurants/actionbuttons'%>
       <%= render 'shared/restaurants/restaurantdetails', restaurant: @restaurant %>
     </div>
