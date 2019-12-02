@@ -53,12 +53,17 @@ class SelectionsController < ApplicationController
   end
 
   def update_selection(entry, params)
-    entry.update(bookmarked: false, recommended: true)
+    entry.update(bookmarked: false)
     entry.update(params)
+    @selection = entry
+    respond_to do |format|
+      format.html { redirect_to restaurant_path(restaurant) }
+      format.js
+    end
   end
 
   def recommend(params, restaurant, entry)
-    @selection = Selection.new(user: current_user, recommended: true, bookmarked: false, restaurant: restaurant)
+    @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
     @selection.update(params)
     if @selection.save
       respond_to do |format|
@@ -67,10 +72,6 @@ class SelectionsController < ApplicationController
       end
     else
       update_selection(entry, params)
-      respond_to do |format|
-        format.html { redirect_to restaurant_path(restaurant) }
-        format.js
-      end
     end
     authorize @selection
   end
