@@ -17,11 +17,11 @@
         <p><%= @user.friendships_as_receiver.where(active: 1).count %></p>
       </div>
       <div class="recommended-info profile-info">
-        <%= link_to "Recommended", '#', class: "pr-3 pb-1"%>
+        <%= link_to "Recommended", user_path(@user, selection: "recommended"), remote: true, class: "pr-3 pb-1"%>
         <p><%= user_recommendations = Selection.where(user: @user, recommended: true).count %></p>
       </div>
       <div class="saved-info profile-info">
-        <%= link_to "Saved", '#', class: "pb-1" %>
+        <%= link_to "Bookmarked", user_path(@user, selection: "bookmarked"), remote: true, class: "pb-1" %>
         <p><%= user_bookmarked = Selection.where(user: @user, bookmarked: true).count %></p>
       </div>
       <div class="button-info profile-info">

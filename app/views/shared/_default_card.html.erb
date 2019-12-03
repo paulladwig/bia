@@ -18,7 +18,7 @@
       <div class="d-flex justify-content-between align-items-center pb-2 height-25-px">
         <!-- Card Information top row-->
         <div class="d-flex align-items-center">
-          <h5 class="h5-style"><%=data[:restaurant].name%></h5>
+          <h5 class="h5-style"><%=data[:restaurant].name.truncate(33)%></h5>
         </div>
         <div class="d-flex align-items-center">
           <%array_of_friends = data[:restaurant].get_friends_recommended(current_user).reject{|selection| selection.user == data[:user_to_exclude]}%>
@@ -33,7 +33,7 @@
       <div class="d-flex justify-content-between">
         <!-- Card Information bottom row-->
         <% if data[:disp_address] %>
-          <p><%=data[:restaurant].address%></p>
+          <p><%=data[:restaurant].address.truncate(40)%></p>
         <% else %>
           <p><%=data[:restaurant].cuisine%></p>
           <p><%= render 'shared/display_avg_occassion', average: data[:restaurant].avg_occasion %></p>
