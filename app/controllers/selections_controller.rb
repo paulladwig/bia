@@ -20,6 +20,14 @@ class SelectionsController < ApplicationController
     authorize @selection
   end
 
+  # def update
+  #   @restaurant = Restaurant.find(params[:restaurant_id])
+  #   @update_selection = Selection.where(restaurant: @restaurant, user_id: current_user.id)
+  #   @update_selection.first.update(params)
+  #   authorize @update_selection
+  #   redirect_to restaurant_path(@restaurant)
+  # end
+
   def destroy
     @restaurant = Restaurant.find(params[:restaurant_id])
     @delete_entry = Selection.where(restaurant: @restaurant, user_id: current_user.id)
