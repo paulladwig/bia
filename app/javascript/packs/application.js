@@ -8,6 +8,8 @@ import {addLinkInNavbarToggle} from '../pages/home.js';
 
 import {copyToClipboard} from '../plugins/clickboard.js'
 
+import {mapActivationButton} from '../pages/restaurant_index.js'
+
 addLinkInNavbarToggle();
 import { recommendation_modal, share_modal } from '../components/modal'
 import { locate_user } from '../components/locator';
@@ -23,3 +25,4 @@ autoSubmit();
 
 copyToClipboard();
 
+mapActivationButton();

@@ -1,12 +1,14 @@
 import GMaps from 'gmaps/gmaps.js';
 
+
 const mapElement = document.getElementById('map');
 function initMap() {
   const markers = JSON.parse(mapElement.dataset.markers);
-
+  const firstMarker = markers[0]
+  const center = {lat: firstMarker.lat, lng: firstMarker.lng}
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
-    center: markers,
+    center: center,
     fullscreenControl: false,
     streetViewControl: false,
     styles: [
@@ -208,11 +210,40 @@ function initMap() {
   ]
   });
 
-  var marker = new google.maps.Marker({
-    position: markers,
-    map: map,
-    title: 'Hello World!'
+  markers.forEach((marker)=> {
+    var marker = new google.maps.Marker({
+      position: marker,
+      map: map,
+      icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575301929/marker_oxy5mm.svg'
+    });
+  })
+
+
+  map.setOptions({
+    disableDefaultUI:true,
   });
+
+  document.getElementById("map").addEventListener('mouseover', function() {
+    map.setOptions({
+      disableDefaultUI:false
+    });
+  });
+
+  document.getElementById("map").addEventListener('mouseout', function() {
+    map.setOptions({
+      disableDefaultUI:true
+    });
+  });
+
+
+
+  // document.getElementById("map").addEventListener('mouseover', function() {
+  //   infowindow.open(map,marker);
+  // });
+
+  // document.querySelector("map").addEventListener('mouseout', function() {
+  //   infowindow.close();
+  // });
 }
 
 if (mapElement) {
