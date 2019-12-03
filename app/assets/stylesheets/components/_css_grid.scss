@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 60px auto;
-  grid-gap: $spacer;
+  grid-gap: $spacer ($spacer*2);
 }
 
 .index-restaurants-grid {

@@ -127,13 +127,13 @@ class RestaurantsController < ApplicationController
           where[:location] = {near: {lat: location[:latitude], lon: location[:longitude]}, within: "#{location[:range]/1000}km"}
         end
       end
-      if search_params[:cuisine][1].presence
+      if search_params[:cuisine].presence && search_params[:cuisine][1].presence
         where[:cuisine] = search_params[:cuisine].drop(1)
       end
-      if search_params[:occasion][1].presence
+      if search_params[:occasion].presence && search_params[:occasion][1].presence
         where[:occasion] = search_params[:occasion].drop(1)
       end
-      if search_params[:price][1].presence
+      if search_params[:price].presence && search_params[:price][1].presence
         where[:price] = search_params[:price].drop(1)
       end
     end

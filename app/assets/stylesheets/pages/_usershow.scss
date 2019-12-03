@@ -1,11 +1,15 @@
 .card-info {
   display: flex;
-  justify-content: space-between;
 }
 
 .profile-info {
   display: flex;
   justify-content: space-between;
+}
+
+.card-profile-content {
+  flex-grow: 1;
+  padding-left: $spacer;
 }
 
 .follow-button-follow {
