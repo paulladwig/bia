@@ -19,10 +19,11 @@ import { turn_dropdown_icon, detectShareClick } from '../pages/show';
 turn_dropdown_icon();
 recommendation_modal();
 share_modal();
+// edit_modal();
 locate_user();
 autoSubmit();
 detectShareClick();
 
 copyToClipboard();
 
-mapActivationButton();
+// mapActivationButton();
