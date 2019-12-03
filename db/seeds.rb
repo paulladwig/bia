@@ -555,6 +555,7 @@ selections = [
     review: 'Good restaurant with with low prices as well as competent and fast serviece! Perfect for a quick lunch with a small group of friends.',
     bookmarked: false,
     recommended: true,
+    cuisine: 'Italian',
     shared: true,
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
@@ -564,6 +565,7 @@ selections = [
     price: 2,
     review: "I really like this place. The food is fresh and delicious. My favourite is the beef pho.",
     recommended: true,
+    cuisine: 'Vietnamese',
     shared: true,
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   },
@@ -574,6 +576,7 @@ selections = [
     review: 'The food was excellent with very fresh ingredients. Staff friendly and helpful. We will definitely be visiting again.',
     bookmarked: false,
     recommended: true,
+    cuisine: 'Asian',
     shared: true,
     restaurant: Restaurant.find_by(name: 'Tim Raue')
   },
@@ -584,6 +587,7 @@ selections = [
     review: "I love Chupenga. They're remarkably fast, the food is consistent of quality, and they have amazing salsas / hotsauces. All for a decent price!",
     bookmarked: false,
     recommended: true,
+    cuisine: 'Mexican',
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
   {
@@ -598,6 +602,7 @@ selections = [
     review: 'Good restaurant. The service is good, and the food was tasty. Reasonable prices as well.',
     bookmarked: false,
     recommended: true,
+    cuisine: 'Vietnamese',
     shared: true,
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   },
@@ -610,6 +615,7 @@ selections = [
     recommended: true,
     shared: true,
     special: true,
+    cuisine: 'Italian',
     proposed_date: DateTime.parse("18/12/2019 22:20:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
@@ -620,6 +626,7 @@ selections = [
     review: "A warm, cosy place in Berlin. Place is quite small and usually very crowded but I loved the atmosphere there and the food was so delicious and reasonably priced. I'd recommend to anyone looking for some hearty, warm traditional Vietnamese dishes.",
     bookmarked: false,
     recommended: true,
+    cuisine: 'Vietnamese',
     shared: true,
     special: true,
     restaurant: Restaurant.find_by(name: 'Monsieur Vuong')
@@ -631,6 +638,7 @@ selections = [
     review: "Great food and low prices!!",
     bookmarked: false,
     recommended: true,
+    cuisine: 'Italian',
     shared: true,
     proposed_date: DateTime.parse("2019-02-12 21:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
@@ -642,6 +650,7 @@ selections = [
     review: "One of the best vietnamese in the area.",
     bookmarked: false,
     recommended: true,
+    cuisine: 'Asian',
     restaurant: Restaurant.find_by(name: 'AVAN')
   },
   {
@@ -652,6 +661,7 @@ selections = [
     bookmarked: false,
     recommended: true,
     shared: true,
+    cuisine: 'Vietnamese',
     proposed_date: DateTime.parse("01/12/2019 13:20:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   },
@@ -663,6 +673,7 @@ selections = [
     bookmarked: false,
     recommended: true,
     shared: true,
+    cuisine: 'Italian',
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
@@ -672,6 +683,7 @@ selections = [
     price: 2,
     review: "Ok for a qick lunch but I would not go here for dinner, mostly because of the atmosphere!",
     recommended: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
   {
@@ -681,6 +693,7 @@ selections = [
     review: "I ate here twice when I visited Berlin. I like the food, the concept and the ambience. I ordered from the vegan menu, and it was extremely tasty! The vibe was really cool and chilled.",
     recommended: true,
     shared: true,
+    cuisine: 'Mexican',
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
   {
@@ -696,6 +709,7 @@ selections = [
     review: "Really tasty pizza and the place is just cool in general super chill vibe and theerefore ideal for lunch or a casuel dinner.",
     recommended: true,
     shared: false,
+    cuisine: 'Pizza',
     restaurant: Restaurant.find_by(name: 'I Due Forni')
   },
   {
@@ -705,6 +719,7 @@ selections = [
     review: "I have been going here since they opened in early last year. Its really good and has never dissapointed me, feew can claim that. No matter what you will get you will be satisfied!",
     recommended: true,
     shared: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
@@ -714,6 +729,7 @@ selections = [
     review: "Quiet restaurant with good and not very expensive food. They have mainly polish specialites. The restaurant is nice inside and has very pleasant garden.",
     recommended: true,
     shared: true,
+    cuisine: 'Asian-inspired',
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
@@ -723,6 +739,7 @@ selections = [
     review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.",
     recommended: true,
     shared: true,
+    cuisine: 'Italian',
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
@@ -732,6 +749,7 @@ selections = [
     review: "Visited on a Sunday evening and managed to get a seat upstairs. Beautiful pizza, wine and service. A real gem and reasonably priced. If you like pizza then you must pay a visit!",
     recommended: true,
     shared: false,
+    cuisine: 'Italian',
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
@@ -741,6 +759,7 @@ selections = [
     review: "In my opinion, this is by far the best place for lunch close to Checkpoint Charlie. The pizza is delicious, always fresh and with good ingredients. Makes lunch feel like a trip to Italy!",
     recommended: true,
     shared: false,
+    cuisine: 'Italian',
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
@@ -755,6 +774,7 @@ selections = [
     review: "Very good for lunch, especially if you are hungry. Fresh burritos with ingredients (e.g., lentils) you don't get elsewhere. Especially good for vegetarians!",
     recommended: true,
     shared: false,
+    cuisine: 'Mexican',
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
    {
@@ -764,6 +784,7 @@ selections = [
     review: "Very good place for Steak. French fries are crisp and their medium-rare steak is always perfect. If you are looking for a very good, non-experimental steak place, go here.",
     recommended: true,
     shared: true,
+    cuisine: 'Steak',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
@@ -773,6 +794,7 @@ selections = [
     review: "Very good Asian food! Even my friends from Vietnam go here a lot! My favourite is the green curry.",
     recommended: true,
     shared: false,
+    cuisine: 'Asian',
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
@@ -803,6 +825,7 @@ selections = [
     bookmarked: false,
     recommended: true,
     shared: true,
+    cuisine: 'Tapas',
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
   },
@@ -816,6 +839,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     bookmarked: false,
     recommended: true,
     shared: true,
+    cuisine: 'Spanish',
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
   },
@@ -827,6 +851,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     bookmarked: false,
     recommended: true,
     shared: true,
+    cuisine: 'Tapas',
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Barcelona Tapas Bar Restaurant')
   },
@@ -837,6 +862,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "This is THE best place for steak in my opinion. I always order rare - super good. My favourite sauce is the pepper-cream sauce.",
     recommended: true,
     shared: true,
+    cuisine: 'Steakhouses',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
@@ -847,6 +873,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     bookmarked: false,
     recommended: true,
     shared: true,
+    cuisine: 'Italian',
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
   },
@@ -857,6 +884,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "The lunch menu is pretty cheap and the food is delicious. They are usually packed during lunch, so better call them and reserve a table beforehand. With the lunch menu you get a complimentary soup which is nice. Card is only accepted if the amount is more than 10 €, so have some cash with you before you dine in.",
     recommended: true,
     shared: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Mama Cook')
   },
   {
@@ -866,6 +894,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "Fine prices, delicious food and cocktails. Its located in quiet passage with many different restaurants and bars. Very near to AquaDome.",
     recommended: true,
     shared: true,
+    cuisine: 'Vietnamese',
     proposed_date: DateTime.parse("20/12/2019 13:30:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
   },
@@ -876,6 +905,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "Always full for lunch for a reason. Good food and reliable service. Cash only though.",
     recommended: true,
     shared: true,
+    cuisine: 'Asian-inspired',
     restaurant: Restaurant.find_by(name: 'Otito Vietnamese Food')
   },
   {
@@ -885,6 +915,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
     recommended: true,
     shared: true,
+    cuisine: 'Italian',
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
@@ -895,6 +926,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     recommended: true,
     shared: true,
     special: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Linh Linh')
   },
   {
@@ -903,6 +935,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 3,
     review: "Beautiful restaurant. Calm and cozy environment. Nice and friendly staff. Big tables that takes many plates of food.",
     recommended: true,
+    cuisine: 'Vietnamese',
     proposed_date: DateTime.parse("29/01/2020 20:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Ngon Restaurant Berlin')
   },
@@ -914,6 +947,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     recommended: true,
     shared: true,
     special: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Madami')
   },
   {
@@ -923,6 +957,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "One of the nicer places, where to eat in the city center and not to become poor. Prices are moderate and food never disappoints. In love with their duck in peanut sauce. Portions are very big too.",
     recommended: true,
     shared: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
   },
   {
@@ -932,6 +967,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "Delicious is all I can say . Had the crispy duck and sub my noodles for fried rice. Server was also very friendly and personable . Will definitely come here again!",
     recommended: true,
     shared: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
   },
   {
@@ -941,6 +977,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "I love Entrecôte! Staff is super friendly and the steak is excellent. It's also really cozy there - ask for a table in the back. The best area in my opinion. I love going here with a small group of friends or my girl friend for a nice dinner. They also have an excellent wine list (especially the reds - given it's a steak place).",
     recommended: true,
     shared: true,
+    cuisine: 'Steak',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
@@ -950,6 +987,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "One of my favourite places for Vietnamese places! The staff is super friendly, the food is fresh, and it is really cozy. I have often come here with friends from out of town and they always love it.",
     recommended: true,
     shared: true,
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   }
 
@@ -998,7 +1036,7 @@ add_friendships = [
   #   receiver: User.find_by(name: '')
   # }
 ]
-Selection.create(user: User.find_by(name: "Joris Kühnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
+Selection.create(user: User.find_by(name: "Joris Kühnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), cuisine: 'Steakhouses', review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
 
 Friendship.create!(add_friendships)
 
@@ -1010,10 +1048,10 @@ puts "additional review dones"
 
 puts 'Completed seeding process'
 
-Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
+Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), cuisine: 'Italian', review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
 
 Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
 
-Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
+Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), cuisine: 'Italian', review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
 
-Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true,restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})
+Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true, cuisine: 'Italian', restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})
