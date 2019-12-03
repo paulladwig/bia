@@ -53,9 +53,31 @@ class SelectionsController < ApplicationController
   end
 
   def update_selection(entry, params)
-    entry.update(bookmarked: false)
-    entry.update(params)
     @selection = entry
+    @selection.update(bookmarked: false)
+    @selection.recommended = true
+    p params
+    if @selection.update(params)
+      p 'success'
+      @outcome = "success"
+    else
+      @selection.recommended = false
+      @outcome = "failure"
+    end
+    respond_to do |format|
+      format.html { redirect_to restaurant_path(restaurant) }
+      format.js
+    end
+  end
+
+  def create_recommendation(params, restaurant)
+    @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
+    if @selection.update(params)
+      @outcome = "success"
+    else
+      @selection.recommended = false
+      @outcome = "failure"
+    end
     respond_to do |format|
       format.html { redirect_to restaurant_path(restaurant) }
       format.js
@@ -63,13 +85,8 @@ class SelectionsController < ApplicationController
   end
 
   def recommend(params, restaurant, entry)
-    @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
-    @selection.update(params)
-    if @selection.save
-      respond_to do |format|
-        format.html { redirect_to restaurant_path(restaurant) }
-        format.js
-      end
+    if entry.nil?
+      create_recommendation(params, restaurant)
     else
       update_selection(entry, params)
     end
