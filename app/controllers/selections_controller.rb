@@ -49,7 +49,7 @@ class SelectionsController < ApplicationController
         format.js
       end
     end
-      authorize @selection
+    authorize @selection
   end
 
   def update_selection(entry, params, recomm)
@@ -62,7 +62,10 @@ class SelectionsController < ApplicationController
       p 'success updating'
       @outcome = "success"
     else
-      @selection.recommended = false
+      entry.recommended = false
+      @new_selection = Selection.new(recommendation_params)
+      @new_selection.restaurant = entry.restaurant
+      @new_selection.user = current_user
       @outcome = "failure"
       p 'failure updating'
     end
@@ -99,7 +102,7 @@ class SelectionsController < ApplicationController
       p 'no entry'
       create_recommendation(params, restaurant, @recomm)
     else
-      p 'no entry'
+      p ' entry'
       update_selection(entry, params, @recomm)
     end
     authorize @selection
