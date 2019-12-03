@@ -1,9 +1,28 @@
-restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages%>');
-restaurantsIndexFilter = ('<%= j render "shared/restaurants/filter" %>');
-grid = document.getElementById('index-restaurants-grid');
-filter = document.getElementById('index-side-filter');
-grid.innerHTML = restaurantsCardGrid;
+var map =('<%= j render "shared/map", restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages%>')
+var restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages%>');
+var restaurantsIndexFilter = ('<%= j render "shared/restaurants/filter" %>');
+var listContainer = document.getElementById('list-container');
+var filter = document.getElementById('index-side-filter');
+listContainer.innerHTML = restaurantsCardGrid;
+
+var mapContainer = document.getElementById('map-container');
+mapContainer.innerHTML = map;
+
+var mapElement = document.getElementById('map');
+window.initGoogleMap(mapElement);
 
 <% if params[:reset] %>
   filter.innerHTML = restaurantsIndexFilter;
 <% end %>
+
+
+
+
+// restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages%>');
+// restaurantsIndexFilter = ('<%= j render "shared/restaurants/filter" %>');
+// grid = document.getElementById('index-restaurants-grid');
+// filter = document.getElementById('index-side-filter');
+// grid.innerHTML = restaurantsCardGrid;
+// <% if params[:reset] %>
+//   filter.innerHTML = restaurantsIndexFilter;
+// <% end %>
