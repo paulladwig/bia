@@ -60,8 +60,7 @@ class SelectionsController < ApplicationController
     authorize @selection
   end
 
-  def update_selection(entry, params, recomm)
-    @recomm = recomm
+  def update_selection(entry, params)
     @selection = entry
     @selection.update(bookmarked: false)
     @selection.recommended = true
@@ -83,8 +82,7 @@ class SelectionsController < ApplicationController
     end
   end
 
-  def create_recommendation(params, restaurant, recomm)
-    @recomm = recomm
+  def create_recommendation(params, restaurant)
     @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
     @recommendation_params = recommendation_params
     if @selection.update(recommendation_params)
@@ -104,14 +102,13 @@ class SelectionsController < ApplicationController
   end
 
   def recommend(params, restaurant, entry)
-    @recomm = recommendation_param[:recommendation]
     @recommendation_params = recommendation_params
     if entry.nil?
       p 'no entry'
-      create_recommendation(params, restaurant, @recomm)
+      create_recommendation(params, restaurant)
     else
       p ' entry'
-      update_selection(entry, params, @recomm)
+      update_selection(entry, params)
     end
     authorize @selection
   end
