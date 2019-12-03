@@ -13,10 +13,10 @@
 }
 
 .follow-button-follow {
-  background-color: $bdark;
+  background-color: $bmedium;
   color: $white;
   &:hover {
-    background-color: $bmedium;
+    background-color: $bdark;
     color: $white;
   }
 }
