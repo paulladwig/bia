@@ -1,6 +1,8 @@
 //= require clipboard
 import "bootstrap";
 require("bootstrap-select");
+import $ from 'jquery';
+global.$ = jQuery;
 
 import {addLinkInNavbarToggle} from '../pages/home.js';
 
@@ -20,3 +22,4 @@ autoSubmit();
 
 
 copyToClipboard();
+
