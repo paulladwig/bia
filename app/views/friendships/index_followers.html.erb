@@ -1,16 +1,9 @@
-<% content_for :meta_title, "BIA - Followers" %>
-<%= render 'shared/navbar' %>
-<div class="container-bia mt-5">
-  <div class="index-restaurants-layout">
-    <h2><%= @user.name %></h2>
-    <h2>Followers</h2>
-    <% user_friendship = Friendship.find_by(asker: current_user, receiver: @user) %>
-    <%= render 'shared/users/profile_info', friendship: user_friendship %>
+
+
     <div>
       <% @friendships.each do |friendship| %>
           <%= render 'shared/friendships/card', user: friendship.asker, show_mutual: true %>
       <% end %>
       <%= render 'shared/pageinator', elements: @friendships, current_page: @current_page, total_pages: @total_pages  %>
     </div>
-  </div>
-</div>
+

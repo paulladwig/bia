@@ -1,3 +1,4 @@
 restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user%>');
 grid = document.getElementById('index-restaurants-grid');
 grid.innerHTML = restaurantsCardGrid;
+console.log(<%=params%>)
