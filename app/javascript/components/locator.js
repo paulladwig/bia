@@ -7,10 +7,15 @@ const locate_user = () => {
       latitude_field.value = data.coords.latitude;
       console.log("user long " + longitude_field.value);
       console.log("user lat " + latitude_field.value);
+      const searchLocation = document.querySelector("#search_location");
+      // if (searchLocation) {
+      //   searchLocation.value =
+      // }
     }
   }
 
   navigator.geolocation.getCurrentPosition(set_location);
+
 }
 
 
