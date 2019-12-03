@@ -26,4 +26,4 @@ detectShareClick();
 
 copyToClipboard();
 
-// mapActivationButton();
+mapActivationButton();
