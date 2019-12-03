@@ -5,4 +5,5 @@ $ git push heroku master
 $ hereoku run rails db:migrate
 $ hereoku run rails db:seed
 $ heroku run rails searchkick:reindex CLASS=Restaurant
+$ heroku run rails searchkick:reindex CLASS=User
 ```

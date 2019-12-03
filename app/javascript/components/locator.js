@@ -12,6 +12,13 @@ const locate_user = () => {
       //   searchLocation.value =
       // }
     }
+    //localhost:3000/geocoder
+    // fetch(rails_api_url, {
+    //   method: 'POST',
+    //   body: JSON.stringify({lat: data.coords.longitude, long: data.coords.longitude})
+    // })
+    //   .then(response)
+    //   .then( data => address.value = data.address)
   }
 
   navigator.geolocation.getCurrentPosition(set_location);

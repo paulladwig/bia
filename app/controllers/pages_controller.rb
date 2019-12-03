@@ -10,6 +10,15 @@ class PagesController < ApplicationController
     end
   end
 
+  # def geocoder
+  #   coordinates = {params[:lat], params[:long]}
+  #   address =  geocoder coordinates
+
+  #   render json: {
+  #     address: address
+  #   }, status: :ok
+  # end
+
   #  def search
   #   search_query = search_params[:query]
   #   longitude = search_params[:long]
