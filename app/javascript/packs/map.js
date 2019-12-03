@@ -239,6 +239,8 @@ function initMap() {
     });
   });
 
+
+
   document.getElementById("map").addEventListener('mouseover', function() {
     infowindow.open(map,marker);
   });
