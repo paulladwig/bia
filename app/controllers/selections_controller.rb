@@ -14,11 +14,19 @@ class SelectionsController < ApplicationController
     # Create or edit bookmarks
     if !params[:bookmark].nil?
       bookmark(@restaurant, existing_entry)
-    elsif params[:selection][:recommendation] =x= 'true'
+    elsif params[:selection][:recommendation] == 'true'
       recommend(recommendation_params, @restaurant, existing_entry)
     end
     authorize @selection
   end
+
+  # def update
+  #   @restaurant = Restaurant.find(params[:restaurant_id])
+  #   @update_selection = Selection.where(restaurant: @restaurant, user_id: current_user.id)
+  #   @update_selection.first.update(params)
+  #   authorize @update_selection
+  #   redirect_to restaurant_path(@restaurant)
+  # end
 
   def destroy
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -49,13 +57,44 @@ class SelectionsController < ApplicationController
         format.js
       end
     end
-      authorize @selection
+    authorize @selection
   end
 
   def update_selection(entry, params)
-    entry.update(recommended: true)
-    entry.update(params)
     @selection = entry
+    @selection.update(bookmarked: false)
+    @selection.recommended = true
+    p params
+    if @selection.update(params)
+      p 'success updating'
+      @outcome = "success"
+    else
+      entry.recommended = false
+      @new_selection = Selection.new(recommendation_params)
+      @new_selection.restaurant = entry.restaurant
+      @new_selection.user = current_user
+      @outcome = "failure"
+      p 'failure updating'
+    end
+    respond_to do |format|
+      format.html { redirect_to restaurant_path(restaurant) }
+      format.js
+    end
+  end
+
+  def create_recommendation(params, restaurant)
+    @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
+    @recommendation_params = recommendation_params
+    if @selection.update(recommendation_params)
+      @outcome = "success"
+      p 'success creating'
+    else
+      @selection.recommended = false
+      @outcome = "failure"
+      @review = recommendation_params[:review]
+      @cuisine = recommendation_params[:cuisine]
+      p 'failure creating'
+    end
     respond_to do |format|
       format.html { redirect_to restaurant_path(restaurant) }
       format.js
@@ -63,20 +102,22 @@ class SelectionsController < ApplicationController
   end
 
   def recommend(params, restaurant, entry)
-    @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
-    @selection.update(params)
-    if @selection.save
-      respond_to do |format|
-        format.html { redirect_to restaurant_path(restaurant) }
-        format.js
-      end
+    @recommendation_params = recommendation_params
+    if entry.nil?
+      p 'no entry'
+      create_recommendation(params, restaurant)
     else
+      p ' entry'
       update_selection(entry, params)
     end
     authorize @selection
   end
 
   def recommendation_params
-    params.require(:selection).permit(:review, :occasion, :price, :special)
+    params.require(:selection).permit(:review, :occasion, :price, :special, :cuisine)
+  end
+
+  def recommendation_param
+    params.require(:selection).permit(:recommendation)
   end
 end

@@ -4,10 +4,21 @@ class UsersController < ApplicationController
     authorize @user
     @friendship = Friendship.where(asker_id: current_user.id, receiver_id: @user.id).first
     query = "*"
-    options = {fields: ["name"], per_page: 24, page: params[:page], where: {id: Restaurant.user_restaurants(current_user, "id")}}
+    options = {fields: ["name"], per_page: 24, page: params[:page]}
+    if show_params[:selection] == "bookmarked"
+      options[:where] = {id: Restaurant.user_restaurants_bookmarked(@user, "id")}
+    elsif show_params[:selection] == "recommended"
+      options[:where] = {id: Restaurant.user_restaurants_recommended(@user, "id")}
+    else
+      options[:where] = {id: Restaurant.user_restaurants(@user, "id")}
+    end
     @own_restaurants = policy_scope(Restaurant).search(query, options)
     @current_page = @own_restaurants.current_page
     @total_pages = @own_restaurants.total_pages
+    respond_to do |format|
+      format.html { render 'show' }
+      format.js
+    end
   end
 
   def index
@@ -32,7 +43,11 @@ class UsersController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:query)
+    params.require(:search).permit(:query, :selection)
+  end
+
+  def show_params
+    params.permit(:selection)
   end
 
 end

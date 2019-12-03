@@ -20,20 +20,22 @@ function addRecommendation (review) {
   console.log('posted');
 }
 
-function refresh (refreshHTML) {
+function refresh (refreshHTML, review_input, cuisine_input) {
   const form = document.getElementById('rcmd-form');
+  console.log(form);
   form.outerHTML = refreshHTML;
-  const require = document.querySelector('.selection_review');
-  require.insertAdjacentHTML('beforeend', '<p class = "small-font red-font" > Please fill in this field </p>');
+  $('.selectpicker').selectpicker('refresh');
 }
 
 <% if !params[:bookmark].nil? %>
   addBookmark('<%= j render "shared/restaurants/bookmark_button", restaurant: @restaurant, selection: @selection%>');
-<% elsif params[:selection][:recommendation] == 'true' %>
-  <% if @selection.review != "" %>
+<% else %>
+  <% if @selection.errors.any? %>
+    console.log("<%= @selection.errors.inspect %>");
+    refresh('<div id = "rcmd-form"> <%= j render "selections/recommendation_form", restaurant: @restaurant, selection: @new_selection.nil? ? @selection : @new_selection  %> </div>');
+  <% else %>
+    console.log('success');
     recommend('<%= j render "shared/restaurants/recommend_button", restaurant: @restaurant, selection: @selection%>');
     addRecommendation('<%= j render "shared/restaurants/review", restaurant: @restaurant, selection: @selection%>');
-  <% else %>
-    refresh('<%= j render "selections/recommendation_form", restaurant: @restaurant, selection: @selection %>');
   <% end %>
 <% end %>
