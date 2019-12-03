@@ -1,39 +1,33 @@
 <% content_for :meta_title, "BIA - Discover" %>
 <%= render 'shared/navbar' %>
 
-<div class="container-bia mt-5">
-  <div class="page-title-1-2">
-    <h2>Hello, <%= current_user.name %></h2>
-    <h2>Timeline</h2>
+<div class="container-bia mt-5 index-restaurants-layout">
+  <h2 class="text-center find-search-heading">Hello, <%= current_user.name %></h2>
+  <h2 class="text-center find-search-heading">Timeline</h2>
+  <div class="side-filter">
+    <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin'} do |f| %>
+      <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
+      <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
+      <div class="input-field-to-row-filter">
+      <%=f.input :query, required: false, label: false, placeholder: "Restaurant, cuisine, friend...", input_html: {class: 'input-field simple_form-align mb-2'}%>
+      <button type="submit" class="biabutton-inline-search width-75px" id="filter-submit"><i class="fas fa-search"></i></button>
+      </div>
+    <% end %>
+    <h5 class ="mt-2">Quick Actions</h5>
+    <%= link_to "Your Recommendations", user_path(current_user, selection: "recommended"), class: "quick-action block"%>
+    <%= link_to "Your Bookmarks", user_path(current_user, selection: "bookmarked"), class: "quick-action block" %>
+    <%= link_to "Find Restaurants", restaurants_path, class: "quick-action block" %>
+    <%= link_to "Add Friends", users_path, class: "quick-action block" %>
   </div>
-  <div class="index-selections-layout mt-4">
-    <div class="side-filter">
-      <%= simple_form_for :search, url: discover_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
-          <h5 class="mb-2">Location</h5>
-          <%=f.input :location, required: false, placeholder: "Location of places", label: false, input_html: {class: 'input-field simple_form-align mb-2 multiselectuser' }%>
-          <h5 class="mb-2">Timeline set-up</h5>
-          <%=f.input :cuisine, as: :select, collection: ["All results", "Recommended restaurants", "Bookmarked restaurants", "Friendships"], required: false, label: false, input_html: {data: {width: '345px', style: "btn-light"},class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"All results"}%>
-        <%=f.submit "Search", class: "hide" %>
+  <div class="index-selection-show">
+    <% @all_activities.each do |activity| %>
+      <%  if activity.class == Selection %>
+        <%= render 'shared/discover_elements_selections', selection: activity %>
+      <% elsif activity.class == Friendship %>
+        <% mutual_friends = Friendship.where(asker: current_user.receivers).where(receiver: activity.asker) %>
+        <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
       <% end %>
-
-      <h5 class ="mt-2">Quick Actions</h5>
-      <button class="quick-action block" id="open-share-modal">Your Recommendations</button>
-      <button class="quick-action block">Your Bookmarked Places </button>
-      <button class="quick-action block">Recommendations Nearby</button>
-      <%= link_to(users_path) do  %>
-        <button class="quick-action block">Add Friends</button>
-      <% end %>
-    </div>
-    <div class="index-selection-show">
-      <% @all_activities.each do |activity| %>
-        <%  if activity.class == Selection %>
-          <%= render 'shared/discover_elements_selections', selection: activity %>
-        <% elsif activity.class == Friendship %>
-          <% mutual_friends = Friendship.where(asker: current_user.receivers).where(receiver: activity.asker) %>
-          <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
-        <% end %>
-      <% end %>
-      <%= render 'shared/pageinator', elements: @all_activities, current_page: @current_page, total_pages: @total_pages  %>
-    </div>
+    <% end %>
+    <%= render 'shared/pageinator', elements: @all_activities, current_page: @current_page, total_pages: @total_pages  %>
   </div>
 </div>

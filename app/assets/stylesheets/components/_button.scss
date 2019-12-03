@@ -42,6 +42,19 @@
   }
 }
 
+.biabutton-inline-search {
+  display: inline-block;
+  background-color: $glight;
+  height: 43.33px;
+  border-width: 0px;
+  border-radius: $border-radius;
+  color: $gmedium;
+  &:hover {
+  color: $bmedium;
+  outline: none;
+  }
+}
+
 // x-to close button
 .close-button {
   color: $gmedium;
