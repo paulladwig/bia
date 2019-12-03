@@ -16,13 +16,8 @@
       <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
     </div>
     <%= render 'shared/users/profile_info', user: @user, friendship: @friendship %>
-    <div>
-       <div class="index-restaurants-grid">
-        <%@own_restaurants.each do |restaurant| %>
-          <%= render 'shared/card', data: {restaurant: restaurant, user_to_exclude: @user} %>
-        <% end %>
-      </div>
-      <%= render 'shared/pageinator', elements: @own_restaurants, current_page: @current_page, total_pages: @total_pages %>
+    <div id="index-restaurants-grid">
+      <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user %>
     </div>
   </div>
 </div>

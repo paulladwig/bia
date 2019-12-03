@@ -15,7 +15,9 @@
       <% if show_mutual%>
         <% friendship = (Friendship.where(asker: user, receiver: current_user, active: 1)).or(Friendship.where(asker: current_user, receiver: user, active: 1)).first %>
         <% mutual_followers = Friendship.where(asker: current_user.receivers, active: 1).where(receiver: user) %>
-        <%= render 'shared/friendships/mutual_followers', mutual_followers: mutual_followers, friendship: friendship, small: true %>
+        <% if friendship.presence%>
+          <%= render 'shared/friendships/mutual_followers', mutual_followers: mutual_followers, friendship: friendship, small: true %>
+        <% end %>
       <% end %>
     </div>
   </div>
