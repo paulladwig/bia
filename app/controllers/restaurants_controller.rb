@@ -138,20 +138,20 @@ class RestaurantsController < ApplicationController
 
   def where
     where = {id: Restaurant.relevant_restaurants(current_user, "id")}
-    if params[:search].presence
-      if params[:search][:location].presence
+    if params[:search].present?
+      if params[:search][:location].present?
         location = location_coords
         if location != 'na'
           where[:location] = {near: {lat: location[:latitude], lon: location[:longitude]}, within: "#{location[:range]/1000}km"}
         end
       end
-      if search_params[:cuisine].presence && search_params[:cuisine][1].presence
+      if search_params[:cuisine].present? && search_params[:cuisine][1].present?
         where[:cuisine] = search_params[:cuisine].drop(1)
       end
-      if search_params[:occasion].presence && search_params[:occasion][1].presence
+      if search_params[:occasion].present? && search_params[:occasion][1].present?
         where[:occasion] = search_params[:occasion].drop(1)
       end
-      if search_params[:price].presence && search_params[:price][1].presence
+      if search_params[:price].present? && search_params[:price][1].present?
         where[:price] = search_params[:price].drop(1)
       end
     end
