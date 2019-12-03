@@ -17,12 +17,10 @@
       <% end %>
 
       <h5 class ="mt-2">Quick Actions</h5>
-      <button class="quick-action block" id="open-share-modal">Your Recommendations</button>
-      <button class="quick-action block">Your Bookmarked Places </button>
-      <button class="quick-action block">Recommendations Nearby</button>
-      <%= link_to(users_path) do  %>
-        <button class="quick-action block">Add Friends</button>
-      <% end %>
+      <%= link_to "Your Recommendations", user_path(current_user, selection: "recommended"), class: "quick-action block"%>
+      <%= link_to "Your Bookmarks", user_path(current_user, selection: "bookmarked"), class: "quick-action block" %>
+      <%= link_to "Nearby Restaurants", restaurants_path, class: "quick-action block" %>
+      <%= link_to "Add Friends", users_path, class: "quick-action block" %>
     </div>
     <div class="index-selection-show">
       <% @all_activities.each do |activity| %>
