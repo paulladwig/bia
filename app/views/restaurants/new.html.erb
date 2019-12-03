@@ -17,14 +17,13 @@
 
 <% end %>
 
-<% if @your_restaurants.present? %>
-  <h2>Recent or relevant</h2>
-  <div class="index-restaurants-grid-3">
-      <% @your_restaurants.each do |restaurant| %>
-        <%= render 'shared/card', data: {restaurant: restaurant, disp_address: true} %>
-      <% end %>
-  </div>
-<% end %>
+<h4>Did you go to this restaurant? Recommend it to your friends! </h4>
+<div class="index-restaurants-grid-3">
+  <% @current_shares.each do |restaurant| %>
+    <%= render 'shared/card', data: {restaurant: restaurant} %>
+  <% end %>
+</div>
+
 <% if @results.present? %>
   <h2>Search Result</h2>
   <div class="index-restaurants-grid-3">

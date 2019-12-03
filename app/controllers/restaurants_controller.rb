@@ -97,6 +97,7 @@ class RestaurantsController < ApplicationController
     @results = Kaminari.paginate_array(@results).page(params[:page]).per(18)
     @current_page = @results.current_page
     @total_pages = @results.total_pages
+    @current_shares = current_user.restaurants_as_sharer.order(created_at: :desc).distinct.limit(6)
   end
 
   def create
