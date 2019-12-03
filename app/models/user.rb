@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :receivers, through: :friendships_as_asker
   has_many :askers, through: :friendships_as_receiver
   has_many :restaurants, through: :selections
+  has_many :shares
+  has_many :shared_restaurants, through :shares, foreign_key: :restaurant_id
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

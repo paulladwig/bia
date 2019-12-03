@@ -5,6 +5,8 @@ class Restaurant < ApplicationRecord
   has_many :users, through: :selections
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_many :shares
+  has_many :users_sharing, through: :shares, foreign_key: :user_id
 
   mount_uploader :photo, PhotoUploader
 
