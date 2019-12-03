@@ -113,6 +113,14 @@ class SelectionsController < ApplicationController
     authorize @selection
   end
 
+  def feature
+    restuaurant_start = Restaurant.relevant_restaurants(current_user, "instance").sample
+    type = ["cuisine", "price", "occasion", "selection", "user"].sample
+    if type == "cuisine"
+    end
+
+  end
+
   def recommendation_params
     params.require(:selection).permit(:review, :occasion, :price, :special, :cuisine)
   end
