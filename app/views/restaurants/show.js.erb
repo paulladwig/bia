@@ -1,16 +1,10 @@
-
-
-const turn_dropdown_icon = () => {
-  const dropdown = document.querySelector('.svg-dropdown');
-  console.log(dropdown);
+noteClick =(element) => {
+  element.addEventListener('click', (event) => {
+    <% Share.new(user: current_user, restaurant: @restaurant) %>
+    });
 };
 
-
-const noteClick = () => {
-
-};
-
-const detectShareClick = () => {
+detectShareClick = () => {
   const copyElement = document.querySelector('.copy-button');
   const fbElement = document.querySelector('.fa-facebook-f');
   const twitterElement = document.querySelector('.twitter-share-button');
@@ -22,6 +16,4 @@ const detectShareClick = () => {
   noteClick(twitterElement);
 }
 
-
-
-export {turn_dropdown_icon, detectShareClick};
+detectShareClick();

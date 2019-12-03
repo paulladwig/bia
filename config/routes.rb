@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
   resources :restaurants, only: [:show, :index, :create] do
     resources :selections, only: [:create, :destroy]
+    resources :shares, only: [:create]
   end
   #This line was commented out becuase it appears to be unneccessary, If not the case comment it back in
   # resources :restaurants, only: [:show, :index]

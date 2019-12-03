@@ -16,4 +16,8 @@
     data-size="large">
   <i class="fab fa-twitter social-link"></i> </a>
 </div>
+<%= form_for([@restaurant, @share], remote: true) do |f| %>
+  <%= f.button :submit, as: :hidden %>
+<% end %>
+
 <p class="message-field"> </p>
