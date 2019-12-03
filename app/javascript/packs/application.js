@@ -14,14 +14,14 @@ addLinkInNavbarToggle();
 import { recommendation_modal, share_modal } from '../components/modal'
 import { locate_user } from '../components/locator';
 import { autoSubmit } from '../components/autosubmit';
-import { turn_dropdown_icon } from '../pages/show';
+import { turn_dropdown_icon, detectShareClick } from '../pages/show';
 
 turn_dropdown_icon();
 recommendation_modal();
 share_modal();
 locate_user();
 autoSubmit();
-
+detectShareClick();
 
 copyToClipboard();
 
