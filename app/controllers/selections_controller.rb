@@ -52,17 +52,19 @@ class SelectionsController < ApplicationController
       authorize @selection
   end
 
-  def update_selection(entry, params)
+  def update_selection(entry, params, recomm)
+    @recomm = recomm
     @selection = entry
     @selection.update(bookmarked: false)
     @selection.recommended = true
     p params
     if @selection.update(params)
-      p 'success'
+      p 'success updating'
       @outcome = "success"
     else
       @selection.recommended = false
       @outcome = "failure"
+      p 'failure updating'
     end
     respond_to do |format|
       format.html { redirect_to restaurant_path(restaurant) }
@@ -70,13 +72,19 @@ class SelectionsController < ApplicationController
     end
   end
 
-  def create_recommendation(params, restaurant)
+  def create_recommendation(params, restaurant, recomm)
+    @recomm = recomm
     @selection = Selection.new(user: current_user, recommended: true, restaurant: restaurant)
-    if @selection.update(params)
+    @recommendation_params = recommendation_params
+    if @selection.update(recommendation_params)
       @outcome = "success"
+      p 'success creating'
     else
       @selection.recommended = false
       @outcome = "failure"
+      @review = recommendation_params[:review]
+      @cuisine = recommendation_params[:cuisine]
+      p 'failure creating'
     end
     respond_to do |format|
       format.html { redirect_to restaurant_path(restaurant) }
@@ -85,15 +93,23 @@ class SelectionsController < ApplicationController
   end
 
   def recommend(params, restaurant, entry)
+    @recomm = recommendation_param[:recommendation]
+    @recommendation_params = recommendation_params
     if entry.nil?
-      create_recommendation(params, restaurant)
+      p 'no entry'
+      create_recommendation(params, restaurant, @recomm)
     else
-      update_selection(entry, params)
+      p 'no entry'
+      update_selection(entry, params, @recomm)
     end
     authorize @selection
   end
 
   def recommendation_params
     params.require(:selection).permit(:review, :occasion, :price, :special, :cuisine)
+  end
+
+  def recommendation_param
+    params.require(:selection).permit(:recommendation)
   end
 end
