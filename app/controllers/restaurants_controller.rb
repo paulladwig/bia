@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
     else
       query = "*"
     end
-    options = {fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page]}
+    options = { fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page]}
     options[:where] = where
     options[:boost_by_distance] = boost_by_distance
 
@@ -16,6 +16,12 @@ class RestaurantsController < ApplicationController
     @current_user = current_user
     @current_page = @restaurants.current_page
     @total_pages = @restaurants.total_pages
+    @markers = @restaurants.map do |restaurant|
+     {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
     respond_to do |format|
       format.html { render 'index' }
       format.js
@@ -26,10 +32,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
     @new_recommendation = Selection.new
-    @markers = {
-        lat: @restaurant.latitude,
-        lng: @restaurant.longitude
-    }
+    @markers = [{
+      lat: @restaurant.latitude,
+      lng: @restaurant.longitude
+    }]
     @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: User.following(current_user, "instance"), restaurant: @restaurant))
   end
 
