@@ -24,6 +24,7 @@ function refresh (refreshHTML, review_input, cuisine_input) {
   const form = document.getElementById('rcmd-form');
   console.log(form);
   form.outerHTML = refreshHTML;
+  $('.selectpicker').selectpicker('refresh');
 }
 
 <% if !params[:bookmark].nil? %>
