@@ -3,7 +3,9 @@
   <div class="modal-review-content">
     <i class="fas fa-times modal-close close-button"></i>
     <div class = "modal-core-window">
-      <%= render 'selections/recommendation_form', restaurant: restaurant, selection: selection%>
+      <div id="rcmd-form">
+        <%= render 'selections/recommendation_form', restaurant: restaurant, selection: selection%>
+      </div>
     </div>
   </div>
 

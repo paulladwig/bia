@@ -22,13 +22,15 @@ class Restaurant < ApplicationRecord
   def search_data
     { name: name,
       cuisine: cuisine,
-      recommended: "#{users.map(&:name).join(' ')}"
+      recommended: "#{users.map(&:name).join(' ')}",
+      price: avg_price,
+      occasion: avg_occasion
     }.merge(location: {lat: latitude, lon: longitude})
   end
 
-  def get_friends_recommended(current_user)
+  def get_friends_recommended(user)
     selections = self.selections.where(recommended: true)
-    selections.where(user: current_user.receivers)
+    selections.where(user: User.following(user, "instance"))
   end
 
   def self.relevant_restaurants(user, type)
@@ -36,7 +38,7 @@ class Restaurant < ApplicationRecord
   end
 
   def self.reciever_restaurants(user, type)
-    receivers = user.receivers
+    receivers = User.following(user, "instance")
     all_selections = []
     restaurants = []
     receivers.each { |receiver| all_selections << receiver.selections }

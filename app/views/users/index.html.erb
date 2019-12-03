@@ -1,0 +1,16 @@
+<% content_for :meta_title, "BIA - Add friends" %>
+<%= render 'shared/navbar' %>
+<div class="container-bia mt-5 search-page-layout">
+
+    <h2>Search</h2>
+    <h4>Find the people you might want to follow!</h4>
+    <%= simple_form_for :search, url: users_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
+      <div class="search-one-line-full">
+        <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field search-bar' }%>
+        <%=f.submit "Search", class: "biabutton" %>
+      </div>
+    <% end %>
+    <% @users.each do |user| %>
+      <%= render 'shared/friendships/card', user: user, show_mutual: true, small: true%>
+    <% end %>
+</div>

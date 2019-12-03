@@ -3,3 +3,9 @@
   grid-template-columns: 1fr 2fr;
   grid-gap: $spacer;
 }
+
+.side-filter {
+  position: sticky;
+  top: 2*$spacer;
+  height: 400px;
+}

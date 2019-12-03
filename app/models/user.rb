@@ -19,8 +19,24 @@ class User < ApplicationRecord
   def search_data
     { friendname: name,
       username: username,
-      recommended: email
+      email: email
     }
+  end
+
+  def self.followers(user, type)
+    followers = []
+    Friendship.where(receiver: user, active: 1).each do |friendship|
+      followers << friendship.asker
+    end
+    User.type_conversion(followers, type)
+  end
+
+  def self.following(user, type)
+    following = []
+    Friendship.where(asker: user, active: 1).each do |friendship|
+      following << friendship.receiver
+    end
+    User.type_conversion(following, type)
   end
 
 #CHECK IF THIS NEEDS TO BE MODIFIED WITH ACTIVE STATUS OR IF THE FUNCTION IS EVEN USED!
@@ -29,6 +45,16 @@ class User < ApplicationRecord
       return true
     else
       return false
+    end
+  end
+
+  private
+
+  def self.type_conversion(users, type)
+    if type == "id"
+      return users.map!{ |user| user.id }
+    elsif type == "instance"
+      return users
     end
   end
 end

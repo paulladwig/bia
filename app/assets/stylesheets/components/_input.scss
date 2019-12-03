@@ -21,9 +21,20 @@
   grid-gap: $spacer;
 }
 
+.input-field-to-row-filter {
+  display: grid;
+  grid-template-columns: 255px 75px;
+  grid-gap: $spacer;
+}
 .search-one-line {
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr ;
+  grid-gap: $spacer;
+}
+
+.search-one-line-full {
+  display: grid;
+  grid-template-columns: 4fr 1fr ;
   grid-gap: $spacer;
 }
 
@@ -31,6 +42,7 @@
   padding: 10px 15px;
   margin: 10px 0;
 }
+
 
 // .dropdown-toggle::after {
 //     display: none;

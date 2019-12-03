@@ -1,0 +1,30 @@
+<% if friendship.asker == current_user%>
+  <% asker_name = friendship.receiver.name %>
+<% else %>
+  <% asker_name = friendship.asker.name %>
+<% end %>
+<% if small%>
+  <% if mutual_followers.length == 1 %>
+    <p class="mt-2 small-font" >   <%= mutual_followers[0].asker.name %> also follows <%= asker_name %> </p>
+  <% elsif mutual_followers.length == 2%>
+    <p class="mt-2 small-font" >   <%= mutual_followers[0].asker.name %> and <%= mutual_followers[1].asker.name %> also follow <%= asker_name %> </p>
+  <% elsif mutual_followers.length == 0 %>
+    <p class="mt-2 small-font"> None of your friends follow <%= asker_name %></p>
+  <% elsif mutual_followers.length == 3 %>
+    <p class="mt-2 small-font" >   <%= mutual_followers[0].asker.name %>, <%= mutual_followers[1].asker.name %>, and <%= mutual_followers.length - 2 %> other friend also follow <%= asker_name %> </p>
+  <% else %>
+    <p class="mt-2 small-font" >   <%= mutual_followers[0].asker.name %>, <%= mutual_followers[1].asker.name %>, and <%= mutual_followers.length - 2 %> others also follow <%= asker_name %> </p>
+  <% end %>
+<% else %>
+  <% if mutual_followers.length == 1 %>
+    <p class="my-2" >   <%= mutual_followers[0].asker.name %> also follows <%= asker_name %> </p>
+  <% elsif mutual_followers.length == 2%>
+    <p class="my-2" >   <%= mutual_followers[0].asker.name %> and <%= mutual_followers[1].asker.name %> also follow <%= asker_name %> </p>
+  <% elsif mutual_followers.length == 0 %>
+    <p class="my-2"> None of your friends follow <%= asker_name %></p>
+  <% elsif mutual_followers.length == 3 %>
+    <p class="my-2" >   <%= mutual_followers[0].asker.name %>, <%= mutual_followers[1].asker.name %>, and <%= mutual_followers.length - 2 %> other friend also follow <%= asker_name %> </p>
+  <% else %>
+    <p class="my-2" >   <%= mutual_followers[0].asker.name %>, <%= mutual_followers[1].asker.name %>, and <%= mutual_followers.length - 2 %> others also follow <%= asker_name %> </p>
+  <% end %>
+<% end %>

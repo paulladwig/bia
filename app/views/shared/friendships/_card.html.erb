@@ -11,7 +11,12 @@
         <h5><%= user.name %></h5>
         <h5 class="user-location ml-3"><%= user.location %></h5>
       </div>
-      <p><%= user.description %></p>
+      <p class=" mt-1"><%= user.description %></p>
+      <% if show_mutual%>
+        <% friendship = (Friendship.where(asker: user, receiver: current_user, active: 1)).or(Friendship.where(asker: current_user, receiver: user, active: 1)).first %>
+        <% mutual_followers = Friendship.where(asker: current_user.receivers, active: 1).where(receiver: user) %>
+        <%= render 'shared/friendships/mutual_followers', mutual_followers: mutual_followers, friendship: friendship, small: true %>
+      <% end %>
     </div>
   </div>
 <% end %>
