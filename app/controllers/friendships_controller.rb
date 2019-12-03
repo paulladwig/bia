@@ -18,8 +18,12 @@ class FriendshipsController < ApplicationController
   def create
     @user = User.find(params[:id])
     @friendship = Friendship.new(receiver: @user, asker: current_user)
-    @friendship.save!
     authorize @friendship
+    @friendship.save!
+    respond_to do |format|
+      format.html { redirect_to user_path(@user) }
+      format.js
+    end
   end
 
   def update
@@ -27,6 +31,9 @@ class FriendshipsController < ApplicationController
     authorize @friendship
     @receiver = @friendship.receiver
     @friendship.update(active: params[:active])
-    redirect_to user_path(@receiver)
+    respond_to do |format|
+      format.html { redirect_to user_path(@receiver) }
+      format.js
+    end
   end
 end
