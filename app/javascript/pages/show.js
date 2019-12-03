@@ -6,10 +6,12 @@ const turn_dropdown_icon = () => {
 
 const noteClick = (element) => {
   const form = document.getElementById('share-submit');
+  if (element) {
   element.addEventListener('click', (event) => {
     console.log(event);
     form.click();
   });
+  }
 };
 
 const detectShareClick = () => {
