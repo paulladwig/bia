@@ -20,10 +20,10 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new(receiver: @user, asker: current_user)
     authorize @friendship
     @friendship.save!
-    # respond_to do |format|
-    #   format.html { redirect_to user_path(@user) }
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html { redirect_to user_path(@user) }
+      format.js
+    end
   end
 
   def update
