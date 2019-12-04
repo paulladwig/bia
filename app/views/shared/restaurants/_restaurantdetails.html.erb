@@ -1,10 +1,12 @@
 <h5 class = 'mb-3 mt-4'>Restaurant details</h5>
-  <p class= 'my-2'> Cuisine: <%= restaurant.cuisine %></p>
+  <% if !restaurant.cuisine.nil? %>
+    <p class= 'my-2 details-cuisine'> Cuisine: <%= restaurant.cuisine %></p>
+  <% end %>
   <% if !restaurant.avg_occasion.nil? %>
-    <p class= 'my-2'> Mostly suited for: <%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
+    <p class= 'my-2 details-occassion'> Mostly suited for: <%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
   <% end %>
   <% if !restaurant.avg_price.nil? %>
-    <p class= 'my-2'> Prices: <%= render 'shared/display_avg_price', average: restaurant.avg_price %></p>
+    <p class= 'my-2 details-price'> Prices: <%= render 'shared/display_avg_price', average: restaurant.avg_price %></p>
   <% end %>
 
 <h5 class = 'mb-3 mt-4'>Contact details</h5>
