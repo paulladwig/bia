@@ -25,7 +25,7 @@
         <p><%= user_bookmarked = Selection.where(user: @user, bookmarked: true).count %></p>
       </div>
       <div class="button-info profile-info" id="following-btn">
-        <%= render 'shared/follow_btn', friendship: friendship, user: @user %>
+        <%= render 'shared/follow_btn', friendship: @friendship, user: @user %>
       </div>
     </div>
   </div>
