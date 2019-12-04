@@ -1,11 +1,13 @@
 <div class="side-filter">
   <div class="card-info">
     <div class="card-profile-image ">
-      <% if @user.photo? %>
-          <div class="avatar-profile" style="background-image: url('<%= cl_image_path @user.photo %>')"></div>
-      <% else %>
-        <%= cl_image_tag 'profile_picture_unavailable_gwyjic', class: "avatar-profile" %>
-      <% end %>
+      <%= link_to @user do %>
+        <% if @user.photo? %>
+            <div class="avatar-profile" style="background-image: url('<%= cl_image_path @user.photo %>')"></div>
+        <% else %>
+          <%= cl_image_tag 'profile_picture_unavailable_gwyjic', class: "avatar-profile" %>
+        <% end %>
+      <%end %>
     </div>
     <div class="card-profile-content">
       <div class="following-info profile-info">
