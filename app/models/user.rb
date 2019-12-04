@@ -12,10 +12,10 @@ class User < ApplicationRecord
   has_many :shares, dependent: :destroy
   has_many :restaurants_as_sharer, through: :shares, source: :restaurant
 
-  validates :name, presence: true, format: { with: /\A([a-zA-Z]|\d|\s)+\z/,
-    message: "only allows standard English letters and numbers" }
-  validates :username, presence: true, format: { with: /\A\w+\z/,
-    message: "only allows standard English letters, numbers and underscores" }
+  # validates :name, presence: true, format: { with: /\A([a-zA-Z]|\d|\s)+\z/,
+  #   message: "only allows standard English letters and numbers" }
+  # validates :username, presence: true, format: { with: /\A\w+\z/,
+  #   message: "only allows standard English letters, numbers and underscores" }
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

@@ -22,14 +22,13 @@ class Restaurant < ApplicationRecord
   "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan"]
 
   def search_data
-    u = { name: name,
+    { name: name,
       cuisine: cuisine,
       recommended: "#{users.map(&:name).join(' ')}",
       price: avg_price,
       occasion: avg_occasion,
       popularity: self.selections.count
     }.merge(location: {lat: latitude, lon: longitude})
-    p u
   end
 
   def get_friends_recommended(user)
