@@ -96,6 +96,11 @@ class Restaurant < ApplicationRecord
     self.save
   end
 
+  def calc_most_common_cuisine
+    count_by_cuisine = self.selections.group(:cuisine).count
+    p count_by_cuisine
+  end
+
   private
 
   def self.type_conversion(restaurants, type)
