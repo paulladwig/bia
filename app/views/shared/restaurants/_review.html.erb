@@ -3,7 +3,21 @@
     <div class="avatar-large review-card-avatar" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
   <% end %>
   <div class="core-review">
-    <h5 class='my-1'> <%= link_to selection.user.name, user_path(selection.user), class: 'text-color-black'%></h5>
+    <div class="review-header">
+      <h5 class='my-1'> <%= link_to selection.user.name, user_path(selection.user), class: 'text-color-black'%></h5>
+      <p>
+        <% if selection.occasion = 1 %>
+          on-the-go
+        <% elsif selection.occasion = 2 %>
+          casual
+        <% elsif selection.occasion = 3 %>
+          evening out
+        <% elsif selection.occasion = 4 %>
+          fine dining
+        <% end %>
+        , <%= "€"*selection.price %>
+      </p>
+    </div>
     <p class='my-1'> <%= selection.review %> </p>
     <div class="bottom-line">
       <p class="small-font mt-1"> Posted on <%= selection.updated_at.strftime('%a %d %b %Y') %></p>
