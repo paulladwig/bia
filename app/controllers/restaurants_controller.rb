@@ -22,7 +22,8 @@ class RestaurantsController < ApplicationController
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
-        lng: restaurant.longitude
+        lng: restaurant.longitude,
+        infoWindow: { content: render_to_string(partial: "/shared/map_popup", locals: { data: { restaurant: restaurant, color: "FFFFFF" } }) }
       }
     end
     respond_to do |format|
@@ -37,7 +38,8 @@ class RestaurantsController < ApplicationController
     @new_recommendation = Selection.new
     @markers = [{
       lat: @restaurant.latitude,
-      lng: @restaurant.longitude
+      lng: @restaurant.longitude,
+      infoWindow: { content: render_to_string(partial: "/shared/card", locals: { data: { restaurant: @restaurant } }) }
     }]
     @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: User.following(current_user, "instance"), restaurant: @restaurant)).order(updated_at: :desc)
     @share = Share.new()

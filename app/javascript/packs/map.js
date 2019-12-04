@@ -1,7 +1,7 @@
 import GMaps from 'gmaps/gmaps.js';
-
-
+// /^(?:\/\/|[^\/]+)*\//, ""
 const mapElement = document.getElementById('map');
+const userShow = document.getElementById('popupDisabled');
 function initMap(mapElement) {
   const markers = JSON.parse(mapElement.dataset.markers);
   const firstMarker = markers[0]
@@ -212,13 +212,31 @@ function initMap(mapElement) {
   });
 
 
+  // var testtitle = '<font color="green">This is some text!</font> another text';
+  // var infowindow = new google.maps.InfoWindow({
+  //     content: ('<h4>test2</h4>')
+  // })
+
+
   markers.forEach((marker)=> {
+    // const latLng = google.maps.LatLng(marker.latitude,marker.longitude)
+    var myLatLng = {lat: marker.lat, lng: marker.lng};
+    const content = marker.infoWindow.content;
     var marker = new google.maps.Marker({
-      position: marker,
+      position: myLatLng,
       map: map,
-      icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575380004/map_marker_o2a2ut.svg'
+      icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575380004/map_marker_o2a2ut.svg',
     });
 
+    if (!userShow) {
+      var infowindow = new google.maps.InfoWindow({
+         content: content
+       });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    }
   })
 
 
@@ -239,9 +257,8 @@ function initMap(mapElement) {
   });
 
 
-
-  // document.getElementById("map").addEventListener('mouseover', function() {
-  //   infowindow.open(map,marker);
+  // document.getElementById("map").addEventListener('click', function() {
+  //   infowindow.open(map, marker);
   // });
 
   // document.querySelector("map").addEventListener('mouseout', function() {
