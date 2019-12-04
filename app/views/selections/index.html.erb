@@ -20,13 +20,18 @@
     <%= link_to "Add Friends", users_path, class: "quick-action block" %>
   </div>
   <div class="index-selection-show">
-    <% @all_activities.each do |activity| %>
-      <%  if activity.class == Selection %>
-        <%= render 'shared/discover_elements_selections', selection: activity %>
-      <% elsif activity.class == Friendship %>
-        <% mutual_friends = Friendship.where(asker: current_user.receivers).where(receiver: activity.asker) %>
-        <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
+    <%if @all_activities != []%>
+      <% @all_activities.each do |activity| %>
+        <%  if activity.class == Selection %>
+          <%= render 'shared/discover_elements_selections', selection: activity %>
+        <% elsif activity.class == Friendship %>
+          <% mutual_friends = Friendship.where(asker: current_user.receivers).where(receiver: activity.asker) %>
+          <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
+        <% end %>
       <% end %>
+    <% else %>
+      <h4>Ooops! No Recommendations found.</h4>
+      <p>You should <%= link_to 'recommend', recommend_path %> something or <%= link_to 'add a friend!', users_path %></p>
     <% end %>
     <%= render 'shared/pageinator', elements: @all_activities, current_page: @current_page, total_pages: @total_pages  %>
   </div>
