@@ -25,15 +25,20 @@
       <%= render 'shared/discover_feature', data: {feature: @feature[1], hide: true} %>
       <%= render 'shared/discover_feature', data: {feature: @feature[2], hide: true, border: false} %>
     </div>
-      <h2 class="text-center find-search-heading">Timeline</h2>
 
-    <% @all_activities.each do |activity| %>
-      <%  if activity.class == Selection %>
-        <%= render 'shared/discover_elements_selections', selection: activity %>
-      <% elsif activity.class == Friendship %>
-        <% mutual_friends = Friendship.where(asker: current_user.receivers).where(receiver: activity.asker) %>
-        <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
+    <h2 class="text-center find-search-heading">Timeline</h2>
+    <%if @all_activities != []%>
+      <% @all_activities.each do |activity| %>
+        <%  if activity.class == Selection %>
+          <%= render 'shared/discover_elements_selections', selection: activity %>
+        <% elsif activity.class == Friendship %>
+          <% mutual_friends = Friendship.where(asker: current_user.receivers).where(receiver: activity.asker) %>
+          <%= render 'shared/discover_elements_friendships', friendship: activity, mutual_followers: mutual_friends %>
+        <% end %>
       <% end %>
+    <% else %>
+      <h4>Ooops! No Recommendations found.</h4>
+      <p>You should <%= link_to 'recommend', recommend_path %> something or <%= link_to 'add a friend!', users_path %></p>
     <% end %>
     <%= render 'shared/pageinator', elements: @all_activities, current_page: @current_page, total_pages: @total_pages  %>
   </div>
