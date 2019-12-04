@@ -1,0 +1,19 @@
+<h5>
+  <%= link_to selection.user.name, selection.user%>
+  recommended
+  <% if restaurant_show == true %>
+    <%= selection.restaurant.name%>
+  <% else %>
+    <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)%>
+  <% end %>
+  for
+  <% if selection.occasion == 1 %>
+    eating on-the-go
+  <% elsif selection.occasion == 2 %>
+    a casual occasion
+  <% elsif selection.occasion == 3 %>
+    an evening out
+  <% elsif selection.occasion == 4 %>
+    fine dining
+  <% end %>
+</h5>

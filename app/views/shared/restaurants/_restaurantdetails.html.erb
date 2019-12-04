@@ -1,5 +1,6 @@
 <div id="restaurant-details">
-<h5 class = 'mb-3 mt-4'>Restaurant details</h5>
+
+<h5 class = 'mb-3 mt-4'>Restaurant details <span class="p-style"> (based on <%= [1, restaurant.selections.where(recommended:true).count].max { |a, b| a<=>b}  %> reviews) </span></h5>
   <% if restaurant.cuisine != "" && !restaurant.cuisine.nil? %>
     <p class= 'my-2 details-cuisine'> Cuisine: <%= restaurant.cuisine %></p>
   <% end %>

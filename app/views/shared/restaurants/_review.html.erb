@@ -4,19 +4,8 @@
   <% end %>
   <div class="core-review">
     <div class="review-header">
-      <h5 class='my-1'> <%= link_to selection.user.name, user_path(selection.user), class: 'text-color-black'%></h5>
-      <p>
-        <% if selection.occasion = 1 %>
-          on-the-go
-        <% elsif selection.occasion = 2 %>
-          casual
-        <% elsif selection.occasion = 3 %>
-          evening out
-        <% elsif selection.occasion = 4 %>
-          fine dining
-        <% end %>
-        , <%= "€"*selection.price %>
-      </p>
+      <%= render 'shared/review_header', selection: selection, restaurant_show: true%>
+      <p class="tag"> <%= "€"*selection.price %> </p>
     </div>
     <p class='my-1'> <%= selection.review %> </p>
     <div class="bottom-line">
