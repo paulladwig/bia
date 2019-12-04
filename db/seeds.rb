@@ -124,7 +124,7 @@ restaurants = [
   },
   {
     name: "Entrecôte",
-    address: ' Schützenstraße 5, Berlin',
+    address: ' Schuetzenstraße 5, Berlin',
     phone_number: '03020165496',
     cuisine: 'French',
     url: 'http://entrecote.de/',
@@ -278,7 +278,7 @@ users = [
     description: "Total food aficionado. Reader. Love traditional Japanese cuisine. Professional travel lover."
   },
   {
-    name: 'Joris Kühnast',
+    name: 'Joris Kuehnast',
     email: 'joris@example.com',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790615/bticdxmbk8hxwbqhh5uk.jpg",
     password: '123456',
@@ -302,7 +302,7 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574949357/photo-1544098485-2a2ed6da40ba_qsjxmt.jpg",
     password: '123456',
     password_confirmation: '123456',
-    location: 'München, Germany',
+    location: 'Muenchen, Germany',
     username: 'john_hausmann',
     description: "Food fan. Lifelong problem solver. Communicator. Organizer. Twitter buff. Total bacon enthusiast. Wannabe beer geek."
   },
@@ -400,10 +400,10 @@ friendships = [
   },
   {
     asker: User.find_by(name: 'Otto Jonetzki'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
-    asker: User.find_by(name: 'Joris Kühnast'),
+    asker: User.find_by(name: 'Joris Kuehnast'),
     receiver: User.find_by(name: 'Otto Jonetzki')
   },
   {
@@ -416,11 +416,11 @@ friendships = [
   },
   {
     asker: User.find_by(name: 'Paul Ladwig'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
     asker: User.find_by(name: 'Marie Ladwig'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
     asker: User.find_by(name: 'Paul Ladwig'),
@@ -460,34 +460,34 @@ friendships = [
   },
   {
     asker: User.find_by(name: 'Lisa Maibach'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
-    asker: User.find_by(name: 'Joris Kühnast'),
+    asker: User.find_by(name: 'Joris Kuehnast'),
     receiver: User.find_by(name: 'Lisa Maibach')
   },
    {
     asker: User.find_by(name: 'Johanna Frenche'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
-    asker: User.find_by(name: 'Joris Kühnast'),
+    asker: User.find_by(name: 'Joris Kuehnast'),
     receiver: User.find_by(name: 'Johanna Frenche')
   },
    {
     asker: User.find_by(name: 'John Hausmann'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
-    asker: User.find_by(name: 'Joris Kühnast'),
+    asker: User.find_by(name: 'Joris Kuehnast'),
     receiver: User.find_by(name: 'Janis Sidenburg')
   },
    {
     asker: User.find_by(name: 'James Gibson'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
-    asker: User.find_by(name: 'Joris Kühnast'),
+    asker: User.find_by(name: 'Joris Kuehnast'),
     receiver: User.find_by(name: 'James Gibson')
   },
   {
@@ -520,7 +520,7 @@ friendships = [
   },
   {
     asker: User.find_by(name: 'Frank Maier'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
     asker: User.find_by(name: 'Frank Maier'),
@@ -620,7 +620,7 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 2,
     review: "A warm, cosy place in Berlin. Place is quite small and usually very crowded but I loved the atmosphere there and the food was so delicious and reasonably priced. I'd recommend to anyone looking for some hearty, warm traditional Vietnamese dishes.",
@@ -654,7 +654,7 @@ selections = [
     restaurant: Restaurant.find_by(name: 'AVAN')
   },
   {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 2,
     review: "Great place for a quick dinner even with large groups",
@@ -666,7 +666,7 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
   },
   {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 1,
     review: "One of the best price to value ratios I have ever seen!",
@@ -697,7 +697,7 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Chupenga')
   },
   {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     bookmarked: true,
     shared: false,
     restaurant: Restaurant.find_by(name: 'Chupenga')
@@ -808,7 +808,7 @@ selections = [
     restaurant: Restaurant.find_by(name: 'House of Small Wonder')
   },
    {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     bookmarked: true,
     restaurant: Restaurant.find_by(name: 'Viet Bowl Mitte')
   },
@@ -899,7 +899,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
   },
   {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 2,
     review: "Always full for lunch for a reason. Good food and reliable service. Cash only though.",
@@ -961,7 +961,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
   },
   {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 2,
     review: "Delicious is all I can say . Had the crispy duck and sub my noodles for fried rice. Server was also very friendly and personable . Will definitely come here again!",
@@ -971,7 +971,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
   },
   {
-    user: User.find_by(name: 'Joris Kühnast'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 4,
     review: "I love Entrecôte! Staff is super friendly and the steak is excellent. It's also really cozy there - ask for a table in the back. The best area in my opinion. I love going here with a small group of friends or my girl friend for a nice dinner. They also have an excellent wine list (especially the reds - given it's a steak place).",
@@ -1021,7 +1021,7 @@ add_friendships = [
   },
   {
     asker: User.find_by(name: 'Viete Leker'),
-    receiver: User.find_by(name: 'Joris Kühnast')
+    receiver: User.find_by(name: 'Joris Kuehnast')
   },
   {
     asker: User.find_by(name: 'Viete Leker'),
@@ -1036,7 +1036,7 @@ add_friendships = [
   #   receiver: User.find_by(name: '')
   # }
 ]
-Selection.create(user: User.find_by(name: "Joris Kühnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), cuisine: 'Steakhouses', review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
+Selection.create(user: User.find_by(name: "Joris Kuehnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), cuisine: 'Steakhouses', review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
 
 Friendship.create!(add_friendships)
 
