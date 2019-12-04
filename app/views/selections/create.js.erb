@@ -21,11 +21,15 @@ function addRecommendation (review) {
   }
 }
 
-function refresh (refreshHTML, review_input, cuisine_input) {
+function refresh (refreshHTML) {
   const form = document.getElementById('rcmd-form');
-  console.log(form);
   form.outerHTML = refreshHTML;
   $('.selectpicker').selectpicker('refresh');
+}
+
+function refreshRestaurantDetails (refreshHTML) {
+  const restaurantDetails = document.getElementById('restaurant-details');
+  restaurantDetails.outerHTML = refreshHTML;
 }
 
 <% if !params[:bookmark].nil? %>
@@ -36,5 +40,6 @@ function refresh (refreshHTML, review_input, cuisine_input) {
   <% else %>
     recommend('<%= j render "shared/restaurants/recommend_button", restaurant: @restaurant, selection: @selection%>');
     addRecommendation('<%= j render "shared/restaurants/review", restaurant: @restaurant, selection: @selection%>');
+    refreshRestaurantDetails( '<%= j render "shared/restaurants/restaurantdetails", restaurant: @restaurant %>')
   <% end %>
 <% end %>

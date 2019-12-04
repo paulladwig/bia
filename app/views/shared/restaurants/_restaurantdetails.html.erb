@@ -1,3 +1,4 @@
+<div id="restaurant-details">
 <h5 class = 'mb-3 mt-4'>Restaurant details</h5>
   <% if !restaurant.cuisine.nil? %>
     <p class= 'my-2 details-cuisine'> Cuisine: <%= restaurant.cuisine %></p>
@@ -20,3 +21,4 @@
   <% if restaurant.url != '' %>
     <p class= 'my-2'> Web: <a href=<%= restaurant.url %> target="_blank"> <%= restaurant.name %> </a> </p>
   <% end %>
+</div>
