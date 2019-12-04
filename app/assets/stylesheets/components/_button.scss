@@ -31,6 +31,37 @@
   }
 }
 
+.biabutton-round{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  background-color: $glight;
+  padding: $small-space $spacer;
+  border-width: 0px;
+  border-radius: 50%;
+  color: $gmedium;
+  &:hover {
+    color: $bmedium;
+    outline: none;
+    p {
+      color: $bmedium;
+    }
+  }
+}
+
+.biabutton-round-active{
+  background-color: $glight;
+  color: $bmedium;
+  &:hover {
+    color: $bmedium;
+    outline: none;
+    p {
+      color: $bmedium;
+    }
+  }
+}
+
 .biabutton-full-width-center {
   background-color: $glight;
   padding: $medium-space $spacer;

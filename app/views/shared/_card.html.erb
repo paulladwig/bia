@@ -1,17 +1,27 @@
 <%if data[:new] %>
-  <% restaurant = data[:restaurant] %>
-  <%= link_to(restaurants_path(name: restaurant.name, address: restaurant.address, placeid: restaurant.placeid, external_photo: restaurant.external_photo ), method: :post) do  %>
-    <%= render 'shared/default_card', data: data %>
-  <% end %>
+  <div class="card-bia">
+    <% restaurant = data[:restaurant] %>
+    <%= link_to(restaurants_path(name: restaurant.name, address: restaurant.address, placeid: restaurant.placeid, external_photo: restaurant.external_photo ), method: :post) do  %>
+      <%= render 'shared/default_card', data: data %>
+    <% end %>
+  </div>
 <%elsif data[:existing_reccord]%>
+<div class="card-bia">
   <%= link_to restaurant_path(data[:restaurant], new: true) do  %>
     <%= render 'shared/default_card', data: data %>
   <% end %>
+  <%= render 'shared/restaurants/bookmark_button_round', restaurant: data[:restaurant] %>
+</div>
 <%else%>
+<div class="card-bia">
   <%= link_to(data[:restaurant]) do  %>
     <%= render 'shared/default_card', data: data %>
   <% end %>
+  <%= render 'shared/restaurants/bookmark_button_round', restaurant: data[:restaurant] %>
+</div>
 <%end%>
+
+
 
 
 
