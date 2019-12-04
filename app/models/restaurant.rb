@@ -1,11 +1,11 @@
 class Restaurant < ApplicationRecord
   searchkick word_middle: [:cuisine, :name, :recommended], locations: [:location], suggest: [:name, :cuisine, :recommended]
   scope :search_import, -> { includes(:selections, :users) }
-  has_many :selections
+  has_many :selections, dependent: :destroy
   has_many :users, through: :selections
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  has_many :shares
+  has_many :shares, dependent: :destroy
   has_many :users_sharing, through: :shares, foreign_key: :user_id
 
   mount_uploader :photo, PhotoUploader
@@ -22,12 +22,14 @@ class Restaurant < ApplicationRecord
   "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan"]
 
   def search_data
-    { name: name,
+    u = { name: name,
       cuisine: cuisine,
       recommended: "#{users.map(&:name).join(' ')}",
       price: avg_price,
-      occasion: avg_occasion
+      occasion: avg_occasion,
+      popularity: self.selections.count
     }.merge(location: {lat: latitude, lon: longitude})
+    p u
   end
 
   def get_friends_recommended(user)
@@ -94,6 +96,21 @@ class Restaurant < ApplicationRecord
     end
     self.avg_price = all_prices / all_selections.length
     self.save
+  end
+
+  def calc_most_common_cuisine
+    count_by_cuisine = self.selections.group(:cuisine).count
+    p count_by_cuisine
+    highest_value = count_by_cuisine.max_by{|k,v| v}[1]
+    p highest_value
+    cuisines = count_by_cuisine.select { |key, value| value == highest_value }.keys
+    cuisine_tag = ''
+    cuisines.each do |cuisine|
+      cuisine_tag += "#{cuisine}, "
+    end
+    self.cuisine = cuisine_tag.chomp(', ')
+    self.save
+    p self.cuisine
   end
 
   private

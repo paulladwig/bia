@@ -3,7 +3,10 @@
     <div class="avatar-large review-card-avatar" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
   <% end %>
   <div class="core-review">
-    <h5 class='my-1'> <%= link_to selection.user.name, user_path(selection.user), class: 'text-color-black'%></h5>
+    <div class="review-header">
+      <%= render 'shared/review_header', selection: selection, restaurant_show: true%>
+      <p class="tag"> <%= "€"*selection.price %> </p>
+    </div>
     <p class='my-1'> <%= selection.review %> </p>
     <div class="bottom-line">
       <p class="small-font mt-1"> Posted on <%= selection.updated_at.strftime('%a %d %b %Y') %></p>

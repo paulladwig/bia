@@ -30,6 +30,7 @@ class RestaurantsController < ApplicationController
       format.html { render 'index' }
       format.js
     end
+    p params
   end
 
   def show
@@ -56,7 +57,7 @@ class RestaurantsController < ApplicationController
       location = location_coords
       if location[:longitude] != 'na'
         # use search input to find places using google api
-        p nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:latitude]},#{location[:longitude]}&radius=#{location[:range]}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+        nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:latitude]},#{location[:longitude]}&radius=#{location[:range]}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized = JSON.parse(open(nearby_url).read)
         json_sereialized["results"].each do |result|
           # incase google does not provide a photo set photo to nil to avoid method error
@@ -72,7 +73,7 @@ class RestaurantsController < ApplicationController
       else
         location_string = user_default_location
         # execute google places text search
-        p text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+        text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized_text = JSON.parse(open(text_url).read)
         json_sereialized_text["results"].each do |result|
           if result["photos"]
@@ -110,7 +111,7 @@ class RestaurantsController < ApplicationController
     @current_page = @results.current_page
     @total_pages = @results.total_pages
     all_shares_ordered = Share.where(user: current_user).order(created_at: :desc)
-    all_bookmarked_orders = Selection.where(user: current_user, bookmarked: true, recommended: false).order(created_at: :desc)
+    all_bookmarked_orders = Selection.where(user: current_user, bookmarked: true, recommended: nil).order(created_at: :desc)
     all_recent = all_shares_ordered + all_bookmarked_orders
     all_recent_ordered = all_recent.sort_by { |activity| activity.updated_at }.reverse_each
     @six_recent = all_recent_ordered.reject do |activity|
@@ -124,7 +125,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     authorize @restaurant
-    p details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     json_sereialized = JSON.parse(open(details_url).read)
     @restaurant.phone_number = json_sereialized["result"]["formatted_phone_number"] if json_sereialized["result"]["formatted_phone_number"]
     @restaurant.url = json_sereialized["result"]["website"] if json_sereialized["result"]["website"]
@@ -144,19 +145,19 @@ class RestaurantsController < ApplicationController
   def where
     where = {id: Restaurant.relevant_restaurants(current_user, "id")}
     if params[:search].present?
-      if params[:search][:location].presence
+      if params[:search][:location].present?
         location = location_coords
         if location != 'na'
           where[:location] = {near: {lat: location[:latitude], lon: location[:longitude]}, within: "#{location[:range]/1000}km"}
         end
       end
-      if search_params[:cuisine].presence && search_params[:cuisine][1].presence
+      if search_params[:cuisine].present? && search_params[:cuisine][1].present?
         where[:cuisine] = search_params[:cuisine].drop(1)
       end
-      if search_params[:occasion].presence && search_params[:occasion][1].presence
+      if search_params[:occasion].present? && search_params[:occasion][1].present?
         where[:occasion] = search_params[:occasion].drop(1)
       end
-      if search_params[:price].presence && search_params[:price][1].presence
+      if search_params[:price].present? && search_params[:price][1].present?
         where[:price] = search_params[:price].drop(1)
       end
     end

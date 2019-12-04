@@ -1,20 +1,26 @@
-<h5 class = 'mb-3 mt-4'>Restaurant details</h5>
-  <p class= 'my-2'> Cuisine: <%= restaurant.cuisine %></p>
-  <% if !restaurant.avg_occasion.nil? %>
-    <p class= 'my-2'> Mostly suited for: <%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
+<div id="restaurant-details">
+
+<h5 class = 'mt-4'>Restaurant details </h5>
+  <p class="p-style small-font mb-3 "> based on <%= [1, restaurant.selections.where(recommended:true).count].max { |a, b| a<=>b}  %> reviews </p>
+  <% if restaurant.cuisine != "" && !restaurant.cuisine.nil? %>
+    <p class= 'my-2 details-cuisine'> Cuisine: <%= restaurant.cuisine %></p>
   <% end %>
-  <% if !restaurant.avg_price.nil? %>
-    <p class= 'my-2'> Prices: <%= render 'shared/display_avg_price', average: restaurant.avg_price %></p>
+  <% if restaurant.avg_occasion != "" && !restaurant.avg_occasion.nil? %>
+    <p class= 'my-2 details-occassion'> Mostly suited for: <%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
+  <% end %>
+  <% if restaurant.avg_price != "" && !restaurant.avg_price.nil? %>
+    <p class= 'my-2 details-price'> Prices: <%= render 'shared/display_avg_price', average: restaurant.avg_price %></p>
   <% end %>
 
 <h5 class = 'mb-3 mt-4'>Contact details</h5>
   <p class= 'my-2'> Address: <%= restaurant.address %></p>
-  <% if restaurant.phone_number != '' %>
+  <% if restaurant.phone_number != '' && !restaurant.phone_number.nil? %>
     <p class= 'my-2'> Phone: <%= restaurant.phone_number %></p>
   <% end %>
-  <% if restaurant.email != '' %>
+  <% if restaurant.email != '' && !restaurant.email.nil?%>
     <p class= 'my-2'> E-mail: <a href=<%= "mailto:#{restaurant.email}" %>> <%= restaurant.email %> </a>  </p>
   <% end %>
-  <% if restaurant.url != '' %>
+  <% if restaurant.url != '' && !restaurant.url.nil? %>
     <p class= 'my-2'> Web: <a href=<%= restaurant.url %> target="_blank"> <%= restaurant.name %> </a> </p>
   <% end %>
+</div>

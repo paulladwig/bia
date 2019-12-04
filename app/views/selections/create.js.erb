@@ -1,7 +1,16 @@
 function addBookmark(bookmarkHTML) {
   const bookmark = document.getElementById('bookmark');
   bookmark.outerHTML =  bookmarkHTML;
-  bookmark.classList.toggle("biabutton-active");
+  bookmark.classList.toggle("biabutton-thin-active");
+}
+
+function addBookmarkRound(bookmarkHTML) {
+  const bookmarks = document.querySelectorAll('.round-bookmark');
+  console.log(bookmarks);
+  bookmarks.forEach(function(bookmark){
+    bookmark.outerHTML =  bookmarkHTML;
+    bookmark.classList.toggle("biabutton-round-active");
+  });
 }
 
 function recommend(toggle) {
@@ -21,20 +30,27 @@ function addRecommendation (review) {
   }
 }
 
-function refresh (refreshHTML, review_input, cuisine_input) {
+function refresh (refreshHTML) {
   const form = document.getElementById('rcmd-form');
-  console.log(form);
   form.outerHTML = refreshHTML;
   $('.selectpicker').selectpicker('refresh');
 }
 
+function refreshRestaurantDetails (refreshHTML) {
+  const restaurantDetails = document.getElementById('restaurant-details');
+  restaurantDetails.outerHTML = refreshHTML;
+}
+
 <% if !params[:bookmark].nil? %>
   addBookmark('<%= j render "shared/restaurants/bookmark_button", restaurant: @restaurant, selection: @selection%>');
+<% elsif !params[:bookmark_round].nil? %>
+  addBookmarkRound('<%= j render "shared/restaurants/bookmark_button_round", restaurant: @restaurant, selection: @selection%>');
 <% else %>
   <% if @selection.errors.any? %>
     refresh('<div id = "rcmd-form"> <%= j render "selections/recommendation_form", restaurant: @restaurant, selection: @new_selection.nil? ? @selection : @new_selection  %> </div>');
   <% else %>
     recommend('<%= j render "shared/restaurants/recommend_button", restaurant: @restaurant, selection: @selection%>');
     addRecommendation('<%= j render "shared/restaurants/review", restaurant: @restaurant, selection: @selection%>');
+    refreshRestaurantDetails( '<%= j render "shared/restaurants/restaurantdetails", restaurant: @restaurant %>')
   <% end %>
 <% end %>

@@ -4,32 +4,36 @@
   <div class="index-restaurants-layout">
     <h2 class="text-center"><%= @user.name %></h2>
     <div class="d-flex justify-content-between align-items-center">
-      <% if @user == @current_user %>
-        <h2>Your places</h2>
-      <% elsif @user.gender == "Female" %>
-        <h2>Her places</h2>
-      <% elsif @user.gender == "Male" %>
-        <h2>His places</h2>
-      <% else %>
-        <h2>Places</h2>
-      <% end %>
+      <span class="" id="user-places">
+        <% if @user == @current_user %>
+          <h2>Your places</h2>
+        <% elsif @user.gender == "Female" %>
+          <h2>Her places</h2>
+        <% elsif @user.gender == "Male" %>
+          <h2>His places</h2>
+        <% else %>
+          <h2>Places</h2>
+        <% end %>
+      </span>
+      <span class="hide" id="following">
+        <h2>Following</h2>
+      </span>
+      <span class="hide" id="followers">
+        <h2>Followers</h2>
+      </span>
       <i id="map-btn" class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
       <i id="list-btn" class="hidden biabutton font-size-awesome fas fa-stream"></i>
     </div>
     <%= render 'shared/users/profile_info', user: @user, friendship: @friendship %>
-    <div id="list-container" class="">
-      <div id="index-restaurants-grid">
+    <div id="list-container">
         <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user %>
-      </div>
     </div>
     <div id="map-container" class="hidden">
-      <div
-        id="map"
-        style="width: 100%;
-        height: 400px;"
-        data-markers="<%= @markers.to_json %>"
-        class = "width-100-pc span-2-1 image-rounded-corners"
-      ></div>
+      <%= render 'shared/users/user_show_map', markers: @markers %>
     </div>
   </div>
 </div>
+
+<% if @user == @current_user %>
+  <div id="profile-user" data-user="true"></div>
+<% end %>

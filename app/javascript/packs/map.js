@@ -270,3 +270,5 @@ if (mapElement) {
   initMap(mapElement)
   window.initGoogleMap = initMap
 }
+
+export {initMap}
