@@ -6,7 +6,12 @@ class SelectionsController < ApplicationController
     @all_activities = Kaminari.paginate_array(combined_activities.sort_by { |activity| activity.updated_at }.reverse_each.to_a).page(params[:page]).per(15)
     @current_page = @all_activities.current_page
     @total_pages = @all_activities.total_pages
-    @feature = [feature, feature, feature]
+    recents = Share.recents(current_user)
+    if recents.count >= 3
+      @feature = [{:type=>"recents", :value=>"none", :title=>"Recommend To Your Friends", :link=>{:url=>"recents", :params=>{}, new:{new:true}}, :restaurants=>recents.first(3)}, feature, feature]
+    else
+      @feature = [feature, feature, feature]
+    end
   end
 
   def create
@@ -120,7 +125,7 @@ class SelectionsController < ApplicationController
         where[:cuisine] = restaurant_start.cuisine
         feature_result[:value] = restaurant_start.cuisine
         feature_result[:title] = ["Try something new, #{restaurant_start.cuisine}","Have you tried #{restaurant_start.cuisine}"].sample
-        feature_result[:link] = {"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>["","#{restaurant_start.cuisine}"], "occasion"=>[""], "price"=>[""]}
+        feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>["","#{restaurant_start.cuisine}"], "occasion"=>[""], "price"=>[""]}, :new=>{}}
       elsif type == "price"
         where[:price] = restaurant_start.avg_price
         feature_result[:value] = restaurant_start.avg_price
@@ -134,7 +139,7 @@ class SelectionsController < ApplicationController
           price_titel = ["After Payday", "It's Time For The Occasional Splurge!"]
         end
         feature_result[:title] = price_titel.sample
-        feature_result[:link] = {"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>[""], "price"=>["","#{restaurant_start.avg_price}"]}
+        feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>[""], "price"=>["","#{restaurant_start.avg_price}"]}, :new=>{}}
       elsif type == "occasion"
         where[:occasion] = restaurant_start.avg_occasion
         feature_result[:value] = restaurant_start.avg_occasion
@@ -147,7 +152,7 @@ class SelectionsController < ApplicationController
         elsif restaurant_start.avg_price == 4
           occasion_titel = ["Time to Celebrate", "For a Special Occassion"]
         end
-        feature_result[:link] = {"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>["","#{restaurant_start.avg_occasion}"], "price"=>[""]}
+        feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>["","#{restaurant_start.avg_occasion}"], "price"=>[""]}, :new=>{}}
         feature_result[:title] = occasion_titel.sample
       # elsif type == "user"
       end

@@ -9,14 +9,14 @@
   <div class="featured-places">
     <% data[:feature][:restaurants].to_a.shuffle.each do |restaurant| %>
         <div class="individual-restaurant-featured">
-          <%= link_to restaurant do %>
+          <%= link_to restaurant_path(restaurant, data[:feature][:link][:new]) do %>
             <%if restaurant.external_photo %>
               <div class="featured-image image-rounded-corners mb-2" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%=restaurant.external_photo%>')"></div>
             <% else %>
               <div class="featured-image image-rounded-corners mb-2" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%= cl_image_path restaurant.photo %>')"></div>
             <% end %>
           <% end %>
-          <h5><%=link_to restaurant.name, restaurant, class: 'text-color-black'%></h5>
+          <h5><%=link_to restaurant.name, restaurant_path(restaurant, data[:feature][:link][:new]), class: 'text-color-black'%></h5>
           <div class="d-flex justify-content-between">
             <p><%=restaurant.cuisine%></p>
           </div>
@@ -24,6 +24,10 @@
     <% end %>
   </div>
   <div class="d-flex justify-content-end">
-    <%= link_to "See More", restaurants_path(search: data[:feature][:link]) %>
+    <% if data[:feature][:link][:url] == "recents" %>
+      <%= link_to "Recommend", recommend_path() %>
+    <% else %>
+      <%= link_to "See More", restaurants_path(search: data[:feature][:link][:params]) %>
+    <% end %>
   </div>
 </div>
