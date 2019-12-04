@@ -2,6 +2,12 @@
   background-color: $glight;
   border-radius: $border-radius;
   position: relative;
+  .biabutton-round, .biabutton-round-active {
+    display: none;
+  }
+  &:hover .biabutton-round, &:hover .biabutton-round-active {
+    display: block;
+  }
 }
 
 .bottom-line {

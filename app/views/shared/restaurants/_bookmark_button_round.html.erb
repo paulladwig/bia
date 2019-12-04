@@ -1,6 +1,6 @@
 <% selection = Selection.find_by(user: current_user, restaurant: restaurant) %>
 <% bookmarked = selection.bookmarked if !selection.nil?%>
 
-<%= link_to(restaurant_selections_path(restaurant, bookmark_round: true), method: :post, remote: true, class: "round-bookmark size-48-pc biabutton-round#{" biabutton-round-active" if bookmarked} font-size-awesome text-center") do %>
+<%= button_to(restaurant_selections_path(restaurant, bookmark_round: true), action: "create", remote: true, class: "round-bookmark size-48-pc biabutton-round#{" biabutton-round-active" if bookmarked} font-size-awesome text-center") do %>
   <i class='fas fa-bookmark'></i>
 <% end %>

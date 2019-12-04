@@ -36,8 +36,12 @@
   top: 10px;
   right: 10px;
   width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  items-align: center;
   background-color: $glight;
-  padding: $small-space $spacer;
+  padding: none;
   border-width: 0px;
   border-radius: 50%;
   color: $gmedium;
