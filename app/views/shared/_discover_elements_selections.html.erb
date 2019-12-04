@@ -4,7 +4,7 @@
       <div class="avatar-large" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
     <% end %>
     <div class="activity-content">
-      <h5> <%= link_to selection.user.name, selection.user%> recommended <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant), class: 'text-color-black' %></h5>
+      <%= render 'shared/review_header', selection: selection, restaurant_show: false%>
       <p class="my-2"> <%= selection.review %> </p>
       <%= render 'shared/card', data: {restaurant: selection.restaurant, user_to_exclude: selection.user}%>
       <p class="small-font mt-3"> Posted on <%= selection.created_at.strftime('%a %d %b %Y') %></p>
