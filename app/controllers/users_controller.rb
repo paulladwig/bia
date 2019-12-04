@@ -2,18 +2,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize @user
-
-    if show_params[:contact].present?
-      if show_params[:contacts] == "follwoing"
+    if show_params[:contacts].present?
+      if show_params[:contacts] == "following"
+        @contacts = "following"
         @friendships = Friendship.where(asker: @user, active: 1).page(params[:page])
       elsif show_params[:contacts] == "followers"
+        @contacts = "followers"
         @friendships = Friendship.where(receiver: @user, active: 1).page(params[:page])
       end
+        p @friendships
         @current_page = @friendships.current_page
         @total_pages = @friendships.total_pages
     end
-
-    if show_params[:selection].present? || show_params.empty?
+    if show_params[:selection].present? || (!show_params[:contacts].present? && !show_params[:selection].present?)
       @friendship = Friendship.where(asker_id: current_user.id, receiver_id: @user.id).first
       query = "*"
       options = { fields: ["name"], per_page: 24, page: params[:page] }
@@ -68,6 +69,6 @@ class UsersController < ApplicationController
   end
 
   def show_params
-    params.permit(:selection)
+    params.permit(:selection, :contacts, :id)
   end
 end
