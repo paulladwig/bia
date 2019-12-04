@@ -29,6 +29,7 @@ class RestaurantsController < ApplicationController
       format.html { render 'index' }
       format.js
     end
+    p params
   end
 
   def show
@@ -54,7 +55,7 @@ class RestaurantsController < ApplicationController
       location = location_coords
       if location[:longitude] != 'na'
         # use search input to find places using google api
-        p nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:latitude]},#{location[:longitude]}&radius=#{location[:range]}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+        nearby_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:latitude]},#{location[:longitude]}&radius=#{location[:range]}&type=restaurant&keyword=#{search_query}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized = JSON.parse(open(nearby_url).read)
         json_sereialized["results"].each do |result|
           # incase google does not provide a photo set photo to nil to avoid method error
@@ -70,7 +71,7 @@ class RestaurantsController < ApplicationController
       else
         location_string = user_default_location
         # execute google places text search
-        p text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+        text_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_query}&#{location_string}type=restaurant&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
         json_sereialized_text = JSON.parse(open(text_url).read)
         json_sereialized_text["results"].each do |result|
           if result["photos"]
@@ -122,7 +123,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     authorize @restaurant
-    p details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    details_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{restaurant_params["placeid"]}&fields=formatted_phone_number,website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     json_sereialized = JSON.parse(open(details_url).read)
     @restaurant.phone_number = json_sereialized["result"]["formatted_phone_number"] if json_sereialized["result"]["formatted_phone_number"]
     @restaurant.url = json_sereialized["result"]["website"] if json_sereialized["result"]["website"]
