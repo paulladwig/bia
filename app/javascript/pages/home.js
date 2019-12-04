@@ -14,9 +14,11 @@ const addLinkInNavbarToggle = () => {
   if (webPath === "restaurants") {
     navBarItems[0].classList.add('active');
   }
-  else if (userPage.dataset.user === "true"){
+  else if (userPage) {
+    if (userPage.dataset.user === "true") {
     console.log('hello');
     navBarItems[1].classList.add('active');
+    }
   }
 };
 

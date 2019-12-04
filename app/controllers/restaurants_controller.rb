@@ -109,7 +109,7 @@ class RestaurantsController < ApplicationController
     @current_page = @results.current_page
     @total_pages = @results.total_pages
     all_shares_ordered = Share.where(user: current_user).order(created_at: :desc)
-    all_bookmarked_orders = Selection.where(user: current_user, bookmarked: true, recommended: false).order(created_at: :desc)
+    all_bookmarked_orders = Selection.where(user: current_user, bookmarked: true, recommended: nil).order(created_at: :desc)
     all_recent = all_shares_ordered + all_bookmarked_orders
     all_recent_ordered = all_recent.sort_by { |activity| activity.updated_at }.reverse_each
     @six_recent = all_recent_ordered.reject do |activity|
