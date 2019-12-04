@@ -33,7 +33,8 @@ class UsersController < ApplicationController
       @markers = @own_restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
-        lng: restaurant.longitude
+        lng: restaurant.longitude,
+        infoWindow: { content: render_to_string(partial: "/shared/card", locals: { data: { restaurant: restaurant } }) }
       }
     end
 
