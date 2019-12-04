@@ -1,11 +1,11 @@
 class Restaurant < ApplicationRecord
   searchkick word_middle: [:cuisine, :name, :recommended], locations: [:location], suggest: [:name, :cuisine, :recommended]
   scope :search_import, -> { includes(:selections, :users) }
-  has_many :selections
+  has_many :selections, dependent: :destroy
   has_many :users, through: :selections
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  has_many :shares
+  has_many :shares, dependent: :destroy
   has_many :users_sharing, through: :shares, foreign_key: :user_id
 
   mount_uploader :photo, PhotoUploader
