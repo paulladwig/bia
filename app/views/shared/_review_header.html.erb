@@ -4,7 +4,7 @@
   <% else %>
     <%= link_to selection.user.name, selection.user%>
     recommended
-    <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant)%>
+    <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant), class: 'text-color-black'%>
   <% end %>
   <% if restaurant_show == true %>
     <span class="p-style">

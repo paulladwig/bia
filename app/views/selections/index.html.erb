@@ -3,7 +3,7 @@
 
 <div class="container-bia mt-5 index-restaurants-layout">
   <h2 class="text-center find-search-heading">Hello, <%= current_user.name %></h2>
-  <h2 class="text-center find-search-heading">Timeline</h2>
+  <h2 class="text-center find-search-heading">Featured</h2>
   <div class="side-filter">
     <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin'} do |f| %>
       <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
@@ -20,6 +20,13 @@
     <%= link_to "Add Friends", users_path, class: "quick-action block" %>
   </div>
   <div class="index-selection-show">
+    <div class="feature">
+      <%= render 'shared/discover_feature', data: {feature: @feature[0], border: false} %>
+      <%= render 'shared/discover_feature', data: {feature: @feature[1], hide: true} %>
+      <%= render 'shared/discover_feature', data: {feature: @feature[2], hide: true, border: false} %>
+    </div>
+      <h2 class="text-center find-search-heading">Timeline</h2>
+
     <% @all_activities.each do |activity| %>
       <%  if activity.class == Selection %>
         <%= render 'shared/discover_elements_selections', selection: activity %>
