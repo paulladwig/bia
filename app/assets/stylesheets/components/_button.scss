@@ -14,6 +14,23 @@
   }
 }
 
+.biabutton-thin{
+  display: inline-block;
+  background-color: $glight;
+  padding: $small-space $spacer;
+  margin: $small-space 0;
+  border-width: 0px;
+  border-radius: $border-radius;
+  color: $gmedium;
+  &:hover {
+    color: $bmedium;
+    outline: none;
+    p {
+      color: $bmedium;
+    }
+  }
+}
+
 .biabutton-full-width-center {
   background-color: $glight;
   padding: $medium-space $spacer;
@@ -39,6 +56,25 @@
   color: $bmedium;
   &:hover {
   color: $bmedium;
+  }
+}
+
+.biabutton-thin-active {
+  display: inline-block;
+  background-color: $glight;
+  padding: $small-space $spacer;
+  margin: $small-space 0;
+  border-width: 0px;
+  border-radius: $border-radius;
+  color: $bmedium;
+  &:hover {
+  color: $bmedium;
+  }
+  p {
+    color: $bmedium;
+  }
+  &:hover p {
+    color: $bmedium;
   }
 }
 
