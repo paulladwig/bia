@@ -1,19 +1,21 @@
 <div class="side-filter">
   <div class="card-info">
     <div class="card-profile-image ">
-      <% if @user.photo? %>
-          <div class="avatar-profile" style="background-image: url('<%= cl_image_path @user.photo %>')"></div>
-      <% else %>
-        <%= cl_image_tag 'profile_picture_unavailable_gwyjic', class: "avatar-profile" %>
-      <% end %>
+      <%= link_to @user do %>
+        <% if @user.photo? %>
+            <div class="avatar-profile" style="background-image: url('<%= cl_image_path @user.photo %>')"></div>
+        <% else %>
+          <%= cl_image_tag 'profile_picture_unavailable_gwyjic', class: "avatar-profile" %>
+        <% end %>
+      <%end %>
     </div>
     <div class="card-profile-content">
       <div class="following-info profile-info">
-        <%= link_to "Following", following_path(@user), class: "pb-1" %>
+        <%= link_to "Following", user_path(@user, contacts: "following"), remote: true,class: "pb-1" %>
         <p><%= @user.friendships_as_asker.where(active: 1).count %></p>
       </div>
       <div class="followers-info profile-info">
-        <%= link_to "Followers", followers_path(@user), class: "pb-1" %>
+        <%= link_to "Followers", user_path(@user, contacts: "followers"), remote: true, class: "pb-1" %>
         <p><%= @user.friendships_as_receiver.where(active: 1).count %></p>
       </div>
       <div class="recommended-info profile-info">
@@ -25,7 +27,7 @@
         <p><%= user_bookmarked = Selection.where(user: @user, bookmarked: true).count %></p>
       </div>
       <div class="button-info profile-info" id="following-btn">
-        <%= render 'shared/follow_btn', friendship: friendship, user: @user %>
+        <%= render 'shared/follow_btn', friendship: @friendship, user: @user %>
       </div>
     </div>
   </div>

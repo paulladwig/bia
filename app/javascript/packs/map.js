@@ -2,10 +2,11 @@ import GMaps from 'gmaps/gmaps.js';
 
 
 const mapElement = document.getElementById('map');
-function initMap() {
+function initMap(mapElement) {
   const markers = JSON.parse(mapElement.dataset.markers);
   const firstMarker = markers[0]
   const center = {lat: firstMarker.lat, lng: firstMarker.lng}
+  console.log({center})
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: center,
@@ -210,12 +211,14 @@ function initMap() {
   ]
   });
 
+
   markers.forEach((marker)=> {
     var marker = new google.maps.Marker({
       position: marker,
       map: map,
-      icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575301929/marker_oxy5mm.svg'
+      icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575380004/map_marker_o2a2ut.svg'
     });
+
   })
 
 
@@ -247,5 +250,8 @@ function initMap() {
 }
 
 if (mapElement) {
-  initMap()
+  initMap(mapElement)
+  window.initGoogleMap = initMap
 }
+
+export {initMap}

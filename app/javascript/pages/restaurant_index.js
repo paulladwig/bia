@@ -9,6 +9,7 @@ const mapActivationButton = () => {
   console.log(listShow)
 
 
+  if (mapButton) {
     mapButton.addEventListener('click', (event) => {
       mapShow.classList.toggle("hidden");
       listShow.classList.toggle("hidden");
@@ -22,9 +23,6 @@ const mapActivationButton = () => {
       mapButton.classList.toggle("hidden");
       listButton.classList.toggle("hidden");
     });
+  }
 }
-
-  // if (mapButton) {
-  // }
 export {mapActivationButton};
-

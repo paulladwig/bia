@@ -1,5 +1,3 @@
-
-
 const turn_dropdown_icon = () => {
   const dropdown = document.querySelector('.svg-dropdown');
   console.log(dropdown);
@@ -8,10 +6,12 @@ const turn_dropdown_icon = () => {
 
 const noteClick = (element) => {
   const form = document.getElementById('share-submit');
+  if (element) {
   element.addEventListener('click', (event) => {
     console.log(event);
     form.click();
   });
+  }
 };
 
 const detectShareClick = () => {

@@ -15,13 +15,7 @@
         <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages %>
       </div>
       <div id="map-container" class="hidden">
-        <div
-          id="map"
-          style="width: 100%;
-          height: 400px;"
-          data-markers="<%= @markers.to_json %>"
-          class = "width-100-pc span-2-1 image-rounded-corners"
-        ></div>
+        <%= render 'shared/map' %>
       </div>
     </div>
 </div>

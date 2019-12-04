@@ -96,6 +96,21 @@ class Restaurant < ApplicationRecord
     self.save
   end
 
+  def calc_most_common_cuisine
+    count_by_cuisine = self.selections.group(:cuisine).count
+    p count_by_cuisine
+    highest_value = count_by_cuisine.max_by{|k,v| v}[1]
+    p highest_value
+    cuisines = count_by_cuisine.select { |key, value| value == highest_value }.keys
+    cuisine_tag = ''
+    cuisines.each do |cuisine|
+      cuisine_tag += "#{cuisine}, "
+    end
+    self.cuisine = cuisine_tag.chomp(', ')
+    self.save
+    p self.cuisine
+  end
+
   private
 
   def self.type_conversion(restaurants, type)

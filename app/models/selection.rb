@@ -8,10 +8,10 @@ class Selection < ApplicationRecord
   validates :review, presence: true, if: :recommended?
   validates :cuisine, presence: true, if: :recommended?
 
-
   def update_averages
     self.restaurant.calc_avg_occassion
     self.restaurant.calc_avg_price
+    self.restaurant.calc_most_common_cuisine
   end
 
   def recommended?

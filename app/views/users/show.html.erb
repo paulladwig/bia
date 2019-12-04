@@ -13,11 +13,15 @@
       <% else %>
         <h2>Places</h2>
       <% end %>
-      <i class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
+      <i id="map-btn" class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
+      <i id="list-btn" class="hidden biabutton font-size-awesome fas fa-stream"></i>
     </div>
     <%= render 'shared/users/profile_info', user: @user, friendship: @friendship %>
-    <div id="index-restaurants-grid">
-      <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user %>
+    <div id="list-container">
+        <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user %>
+    </div>
+    <div id="map-container" class="hidden">
+      <%= render 'shared/users/user_show_map', markers: @markers %>
     </div>
   </div>
 </div>
