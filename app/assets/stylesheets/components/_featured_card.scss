@@ -1,0 +1,28 @@
+.featured-places-card {
+  padding-bottom: $spacer*1.5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $glight;
+  margin-bottom: $spacer*1.5;
+}
+
+.featured-places {
+  // margin-left: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: $spacer;
+  width: 100%;
+  // background-color: $bmediumo;
+  // border-radius: $border-radius;
+  // padding: $spacer;
+}
+.featured-image {
+  height: 155px;
+  background-size: cover;
+  background-position: center;
+}
+
+.individual-restaurant-featured {
+  width: 100%;
+}

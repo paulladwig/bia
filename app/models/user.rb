@@ -3,14 +3,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   searchkick word_middle: [:name, :username, :email]
   mount_uploader :photo, PhotoUploader
-  has_many :selections
+  has_many :selections, dependent: :destroy
   has_many :friendships_as_asker, source: :friendships, foreign_key: :asker_id, class_name: "Friendship"
   has_many :friendships_as_receiver, source: :friendships, foreign_key: :receiver_id, class_name: "Friendship"
   has_many :receivers, through: :friendships_as_asker
   has_many :askers, through: :friendships_as_receiver
   has_many :restaurants, through: :selections
-  has_many :shares
+  has_many :shares, dependent: :destroy
   has_many :restaurants_as_sharer, through: :shares, source: :restaurant
+
+  validates :name, presence: true, format: { with: /\A([a-zA-Z]|\d|\s)+\z/,
+    message: "only allows standard English letters and numbers" }
+  validates :username, presence: true, format: { with: /\A\w+\z/,
+    message: "only allows standard English letters, numbers and underscores" }
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

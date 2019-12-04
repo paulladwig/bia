@@ -1,0 +1,29 @@
+<%if data[:hide]==true%>
+  <div class="featured-places-card border-bottom hide">
+<%elsif data[:border]==false %>
+  <div class="featured-places-card">
+<% else%>
+  <div class="featured-places-card border-bottom">
+<% end %>
+  <h4 class="mb-3"><%=data[:feature][:title]%></h4>
+  <div class="featured-places">
+    <% data[:feature][:restaurants].to_a.shuffle.each do |restaurant| %>
+        <div class="individual-restaurant-featured">
+          <%= link_to restaurant do %>
+            <%if restaurant.external_photo %>
+              <div class="featured-image image-rounded-corners mb-2" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%=restaurant.external_photo%>')"></div>
+            <% else %>
+              <div class="featured-image image-rounded-corners mb-2" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%= cl_image_path restaurant.photo %>')"></div>
+            <% end %>
+          <% end %>
+          <h5><%=link_to restaurant.name, restaurant, class: 'text-color-black'%></h5>
+          <div class="d-flex justify-content-between">
+            <p><%=restaurant.cuisine%></p>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-end">
+    <%= link_to "See More", restaurants_path(search: data[:feature][:link]) %>
+  </div>
+</div>

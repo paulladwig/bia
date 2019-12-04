@@ -1,11 +1,11 @@
 class Restaurant < ApplicationRecord
   searchkick word_middle: [:cuisine, :name, :recommended], locations: [:location], suggest: [:name, :cuisine, :recommended]
   scope :search_import, -> { includes(:selections, :users) }
-  has_many :selections
+  has_many :selections, dependent: :destroy
   has_many :users, through: :selections
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  has_many :shares
+  has_many :shares, dependent: :destroy
   has_many :users_sharing, through: :shares, foreign_key: :user_id
 
   mount_uploader :photo, PhotoUploader
@@ -22,12 +22,14 @@ class Restaurant < ApplicationRecord
   "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan"]
 
   def search_data
-    { name: name,
+    u = { name: name,
       cuisine: cuisine,
       recommended: "#{users.map(&:name).join(' ')}",
       price: avg_price,
-      occasion: avg_occasion
+      occasion: avg_occasion,
+      popularity: self.selections.count
     }.merge(location: {lat: latitude, lon: longitude})
+    p u
   end
 
   def get_friends_recommended(user)

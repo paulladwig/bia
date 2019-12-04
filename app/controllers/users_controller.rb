@@ -10,7 +10,8 @@ class UsersController < ApplicationController
         @contacts = "followers"
         @friendships = Friendship.where(receiver: @user, active: 1).page(params[:page])
       end
-       p params
+        # @friendships
+
         @current_page = @friendships.current_page
         @total_pages = @friendships.total_pages
     end
