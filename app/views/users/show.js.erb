@@ -2,6 +2,9 @@
   if (document.getElementById('list-btn').classList.contains("hidden") && (document.getElementById('map-btn').classList.contains("hidden"))) {
     document.getElementById('map-btn').classList.remove("hidden");
     }
+  document.getElementById('followers').classList.add("hide");
+  document.getElementById('following').classList.add("hide");
+  document.getElementById('user-places').classList.remove("hide");
   restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user%>');
   restaurantsMap = ('<%= j render "shared/users/user_show_map", markers: @markers %>')
   grid = document.getElementById('list-container');
@@ -15,6 +18,14 @@
       document.getElementById('map-container').classList.add("hidden");
       document.getElementById('list-container').classList.remove("hidden");
     }
+  document.getElementById('user-places').classList.add("hide");
+  <%if params[:contacts] === "following" %>
+    document.getElementById('followers').classList.add("hide");
+    document.getElementById('following').classList.remove("hide");
+  <%elsif params[:contacts] === "followers" %>
+    document.getElementById('following').classList.add("hide");
+    document.getElementById('followers').classList.remove("hide");
+  <%end%>
   document.getElementById('map-btn').classList.add("hidden");
   document.getElementById('list-btn').classList.add("hidden");
   friendsCardGrid = ('<%= j render "shared/friendships/list_users", friendships: @friendships, current_page: @current_page, total_pages: @total_pages, contacts: @contacts%>');

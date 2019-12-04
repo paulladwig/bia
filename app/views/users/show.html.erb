@@ -4,15 +4,23 @@
   <div class="index-restaurants-layout">
     <h2 class="text-center"><%= @user.name %></h2>
     <div class="d-flex justify-content-between align-items-center">
-      <% if @user == @current_user %>
-        <h2>Your places</h2>
-      <% elsif @user.gender == "Female" %>
-        <h2>Her places</h2>
-      <% elsif @user.gender == "Male" %>
-        <h2>His places</h2>
-      <% else %>
-        <h2>Places</h2>
-      <% end %>
+      <span class="" id="user-places">
+        <% if @user == @current_user %>
+          <h2>Your places</h2>
+        <% elsif @user.gender == "Female" %>
+          <h2>Her places</h2>
+        <% elsif @user.gender == "Male" %>
+          <h2>His places</h2>
+        <% else %>
+          <h2>Places</h2>
+        <% end %>
+      </span>
+      <span class="hide" id="following">
+        <h2>Following</h2>
+      </span>
+      <span class="hide" id="followers">
+        <h2>Followers</h2>
+      </span>
       <i id="map-btn" class="biabutton font-size-awesome fas fa-map-marked-alt"></i>
       <i id="list-btn" class="hidden biabutton font-size-awesome fas fa-stream"></i>
     </div>
