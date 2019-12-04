@@ -13,7 +13,7 @@ class SelectionsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     existing_entry = Selection.find_by(user: current_user, restaurant: @restaurant) # Exist: nil if there is no selection, selection if selection exists
     # Create or edit bookmarks
-    if !params[:bookmark].nil?
+    if !params[:bookmark].nil? || !params[:bookmark_round].nil?
       bookmark(@restaurant, existing_entry)
     elsif params[:selection][:recommendation] == 'true'
       recommend(recommendation_params, @restaurant, existing_entry)
