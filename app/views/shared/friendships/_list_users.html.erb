@@ -1,0 +1,10 @@
+<div>
+  <% friendships.each do |friendship| %>
+    <% if contacts == "followers" %>
+      <%= render 'shared/friendships/card', user: friendship.asker, show_mutual: true %>
+    <% elsif contacts == "following" %>
+      <%= render 'shared/friendships/card', user: friendship.receiver, friendship: friendship, show_mutual: true, small: true %>
+    <% end %>
+  <% end %>
+  <%= render 'shared/pageinator', elements: friendships, current_page: current_page, total_pages: total_pages  %>
+</div>
