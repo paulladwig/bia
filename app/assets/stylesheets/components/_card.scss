@@ -2,17 +2,31 @@
   background-color: $glight;
   border-radius: $border-radius;
   position: relative;
+
   .biabutton-round, .biabutton-round-active {
-    display: none;
+    opacity: 0;
+    transition: 0.3s ease;
   }
   &:hover .biabutton-round, &:hover .biabutton-round-active {
-    display: block;
+    opacity: 1;
+    transition: 0.3s ease;
   }
 }
 
 .card-bia-white {
   background-color: white;
   border-radius: $border-radius;
+  position: relative;
+
+  .biabutton-round, .biabutton-round-active {
+    opacity: 0;
+    transition: 0.3s ease;
+
+  }
+  &:hover .biabutton-round, &:hover .biabutton-round-active {
+    opacity: 1;
+    transition: 0.3s ease;
+  }
 }
 
 .bottom-line {
