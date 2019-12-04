@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
     else
       query = "*"
     end
+
     options = { fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page]}
     options[:where] = where
     options[:boost_by_distance] = boost_by_distance
@@ -14,10 +15,12 @@ class RestaurantsController < ApplicationController
     # @your_users = policy_scope(User).search(search_query, options)
     @restaurants = policy_scope(Restaurant).search(query, options)
     @current_user = current_user
+
     @current_page = @restaurants.current_page
     @total_pages = @restaurants.total_pages
+
     @markers = @restaurants.map do |restaurant|
-     {
+      {
         lat: restaurant.latitude,
         lng: restaurant.longitude
       }
@@ -36,7 +39,7 @@ class RestaurantsController < ApplicationController
       lat: @restaurant.latitude,
       lng: @restaurant.longitude
     }]
-    @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: User.following(current_user, "instance"), restaurant: @restaurant))
+    @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: User.following(current_user, "instance"), restaurant: @restaurant)).order(updated_at: :desc)
     @share = Share.new()
     @new = params[:new]
   end
@@ -138,7 +141,7 @@ class RestaurantsController < ApplicationController
 
   def where
     where = {id: Restaurant.relevant_restaurants(current_user, "id")}
-    if params[:search].presence
+    if params[:search].present?
       if params[:search][:location].presence
         location = location_coords
         if location != 'na'
