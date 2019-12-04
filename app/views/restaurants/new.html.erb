@@ -2,7 +2,7 @@
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5 search-page-layout">
 <h2>Search</h2>
-<h4>Find the restaurants you want to recommend or bookmark</h4>
+<h4>Find the restaurants you want to recommend </h4>
 <%= simple_form_for :search, url: recommend_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
   <div class="search-one-line">
     <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field search-bar' }%>
@@ -18,13 +18,20 @@
 <% end %>
 
 <% if !@results.present? %>
-  <h4>Did you go one of these restaurants? Recommend it to your friends! </h4>
+  <h4>Do you want to recommend these restaurants to your friends? </h4>
   <div class="index-restaurants-grid-3">
     <% @six_recent.each do |restaurant| %>
       <%= render 'shared/card', data: {restaurant: restaurant, existing_reccord: true} %>
     <% end %>
     <p><% @six_recent %></p>
   </div>
+<% end %>
+
+<!--- this does not work yet :( -->
+
+<% if @results.nil? %>
+  <h4>Search Result</h4>
+  <p>Unfortunately there were no results - try again! </p>
 <% end %>
 
 <% if @results.present? %>
