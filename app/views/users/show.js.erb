@@ -1,3 +1,24 @@
-restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user%>');
-grid = document.getElementById('index-restaurants-grid');
-grid.innerHTML = restaurantsCardGrid;
+<%if params[:selection] %>
+  if (document.getElementById('list-btn').classList.contains("hidden") && (document.getElementById('map-btn').classList.contains("hidden"))) {
+    document.getElementById('map-btn').classList.remove("hidden");
+    }
+  restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @own_restaurants, current_page: @current_page, total_pages: @total_pages, user_to_exclude: @user%>');
+  restaurantsMap = ('<%= j render "shared/users/user_show_map", markers: @markers %>')
+  grid = document.getElementById('list-container');
+  mapContainer = document.getElementById('map-container');
+  mapContainer.innerHTML = restaurantsMap;
+  var mapElement = document.getElementById('map');
+  window.initGoogleMap(mapElement);
+  grid.innerHTML = restaurantsCardGrid;
+<%elsif params[:contacts] %>
+  if (document.getElementById('list-container').classList.contains("hidden")) {
+      document.getElementById('map-container').classList.add("hidden");
+      document.getElementById('list-container').classList.remove("hidden");
+    }
+  document.getElementById('map-btn').classList.add("hidden");
+  document.getElementById('list-btn').classList.add("hidden");
+  friendsCardGrid = ('<%= j render "shared/friendships/list_users", friendships: @friendships, current_page: @current_page, total_pages: @total_pages, contacts: @contacts%>');
+  list = document.getElementById('list-container');
+  list.innerHTML = friendsCardGrid;
+<%end%>
+
