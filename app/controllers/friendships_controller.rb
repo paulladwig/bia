@@ -1,4 +1,7 @@
 class FriendshipsController < ApplicationController
+
+  # ========this is not needed anymore keep just in case for now delete later
+
   # def index_following
   #   @user = User.find(params[:id])
   #   authorize @user
