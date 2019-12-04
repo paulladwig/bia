@@ -1,3 +1,6 @@
 <% selected = Selection.find_by(user: current_user, restaurant: restaurant) %>
 <%recommended = selected.recommended if !selected.nil? %>
-<button class ="biabutton<%=" biabutton-active" if recommended%> size-48-pc font-size-awesome" <%='disabled' if recommended%> id="open-modal"> <i class="fas fa-bullhorn"></i> </button>
+<button class ="biabutton-thin<%=" biabutton-thin-active" if recommended%> size-48-pc font-size-awesome" <%='disabled' if recommended%> id="open-modal">
+  <i class="fas fa-bullhorn"></i>
+  <p class="small-font recommend-explanation"> recommend<%= "ed" if recommended %></p>
+</button>
