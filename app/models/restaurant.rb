@@ -99,6 +99,8 @@ class Restaurant < ApplicationRecord
   def calc_most_common_cuisine
     count_by_cuisine = self.selections.group(:cuisine).count
     p count_by_cuisine
+    self.cuisine = count_by_cuisine.max_by{|k,v| v}[0]
+    self.save
   end
 
   private
