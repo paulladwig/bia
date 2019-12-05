@@ -128,7 +128,7 @@ class SelectionsController < ApplicationController
       if type == "cuisine"
         where[:cuisine] = restaurant_start.cuisine
         feature_result[:value] = restaurant_start.cuisine
-        feature_result[:title] = ["Try something new, #{restaurant_start.cuisine}","Have you tried #{restaurant_start.cuisine}", "You should try #{restaurant_start.cuisine}"].sample
+        feature_result[:title] = ["Try something new – #{restaurant_start.cuisine}","Have you tried #{restaurant_start.cuisine}", "Why don't you try #{restaurant_start.cuisine}"].sample
         feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>["","#{restaurant_start.cuisine}"], "occasion"=>[""], "price"=>[""]}, :new=>{}}
       elsif type == "price"
         where[:price] = restaurant_start.avg_price
