@@ -33,13 +33,13 @@
 
 .biabutton-round{
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 40px;
-  height: 40px;
+  top: $medium-space;
+  right: $medium-space;
+  width: 4*$medium-space;
+  height: 4*$medium-space;
   display: flex;
   justify-content: space-around;
-  items-align: center;
+  align-items: center;
   background-color: $glight;
   padding: none;
   border-width: 0px;
@@ -52,6 +52,10 @@
       color: $bmedium;
     }
   }
+}
+
+.biabutton-round-left {
+  right: 5.5*$medium-space;
 }
 
 .biabutton-round-active{
@@ -212,34 +216,38 @@
   height: 4*$spacer;
   .form-check:nth-of-type(1) {
     label {
-      background-image: url('shoe.svg');
+      background-image: url('shorts.svg');
+      background-position: 50% 30%;
     }
     input:checked + label {
-      background-image: url('shoe_selected.svg');
+      background-image: url('shorts_select.svg');
     }
   }
   .form-check:nth-of-type(2) {
     label {
-      background-image: url('shirt.svg');
+      background-image: url('jeans.svg');
+      background-size: 35px 35px;
     }
     input:checked + label {
-      background-image: url('shirt_selected.svg');
+      background-image: url('jeans_select.svg');
     }
   }
   .form-check:nth-of-type(3) {
     label {
-      background-image: url('sleeveless-dress.svg');
+      background-image: url('dress_simple.svg');
+      background-size: 35px 35px;
     }
     input:checked + label {
-      background-image: url('dress_selected.svg');
+      background-image: url('dress_simple_select.svg');
     }
   }
   .form-check:nth-of-type(4) {
     label {
-      background-image: url('necktie.svg');
+      background-image: url('dress.svg');
+      background-size: 35px 35px;
     }
     input:checked + label {
-      background-image: url('necktie_selected.svg');
+      background-image: url('dress_select.svg');
     }
   }
 }

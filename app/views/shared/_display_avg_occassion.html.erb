@@ -1,9 +1,19 @@
+<% # if average == 1 %>
+  <!-- on-the-go -->
+<% # elsif average == 2 %>
+  <!-- casual -->
+<% # elsif average == 3 %>
+  <!-- evening out -->
+<% # elsif average == 4 %>
+  <!-- fine dining -->
+<% # end %>
+
 <% if average == 1 %>
-  <span> on-the-go </span>
+  <%= image_tag("shorts.svg", size: "25x25", alt: "on-the-go") %>
 <% elsif average == 2 %>
-  <span> casual </span>
+  <%= image_tag("jeans.svg", size: "25x25", alt: "casual") %>
 <% elsif average == 3 %>
-  <span> nice evening out </span>
+  <%= image_tag("dress_simple.svg", size: "25x25", alt: "evening out") %>
 <% elsif average == 4 %>
-  <span> fine dining </span>
+  <%= image_tag("dress.svg", size: "25x25", alt: "fine dining") %>
 <% end %>
