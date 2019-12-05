@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def profile?
+    true
+  end
+
   def index_following?
     true
   end

@@ -5,32 +5,32 @@
       <div class="discover-overview-footer-card">
         <!-- All upper cards -->
         <div class="upper-footer-card footer-card discover-footer-card">
-          <h5>Discover</h5>
-          <%= link_to "Places nearby", '#', class: "link-grey" %>
-          <%= link_to "Place for today", '#', class: "link-grey" %>
+          <h5>Find</h5>
+          <%= link_to "Places nearby", restaurants_path({"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>[""], "price"=>[""]}), class: "link-grey" %>
+          <%= link_to "Place for today", restaurants_path({"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>[""], "price"=>[""]}), class: "link-grey" %>
         </div>
         <div class="upper-footer-card footer-card overview-footer-card">
-          <h5>Overview</h5>
-          <%= link_to "Recent recommendations", '#', class: "link-grey" %>
+          <h5>Discover</h5>
+          <%= link_to "Recent recommendations", discover_path, class: "link-grey" %>
         </div>
       </div>
       <div class="upper-footer-card footer-card you-footer-card">
           <h5>You</h5>
-          <%= link_to "Saved places", '#', class: "link-grey" %>
-          <%= link_to "Recommended Places", '#', class: "link-grey" %>
+          <%= link_to "Bookmarked Places", profile_path(section:"bookmarked"), class: "link-grey" %>
+          <%= link_to "Recommended Places", profile_path(section:"recommended"), class: "link-grey" %>
         </div>
         <div class="upper-footer-card footer-card account-footer-card">
           <h5>Account</h5>
-          <%= link_to "Settings & Data", '#', class: "link-grey" %>
-          <%= link_to "Location: Berlin", '#', class: "link-grey" %>
-          <%= link_to "Language: English", '#', class: "link-grey" %>
+          <%= link_to "Settings & Account", profile_path(section:"account"), class: "link-grey" %>
+          <%= link_to "Location: Berlin", profile_path(section:"account"), class: "link-grey" %>
+          <%= link_to "Language: English", profile_path(section:"account"), class: "link-grey" %>
         </div>
         <div class="upper-footer-card footer-card bia-footer-card">
           <h5>BIA</h5>
-          <%= link_to "Suggestions & Feedback", '#', class: "link-grey" %>
-          <%= link_to "Support", '#', class: "link-grey" %>
-          <%= link_to "Donate", '#', class: "link-grey" %>
-          <%= link_to "About", '#', class: "link-grey" %>
+          <%= link_to "Suggestions & Feedback", contact_path(type:"feedback"), class: "link-grey" %>
+          <%= link_to "Support", contact_path(type:"support"), class: "link-grey" %>
+          <%= link_to "Donate", contact_path(type:"donate"), class: "link-grey" %>
+          <%= link_to "About", about_path, class: "link-grey" %>
         </div>
     </div>
     <!-- Lower Container -->
@@ -42,7 +42,7 @@
       <div class="lower-footer-card terms-footer-card">
         <%= link_to 'Imprint', '#', class: "px-3 link-grey" %>
         <p>    |    </p>
-        <%= link_to 'Terms', '#', class: "px-3 link-grey" %>
+        <%= link_to 'Terms & Conditions', terms_path(), class: "px-3 link-grey" %>
         <p>    |    </p>
         <%= link_to 'Cookies', '#', class: "px-3 link-grey" %>
         <p>    |    </p>
