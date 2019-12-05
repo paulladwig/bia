@@ -48,7 +48,7 @@ restaurants = [
     cuisine: 'Asian Fusion',
     url: 'https://tim-raue.com/en/',
     email: 'office@tim-raue.com',
-    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776846/brwibncc8gyu0laguxie.jpg",
+    remote_photo_url: "https://images.unsplash.com/photo-1523218392679-568e996fde65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
     placeid: "ChIJpdyYVNFRqEcRFTrYsDXDrY4",
   },
   {
@@ -248,21 +248,12 @@ restaurants = [
     placeid: "ChIJ5x9cqzNOqEcRNqsdhEOOV2E",
   },
   {
-    name: "Cevicheria",
-    address: 'Dresdener Str. 120, 10999 Berlin',
-    phone_number: '030 55624038',
-    cuisine: 'Peruvian',
-    url: 'http://cevicheria-berlin.com/',
-    remote_photo_url: "https://images.unsplash.com/reserve/oMRKkMc4RSq7N91OZl0O_IMG_8309.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    placeid: "ChIJ5x9cqzNOqEcRNqsdhEOOV2E",
-  },
-  {
     name: "NAUTA Berlín",
     address: 'Kastanienallee 49, 10119 Berlin',
     phone_number: '0174 3863466',
     cuisine: 'Peruvian',
     url: 'http://www.nautaberlin.com/',
-    remote_photo_url: "https://images.unsplash.com/photo-1551693219-c9c76ccc489d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80",
+    remote_photo_url: "https://images.unsplash.com/photo-1508471349025-ca3e278cf5e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
     placeid: "ChIJz0O_ZPtRqEcR86r1Hj-vBQw",
   }
   # {
@@ -999,6 +990,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     recommended: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
+  },
+  {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 3,
+    price: 3,
+    review: "I really liked our dinner at NAUTA. The food is delicious and experimental AND its really fresh and healthy. The trout ceviche was best. One thing to note: you have to like raw fish.",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
   },
   {
     user: User.find_by(name: 'Joris Kuehnast'),
