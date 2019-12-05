@@ -16,7 +16,7 @@
       <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
       <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
       <h5 class="mb-2">Cuisine</h5>
-      <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"}, selected: cuisine, class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
+      <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES.sort, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"}, selected: cuisine, class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
       <h5 class="mb-2">Occasion</h5>
       <div class="bia-radio-button bia-radio-button-width-filter mb-2">
         <%= f.input_field :occasion,
