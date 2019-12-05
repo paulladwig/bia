@@ -5,9 +5,11 @@ function addBookmark(bookmarkHTML) {
 }
 
 function addBookmarkRound() {
-  const bookmark = document.querySelector("[data-restaurant-id='<%= @restaurant.id %>']");
-  const oldHtml = bookmark.querySelector(".biabutton-round");
-  oldHtml.classList.toggle("biabutton-round-active");
+  const bookmarks = document.querySelectorAll("[data-restaurant-id='<%= @restaurant.id %>']");
+  bookmarks.forEach(function(bookmark) {
+    const oldHtml = bookmark.querySelector(".biabutton-round");
+    oldHtml.classList.toggle("biabutton-round-active");
+  })
 }
 
 function recommend(toggle) {

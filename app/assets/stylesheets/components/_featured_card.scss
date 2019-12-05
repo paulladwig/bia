@@ -1,5 +1,13 @@
 .featured-places-card {
   padding-bottom: $spacer*1.5;
+  .biabutton-round, .biabutton-round-active {
+    opacity: 0;
+    transition: 0.2s ease;
+  }
+  &:hover .biabutton-round, &:hover .biabutton-round-active {
+    opacity: 1;
+    transition: 0.2s ease;
+  }
 }
 
 .border-bottom {
