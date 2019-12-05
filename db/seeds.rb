@@ -288,7 +288,7 @@ users = [
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790606/bp6rt2iolgzazszuuzyy.jpg",
     password: '123456',
     password_confirmation: '123456',
-    location: 'Stuttgart, Germany',
+    location: 'Berlin, Germany',
     username: 'paul_ladwig',
     description: 'Hipster-friendly Italian cuisine fanatic. General beer specialist. Creator. Food lover.'
   },
@@ -984,6 +984,15 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
   },
   {
     user: User.find_by(name: 'Otto Jonetzki'),
+    occasion: 3,
+    price: 3,
+    review: "Really one of the best cuisine we have found in Berlin so far, and we are here a couple days a month. Refined, friendly atmosphere, great cevices, deserts, meats. Everything we had was delicious.",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
+  },
+  {
+    user: User.find_by(name: 'Otto Jonetzki'),
     occasion: 2,
     price: 2,
     review: "One of the nicer places, where to eat in the city center and not to become poor. Prices are moderate and food never disappoints. In love with their duck in peanut sauce. Portions are very big too.",
@@ -1054,16 +1063,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     cuisine: 'Peruvian',
     restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
   },
-  {
-    user: User.find_by(name: 'Lisa Maibach'),
-    occasion: 2,
-    price: 2,
-    review: "Very good Ceviche and they often have a guitarist playing! Service is also friendly.",
-    recommended: true,
-    shared: true,
-    cuisine: 'Peruvian',
-    restaurant: Restaurant.find_by(name: 'Cevicheria')
-  },
+
 
   # {
   #   user: User.find_by(name: ''),
@@ -1124,7 +1124,6 @@ puts 'Completed seeding process'
 
 Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, restaurant: Restaurant.find_by(name: "Charlotte 1"), cuisine: 'Italian', review: "I really love this restaurant. I could come here every day and I always bring my colleagues. The pizza is delicious and so is the pasta. My favourite is the pizza parma though.", occasion: 1, price: 1)
 
-Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
 
 Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), cuisine: 'Italian', review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
 
@@ -1136,6 +1135,18 @@ Selection.create({
     recommended: true,
     cuisine: 'Peruvian',
     restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
+  })
+Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.find_by(name: 'Paul Ladwig')})
+
+Selection.create({
+    user: User.find_by(name: 'Lisa Maibach'),
+    occasion: 2,
+    price: 2,
+    review: "Not only is the food absolutely perfect but also the service is incredible. This small restaurant only has like 10 tables and is run by only two people - the cook and the server. Often they also have a guitarist playing!",
+    recommended: true,
+    shared: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'Cevicheria')
   })
 
 Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true, cuisine: 'Italian', restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})
