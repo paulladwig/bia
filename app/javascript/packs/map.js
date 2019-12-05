@@ -1,5 +1,5 @@
 import GMaps from 'gmaps/gmaps.js';
-// /^(?:\/\/|[^\/]+)*\//, ""
+
 const mapElement = document.getElementById('map');
 const userShow = document.getElementById('popupDisabled');
 function initMap(mapElement) {
@@ -233,8 +233,13 @@ function initMap(mapElement) {
          content: content
        });
 
-      marker.addListener('click', function() {
+
+      marker.addListener('toggle', function() {
         infowindow.open(map, marker);
+      });
+
+      map.addListener('click', function() {
+        infowindow.close();
       });
     }
   })
