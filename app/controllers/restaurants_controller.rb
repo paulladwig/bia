@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   def index
+
     if params[:search].presence
       search_params[:query].presence ? query = search_params[:query] : query = "*"
     else
@@ -15,10 +16,8 @@ class RestaurantsController < ApplicationController
     # @your_users = policy_scope(User).search(search_query, options)
     @restaurants = policy_scope(Restaurant).search(query, options)
     @current_user = current_user
-
     @current_page = @restaurants.current_page
     @total_pages = @restaurants.total_pages
-
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -30,7 +29,6 @@ class RestaurantsController < ApplicationController
       format.html { render 'index' }
       format.js
     end
-    p params
   end
 
   def show
