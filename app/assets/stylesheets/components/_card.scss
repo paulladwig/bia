@@ -3,7 +3,7 @@
   border-radius: $border-radius;
   position: relative;
 
-  .biabutton-round, .biabutton-round-active, .tag-hide {
+  .biabutton-round, .biabutton-round-active {
     opacity: 0;
     transition: 0.2s ease;
   }
