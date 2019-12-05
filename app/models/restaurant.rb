@@ -103,11 +103,14 @@ class Restaurant < ApplicationRecord
     highest_value = count_by_cuisine.max_by{|k,v| v}[1]
     p highest_value
     cuisines = count_by_cuisine.select { |key, value| value == highest_value }.keys
+    p cuisines
     cuisine_tag = ''
     cuisines.each do |cuisine|
-      cuisine_tag += "#{cuisine}, "
+      if !cuisine.nil? && cuisine != ""
+        cuisine_tag += "#{cuisine}, "
+      end
     end
-    self.cuisine = cuisine_tag.chomp(', ')
+    self.cuisine = cuisine_tag.chomp(", ")
     self.save
     p self.cuisine
   end

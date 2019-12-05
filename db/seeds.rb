@@ -262,7 +262,7 @@ restaurants = [
     phone_number: '0174 3863466',
     cuisine: 'Peruvian',
     url: 'http://www.nautaberlin.com/',
-    remote_photo_url: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAerxfd-sO79yNSPMGmq6_LP4SOfDk15KjhW-lN4I6VQvMrZYtz56sdY6rOl_D3S8nGeaFlvH8LpSTmzpUtlHtXnFTyIsSpbTVfcI_TJixyYu6aYb2in2OnjQyKUmO0GvxEhCDb6yJcOzAK4Y0RPdEBebEGhRbAk-RL1dbKYuxJqChdQDqY9jrlg&key=AIzaSyCnbz678ZteCk-igUPaqrQw-lEyKvxet_g",
+    remote_photo_url: "https://images.unsplash.com/photo-1551693219-c9c76ccc489d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80",
     placeid: "ChIJz0O_ZPtRqEcR86r1Hj-vBQw",
   }
   # {
