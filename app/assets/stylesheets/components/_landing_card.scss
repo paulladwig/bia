@@ -21,6 +21,9 @@
 }
 .user-feature-card-user {
   grid-area: user;
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  grid-gap: $spacer;
 }
 
 .user-feature-card-review {
