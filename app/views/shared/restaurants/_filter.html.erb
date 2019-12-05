@@ -12,6 +12,8 @@
       </div>
       <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
       <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
+      <%=f.input :user_location_lat, required: false, label: false, input_html: {value: "#{@user_lat}", class: 'hide', id: 'user_location_lat' }%>
+      <%=f.input :user_location_long, required: false, label: false, input_html: {value: "#{@user_long}", class: 'hide', id: 'user_location_long' }%>
       <h5 class="mb-2">Cuisine</h5>
       <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"}, selected: cuisine, class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
       <h5 class="mb-2">Occasion</h5>
