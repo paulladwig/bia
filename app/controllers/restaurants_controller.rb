@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
     else
       query = "*"
     end
-
+    @user_location = params[:search].presence ? location_coords : {latitude: current_user.latitude, longitude:current_user.longitude}
     options = { fields: ["name^10", "cuisine^2", :recommended], suggest: true, per_page: 24, operator: "or", match: :word_middle, page: params[:page]}
     options[:where] = where
     options[:boost_by_distance] = boost_by_distance
@@ -165,8 +165,13 @@ class RestaurantsController < ApplicationController
   end
 
   def location_coords
-    longitude = search_params[:long]
-    latitude = search_params[:lat]
+    if search_params[:long].present?
+      longitude = search_params[:long]
+      latitude = search_params[:lat]
+    else
+      longitude = 'na'
+      latitude = 'na'
+    end
     range = 5000
 
     # check if a location was provided by the user,

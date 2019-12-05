@@ -3,6 +3,9 @@
   <%cuisine = params[:search][:cuisine] if !params[:search].nil?%>
   <%occasion = params[:search][:occasion] if !params[:search].nil?%>
   <%price = params[:search][:price] if !params[:search].nil?%>
+  <div class="hide" id="user-location-determine">
+    <%= render 'shared/restaurants/location_field', user_location: @user_location%>
+  </div>
   <%= simple_form_for :search, url: restaurants_path, method: "GET", html: { class: 'form-remove-b-margin', id: 'autosubmit-form' }, remote: true do |f| %>
       <%=f.input :query, required: false, label: false, placeholder: "Restaurant name, cuisine...", input_html: {class: 'input-field simple_form-align mb-2', value: query}%>
       <h5 class="mb-2">Location</h5>
@@ -12,8 +15,6 @@
       </div>
       <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
       <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
-      <%=f.input :user_location_lat, required: false, label: false, input_html: {value: "#{@user_lat}", class: 'hide', id: 'user_location_lat' }%>
-      <%=f.input :user_location_long, required: false, label: false, input_html: {value: "#{@user_long}", class: 'hide', id: 'user_location_long' }%>
       <h5 class="mb-2">Cuisine</h5>
       <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES, required: false, label: false, input_html: {data: {"live-search" => :true, "actions-box" => :true, width: '345px', style: "btn-light"}, selected: cuisine, class: 'simple_form-align mb-2 selectpicker', multiple: "", title:"French, Japanese, Italian..."}%>
       <h5 class="mb-2">Occasion</h5>
