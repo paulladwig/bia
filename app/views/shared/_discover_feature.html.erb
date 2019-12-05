@@ -9,6 +9,7 @@
   <div class="featured-places">
     <% data[:feature][:restaurants].to_a.shuffle.each do |restaurant| %>
         <div class="individual-restaurant-featured">
+          <%= render 'shared/restaurants/bookmark_button_round', restaurant: restaurant %>
           <%= link_to restaurant_path(restaurant, data[:feature][:link][:new]) do %>
             <%if restaurant.external_photo %>
               <div class="featured-image image-rounded-corners mb-2" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%=restaurant.external_photo%>')"></div>
@@ -31,3 +32,5 @@
     <% end %>
   </div>
 </div>
+
+

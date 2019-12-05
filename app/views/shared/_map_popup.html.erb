@@ -2,7 +2,7 @@
   <!--Default restaurant Card-->
   <div class="card-bia-white">
     <% if !data[:restaurant].cuisine.nil? %>
-        <div class="biabutton-round biabutton-round-left"><%= render 'shared/display_avg_occassion', average: data[:restaurant].avg_occasion %></div>
+        <div class="tag-hide"><%= render 'shared/display_avg_occasion_text', average: data[:restaurant].avg_occasion %></div>
     <% end %>
     <% if !data[:new] %>
       <%= render 'shared/restaurants/bookmark_button_round', restaurant: data[:restaurant] %>
