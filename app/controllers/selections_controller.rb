@@ -128,21 +128,21 @@ class SelectionsController < ApplicationController
       if type == "cuisine"
         where[:cuisine] = restaurant_start.cuisine
         feature_result[:value] = restaurant_start.cuisine
-        feature_result[:title] = ["Try something new, #{restaurant_start.cuisine}","Have you tried #{restaurant_start.cuisine}", "You Should try #{restaurant_start.cuisine}"].sample
+        feature_result[:title] = ["Try something new, #{restaurant_start.cuisine}","Have you tried #{restaurant_start.cuisine}", "You should try #{restaurant_start.cuisine}"].sample
         feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>["","#{restaurant_start.cuisine}"], "occasion"=>[""], "price"=>[""]}, :new=>{}}
       elsif type == "price"
         where[:price] = restaurant_start.avg_price
         feature_result[:value] = restaurant_start.avg_price
         if restaurant_start.avg_price == 1
-          price_titel = ["Favourite Cheap Eats", "Save Money at These Restaurants", "Meal on a Budget"]
+          price_titel = ["Favourite Cheap Eats", "Save Money at these restaurants", "Meal on a budget"]
         elsif restaurant_start.avg_price == 2
-          price_titel = ["Outstanding Food for a Fair Price", "Exceptional Value for Money", "This Could Be Your New Favourite"]
+          price_titel = ["Outstanding food for a fair price", "Exceptional value for money", "This could be your new favourite"]
         elsif restaurant_start.avg_price == 3
-          price_titel = ["Time to Treat Yourself!"]
+          price_titel = ["Time to Treat Yourself!", "Time for a Treat!"]
         elsif restaurant_start.avg_price == 4
-          price_titel = ["After Payday", "It's Time For The Occasional Splurge!"]
+          price_titel = ["After Payday", "It's time for the occasional splurge!"]
         else
-          price_titel = ["Checkout One of These Places!","Why Not Try Sometthing New?"]
+          price_titel = ["Checkout one of these places!","Why not try Something new?"]
         end
         feature_result[:title] = price_titel.sample
         feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>[""], "price"=>["","#{restaurant_start.avg_price}"]}, :new=>{}}
@@ -152,13 +152,13 @@ class SelectionsController < ApplicationController
         if restaurant_start.avg_price == 1
           occasion_titel = ["When you're on the go", "Quick Bites"]
         elsif restaurant_start.avg_price == 2
-          occasion_titel = ["Perfect for a Casual Dine", "Casual Restaurants you Should Try"]
+          occasion_titel = ["Perfect for a casual dine", "Casual restaurants you should try"]
         elsif restaurant_start.avg_price == 3
           occasion_titel = ["For the Weekend"]
         elsif restaurant_start.avg_price == 4
           occasion_titel = ["Time to Celebrate", "For a Special Occassion"]
         else
-          occasion_titel = ["Checkout One of These Places!", "Why Not Try Sometthing New?", "Have You Been To These Restaurants?"]
+          occasion_titel = ["Checkout one of these places!", "Why not try sometthing new?", "Have you been to these restaurants?"]
         end
         feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>["","#{restaurant_start.avg_occasion}"], "price"=>[""]}, :new=>{}}
         feature_result[:title] = occasion_titel.sample
@@ -171,7 +171,7 @@ class SelectionsController < ApplicationController
     end
     if count > 19
       feature_result[:value] = "Start"
-      feature_result[:title] = ["Try These Restaurants!","Checkout One of These Places!", "Why Not Try Sometthing New?", "Have You Been To These Restaurants?"].sample
+      feature_result[:title] = ["Try These Restaurants!", "Checkout one of these places!", "Why not try sometthing new?", "Have you been to these restaurants?"].sample
       feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>[""], "price"=>[""]}, :new=>{}}
       default_restaurants = policy_scope(Restaurant).search("*", {limit: 15, boost_by: [:popularity]})
       feature_result[:restaurants] = default_restaurants.to_a.sample(3)
