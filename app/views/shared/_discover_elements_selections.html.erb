@@ -14,7 +14,7 @@
 <% elsif selection.bookmarked? %>
   <div class="discover-activity-card">
     <%= link_to(user_path(selection.user)) do %>
-      <div class="avatar-large" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
+      <div class="avatar-large tooltip" style="background-image: url('<%= cl_image_path selection.user.photo %>')"><span class="tooltiptext"><%=selection.user.name%></span></div>
     <% end %>
     <div class="activity-content">
       <h5 class="mb-2"> <%= link_to selection.user.name, selection.user%> has bookmarked <%= link_to selection.restaurant.name, restaurant_path(selection.restaurant), class: 'text-color-black'%></h5>
