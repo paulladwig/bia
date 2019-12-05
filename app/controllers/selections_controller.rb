@@ -116,16 +116,19 @@ class SelectionsController < ApplicationController
     feature_result = {}
     while (feature_result == {} || feature_result[:restaurants].count <= 2) && count <= 20
       restaurant_start = Restaurant.relevant_restaurants(current_user, "instance").sample
+      if restaurant_start.nil?
+        restaurant_start = Restaurant.all.sample
+      end
       # add most selected type
 
       type = ["cuisine", "price", "occasion"].sample
-      options = {limit: 3, boost_by: [:popularity]}
+      options = {limit: 6, boost_by: [:popularity]}
       where = {id: Restaurant.relevant_restaurants(current_user, "id")}
       feature_result[:type] = type
       if type == "cuisine"
         where[:cuisine] = restaurant_start.cuisine
         feature_result[:value] = restaurant_start.cuisine
-        feature_result[:title] = ["Try something new, #{restaurant_start.cuisine}","Have you tried #{restaurant_start.cuisine}"].sample
+        feature_result[:title] = ["Try something new, #{restaurant_start.cuisine}","Have you tried #{restaurant_start.cuisine}", "You Should try #{restaurant_start.cuisine}"].sample
         feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>["","#{restaurant_start.cuisine}"], "occasion"=>[""], "price"=>[""]}, :new=>{}}
       elsif type == "price"
         where[:price] = restaurant_start.avg_price
@@ -163,7 +166,7 @@ class SelectionsController < ApplicationController
       end
 
       options[:where] = where
-      feature_result[:restaurants] = policy_scope(Restaurant).search("*", options)
+      feature_result[:restaurants] = policy_scope(Restaurant).search("*", options).to_a.sample(3)
       count += 1
     end
     if count > 19
