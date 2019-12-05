@@ -2,10 +2,31 @@ import GMaps from 'gmaps/gmaps.js';
 
 const mapElement = document.getElementById('map');
 const userShow = document.getElementById('popupDisabled');
+
+
+
+const locate_user = () => {
+  const set_location = (data) => {
+      // {latitude: data.coords.latitude, longitude: data.coords.longitude}
+  }
+  navigator.geolocation.getCurrentPosition(set_location);
+}
+
+let user_location_borwser = locate_user
+
 function initMap(mapElement) {
   const markers = JSON.parse(mapElement.dataset.markers);
   const firstMarker = markers[0]
-  const center = {lat: firstMarker.lat, lng: firstMarker.lng}
+  const userLocation = document.getElementById('user-det-location')
+  let center = {lat: firstMarker.lat, lng: firstMarker.lng}
+  if (userLocation) {
+    const userLat = userLocation.dataset.lat
+    const userLong = userLocation.dataset.long
+    console.log("determined")
+    console.log(userLat)
+    console.log(userLong)
+    center = {lat: parseFloat(userLat), lng: parseFloat(userLong)}
+  }
   console.log({center})
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
