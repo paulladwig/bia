@@ -1,11 +1,25 @@
 <div class="index-restaurants-grid">
   <% if defined?(user_to_exclude) %>
-    <% restaurants.each do |restaurant| %>
-        <%= render 'shared/card', data: {restaurant: restaurant, user_to_exclude: user_to_exclude}%>
+    <% if restaurants.first.nil? %>
+      <div class="span-2-1">
+        <h4>Ooops! No Places found.</h4>
+        <p>You should <%= link_to 'recommend', recommend_path %> something or <%= link_to 'add a friend!', users_path %></p>
+      </div>
+    <% else %>
+      <% restaurants.each do |restaurant| %>
+          <%= render 'shared/card', data: {restaurant: restaurant, user_to_exclude: user_to_exclude}%>
+      <% end %>
     <% end %>
   <% else %>
-    <% restaurants.each do |restaurant| %>
-      <%= render 'shared/card', data: {restaurant: restaurant}%>
+    <% if restaurants.first.nil? %>
+      <div class="span-2-1">
+        <h4>Ooops! No Places found.</h4>
+        <p>You should <%= link_to 'recommend', recommend_path %> something or <%= link_to 'add a friend!', users_path %></p>
+      </div>
+    <% else %>
+      <% restaurants.each do |restaurant| %>
+        <%= render 'shared/card', data: {restaurant: restaurant}%>
+      <% end %>
     <% end %>
   <% end %>
 </div>

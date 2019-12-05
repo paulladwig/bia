@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude,
-        infoWindow: { content: render_to_string(partial: "/shared/card", locals: { data: { restaurant: restaurant } }) }
+        infoWindow: { content: render_to_string(partial: "/shared/map_popup", locals: { data: { restaurant: restaurant } }) }
       }
     end
 
@@ -50,6 +50,20 @@ class UsersController < ApplicationController
     options = { fields: [:friendname, "username^2", :email], per_page: 24, operator: "or", match: :word_middle, page: params[:page] }
     options[:where] = where
     @users = policy_scope(User).search(query, options)
+  end
+
+  def profile
+    @user = User.find(current_user.id)
+    authorize @user
+    if params[:section] == "bookmarked"
+      redirect_to user_path(@user, selection: "bookmarked")
+    elsif params[:section] == "recommended"
+      redirect_to user_path(@user, selection: "recommended")
+    elsif params[:section] == "account"
+      redirect_to edit_user_registration_path(@user)
+    else
+      redirect_to user_path(@user)
+    end
   end
 
   private

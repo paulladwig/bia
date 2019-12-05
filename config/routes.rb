@@ -8,9 +8,11 @@ Rails.application.routes.draw do
     resources :selections, only: [:create, :destroy]
     resources :shares, only: [:create]
   end
-  #This line was commented out becuase it appears to be unneccessary, If not the case comment it back in
-  # resources :restaurants, only: [:show, :index]
   get '/recommend', to: 'restaurants#new', as: 'recommend'
   get '/discover', to: 'selections#index'
-  get '/search', to: 'pages#search', as: 'search'
+  # get '/search', to: 'pages#search', as: 'search'
+  get '/profile', to: 'users#profile', as: 'profile'
+  get '/contact', to: 'pages#contact', as: 'contact'
+  get '/about', to: 'pages#about', as: 'about'
+  get '/terms', to: 'pages#terms', as: 'terms'
 end
