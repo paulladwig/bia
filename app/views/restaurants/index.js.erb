@@ -1,8 +1,13 @@
 var map =('<%= j render "shared/map", restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages%>')
 var restaurantsCardGrid = ('<%= j render "shared/restaurants/restaurant_card_grid", restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages%>');
-var restaurantsIndexFilter = ('<%= j render "shared/restaurants/filter" %>');
+var restaurantsIndexFilter = ('<%= j render "shared/restaurants/filter", user_location: @user_location %>');
+var userLocation = ('<%= j render "shared/restaurants/location_field", user_location: @user_location %>');
 var listContainer = document.getElementById('list-container');
 var filter = document.getElementById('index-side-filter');
+var userLocationField = document.getElementById('user-location-determine');
+
+userLocationField.innerHTML = userLocation
+
 listContainer.innerHTML = restaurantsCardGrid;
 
 var mapContainer = document.getElementById('map-container');

@@ -8,7 +8,7 @@
       <i id="list-btn" class="hidden biabutton font-size-awesome fas fa-stream"></i>
     </div>
     <div class="side-filter" id="index-side-filter">
-      <%= render 'shared/restaurants/filter' %>
+      <%= render 'shared/restaurants/filter', user_location: @user_location%>
     </div>
     <div id="index-restaurants-grid">
       <div id="list-container" class="">
