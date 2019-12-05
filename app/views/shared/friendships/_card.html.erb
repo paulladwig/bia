@@ -2,7 +2,7 @@
   <div class="friedship-card p-3 mb-3">
     <!-- default friendship card -->
       <% if user.photo? %>
-          <div class="avatar-large" style="background-image: url('<%= cl_image_path user.photo %>')"></div>
+          <div class="avatar-large" data-tooltip="<%=user.name%>" style="background-image: url('<%= cl_image_path user.photo %>')"></div>
       <% else %>
         <%= cl_image_tag 'snmjibatw66rduqpmt3b', class: "avatar" %>
       <% end %>

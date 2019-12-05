@@ -27,7 +27,7 @@
           <%if array_of_friends.any? %>
             <%number_of_friends = array_of_friends.count %>
             <% array_of_friends.sample(3).each_with_index do |selection, count| %>
-                <div class="avatar-very-small image-overlay-left" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
+                <div class="avatar-very-small image-overlay-left" data-tooltip="<%=selection.user.name%>" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
             <% end %>
           <%end%>
         </div>
