@@ -3,13 +3,13 @@
   border-radius: $border-radius;
   position: relative;
 
-  .biabutton-round, .biabutton-round-active {
+  .biabutton-round, .biabutton-round-active, .tag-hide {
     opacity: 0;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
   }
-  &:hover .biabutton-round, &:hover .biabutton-round-active {
+  &:hover .biabutton-round, &:hover .biabutton-round-active, &:hover .tag-hide {
     opacity: 1;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
   }
 }
 
