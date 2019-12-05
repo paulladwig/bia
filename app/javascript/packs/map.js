@@ -19,7 +19,7 @@ function initMap(mapElement) {
   const firstMarker = markers[0]
   const userLocation = document.getElementById('user-det-location')
   let center = {lat: firstMarker.lat, lng: firstMarker.lng}
-  if (userLocation) {
+  if (userLocation && userLocation.dataset.lat !== "na") {
     const userLat = userLocation.dataset.lat
     const userLong = userLocation.dataset.long
     console.log("determined")
