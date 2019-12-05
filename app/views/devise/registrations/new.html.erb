@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<div class="container-bia">
+<div class="container-bia mt-5">
   <div class="small-center-container mb-5">
     <h2 class="mb-4">Sign up</h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -19,11 +19,6 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email", class: "input-field" }%>
-        <%= f.input :location,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "location", class: "input-field" },
-                    placeholder: 'Home'%>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
