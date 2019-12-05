@@ -18,14 +18,14 @@ cuisines_array = ['Italian', 'Asian-inspired', 'Vietnamese', 'German', 'Pizza', 
   "Argentine", "Latin American", "Wine Bars", "Cajun" , "Caribbean", "Moroccan", "Swedish", "Latvian", "Scottish",
   "British", "Russian", "Jewish", "Canadian", "Polish", "Hawaiian", "Brazilian", "Peruvian", "Salvadorian",
   "Cuban", "Tibetan", "Egyptian", "Belgian", "Irish", "Welsh", "Mormon", "Portuguese", "Haitian",
-  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan"]
+  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan", "Syrian", "Georgian"].sort
 
 puts 'Creating restaurants'
 restaurants = [
   {
     name: 'Chupenga',
     address: 'Charlottenstrasse 4, Berlin',
-    phone_number: '03025935148',
+    phone_number: '030 25935148',
     cuisine: 'Mexican',
     url: 'https://www.chupenga.de/de_DE/',
     email: 'mail@chupenga.com',
@@ -35,7 +35,6 @@ restaurants = [
   {
     name: 'Charlotte 1',
     address: 'Charlottenstrasse 1, Berlin',
-    phone_number: '',
     cuisine: 'Italian',
     url: '',
     email: '',
@@ -44,18 +43,18 @@ restaurants = [
   },
   {
     name: 'Tim Raue',
-    address: 'Rudi-dutschke-straße 26, Berlin',
-    phone_number: '03025937930',
-    cuisine: 'Asian-inspired',
+    address: 'Rudi-Dutschke-Straße 26, Berlin',
+    phone_number: '030 25937930',
+    cuisine: 'Asian Fusion',
     url: 'https://tim-raue.com/en/',
     email: 'office@tim-raue.com',
-    remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574776846/brwibncc8gyu0laguxie.jpg",
+    remote_photo_url: "https://images.unsplash.com/photo-1523218392679-568e996fde65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
     placeid: "ChIJpdyYVNFRqEcRFTrYsDXDrY4",
   },
   {
     name: 'Monsieur Vuong',
     address: 'Alte Schönhauser Str. 46, Berlin',
-    phone_number: '03099296924',
+    phone_number: '030 99296924',
     cuisine: 'Vietnamese',
     url: 'https://www.monsieurvuong.de/en/',
     email: 'indochina@monsieurvuong.de',
@@ -65,7 +64,6 @@ restaurants = [
   {
     name: 'Restaurant Babami',
     address: 'Zimmerstraße 23, Berlin',
-    phone_number: '',
     cuisine: 'Vietnamese',
     url: 'https://www.monsieurvuong.de/en/',
     email: '',
@@ -75,7 +73,7 @@ restaurants = [
   {
     name: 'Viet Bowl Mitte',
     address: 'Zimmerstraße 69, Berlin',
-    phone_number: '03020453712',
+    phone_number: '030 20453712',
     cuisine: 'Vietnamese',
     url: 'https://www.vietbowl.de/mitte-viet-bowl',
     email: 'info@vietbowl.de',
@@ -85,7 +83,7 @@ restaurants = [
   {
     name: "Let's talk about juice!",
     address: 'Zimmerstraße 23, Berlin',
-    phone_number: '03055476788',
+    phone_number: '030 55476788',
     cuisine: 'Turkish',
     url: 'http://www.sevencoffee.de/',
     email: '',
@@ -95,7 +93,7 @@ restaurants = [
   {
     name: "Sale e Tabacchi",
     address: 'Rudi-Dutschke-Straße 25, Berlin',
-    phone_number: '0302521155',
+    phone_number: '030 2521155',
     cuisine: 'Italian',
     url: 'http://www.sale-e-tabacchi.de/',
     email: 'mail@sale-e-tabacchi.de',
@@ -105,7 +103,7 @@ restaurants = [
   {
     name: "Kori & Fay",
     address: 'Rudi-Dutschke-Straße 28, Berlin',
-    phone_number: '03023628359',
+    phone_number: '030 23628359',
     cuisine: 'Asian',
     url: 'http://koriandfay.de/',
     email: 'info@koriandfay.de',
@@ -115,7 +113,7 @@ restaurants = [
   {
     name: "AVAN",
     address: 'Mauerstraße 81-82, Berlin',
-    phone_number: '03023578730',
+    phone_number: '030 23578730',
     cuisine: 'Vietnamese',
     url: 'https://avan.eatbu.com/?lang=en',
     email: 'thai.thi.thanh83@gmail.com',
@@ -125,7 +123,7 @@ restaurants = [
   {
     name: "Entrecôte",
     address: ' Schuetzenstraße 5, Berlin',
-    phone_number: '03020165496',
+    phone_number: '030 20165496',
     cuisine: 'French',
     url: 'http://entrecote.de/',
     email: 'info@entrecote.de',
@@ -135,7 +133,7 @@ restaurants = [
   {
     name: "Barcelona Tapas Bar Restaurant",
     address: 'Friedrichstraße 211, Berlin',
-    phone_number: '03070228336',
+    phone_number: '030 70228336',
     cuisine: 'Spanish',
     url: 'https://barcelona-mitte.de/',
     email: 'info@barcelona.berlin',
@@ -145,7 +143,7 @@ restaurants = [
   {
     name: "VAPIANO",
     address: 'Friedrichstraße 50-55, Berlin',
-    phone_number: '03020607530',
+    phone_number: '030 20607530',
     cuisine: 'Italian',
     url: 'https://de.vapiano.com/de/nc/restaurants/detail/restaurant-details/-529cc71a5f/',
     email: 'info@vapiano.de',
@@ -182,7 +180,7 @@ restaurants = [
   {
     name: "Mama Cook",
     address: 'Hedemannstraße 10,10969 Berlin',
-    phone_number: '03025927121',
+    phone_number: '030 25927121',
     cuisine: 'Vietnamese',
     url: 'https://mama-cook.de/',
     remote_photo_url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
@@ -191,7 +189,7 @@ restaurants = [
   {
     name: "Shi-Mai",
     address: 'Karl-Liebknecht-Straße 5 DomAquarée, 10178 Berlin',
-    phone_number: '03040054883',
+    phone_number: '030 40054883',
     cuisine: 'Vietnamese',
     url: 'http://www.shi-mai.com/',
     remote_photo_url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80",
@@ -200,7 +198,7 @@ restaurants = [
   {
     name: "Otito Vietnamese Food",
     address: 'Leipziger Str. 30, 10117 Berlin',
-    phone_number: '03020605300',
+    phone_number: '030 20605300',
     cuisine: 'Vietnamese',
     url: 'http://www.otito.de/',
     remote_photo_url: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
@@ -209,7 +207,7 @@ restaurants = [
   {
     name: "Linh Linh",
     address: 'Stresemannstraße 105, 10963 Berlin',
-    phone_number: '03026101607',
+    phone_number: '030 26101607',
     cuisine: 'Vietnamese',
     remote_photo_url: "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1985&q=80",
     placeid: "ChIJg_ncTMxRqEcRx8f-vvws-i0",
@@ -217,7 +215,7 @@ restaurants = [
   {
     name: "Ngon Restaurant Berlin",
     address: 'Rathausstraße 23, 10178 Berlin',
-    phone_number: '01741923359',
+    phone_number: '0174 1923359',
     cuisine: 'Vietnamese',
     remote_photo_url: "https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
     placeid: "ChIJN200oCBOqEcRRVxtZuPAMbA",
@@ -225,11 +223,38 @@ restaurants = [
   {
     name: "Madami",
     address: 'Rosa-Luxemburg-Straße 3, 10178 Berlin',
-    phone_number: '03065779266',
+    phone_number: '030 65779266',
     cuisine: 'Vietnamese',
     url: 'http://www.madami-restaurant.de/',
     remote_photo_url: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",
     placeid: "ChIJOT7j0R9OqEcRDQKqIivIJj4",
+  },
+  {
+    name: "Chicha",
+    address: 'Friedelstraße 34, 12047 Berlin',
+    phone_number: '030 62731010',
+    cuisine: 'Peruvian',
+    url: 'http://www.chicha-berlin.de/',
+    remote_photo_url: "https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    placeid: "ChIJAYEjS7RPqEcRTBMvMrMFsck",
+  },
+  {
+    name: "Cevicheria",
+    address: 'Dresdener Str. 120, 10999 Berlin',
+    phone_number: '030 55624038',
+    cuisine: 'Peruvian',
+    url: 'http://cevicheria-berlin.com/',
+    remote_photo_url: "https://images.unsplash.com/reserve/oMRKkMc4RSq7N91OZl0O_IMG_8309.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    placeid: "ChIJ5x9cqzNOqEcRNqsdhEOOV2E",
+  },
+  {
+    name: "NAUTA Berlín",
+    address: 'Kastanienallee 49, 10119 Berlin',
+    phone_number: '0174 3863466',
+    cuisine: 'Peruvian',
+    url: 'http://www.nautaberlin.com/',
+    remote_photo_url: "https://images.unsplash.com/photo-1508471349025-ca3e278cf5e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    placeid: "ChIJz0O_ZPtRqEcR86r1Hj-vBQw",
   }
   # {
   #   name: "",
@@ -576,13 +601,18 @@ selections = [
     review: 'The food was excellent with very fresh ingredients. Staff friendly and helpful. We will definitely be visiting again.',
     bookmarked: false,
     recommended: true,
-    cuisine: 'Asian',
+    cuisine: 'Asian Fusion',
     shared: true,
     restaurant: Restaurant.find_by(name: 'Tim Raue')
   },
   {
+    user: User.find_by(name: 'Paul Ladwig'),
+    bookmarked: true,
+    restaurant: Restaurant.find_by(name: 'Tim Raue')
+  },
+  {
     user: User.find_by(name: 'Otto Jonetzki'),
-    occasion: 2,
+    occasion: 1,
     price: 2,
     review: "I love Chupenga. They're remarkably fast, the food is consistent of quality, and they have amazing salsas / hotsauces. All for a decent price!",
     bookmarked: false,
@@ -633,9 +663,9 @@ selections = [
   },
   {
     user: User.find_by(name: 'Marie Ladwig'),
-    occasion: 2,
+    occasion: 1,
     price: 1,
-    review: "Great food and low prices!!",
+    review: "Great food and low prices!! I think it's best suited for lunch. Order pizza Parma or pasta Puttanesca!",
     bookmarked: false,
     recommended: true,
     cuisine: 'Italian',
@@ -644,20 +674,20 @@ selections = [
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
   {
-    user: User.find_by(name: 'Paul Ladwig'),
+    user: User.find_by(name: 'Janis Sidenburg'),
     occasion: 2,
     price: 2,
-    review: "One of the best vietnamese in the area.",
+    review: "One of the best Vietnamese restaurants in the area. For a lunch with collegaues its perfect.",
     bookmarked: false,
     recommended: true,
-    cuisine: 'Asian',
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'AVAN')
   },
   {
     user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 2,
-    review: "Great place for a quick dinner even with large groups",
+    review: "Great place for a quick dinner even with large groups. I like the green curry.",
     bookmarked: false,
     recommended: true,
     shared: true,
@@ -669,7 +699,7 @@ selections = [
     user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 1,
-    review: "One of the best price to value ratios I have ever seen!",
+    review: "One of the best price to value ratios I have ever seen! My favourite is the Carbonara.",
     bookmarked: false,
     recommended: true,
     shared: true,
@@ -729,7 +759,7 @@ selections = [
     review: "Quiet restaurant with good and not very expensive food. They have mainly polish specialites. The restaurant is nice inside and has very pleasant garden.",
     recommended: true,
     shared: true,
-    cuisine: 'Asian-inspired',
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
@@ -769,7 +799,7 @@ selections = [
   },
   {
     user: User.find_by(name: 'Frank Maier'),
-    occasion: 2,
+    occasion: 1,
     price: 2,
     review: "Very good for lunch, especially if you are hungry. Fresh burritos with ingredients (e.g., lentils) you don't get elsewhere. Especially good for vegetarians!",
     recommended: true,
@@ -784,7 +814,7 @@ selections = [
     review: "Very good place for Steak. French fries are crisp and their medium-rare steak is always perfect. If you are looking for a very good, non-experimental steak place, go here.",
     recommended: true,
     shared: true,
-    cuisine: 'Steak',
+    cuisine: 'Steakhouses',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
@@ -794,7 +824,7 @@ selections = [
     review: "Very good Asian food! Even my friends from Vietnam go here a lot! My favourite is the green curry.",
     recommended: true,
     shared: false,
-    cuisine: 'Asian',
+    cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'QUA PHE')
   },
   {
@@ -872,7 +902,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "Great location with lots of possibilities to move on to other bars. Food was good. Wine was good. Tapas were a bit pricy but quality is excellent.",
     bookmarked: false,
     recommended: true,
-    shared: true,
     cuisine: 'Italian',
     proposed_date: DateTime.parse("29/11/2019 13:00:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Sale e Tabacchi')
@@ -883,7 +912,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "The lunch menu is pretty cheap and the food is delicious. They are usually packed during lunch, so better call them and reserve a table beforehand. With the lunch menu you get a complimentary soup which is nice. Card is only accepted if the amount is more than 10 €, so have some cash with you before you dine in.",
     recommended: true,
-    shared: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Mama Cook')
   },
@@ -893,7 +921,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "Fine prices, delicious food and cocktails. Its located in quiet passage with many different restaurants and bars. Very near to AquaDome.",
     recommended: true,
-    shared: true,
     cuisine: 'Vietnamese',
     proposed_date: DateTime.parse("20/12/2019 13:30:00 UTC"),
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
@@ -904,7 +931,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "Always full for lunch for a reason. Good food and reliable service. Cash only though.",
     recommended: true,
-    shared: true,
     cuisine: 'Asian-inspired',
     restaurant: Restaurant.find_by(name: 'Otito Vietnamese Food')
   },
@@ -914,7 +940,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "This is the best quality, real Italian pizza you can get in Barcelona! Its rare to find good pizza like this restaurant in a touristic town but it’s worth the trip if you don’t live in the area. The shaft is adorable absolutely amazing sweet people. I would highly recommend this spot! Don’t forget to book online cos there might not be a spot if you arrive without a booking.",
     recommended: true,
-    shared: true,
     cuisine: 'Italian',
     restaurant: Restaurant.find_by(name: 'Charlotte 1')
   },
@@ -924,10 +949,18 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 3,
     review: "Very affordable, quick and super tasty. Allergen information is very poor and misleading. I'm very allergic to fish, carry an epi-pen, all the dishes (including the vegan options) said they had fish or traces of fish in them. Asked the waitress and she assured they didn't, rather annoying but I didn't die so we all good.",
     recommended: true,
-    shared: true,
     special: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Linh Linh')
+  },
+  {
+    user: User.find_by(name: 'John Hausmann'),
+    occasion: 2,
+    price: 2,
+    review: "I love raw fish and Ceviche in particular. Chicha is one of my favourite places in Berlin for both! I often come here for a dinner with friends during the week.",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'Chicha')
   },
   {
     user: User.find_by(name: 'Janis Sidenburg'),
@@ -945,7 +978,6 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "Cozy restaurant, very busy for a Monday, so réservations are highly recommended. The food was great too! Fresh ingredients and friendly staff made it all the more enjoyable too. Would definitely recommend going here!",
     recommended: true,
-    shared: true,
     special: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Madami')
@@ -956,9 +988,17 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "One of the nicer places, where to eat in the city center and not to become poor. Prices are moderate and food never disappoints. In love with their duck in peanut sauce. Portions are very big too.",
     recommended: true,
-    shared: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
+  },
+  {
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 3,
+    price: 3,
+    review: "I really liked our dinner at NAUTA. The food is delicious and experimental AND its really fresh and healthy. The trout ceviche was best. One thing to note: you have to like raw fish.",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
   },
   {
     user: User.find_by(name: 'Joris Kuehnast'),
@@ -966,9 +1006,17 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "Delicious is all I can say . Had the crispy duck and sub my noodles for fried rice. Server was also very friendly and personable . Will definitely come here again!",
     recommended: true,
-    shared: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
+  },
+   {
+    user: User.find_by(name: 'Marie Ladwig'),
+    occasion: 3,
+    price: 3,
+    review: "Great for a fancy dinner with friends who like to try something different! Not so good for vegetarians or people who don't like raw fish, though!",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
   },
   {
     user: User.find_by(name: 'Joris Kuehnast'),
@@ -976,9 +1024,17 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 4,
     review: "I love Entrecôte! Staff is super friendly and the steak is excellent. It's also really cozy there - ask for a table in the back. The best area in my opinion. I love going here with a small group of friends or my girl friend for a nice dinner. They also have an excellent wine list (especially the reds - given it's a steak place).",
     recommended: true,
-    shared: true,
-    cuisine: 'Steak',
+    cuisine: 'Steakhouses',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
+  },
+  {
+    user: User.find_by(name: 'Marie Ladwig'),
+    occasion: 2,
+    price: 2,
+    review: "If you like raw fish: come here. They also have some vegetable dishes and everything has a very fresh and light taste to it.",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'Cevicheria')
   },
   {
     user: User.find_by(name: 'Samantha Jonathan'),
@@ -986,10 +1042,28 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 2,
     review: "One of my favourite places for Vietnamese places! The staff is super friendly, the food is fresh, and it is really cozy. I have often come here with friends from out of town and they always love it.",
     recommended: true,
-    shared: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Restaurant Babami')
-  }
+  },
+  {
+    user: User.find_by(name: 'Samantha Jonathan'),
+    occasion: 3,
+    price: 3,
+    review: "Nauta is really delicious. The fish is super fresh and the Ceviche is to die for. It's Peruvian with a Japanese touch. Good for a nice evening, as it is on the pricier side.",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
+  },
+  {
+    user: User.find_by(name: 'Lisa Maibach'),
+    occasion: 2,
+    price: 2,
+    review: "Very good Ceviche and they often have a guitarist playing! Service is also friendly.",
+    recommended: true,
+    shared: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'Cevicheria')
+  },
 
   # {
   #   user: User.find_by(name: ''),
@@ -1054,4 +1128,24 @@ Friendship.create!({asker: User.find_by(name: 'Johanna Frenche'),receiver: User.
 
 Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), cuisine: 'Italian', review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
 
+Selection.create({
+    user: User.find_by(name: 'Joris Kuehnast'),
+    occasion: 3,
+    price: 3,
+    review: "If you want an evening out with unusual place this is perfect. The Ceviche is delicious. Make sure you all like raw fish! If you don't you will not like Nauta...",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
+  })
+
 Selection.create({user: User.find_by(name: 'John Hausmann'),bookmarked: true, cuisine: 'Italian', restaurant: Restaurant.find_by(name: "Sale e Tabacchi")})
+
+Selection.create({
+    user: User.find_by(name: 'Janis Sidenburg'),
+    occasion: 2,
+    price: 2,
+    review: "Very good for fish and meat eaters. The Ceviche is super fresh and the lomo saltado is great. Atmosphere is also good, but not super special",
+    recommended: true,
+    cuisine: 'Peruvian',
+    restaurant: Restaurant.find_by(name: 'Chicha')
+  })
