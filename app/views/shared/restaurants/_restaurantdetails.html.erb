@@ -6,7 +6,7 @@
     <p class= 'my-2 details-cuisine'> Cuisine: <%= restaurant.cuisine %></p>
   <% end %>
   <% if restaurant.avg_occasion != "" && !restaurant.avg_occasion.nil? %>
-    <p class= 'my-2 details-occassion'> Mostly suited for: <%= render 'shared/display_avg_occassion', average: restaurant.avg_occasion %></p>
+    <p class= 'my-2 details-occassion'> Mostly suited for: <%= render 'shared/display_avg_occasion_text', average: restaurant.avg_occasion %></p>
   <% end %>
   <% if restaurant.avg_price != "" && !restaurant.avg_price.nil? %>
     <p class= 'my-2 details-price'> Prices: <%= render 'shared/display_avg_price', average: restaurant.avg_price %></p>

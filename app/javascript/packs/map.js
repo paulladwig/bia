@@ -212,11 +212,7 @@ function initMap(mapElement) {
   });
 
 
-  // var testtitle = '<font color="green">This is some text!</font> another text';
-  // var infowindow = new google.maps.InfoWindow({
-  //     content: ('<h4>test2</h4>')
-  // })
-
+  var infowindow = new google.maps.InfoWindow();
 
   markers.forEach((marker)=> {
     // const latLng = google.maps.LatLng(marker.latitude,marker.longitude)
@@ -228,13 +224,11 @@ function initMap(mapElement) {
       icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575380004/map_marker_o2a2ut.svg',
     });
 
+
     if (!userShow) {
-      var infowindow = new google.maps.InfoWindow({
-         content: content
-       });
 
-
-      marker.addListener('toggle', function() {
+      marker.addListener('click', function() {
+        infowindow.setContent(content);
         infowindow.open(map, marker);
       });
 
@@ -260,15 +254,6 @@ function initMap(mapElement) {
       disableDefaultUI:true
     });
   });
-
-
-  // document.getElementById("map").addEventListener('click', function() {
-  //   infowindow.open(map, marker);
-  // });
-
-  // document.querySelector("map").addEventListener('mouseout', function() {
-  //   infowindow.close();
-  // });
 }
 
 if (mapElement) {

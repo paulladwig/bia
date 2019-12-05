@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude,
-        infoWindow: { content: render_to_string(partial: "/shared/card", locals: { data: { restaurant: restaurant } }) }
+        infoWindow: { content: render_to_string(partial: "/shared/map_popup", locals: { data: { restaurant: restaurant } }) }
       }
     end
 

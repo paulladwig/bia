@@ -37,8 +37,10 @@
         <% end %>
       <% end %>
     <% else %>
-      <h4>Ooops! No Recommendations found.</h4>
-      <p>You should <%= link_to 'recommend', recommend_path %> something or <%= link_to 'add a friend!', users_path %></p>
+      <div class="mt-2">
+        <h4>Ooops! No Recommendations found.</h4>
+        <p>You should <%= link_to 'recommend', recommend_path %> something or <%= link_to 'add a friend!', users_path %></p>
+      </div>
     <% end %>
     <%= render 'shared/pageinator', elements: @all_activities, current_page: @current_page, total_pages: @total_pages  %>
   </div>
