@@ -1,6 +1,9 @@
 <%= link_to restaurant_path(data[:restaurant]) do %>
   <!--Default restaurant Card-->
   <div class="card-bia-white">
+    <% if !data[:restaurant].cuisine.nil? %>
+        <div class="biabutton-round biabutton-round-left"><%= render 'shared/display_avg_occassion', average: data[:restaurant].avg_occasion %></div>
+    <% end %>
     <% if !data[:new] %>
       <%= render 'shared/restaurants/bookmark_button_round', restaurant: data[:restaurant] %>
     <% end %>
@@ -9,27 +12,27 @@
     <% else %>
       <div class="card-image d-flex align-items-end" style="background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.1), rgba(242, 242, 242, 0.1)), url('<%= cl_image_path data[:restaurant].photo %>')">
     <% end %>
-      <!-- card cover image -->
-      <div>
-        <!-- Contextual hover tag below -->
-      </div>
-      <svg  width="100%" height="8" viewBox="0 0 800 400" preserveAspectRatio="none">
-        <path d="M 0 0 C 0 0 0 0 250 400 C 350 400 800 0 800 0 L 800 400 L 0 400 L 0 000 A 50 50 0 1 1" fill='#FFFFFF' ></path>
+      <svg width="100%" height="8" viewBox="0 0 800 400" preserveAspectRatio="none">
+        <path d="M 0 0 C 0 0 0 0 250 400 C 350 400 800 0 800 0 L 800 400 L 0 400 L 0 000 A 50 50 0 1 1" fill="#FFFFFF"></path>
       </svg>
     </div>
     <div class="px-3 pb-2 pt-2 default-card-content">
       <!-- Card Information box -->
         <div class="d-flex justify-content-between align-items-center pb-2 height-25-px">
+
           <!-- Card Information top row-->
+          <!-- Restaurant name -->
           <div class="d-flex align-items-center">
             <h5 class="h5-style"><%=data[:restaurant].name.truncate(33)%></h5>
           </div>
+
+          <!-- Friend imgs -->
           <div class="d-flex align-items-center">
             <%array_of_friends = data[:restaurant].get_friends_recommended(current_user).reject{|selection| selection.user == data[:user_to_exclude]}%>
             <%if array_of_friends.any? %>
               <%number_of_friends = array_of_friends.count %>
               <% array_of_friends.sample(3).each_with_index do |selection, count| %>
-                  <div class="avatar-very-small image-overlay-left" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
+                  <div class="avatar-very-small image-overlay-left" data-tooltip="<%=selection.user.name%>" style="background-image: url('<%= cl_image_path selection.user.photo %>')"></div>
               <% end %>
             <%end%>
           </div>
@@ -40,9 +43,10 @@
             <p><%=data[:restaurant].address.truncate(40)%></p>
           <% else %>
             <p><%=data[:restaurant].cuisine%></p>
-            <p><%= render 'shared/display_avg_occassion', average: data[:restaurant].avg_occasion %></p>
           <% end %>
         </div>
     </div>
   </div>
+
+
 <% end %>
