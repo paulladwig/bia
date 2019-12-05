@@ -33,6 +33,7 @@ function initMap(mapElement) {
     center: center,
     fullscreenControl: false,
     streetViewControl: false,
+    mapTypeControl: false,
     styles: [
     {
         "featureType": "all",
@@ -244,6 +245,11 @@ function initMap(mapElement) {
       map: map,
       icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575380004/map_marker_o2a2ut.svg',
     });
+
+    // var marker = new google.maps.Marker({
+    //   position: center,
+    //   map: map,
+    // })
 
 
     if (!userShow) {
