@@ -4,13 +4,10 @@ function addBookmark(bookmarkHTML) {
   bookmark.classList.toggle("biabutton-thin-active");
 }
 
-function addBookmarkRound(bookmarkHTML) {
-  const bookmarks = document.querySelectorAll('.round-bookmark');
-  console.log(bookmarks);
-  bookmarks.forEach(function(bookmark){
-    bookmark.outerHTML =  bookmarkHTML;
-    bookmark.classList.toggle("biabutton-round-active");
-  });
+function addBookmarkRound() {
+  const bookmark = document.querySelector("[data-restaurant-id='<%= @restaurant.id %>']");
+  const oldHtml = bookmark.querySelector(".biabutton-round");
+  oldHtml.classList.toggle("biabutton-round-active");
 }
 
 function recommend(toggle) {
@@ -44,7 +41,7 @@ function refreshRestaurantDetails (refreshHTML) {
 <% if !params[:bookmark].nil? %>
   addBookmark('<%= j render "shared/restaurants/bookmark_button", restaurant: @restaurant, selection: @selection%>');
 <% elsif !params[:bookmark_round].nil? %>
-  addBookmarkRound('<%= j render "shared/restaurants/bookmark_button_round", restaurant: @restaurant, selection: @selection%>');
+  addBookmarkRound();
 <% else %>
   <% if @selection.errors.any? %>
     refresh('<div id = "rcmd-form"> <%= j render "selections/recommendation_form", restaurant: @restaurant, selection: @new_selection.nil? ? @selection : @new_selection  %> </div>');
