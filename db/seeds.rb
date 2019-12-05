@@ -7,19 +7,6 @@ User.destroy_all
 puts 'Destroying all restaurants'
 Restaurant.destroy_all
 
-
-# add cuisine: "Other" to dropdown
-cuisines_array = ['Italian', 'Asian-inspired', 'Vietnamese', 'German', 'Pizza', 'Fast Food',
-  'Breakfast & Brunch', "Pan Asian", "Kebab", "Burgers", "Sushi Bars", "Mediterranean", "Indian", "Turkish",
-  "Chinese", "Bakeries", "Coffee & Tea", "Thai", "Middle Eastern", "Greek", "Steakhouses", "French",
-  "Patisserie / Cake Shop", "Vegan", "Sandwiches", "Modern European", "Ice Cream & Frozen Yogurt", "Korean",
-  "Mexican", "Japanese", "Arabian", "Salad", "Vegetarian", "Barbeque", "Falafel", "Spanish", "Lebanese",
-  "Austrian", "Seafood", "Soup", "Tapas", "American", "Buffets", "Creperies", "Waffles", "Asian Fusion", "Russian",
-  "Argentine", "Latin American", "Wine Bars", "Cajun" , "Caribbean", "Moroccan", "Swedish", "Latvian", "Scottish",
-  "British", "Russian", "Jewish", "Canadian", "Polish", "Hawaiian", "Brazilian", "Peruvian", "Salvadorian",
-  "Cuban", "Tibetan", "Egyptian", "Belgian", "Irish", "Welsh", "Mormon", "Portuguese", "Haitian",
-  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan", "Syrian", "Georgian"].sort
-
 puts 'Creating restaurants'
 restaurants = [
   {
@@ -217,7 +204,7 @@ restaurants = [
     address: 'Rathausstraße 23, 10178 Berlin',
     phone_number: '0174 1923359',
     cuisine: 'Vietnamese',
-    remote_photo_url: "https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    remote_photo_url: "https://images.unsplash.com/photo-1548029960-695d127f4543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
     placeid: "ChIJN200oCBOqEcRRVxtZuPAMbA",
   },
   {
@@ -575,7 +562,7 @@ puts 'Creating selections'
 selections = [
   {
     user: User.find_by(name: 'Paul Ladwig'),
-    occasion: 2,
+    occasion: 1,
     price: 1,
     review: 'Good restaurant with with low prices as well as competent and fast serviece! Perfect for a quick lunch with a small group of friends.',
     bookmarked: false,
@@ -697,7 +684,7 @@ selections = [
   },
   {
     user: User.find_by(name: 'Joris Kuehnast'),
-    occasion: 2,
+    occasion: 1,
     price: 1,
     review: "One of the best price to value ratios I have ever seen! My favourite is the Carbonara.",
     bookmarked: false,
@@ -764,7 +751,7 @@ selections = [
   },
   {
     user: User.find_by(name: 'Samantha Jonathan'),
-    occasion: 2,
+    occasion: 1,
     price: 2,
     review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.",
     recommended: true,
@@ -774,7 +761,7 @@ selections = [
   },
   {
     user: User.find_by(name: 'Janis Sidenburg'),
-    occasion: 2,
+    occasion: 1,
     price: 2,
     review: "Visited on a Sunday evening and managed to get a seat upstairs. Beautiful pizza, wine and service. A real gem and reasonably priced. If you like pizza then you must pay a visit!",
     recommended: true,
@@ -814,7 +801,7 @@ selections = [
     review: "Very good place for Steak. French fries are crisp and their medium-rare steak is always perfect. If you are looking for a very good, non-experimental steak place, go here.",
     recommended: true,
     shared: true,
-    cuisine: 'Steakhouses',
+    cuisine: 'American',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
@@ -892,7 +879,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     review: "This is THE best place for steak in my opinion. I always order rare - super good. My favourite sauce is the pepper-cream sauce.",
     recommended: true,
     shared: true,
-    cuisine: 'Steakhouses',
+    cuisine: 'Steak',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
@@ -1033,7 +1020,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     price: 4,
     review: "I love Entrecôte! Staff is super friendly and the steak is excellent. It's also really cozy there - ask for a table in the back. The best area in my opinion. I love going here with a small group of friends or my girl friend for a nice dinner. They also have an excellent wine list (especially the reds - given it's a steak place).",
     recommended: true,
-    cuisine: 'Steakhouses',
+    cuisine: 'Steak',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
@@ -1110,7 +1097,7 @@ add_friendships = [
   #   receiver: User.find_by(name: '')
   # }
 ]
-Selection.create(user: User.find_by(name: "Joris Kuehnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), cuisine: 'Steakhouses', review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
+Selection.create(user: User.find_by(name: "Joris Kuehnast"), recommended: true, restaurant: Restaurant.find_by(name: "Entrecôte"), cuisine: 'Steak', review: "I stayed just down the road and came here 4 days out of eight, it’s just so good. Smoked Salmon, pate, scampi all delicious, Steak Au Poivre superb if a little huge, in fact a couldn’t fault a single thing!", occasion: 4, price: 3)
 
 Friendship.create!(add_friendships)
 
