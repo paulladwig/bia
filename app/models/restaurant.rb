@@ -12,14 +12,14 @@ class Restaurant < ApplicationRecord
 
   CUISINES = ['Italian', 'Asian-inspired', 'Vietnamese', 'German', 'Pizza', 'Fast Food',
   'Breakfast & Brunch', "Pan Asian", "Kebab", "Burgers", "Sushi Bars", "Mediterranean", "Indian", "Turkish",
-  "Chinese", "Bakeries", "Coffee & Tea", "Thai", "Middle Eastern", "Greek", "Steakhouses", "French",
+  "Chinese", "Bakeries", "Coffee & Tea", "Thai", "Middle Eastern", "Greek", "Steak", "French",
   "Patisserie / Cake Shop", "Vegan", "Sandwiches", "Modern European", "Ice Cream & Frozen Yogurt", "Korean",
   "Mexican", "Japanese", "Arabian", "Salad", "Vegetarian", "Barbeque", "Falafel", "Spanish", "Lebanese",
   "Austrian", "Seafood", "Soup", "Tapas", "American", "Buffets", "Creperies", "Waffles", "Asian Fusion", "Russian",
   "Argentine", "Latin American", "Wine Bars", "Cajun" , "Caribbean", "Moroccan", "Swedish", "Latvian", "Scottish",
   "British", "Russian", "Jewish", "Canadian", "Polish", "Hawaiian", "Brazilian", "Peruvian", "Salvadorian",
   "Cuban", "Tibetan", "Egyptian", "Belgian", "Irish", "Welsh", "Mormon", "Portuguese", "Haitian",
-  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan"]
+  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan", "Syrian"]
 
   def search_data
     { name: name,
@@ -81,29 +81,32 @@ class Restaurant < ApplicationRecord
         all_occassions += selection.occasion
       end
     end
-    self.avg_occasion = all_occassions / all_selections.length
+    self.avg_occasion = (all_occassions.to_f / all_selections.length).round
     self.save
   end
 
   def calc_avg_price
+    p self.name
     all_selections = self.selections.where(recommended: true)
     all_prices = 0
     all_selections.each do |selection|
       if !selection.price.nil?
-        all_prices += selection.price
+        p all_prices += selection.price
       end
     end
-    self.avg_price = all_prices / all_selections.length
+    self.avg_price = (all_prices.to_f / all_selections.length).round
+    p self.avg_price
     self.save
   end
 
   def calc_most_common_cuisine
+    self.name
     count_by_cuisine = self.selections.group(:cuisine).count
-    p count_by_cuisine
+    count_by_cuisine
     highest_value = count_by_cuisine.max_by{|k,v| v}[1]
-    p highest_value
+    highest_value
     cuisines = count_by_cuisine.select { |key, value| value == highest_value }.keys
-    p cuisines
+    cuisines
     cuisine_tag = ''
     cuisines.each do |cuisine|
       if !cuisine.nil? && cuisine != ""
@@ -112,7 +115,6 @@ class Restaurant < ApplicationRecord
     end
     self.cuisine = cuisine_tag.chomp(", ")
     self.save
-    p self.cuisine
   end
 
   private

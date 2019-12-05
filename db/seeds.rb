@@ -7,19 +7,6 @@ User.destroy_all
 puts 'Destroying all restaurants'
 Restaurant.destroy_all
 
-
-# add cuisine: "Other" to dropdown
-cuisines_array = ['Italian', 'Asian-inspired', 'Vietnamese', 'German', 'Pizza', 'Fast Food',
-  'Breakfast & Brunch', "Pan Asian", "Kebab", "Burgers", "Sushi Bars", "Mediterranean", "Indian", "Turkish",
-  "Chinese", "Bakeries", "Coffee & Tea", "Thai", "Middle Eastern", "Greek", "Steak", "French",
-  "Patisserie / Cake Shop", "Vegan", "Sandwiches", "Modern European", "Ice Cream & Frozen Yogurt", "Korean",
-  "Mexican", "Japanese", "Arabian", "Salad", "Vegetarian", "Barbeque", "Falafel", "Spanish", "Lebanese",
-  "Austrian", "Seafood", "Soup", "Tapas", "American", "Buffets", "Creperies", "Waffles", "Asian Fusion", "Russian",
-  "Argentine", "Latin American", "Wine Bars", "Cajun" , "Caribbean", "Moroccan", "Swedish", "Latvian", "Scottish",
-  "British", "Russian", "Jewish", "Canadian", "Polish", "Hawaiian", "Brazilian", "Peruvian", "Salvadorian",
-  "Cuban", "Tibetan", "Egyptian", "Belgian", "Irish", "Welsh", "Mormon", "Portuguese", "Haitian",
-  "Tahitian", "Kenyan", "Algerian", "Nigerian", "Libyan", "Syrian", "Georgian"].sort
-
 puts 'Creating restaurants'
 restaurants = [
   {
@@ -575,7 +562,7 @@ puts 'Creating selections'
 selections = [
   {
     user: User.find_by(name: 'Paul Ladwig'),
-    occasion: 2,
+    occasion: 1,
     price: 1,
     review: 'Good restaurant with with low prices as well as competent and fast serviece! Perfect for a quick lunch with a small group of friends.',
     bookmarked: false,
@@ -697,7 +684,7 @@ selections = [
   },
   {
     user: User.find_by(name: 'Joris Kuehnast'),
-    occasion: 2,
+    occasion: 1,
     price: 1,
     review: "One of the best price to value ratios I have ever seen! My favourite is the Carbonara.",
     bookmarked: false,
@@ -764,7 +751,7 @@ selections = [
   },
   {
     user: User.find_by(name: 'Samantha Jonathan'),
-    occasion: 2,
+    occasion: 1,
     price: 2,
     review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.",
     recommended: true,
@@ -774,7 +761,7 @@ selections = [
   },
   {
     user: User.find_by(name: 'Janis Sidenburg'),
-    occasion: 2,
+    occasion: 1,
     price: 2,
     review: "Visited on a Sunday evening and managed to get a seat upstairs. Beautiful pizza, wine and service. A real gem and reasonably priced. If you like pizza then you must pay a visit!",
     recommended: true,
@@ -814,7 +801,7 @@ selections = [
     review: "Very good place for Steak. French fries are crisp and their medium-rare steak is always perfect. If you are looking for a very good, non-experimental steak place, go here.",
     recommended: true,
     shared: true,
-    cuisine: 'Steak',
+    cuisine: 'American',
     restaurant: Restaurant.find_by(name: 'Entrecôte')
   },
   {
