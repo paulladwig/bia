@@ -246,9 +246,13 @@ function initMap(mapElement) {
       icon: 'https://res.cloudinary.com/bia-app/image/upload/v1575380004/map_marker_o2a2ut.svg',
     });
 
-    // var marker = new google.maps.Marker({
+
+    // ---Marker for gps location---
+
+    // var locationMarker = new google.maps.Marker({
     //   position: center,
     //   map: map,
+    //   icon: 'choose icon.....'
     // })
 
 
