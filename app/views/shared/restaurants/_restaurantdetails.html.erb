@@ -1,6 +1,8 @@
 <div id="restaurant-details">
 
-<h5 class = 'mt-4'>Restaurant details </h5>
+
+<% if (restaurant.cuisine != "" && !restaurant.cuisine.nil?) || (restaurant.avg_occasion != "" && !restaurant.avg_occasion.nil?) || (restaurant.avg_price != "" && !restaurant.avg_price.nil?) %>
+  <h5 class = 'mt-4'>Restaurant details </h5>
   <p class="p-style small-font mb-3 "> based on <%= [1, restaurant.selections.where(recommended:true).count].max { |a, b| a<=>b}  %> reviews </p>
   <% if restaurant.cuisine != "" && !restaurant.cuisine.nil? %>
     <p class= 'my-2 details-cuisine'> Cuisine: <%= restaurant.cuisine %></p>
@@ -11,6 +13,7 @@
   <% if restaurant.avg_price != "" && !restaurant.avg_price.nil? %>
     <p class= 'my-2 details-price'> Prices: <%= render 'shared/display_avg_price', average: restaurant.avg_price %></p>
   <% end %>
+<% end %>
 
 <h5 class = 'mb-3 mt-4'>Contact details</h5>
   <p class= 'my-2'> Address: <%= restaurant.address %></p>
