@@ -10,9 +10,12 @@
     <div class="side-filter" id="index-side-filter">
       <%= render 'shared/restaurants/filter', user_location: @user_location%>
     </div>
-    <div id="index-restaurants-grid">
+    <div id="index-restaurants-grid" style="position: relative;">
+      <div class="background-loading hidden" id="loading-page-screen">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      </div>
       <div id="list-container" class="">
-        <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages %>
+          <%= render 'shared/restaurants/restaurant_card_grid', restaurants: @restaurants, current_page: @current_page, total_pages: @total_pages %>
       </div>
       <div id="map-container" class="hidden">
         <%= render 'shared/map' %>
