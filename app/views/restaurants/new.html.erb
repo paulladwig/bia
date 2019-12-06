@@ -2,13 +2,17 @@
 <%= render 'shared/navbar' %>
 <div class="container-bia mt-5 search-page-layout">
 <h2>Search</h2>
+<%query = params[:search][:query] if !params[:search].nil?%>
+<%location = params[:search][:location] if !params[:search].nil?%>
+<%range = params[:search][:range] if !params[:search].nil?%>
+
 <h4>Find the restaurants you want to recommend </h4>
 <%= simple_form_for :search, url: recommend_path, method: "GET", html: { class: 'form-remove-b-margin' } do |f| %>
   <div class="search-one-line">
-    <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field search-bar' }%>
-    <%=f.input :location, required: false, label: false, placeholder: "City...",  input_html: {class: 'input-field search-bar' }%>
+    <%=f.input :query, required: false, label: false, placeholder: "Search...", input_html: {class: 'input-field search-bar', value: query }%>
+    <%=f.input :location, required: false, label: false, placeholder: "City...",  input_html: {class: 'input-field search-bar', value: location }%>
     <span>
-      <%=f.input :range,  as: :numeric, label: false, required: false, placeholder: "5km around you",  input_html: {min: "0", class: 'input-field search-bar' }%>
+      <%=f.input :range,  as: :numeric, label: false, required: false, placeholder: "5km around you",  input_html: {min: "0", class: 'input-field search-bar', value: range }%>
       <%=f.input :lat, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'latitude-hidden' }%>
       <%=f.input :long, required: false, label: false, input_html: {value: 'na', class: 'hide', id: 'longitude-hidden' }%>
     </span>
