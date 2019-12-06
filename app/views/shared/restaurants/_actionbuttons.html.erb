@@ -1,3 +1,8 @@
 <button class="quick-action block" id="open-share-modal">Share</button>
-<button class="quick-action block">Make a reservation </button>
-<button class="quick-action block">Suggest an edit </button>
+<% if !restaurant.reservation.nil? && restaurant.reservation != "" %>
+  <%= link_to "Make a reservation", restaurant.reservation, target: "_blank", class: "quick-action block"  %>
+<% end %>
+<% if !restaurant.menu.nil? && restaurant.menu != "" %>
+  <%= link_to "See the menu", restaurant.menu, target: "_blank", class: "quick-action block"  %>
+<% end %>
+<%= link_to "Suggest an edit", contact_path , target: "_blank", class: "quick-action block"  %>
