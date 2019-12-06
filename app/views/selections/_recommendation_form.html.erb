@@ -7,7 +7,7 @@
 <%= simple_form_for([restaurant, selection], remote: true, method: :post ) do |f| %>
   <%= f.input :review, required: true, input_html: {  class: "input-field" }, label_html: {class: "h5-style require-review"} %>
   <h5 class="mb-2">Cuisine</h5>
-  <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES.sort, required: true, label: false, input_html: {class: "hi" , data: {width: '100%', style: "btn-light"}, class: 'simple_form-align mb-2 selectpicker', title:"French, Japanese, Italian..."}%>
+  <%=f.input :cuisine, as: :select, collection: Restaurant::CUISINES.sort, required: true, label: false, input_html: {data: {width: '100%', style: "btn-light"}, class: 'simple_form-align mb-2 selectpicker', title:"French, Japanese, Italian..."}%>
   <%= render 'shared/input_occasion', f: f %>
   <%= render 'shared/input_price', f: f %>
   <!-- <h5 class="mb-2">Exceptional</h5>
