@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   def index
 
     if params[:search].presence
-      search_params[:query].presence ? query = search_params[:query] : query = "*"
+      search_params[:query].presence ? query = search_params[:query].unicode_normalize(:nfkd).encode('ASCII', replace: '') : query = "*"
     else
       query = "*"
     end
@@ -51,7 +51,7 @@ class RestaurantsController < ApplicationController
     @results = []
     # check if search query was executed by the user
     if params[:search].presence
-      search_query = search_params[:query]
+      search_query = search_params[:query].unicode_normalize(:nfkd).encode('ASCII', replace: '')
       location = location_coords
       if location[:longitude] != 'na'
         # use search input to find places using google api
