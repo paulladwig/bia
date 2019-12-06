@@ -23,7 +23,7 @@
     ></div>
     <div class="span-1-2">
       <%= render 'shared/restaurants/corebuttons', restaurant: @restaurant, recommendation: @new_recommendation%>
-      <%= render 'shared/restaurants/actionbuttons'%>
+      <%= render 'shared/restaurants/actionbuttons', restaurant: @restaurant %>
       <%= render 'shared/restaurants/restaurantdetails', restaurant: @restaurant %>
     </div>
     <div class="span-2-2">
