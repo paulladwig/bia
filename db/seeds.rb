@@ -301,8 +301,8 @@ users = [
     name: 'Paul Ladwig',
     email: 'paul@example.com',
     remote_photo_url: "https://res.cloudinary.com/bia-app/image/upload/v1574790606/bp6rt2iolgzazszuuzyy.jpg",
-    password: '123456',
-    password_confirmation: '123456',
+    password: 'joris123',
+    password_confirmation: 'joris123',
     location: 'Berlin, Germany',
     username: 'paul_ladwig',
     description: 'Hipster-friendly Italian cuisine fanatic. General beer specialist. Creator. Food lover.'
