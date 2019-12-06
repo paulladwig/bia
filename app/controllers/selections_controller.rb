@@ -142,7 +142,7 @@ class SelectionsController < ApplicationController
         elsif restaurant_start.avg_price == 4
           price_titel = ["After Payday", "It's time for the occasional splurge!"]
         else
-          price_titel = ["Checkout one of these places!","Why not try Something new?"]
+          price_titel = ["Checkout one of these places!","Why not try something new?"]
         end
         feature_result[:title] = price_titel.sample
         feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>[""], "price"=>["","#{restaurant_start.avg_price}"]}, :new=>{}}
@@ -156,9 +156,9 @@ class SelectionsController < ApplicationController
         elsif restaurant_start.avg_price == 3
           occasion_titel = ["For the Weekend"]
         elsif restaurant_start.avg_price == 4
-          occasion_titel = ["Time to Celebrate", "For a Special Occassion"]
+          occasion_titel = ["Time to Celebrate", "For a Special Occasion"]
         else
-          occasion_titel = ["Checkout one of these places!", "Why not try sometthing new?", "Have you been to these restaurants?"]
+          occasion_titel = ["Checkout one of these places!", "Why not try something new?", "Have you been to these restaurants?"]
         end
         feature_result[:link] = {url: "restaurants", params:{"query"=>"", "location"=>"", "range"=>"", "lat"=>"na", "long"=>"na", "cuisine"=>[""], "occasion"=>["","#{restaurant_start.avg_occasion}"], "price"=>[""]}, :new=>{}}
         feature_result[:title] = occasion_titel.sample
