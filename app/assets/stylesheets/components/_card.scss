@@ -83,14 +83,16 @@
     flex-grow: 1;
     padding: $spacer 0 $spacer $spacer;
     }
-  .core-review{
+  .core-review {
     border-bottom: 1px solid $glight;
+  }
+  &:last-of-type .core-review{
+    border-bottom: none;
   }
   .review-card-avatar{
     margin-top: $spacer;
   }
 }
-
 
 // discover-feed card
 
