@@ -43,6 +43,9 @@ class RestaurantsController < ApplicationController
     @reviews = Selection.where(user: current_user, restaurant: @restaurant).or(Selection.where(user: User.following(current_user, "instance"), restaurant: @restaurant)).order(updated_at: :desc)
     @share = Share.new()
     @new = params[:new]
+    if !Selection.find_by(user: current_user, restaurant: @restaurant, recommended: "true").nil?
+      @new = false
+    end
   end
 
   def new
