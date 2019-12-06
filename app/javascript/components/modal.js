@@ -2,6 +2,13 @@ const closeWindow = (window) => {
   window.style.display="none";
 }
 
+const preselect = () => {
+  const preselectedCuisine = document.getElementById('suggested-cuisine').innerText;
+  if (preselectedCuisine != "") {
+    $('.selectpicker').selectpicker('val', preselectedCuisine);
+  }
+}
+
 const recommendation_modal = () => {
   const modal = document.getElementById('recommend-modal');
   const openBtn = document.getElementById('open-modal');
@@ -10,11 +17,7 @@ const recommendation_modal = () => {
     const closeBtn = document.querySelector('.modal-close');
     openBtn.addEventListener('click', (event) => {
       modal.style.display="block";
-      const preselectedCuisine = document.getElementById('suggested-cuisine').innerText;
-      if (preselectedCuisine != "") {
-        $('.selectpicker').selectpicker('val', preselectedCuisine);
-      }
-
+      preselect();
     });
     closeBtn.addEventListener('click', (event) => {
       closeWindow(modal);
@@ -26,7 +29,8 @@ const recommendation_modal = () => {
     })
   }
   if (openAut) {
-    modal.style.display="block"
+    modal.style.display="block";
+    preselect()
   }
 };
 
