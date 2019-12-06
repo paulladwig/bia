@@ -934,7 +934,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     user: User.find_by(name: 'Marie Ladwig'),
     occasion: 2,
     price: 2,
-    review: "Fine prices, delicious food and cocktails. Its located in quiet passage with many different restaurants and bars. Very near to AquaDome.",
+    review: "Very authentic Vietnamese food. The service is also super good and friendly. I always have the Beef Pho.",
     recommended: true,
     cuisine: 'Vietnamese',
     proposed_date: DateTime.parse("20/12/2019 13:30:00 UTC"),
@@ -1010,7 +1010,7 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     user: User.find_by(name: 'Otto Jonetzki'),
     occasion: 3,
     price: 3,
-    review: "One of the nicer places, where to eat in the city center and not to become poor. Prices are moderate and food never disappoints. In love with their duck in peanut sauce. Portions are very big too.",
+    review: "This place is just like in Vietnam. Prices are moderate and the food never disappoints. In love with their duck in peanut sauce. Portions are very big too.",
     recommended: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
@@ -1025,10 +1025,10 @@ If visiting Berlin make sure to visit, you won’t be disappointed.",
     restaurant: Restaurant.find_by(name: 'NAUTA Berlín')
   },
   {
-    user: User.find_by(name: 'Charlotte Bremer'),
+    user: User.find_by(name: 'Joris Kuehnast'),
     occasion: 2,
     price: 2,
-    review: "Delicious is all I can say . Had the crispy duck and sub my noodles for fried rice. Server was also very friendly and personable . Will definitely come here again!",
+    review: "Delicious is all I can say. Had the crispy duck and took noodles instead of fried rice. Server was also very friendly. Will definitely come here again!",
     recommended: true,
     cuisine: 'Vietnamese',
     restaurant: Restaurant.find_by(name: 'Shi-Mai')
@@ -1143,7 +1143,7 @@ Selection.create(user: User.find_by(name: "Lisa Maibach"), recommended: true, re
 Selection.create(user: User.find_by(name: "James Gibson"), recommended: true, restaurant: Restaurant.find_by(name: "I Due Forni"), cuisine: 'Italian', review: "We had the most wonderful pizzas here - thoroughly recommend the Piemonte. Never had anything like it. Fantastic service and wonderful reasonably priced wine. So glad we found this place.", occasion: 2, price: 2)
 
 Selection.create({
-    user: User.find_by(name: 'Joris Kuehnast'),
+    user: User.find_by(name: 'Charlotte Bremer'),
     occasion: 3,
     price: 3,
     review: "If you want an evening out with unusual place this is perfect. The Ceviche is delicious. Make sure you all like raw fish! If you don't you will not like Nauta...",
