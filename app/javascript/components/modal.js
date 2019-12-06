@@ -10,6 +10,11 @@ const recommendation_modal = () => {
     const closeBtn = document.querySelector('.modal-close');
     openBtn.addEventListener('click', (event) => {
       modal.style.display="block";
+      const preselectedCuisine = document.getElementById('suggested-cuisine').innerText;
+      if (preselectedCuisine != "") {
+        $('.selectpicker').selectpicker('val', preselectedCuisine);
+      }
+
     });
     closeBtn.addEventListener('click', (event) => {
       closeWindow(modal);
