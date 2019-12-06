@@ -21,7 +21,7 @@
 
 <% end %>
 
-<% if !@results.present? %>
+<% if !@results.present? && @six_recent.length >= 1 %>
   <h4>Do you want to recommend these restaurants to your friends? </h4>
   <div class="index-restaurants-grid-3">
     <% @six_recent.each do |restaurant| %>
